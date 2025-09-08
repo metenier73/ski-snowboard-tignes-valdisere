@@ -100,7 +100,7 @@ Assurez-vous d'avoir les éléments suivants installés sur votre machine :
 
 • pnpm : Le gestionnaire de paquets utilisé pour ce projet. Si vous ne l'avez pas, vous pouvez l'installer via npm : npm install -g pnpm.
 
-### Installation des Dépendances
+## Installation des Dépendances
 
 Naviguez jusqu'au répertoire du projet et installez toutes les dépendances nécessaires :
 
