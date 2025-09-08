@@ -66,12 +66,11 @@ Ce projet s'appuie sur un stack technologique moderne et performant, choisi pour
 
 • pnpm : Un gestionnaire de paquets rapide et efficace qui optimise l'utilisation de l'espace disque en partageant les dépendances entre les projets.
 
-## 📂 Structure du Projet
+📂 Structure du Projet
 
 La structure du projet est organisée de manière logique pour faciliter la navigation, le développement et la maintenance. Voici un aperçu simplifié de l'arborescence des fichiers :
 
 Plain Text
-
 
 my-react-app/
 ├── public/              # Fichiers statiques (favicon, etc.)
@@ -100,12 +99,11 @@ Assurez-vous d'avoir les éléments suivants installés sur votre machine :
 
 • pnpm : Le gestionnaire de paquets utilisé pour ce projet. Si vous ne l'avez pas, vous pouvez l'installer via npm : npm install -g pnpm.
 
-## Installation des Dépendances
+Installation des Dépendances
 
 Naviguez jusqu'au répertoire du projet et installez toutes les dépendances nécessaires :
 
 Bash
-
 
 cd my-react-app
 pnpm install
@@ -117,9 +115,7 @@ Pour lancer l'application en mode développement et visualiser les changements e
 
 Bash
 
-
 pnpm run dev
-
 
 Le site sera alors accessible dans votre navigateur à l'adresse : http://localhost:5173.
 
@@ -128,7 +124,6 @@ Génération du Build de Production
 Pour préparer l'application pour le déploiement en production, générez un build optimisé :
 
 Bash
-
 
 pnpm run build
 
@@ -151,7 +146,10 @@ Langues Supportées en Détail
 
 Le site est configuré pour prendre en charge les langues suivantes, avec la possibilité d'en ajouter d'autres facilement :
 
-Code Langue Langue Drapeau fr Français🇫🇷 en Anglais🇬🇧 es Espagnol🇪🇸
+Code Langue     Langue     Drapeau 
+fr              Français   🇫🇷 
+en              Anglais    🇬🇧 
+es              Espagnol   🇪🇸
 
 ## 📄 Sections Détaillées du Site
 
@@ -237,7 +235,7 @@ Le déploiement de ce site web est simple et direct, grâce à la génération d
 
 • Prêt pour Serveur Web Statique : Le contenu du dossier dist/ peut être servi par n'importe quel serveur web statique (Nginx, Apache, Vercel, Netlify, GitHub Pages, etc.), ce qui rend le déploiement extrêmement flexible et économique.
 
-# 🤝 Support et Contributions
+## 🤝 Support et Contributions
 
 Ce projet est conçu pour être une base solide pour le développement de sites web multilingues. Si vous rencontrez des problèmes, avez des questions ou souhaitez contribuer, n'hésitez pas à :
 
