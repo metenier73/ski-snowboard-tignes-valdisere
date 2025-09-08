@@ -66,7 +66,7 @@ Ce projet s'appuie sur un stack technologique moderne et performant, choisi pour
 
 • pnpm : Un gestionnaire de paquets rapide et efficace qui optimise l'utilisation de l'espace disque en partageant les dépendances entre les projets.
 
-📂 Structure du Projet
+## 📂 Structure du Projet
 
 La structure du projet est organisée de manière logique pour faciliter la navigation, le développement et la maintenance. Voici un aperçu simplifié de l'arborescence des fichiers :
 
@@ -99,7 +99,7 @@ Assurez-vous d'avoir les éléments suivants installés sur votre machine :
 
 • pnpm : Le gestionnaire de paquets utilisé pour ce projet. Si vous ne l'avez pas, vous pouvez l'installer via npm : npm install -g pnpm.
 
-Installation des Dépendances
+### Installation des Dépendances
 
 Naviguez jusqu'au répertoire du projet et installez toutes les dépendances nécessaires :
 
@@ -109,7 +109,7 @@ cd my-react-app
 pnpm install
 
 
-Lancement du Serveur de Développement
+### Lancement du Serveur de Développement
 
 Pour lancer l'application en mode développement et visualiser les changements en temps réel :
 
@@ -119,7 +119,7 @@ pnpm run dev
 
 Le site sera alors accessible dans votre navigateur à l'adresse : http://localhost:5173.
 
-Génération du Build de Production
+### Génération du Build de Production
 
 Pour préparer l'application pour le déploiement en production, générez un build optimisé :
 
@@ -142,7 +142,7 @@ Le système multilingue est une caractéristique essentielle de ce projet, conç
 
 • Mise à Jour Automatique : Grâce à la réactivité de React, chaque fois que currentLang est modifié, l'ensemble de l'interface utilisateur est automatiquement mis à jour pour afficher le contenu dans la langue sélectionnée, sans nécessiter de rechargement de page.
 
-Langues Supportées en Détail
+### Langues Supportées en Détail
 
 Le site est configuré pour prendre en charge les langues suivantes, avec la possibilité d'en ajouter d'autres facilement :
 
