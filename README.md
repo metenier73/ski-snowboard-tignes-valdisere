@@ -65,7 +65,7 @@ Ce projet s'appuie sur un stack technologique moderne et performant, choisi pour
 La structure du projet est organisée de manière logique pour faciliter la navigation, le développement et la maintenance. Voici un aperçu simplifié de l'arborescence des fichiers :
 
 Plain Text
-
+```
 
 my-react-app/
 ├── public/              # Fichiers statiques (favicon, etc.)
@@ -81,7 +81,7 @@ my-react-app/
 ├── package.json         # Métadonnées du projet et scripts
 └── vite.config.js       # Configuration de Vite
 
-
+```
 ## 🚀 Installation et Utilisation
 
 Pour démarrer avec ce projet, suivez les étapes ci-dessous :
