@@ -98,22 +98,18 @@ Assurez-vous d'avoir les éléments suivants installés sur votre machine :
 
 Naviguez jusqu'au répertoire du projet et installez toutes les dépendances nécessaires :
 
-Bash
-
-
+'''Bash
 cd my-react-app
 pnpm install
-
+'''
 
 ### Lancement du Serveur de Développement
 
 Pour lancer l'application en mode développement et visualiser les changements en temps réel :
 
-Bash
-
-
+'''Bash
 pnpm run dev
-
+'''
 
 Le site sera alors accessible dans votre navigateur à l'adresse : http://localhost:5173.
 
@@ -121,11 +117,9 @@ Le site sera alors accessible dans votre navigateur à l'adresse : http://localh
 
 Pour préparer l'application pour le déploiement en production, générez un build optimisé :
 
-Bash
-
-
+'''Bash
 pnpm run build
-
+'''
 
 Les fichiers de production optimisés seront générés dans le dossier dist/, prêts à être servis par un serveur web statique.
 
@@ -221,7 +215,7 @@ Ce projet a été conçu pour être facilement personnalisable, permettant aux d
 
 ### 4. Ajout de Composants : De nouveaux composants React peuvent être ajoutés dans le dossier src/components/. Si ces composants sont des éléments UI réutilisables, il est recommandé de les placer dans src/components/ui/ et d'utiliser shadcn/ui pour maintenir la cohérence du design.
 
-# 📦 Déploiement
+📦 Déploiement
 
 Le déploiement de ce site web est simple et direct, grâce à la génération d'un build de production optimisé. Le dossier dist/, créé après l'exécution de la commande pnpm run build, contient tous les fichiers nécessaires pour mettre le site en ligne :
 
@@ -231,7 +225,7 @@ Le déploiement de ce site web est simple et direct, grâce à la génération d
 
 • Prêt pour Serveur Web Statique : Le contenu du dossier dist/ peut être servi par n'importe quel serveur web statique (Nginx, Apache, Vercel, Netlify, GitHub Pages, etc.), ce qui rend le déploiement extrêmement flexible et économique.
 
-# 🤝 Support et Contributions
+🤝 Support et Contributions
 
 Ce projet est conçu pour être une base solide pour le développement de sites web multilingues. Si vous rencontrez des problèmes, avez des questions ou souhaitez contribuer, n'hésitez pas à :
 
