@@ -140,7 +140,8 @@ Le système multilingue est une caractéristique essentielle de ce projet, conç
 
 Le site est configuré pour prendre en charge les langues suivantes, avec la possibilité d'en ajouter d'autres facilement :
 
-```bash
+Plain Text
+```
 Code Langue  Langue     Drapeau
 fr           Français   🇫🇷
 en           Anglais    🇬🇧
