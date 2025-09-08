@@ -98,7 +98,7 @@ Assurez-vous d'avoir les éléments suivants installés sur votre machine :
 
 Naviguez jusqu'au répertoire du projet et installez toutes les dépendances nécessaires :
 
-```bash
+``` bash
 cd my-react-app
 pnpm install
 ```
@@ -107,7 +107,7 @@ pnpm install
 
 Pour lancer l'application en mode développement et visualiser les changements en temps réel :
 
-```bash
+``` bash
 pnpm run dev
 ```
 
@@ -118,7 +118,7 @@ Le site sera alors accessible dans votre navigateur à l'adresse : http://localh
 Pour préparer l'application pour le déploiement en production, générez un build optimisé :
 
 
-```bash
+``` bash
 pnpm run build
 ```
 
