@@ -13,9 +13,7 @@ Le site web multilingue se distingue par un ensemble de fonctionnalités pensée
 Au cœur de ce projet réside un système de gestion multilingue sophistiqué, permettant une traduction instantanée et complète du contenu. Le site supporte nativement trois langues principales :
 
 • Français (🇫🇷) : Pour une communication claire et précise avec les utilisateurs francophones.
-
 • Anglais (🇬🇧) : La langue universelle du web, assurant une portée globale.
-
 • Espagnol (🇪🇸) : Ouvrant les portes à un vaste marché hispanophone.
 
 Le changement de langue s'effectue de manière intuitive via un sélecteur dédié dans l'en-tête, offrant une flexibilité maximale à l'utilisateur. Chaque section du site est entièrement traduite, garantissant une cohérence linguistique irréprochable.
@@ -91,8 +89,10 @@ Prérequis
 Assurez-vous d'avoir les éléments suivants installés sur votre machine :
 
 • Node.js : Version 18 ou supérieure (recommandé pour la compatibilité et les performances).
-
-• pnpm : Le gestionnaire de paquets utilisé pour ce projet. Si vous ne l'avez pas, vous pouvez l'installer via npm : npm install -g pnpm.
+• pnpm : Le gestionnaire de paquets utilisé pour ce projet. Si vous ne l'avez pas, vous pouvez l'installer via npm : 
+```
+npm install -g pnpm.
+```
 
 ### Installation des Dépendances
 
@@ -139,12 +139,14 @@ Le système multilingue est une caractéristique essentielle de ce projet, conç
 ### Langues Supportées en Détail
 
 Le site est configuré pour prendre en charge les langues suivantes, avec la possibilité d'en ajouter d'autres facilement :
-```
-Code Langue  Langue     Drapeau
-fr           Français   🇫🇷
-en           Anglais    🇬🇧
-es           Espagnol   🇪🇸
-```
+
+
+```Code Langue  Langue     Drapeau```
+```fr           Français   🇫🇷```
+```en           Anglais    🇬🇧```
+```es           Espagnol   🇪🇸```
+
+
 
 ## 📄 Sections Détaillées du Site
 
