@@ -90,7 +90,7 @@ Assurez-vous d'avoir les éléments suivants installés sur votre machine :
 
 • Node.js : Version 18 ou supérieure (recommandé pour la compatibilité et les performances).
 • pnpm : Le gestionnaire de paquets utilisé pour ce projet. Si vous ne l'avez pas, vous pouvez l'installer via npm : 
-```
+```bash
 npm install -g pnpm.
 ```
 
@@ -98,7 +98,7 @@ npm install -g pnpm.
 
 Naviguez jusqu'au répertoire du projet et installez toutes les dépendances nécessaires :
 
-``` bash
+```bash
 cd my-react-app
 pnpm install
 ```
@@ -107,7 +107,7 @@ pnpm install
 
 Pour lancer l'application en mode développement et visualiser les changements en temps réel :
 
-``` bash
+```bash
 pnpm run dev
 ```
 
@@ -117,8 +117,7 @@ Le site sera alors accessible dans votre navigateur à l'adresse : http://localh
 
 Pour préparer l'application pour le déploiement en production, générez un build optimisé :
 
-
-``` bash
+```bash
 pnpm run build
 ```
 
@@ -136,15 +135,15 @@ Le système multilingue est une caractéristique essentielle de ce projet, conç
 
 • Mise à Jour Automatique : Grâce à la réactivité de React, chaque fois que currentLang est modifié, l'ensemble de l'interface utilisateur est automatiquement mis à jour pour afficher le contenu dans la langue sélectionnée, sans nécessiter de rechargement de page.
 
-## Langues Supportées en Détail
+### Langues Supportées en Détail
 
 Le site est configuré pour prendre en charge les langues suivantes, avec la possibilité d'en ajouter d'autres facilement :
 
 
-***Code Langue  Langue     Drapeau***
-***fr           Français   🇫🇷***
-***en           Anglais    🇬🇧***
-***es           Espagnol   🇪🇸***
+**Code Langue**  Langue     Drapeau
+**fr**           Français   🇫🇷
+**en**           Anglais    🇬🇧
+**es**           Espagnol   🇪🇸
 
 
 
