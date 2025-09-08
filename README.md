@@ -4,7 +4,7 @@
 
 Ce projet représente une solution web moderne et dynamique, conçue pour offrir une expérience utilisateur fluide et accessible à un public international. Développé avec la puissance de React, ce site multilingue intègre des fonctionnalités avancées et un design responsive, garantissant une adaptabilité parfaite sur tous les appareils. L'objectif principal est de fournir une plateforme robuste et esthétiquement agréable, capable de communiquer efficacement avec des utilisateurs de diverses origines linguistiques.
 
-✨ Fonctionnalités Clés
+## ✨ Fonctionnalités Clés
 
 Le site web multilingue se distingue par un ensemble de fonctionnalités pensées pour l'efficacité et l'engagement :
 
