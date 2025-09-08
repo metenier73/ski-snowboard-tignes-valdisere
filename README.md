@@ -1,80 +1,72 @@
 # Site Web Multilingue React : Une Solution Complète et Intuitive
 
-🚀 Vue d'ensemble du Projet
+## 🚀 Vue d'ensemble du Projet
 
 Ce projet représente une solution web moderne et dynamique, conçue pour offrir une expérience utilisateur fluide et accessible à un public international. Développé avec la puissance de React, ce site multilingue intègre des fonctionnalités avancées et un design responsive, garantissant une adaptabilité parfaite sur tous les appareils. L'objectif principal est de fournir une plateforme robuste et esthétiquement agréable, capable de communiquer efficacement avec des utilisateurs de diverses origines linguistiques.
 
 ## ✨ Fonctionnalités Clés
 
 Le site web multilingue se distingue par un ensemble de fonctionnalités pensées pour l'efficacité et l'engagement :
+- 🎿 Présentation des services de cours de ski
+- 💰 Grille tarifaire détaillée
+- 📅 Système de réservation en ligne
+- 🌐 Interface multilingue (Français/Anglais)
+- 📱 Design responsive
+- ✉️ Envoi d'emails automatique pour les réservations
 
-🌐 Support Multilingue Avancé
+## 🌐 Support Multilingue Avancé
 
 Au cœur de ce projet réside un système de gestion multilingue sophistiqué, permettant une traduction instantanée et complète du contenu. Le site supporte nativement trois langues principales :
 
-•
-Français (🇫🇷) : Pour une communication claire et précise avec les utilisateurs francophones.
+• Français (🇫🇷) : Pour une communication claire et précise avec les utilisateurs francophones.
 
-•
-Anglais (🇬🇧) : La langue universelle du web, assurant une portée globale.
+• Anglais (🇬🇧) : La langue universelle du web, assurant une portée globale.
 
-•
-Espagnol (🇪🇸) : Ouvrant les portes à un vaste marché hispanophone.
+• Espagnol (🇪🇸) : Ouvrant les portes à un vaste marché hispanophone.
 
 Le changement de langue s'effectue de manière intuitive via un sélecteur dédié dans l'en-tête, offrant une flexibilité maximale à l'utilisateur. Chaque section du site est entièrement traduite, garantissant une cohérence linguistique irréprochable.
 
-🎨 Design Moderne et Responsive
+## 🎨 Design Moderne et Responsive
 
 L'esthétique et l'adaptabilité sont des piliers de ce projet. Le site a été conçu avec une approche
 
 responsive, assurant une expérience utilisateur optimale sur une multitude d'appareils, des ordinateurs de bureau aux smartphones. L'intégration de Tailwind CSS a permis une flexibilité inégalée dans la création de mises en page personnalisées et optimisées, tandis que les composants de shadcn/ui apportent une touche de modernité et d'élégance à l'interface utilisateur. Cette combinaison garantit non seulement une esthétique agréable mais aussi une performance et une accessibilité accrues.
 
-🧭 Navigation Intuitive et Fluide
+## 🧭 Navigation Intuitive et Fluide
 
 La navigation a été pensée pour être aussi simple et efficace que possible. Un menu de navigation clair et concis, doté de liens d'ancrage, permet aux utilisateurs de se déplacer aisément entre les différentes sections du site. Pour les appareils mobiles, un menu hamburger intuitif assure une expérience de navigation sans accroc, même sur des écrans plus petits.
 
-🧩 Sections Complètes et Détaillées
+## 🧩 Sections Complètes et Détaillées
 
 Le site est structuré en plusieurs sections distinctes, chacune remplissant un rôle spécifique et fournissant des informations pertinentes :
 
-•
-Section Hero (Accueil) : La première impression est cruciale. Cette section d'accueil capte l'attention avec un titre percutant, une description engageante et un bouton d'appel à l'action (CTA) clair, invitant les visiteurs à explorer davantage.
+• Section Hero (Accueil) : La première impression est cruciale. Cette section d'accueil capte l'attention avec un titre percutant, une description engageante et un bouton d'appel à l'action (CTA) clair, invitant les visiteurs à explorer davantage.
 
-•
-Section À Propos : Présente l'équipe derrière le projet, ses valeurs et sa mission. Elle inclut également des statistiques clés (années d'expérience, projets réalisés, clients satisfaits) pour renforcer la crédibilité et l'expertise.
+• Section À Propos : Présente l'équipe derrière le projet, ses valeurs et sa mission. Elle inclut également des statistiques clés (années d'expérience, projets réalisés, clients satisfaits) pour renforcer la crédibilité et l'expertise.
 
-•
-Section Services : Détaille les offres de services à travers des cartes informatives, chacune décrivant un domaine d'expertise spécifique (par exemple, développement web, applications mobiles, design UI/UX).
+• Section Services : Détaille les offres de services à travers des cartes informatives, chacune décrivant un domaine d'expertise spécifique (par exemple, développement web, applications mobiles, design UI/UX).
 
-•
-Section Contact : Fournit toutes les informations nécessaires pour entrer en contact avec l'équipe, y compris l'adresse e-mail, le numéro de téléphone et l'adresse physique, facilitant ainsi la communication.
+• Section Contact : Fournit toutes les informations nécessaires pour entrer en contact avec l'équipe, y compris l'adresse e-mail, le numéro de téléphone et l'adresse physique, facilitant ainsi la communication.
 
-•
-Footer Professionnel : Un pied de page bien conçu qui contient des informations essentielles telles que le logo, le titre du site, un sous-titre et les mentions de copyright, offrant une finition professionnelle au site.
+• Footer Professionnel : Un pied de page bien conçu qui contient des informations essentielles telles que le logo, le titre du site, un sous-titre et les mentions de copyright, offrant une finition professionnelle au site.
 
-🛠️ Technologies Utilisées
+## 🛠️ Technologies Utilisées
 
 Ce projet s'appuie sur un stack technologique moderne et performant, choisi pour sa robustesse, sa flexibilité et sa capacité à créer des applications web de haute qualité :
 
-•
-React : Le cœur du projet, un framework JavaScript de pointe pour la construction d'interfaces utilisateur interactives et réactives.
+• React : Le cœur du projet, un framework JavaScript de pointe pour la construction d'interfaces utilisateur interactives et réactives.
 
-•
-Vite : Un outil de build nouvelle génération qui offre une expérience de développement extrêmement rapide, avec un démarrage instantané du serveur et des mises à jour à chaud (HMR) ultra-rapides.
+• Vite : Un outil de build nouvelle génération qui offre une expérience de développement extrêmement rapide, avec un démarrage instantané du serveur et des mises à jour à chaud (HMR) ultra-rapides.
 
-•
-Tailwind CSS : Un framework CSS utilitaire qui permet de construire des designs personnalisés directement dans le balisage HTML, accélérant le processus de stylisation et garantissant une cohérence visuelle.
+• Tailwind CSS : Un framework CSS utilitaire qui permet de construire des designs personnalisés directement dans le balisage HTML, accélérant le processus de stylisation et garantissant une cohérence visuelle.
 
-•
-shadcn/ui : Une collection de composants UI réutilisables et personnalisables, construits avec Radix UI et Tailwind CSS, qui facilitent la création d'interfaces utilisateur élégantes et fonctionnelles.
+• shadcn/ui : Une collection de composants UI réutilisables et personnalisables, construits avec Radix UI et Tailwind CSS, qui facilitent la création d'interfaces utilisateur élégantes et fonctionnelles.
 
-•
-Lucide React : Une bibliothèque d'icônes vectorielles légères et personnalisables, intégrées pour améliorer l'attrait visuel et la clarté de l'interface.
+• Lucide React : Une bibliothèque d'icônes vectorielles légères et personnalisables, intégrées pour améliorer l'attrait visuel et la clarté de l'interface.
 
-•
-pnpm : Un gestionnaire de paquets rapide et efficace qui optimise l'utilisation de l'espace disque en partageant les dépendances entre les projets.
+• pnpm : Un gestionnaire de paquets rapide et efficace qui optimise l'utilisation de l'espace disque en partageant les dépendances entre les projets.
 
-📂 Structure du Projet
+## 📂 Structure du Projet
 
 La structure du projet est organisée de manière logique pour faciliter la navigation, le développement et la maintenance. Voici un aperçu simplifié de l'arborescence des fichiers :
 
