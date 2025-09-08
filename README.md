@@ -98,7 +98,7 @@ Assurez-vous d'avoir les éléments suivants installés sur votre machine :
 
 Naviguez jusqu'au répertoire du projet et installez toutes les dépendances nécessaires :
 
-'''Bash
+''' Bash
 cd my-react-app
 pnpm install
 '''
