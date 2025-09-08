@@ -139,8 +139,12 @@ Le système multilingue est une caractéristique essentielle de ce projet, conç
 ### Langues Supportées en Détail
 
 Le site est configuré pour prendre en charge les langues suivantes, avec la possibilité d'en ajouter d'autres facilement :
-
-Code LangueLangueDrapeaufrFrançais🇫🇷enAnglais🇬🇧esEspagnol🇪🇸
+```
+Code Langue  Langue     Drapeau
+fr           Français   🇫🇷
+en           Anglais    🇬🇧
+es           Espagnol   🇪🇸
+```
 
 ## 📄 Sections Détaillées du Site
 
@@ -204,7 +208,7 @@ Le pied de page est un élément essentiel qui renforce la crédibilité et la m
 
 • Copyright : Informations légales et droits d'auteur.
 
-# ⚙️ Personnalisation du Projet
+## ⚙️ Personnalisation du Projet
 
 Ce projet a été conçu pour être facilement personnalisable, permettant aux développeurs d'adapter le site à leurs besoins spécifiques. Voici les principaux points de personnalisation :
 
@@ -216,7 +220,7 @@ Ce projet a été conçu pour être facilement personnalisable, permettant aux d
 
 ### 4. Ajout de Composants : De nouveaux composants React peuvent être ajoutés dans le dossier src/components/. Si ces composants sont des éléments UI réutilisables, il est recommandé de les placer dans src/components/ui/ et d'utiliser shadcn/ui pour maintenir la cohérence du design.
 
-📦 Déploiement
+## 📦 Déploiement
 
 Le déploiement de ce site web est simple et direct, grâce à la génération d'un build de production optimisé. Le dossier dist/, créé après l'exécution de la commande pnpm run build, contient tous les fichiers nécessaires pour mettre le site en ligne :
 
@@ -226,7 +230,7 @@ Le déploiement de ce site web est simple et direct, grâce à la génération d
 
 • Prêt pour Serveur Web Statique : Le contenu du dossier dist/ peut être servi par n'importe quel serveur web statique (Nginx, Apache, Vercel, Netlify, GitHub Pages, etc.), ce qui rend le déploiement extrêmement flexible et économique.
 
-🤝 Support et Contributions
+## 🤝 Support et Contributions
 
 Ce projet est conçu pour être une base solide pour le développement de sites web multilingues. Si vous rencontrez des problèmes, avez des questions ou souhaitez contribuer, n'hésitez pas à :
 
