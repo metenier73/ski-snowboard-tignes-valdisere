@@ -142,7 +142,7 @@ Le système multilingue est une caractéristique essentielle de ce projet, conç
 
 • Mise à Jour Automatique : Grâce à la réactivité de React, chaque fois que currentLang est modifié, l'ensemble de l'interface utilisateur est automatiquement mis à jour pour afficher le contenu dans la langue sélectionnée, sans nécessiter de rechargement de page.
 
-### Langues Supportées en Détail
+## Langues Supportées en Détail
 
 Le site est configuré pour prendre en charge les langues suivantes, avec la possibilité d'en ajouter d'autres facilement :
 
@@ -155,7 +155,7 @@ es              Espagnol   🇪🇸
 
 Pour une compréhension approfondie de l'organisation du contenu, voici une description plus détaillée de chaque section :
 
-### 1. En-tête (Header)
+## 1. En-tête (Header)
 
 L'en-tête est la barre de navigation supérieure, présente sur toutes les pages. Elle comprend :
 
@@ -167,7 +167,7 @@ L'en-tête est la barre de navigation supérieure, présente sur toutes les page
 
 • Menu Mobile Responsive : Un bouton hamburger qui révèle un menu de navigation optimisé pour les petits écrans.
 
-### 2. Section Hero
+## 2. Section Hero
 
 Située en haut de la page d'accueil, cette section est conçue pour captiver l'attention des visiteurs dès leur arrivée. Elle contient :
 
@@ -177,7 +177,7 @@ Située en haut de la page d'accueil, cette section est conçue pour captiver l'
 
 • Bouton d'Appel à l'Action (CTA) : Incite les utilisateurs à interagir avec le site, par exemple en découvrant les services.
 
-### 3. Section À Propos
+## 3. Section À Propos
 
 Cette section offre un aperçu de l'entité derrière le site. Elle met en avant :
 
@@ -187,7 +187,7 @@ Cette section offre un aperçu de l'entité derrière le site. Elle met en avant
 
 années d'expérience, nombre de projets réalisés, clients satisfaits).
 
-### 4. Section Services
+## 4. Section Services
 
 Cette section met en lumière les différentes prestations offertes. Chaque service est présenté sous forme de carte pour une meilleure lisibilité :
 
@@ -197,13 +197,13 @@ Cette section met en lumière les différentes prestations offertes. Chaque serv
 
 • Design UI/UX : Élaboration d'interfaces utilisateur intuitives et d'expériences utilisateur engageantes.
 
-### 5. Section Contact
+## 5. Section Contact
 
 Facilite la prise de contact avec l'équipe du projet. Elle inclut :
 
 • Informations de Contact : Adresse e-mail, numéro de téléphone et adresse physique.
 
-### 6. Footer (Pied de Page)
+## 6. Footer (Pied de Page)
 
 Le pied de page est un élément essentiel qui renforce la crédibilité et la marque. Il contient :
 
@@ -217,13 +217,13 @@ Le pied de page est un élément essentiel qui renforce la crédibilité et la m
 
 Ce projet a été conçu pour être facilement personnalisable, permettant aux développeurs d'adapter le site à leurs besoins spécifiques. Voici les principaux points de personnalisation :
 
-### 1. Contenu Textuel : Toutes les traductions sont centralisées dans l'objet translations au sein de src/App.jsx. Pour modifier ou ajouter du texte, il suffit d'éditer cet objet. Cela inclut les titres, descriptions, libellés de navigation, et toutes les informations affichées sur le site.
+## 1. Contenu Textuel : Toutes les traductions sont centralisées dans l'objet translations au sein de src/App.jsx. Pour modifier ou ajouter du texte, il suffit d'éditer cet objet. Cela inclut les titres, descriptions, libellés de navigation, et toutes les informations affichées sur le site.
 
-### 2. Styles Visuels : Le site utilise Tailwind CSS pour la stylisation. Les classes utilitaires peuvent être ajustées directement dans les composants JSX. Pour des modifications plus globales ou des styles personnalisés, le fichier src/App.css est l'endroit idéal. Il est important de maintenir les imports de tailwindcss et tw-animate-css intacts.
+## 2. Styles Visuels : Le site utilise Tailwind CSS pour la stylisation. Les classes utilitaires peuvent être ajustées directement dans les composants JSX. Pour des modifications plus globales ou des styles personnalisés, le fichier src/App.css est l'endroit idéal. Il est important de maintenir les imports de tailwindcss et tw-animate-css intacts.
 
-### 3. Palette de Couleurs : Les couleurs du site sont définies via des variables CSS dans src/App.css. En modifiant ces variables (par exemple, --primary, --secondary, --background), il est possible de changer radicalement l'apparence du site pour correspondre à une nouvelle identité visuelle.
+## 3. Palette de Couleurs : Les couleurs du site sont définies via des variables CSS dans src/App.css. En modifiant ces variables (par exemple, --primary, --secondary, --background), il est possible de changer radicalement l'apparence du site pour correspondre à une nouvelle identité visuelle.
 
-###4. Ajout de Composants : De nouveaux composants React peuvent être ajoutés dans le dossier src/components/. Si ces composants sont des éléments UI réutilisables, il est recommandé de les placer dans src/components/ui/ et d'utiliser shadcn/ui pour maintenir la cohérence du design.
+### 4. Ajout de Composants : De nouveaux composants React peuvent être ajoutés dans le dossier src/components/. Si ces composants sont des éléments UI réutilisables, il est recommandé de les placer dans src/components/ui/ et d'utiliser shadcn/ui pour maintenir la cohérence du design.
 
 ## 📦 Déploiement
 
