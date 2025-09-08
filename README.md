@@ -136,15 +136,15 @@ Le système multilingue est une caractéristique essentielle de ce projet, conç
 
 • Mise à Jour Automatique : Grâce à la réactivité de React, chaque fois que currentLang est modifié, l'ensemble de l'interface utilisateur est automatiquement mis à jour pour afficher le contenu dans la langue sélectionnée, sans nécessiter de rechargement de page.
 
-### Langues Supportées en Détail
+## Langues Supportées en Détail
 
 Le site est configuré pour prendre en charge les langues suivantes, avec la possibilité d'en ajouter d'autres facilement :
 
 
-```Code Langue  Langue     Drapeau```
-```fr           Français   🇫🇷```
-```en           Anglais    🇬🇧```
-```es           Espagnol   🇪🇸```
+***Code Langue  Langue     Drapeau***
+***fr           Français   🇫🇷***
+***en           Anglais    🇬🇧***
+***es           Espagnol   🇪🇸***
 
 
 
