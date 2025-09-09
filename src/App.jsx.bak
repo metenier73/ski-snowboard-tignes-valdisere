@@ -27,7 +27,7 @@ function App() {
       },
       about: {
         title: 'À propos de moi',
-        description: "Reconnue pour mon expertise, ma pédagogie et mon attrait pour le milieu montagnard.\n\nJ’enseigne aux enfants et aux adultes les bases du ski alpin et du Snowboard. J’associe compétences pédagogiques et approche personnalisée pour m'adapter aux besoins de chacun.\n\nAu fil des années, j'ai guidé des groupes de skieurs sur des terrains variés en enseignant les techniques avancées de ski et les principes de sécurité.\n\nMon approche pédagogique repose sur la passion, la patience et la sécurité. Je pense que chaque pratiquant peut améliorer ses compétences et prendre du plaisir sur les pistes.\n\nMon approche pédagogique est centrée sur l'écoute des besoins des élèves, l'encouragement et la création d'un environnement d'apprentissage positif.\n\nJe mets également un point d'honneur à sensibiliser mes élèves aux aspects de sécurité en montagne.\n\nEn dehors de l'enseignement du ski, je suis une grande amoureuse de la nature. Je pratique la randonnée, l'escalade et le VTT durant les mois d'été.",
+        description: "Reconnue pour mon expertise, ma pédagogie et mon attrait pour le milieu montagnard.\n\nJ’enseigne aux enfants et aux adultes les bases du ski alpin et du Snowboard. J’associe compétences pédagogiques et approche personnalisée pour m'adapter aux besoins de chacun.\n\nAu fil des années, j'ai guidé des groupes de skieurs sur des terrains variés en enseignant les techniques avancées de ski et les principes de sécurité.\n\n",
         experience: 'Années d\'expérience',
         projects: 'Projets réalisés',
         clients: 'Clients satisfaits'

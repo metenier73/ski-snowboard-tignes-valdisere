@@ -241,7 +241,7 @@ function App() {
               <div className="text-gray-600">{t.about.projects}</div>
             </div>
             <div className="text-center">
-              <div className="text-4xl font-bold text-blue-600 mb-2">4 400+</div>
+              <div className="text-4xl font-bold text-blue-600 mb-2">4 500+</div>
               <div className="text-gray-600">{t.about.clients}</div>
             </div>
           </div>
@@ -316,7 +316,9 @@ function App() {
                 <CardTitle>Email</CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="text-gray-600">{t.contact.email}</p>
+                <a href={`mailto:${t.contact.email}`} className="text-blue-600 hover:text-blue-800 hover:underline transition-colors">
+                  {t.contact.email}
+                </a>
               </CardContent>
             </Card>
             
@@ -326,7 +328,9 @@ function App() {
                 <CardTitle>Téléphone</CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="text-gray-600">{t.contact.phone}</p>
+                <a href={`tel:${t.contact.phone.replace(/\s/g, '')}`} className="text-blue-600 hover:text-blue-800 hover:underline transition-colors">
+                  {t.contact.phone}
+                </a>
               </CardContent>
             </Card>
             
@@ -336,7 +340,14 @@ function App() {
                 <CardTitle>Adresse</CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="text-gray-600">{t.contact.address}</p>
+                <a 
+                  href="https://www.google.com/maps/search/Val+d%27Isère,+France" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="text-blue-600 hover:text-blue-800 hover:underline transition-colors"
+                >
+                  {t.contact.address}
+                </a>
               </CardContent>
             </Card>
           </div>
