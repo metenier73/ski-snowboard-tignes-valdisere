@@ -22,7 +22,7 @@ function App() {
       },
       hero: {
         title: 'Cours de Ski & Snowboard',
-        description: "Enseignement personnalisé, priorité absolue à la sécurité consciencieuse des bonnes pratiques, communication dans une atmosphère de confiance et de convivialité, organisation méticuleux, innovation pédagogique en quête constante de nouvelles techniques et outils pédagogiques.",
+        description: "Enseignement personnalisé, priorité absolue à la sécurité, soucieuse des bonnes pratiques, communication conviviale dans une atmosphère de confiance, organisation rigoureuse, innovation pédagogique en quête constante de nouvelles techniques et outils pédagogiques.",
         cta: 'Découvrir nos services'
       },
       about: {
