@@ -241,7 +241,7 @@ function App() {
               <div className="text-gray-600">{t.about.projects}</div>
             </div>
             <div className="text-center">
-              <div className="text-4xl font-bold text-blue-600 mb-2">4400</div>
+              <div className="text-4xl font-bold text-blue-600 mb-2">4 400+</div>
               <div className="text-gray-600">{t.about.clients}</div>
             </div>
           </div>
