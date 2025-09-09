@@ -2,7 +2,8 @@ import { useState } from 'react'
 import { Button } from '@/components/ui/button.jsx'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card.jsx'
 import { Badge } from '@/components/ui/badge.jsx'
-import { Globe, Menu, X, Mail, Phone, MapPin } from 'lucide-react'
+import { Menu, X, Mail, Phone, MapPin } from 'lucide-react'
+import Logo from '@/assets/Logo.png'
 import './App.css'
 
 function App() {
@@ -11,8 +12,8 @@ function App() {
 
   const translations = {
     fr: {
-      title: "Ski & Snowboard à Val d'Isère - Tignes | Monitrice Diplômée",
-      subtitle: 'Votre solution web professionnelle',
+      title: "Myriam Val d'Isère - Tignes",
+      subtitle: 'Votre solution professionnelle pour des vacances de rêves',
       nav: {
         home: 'Accueil',
         about: 'À propos',
@@ -20,7 +21,7 @@ function App() {
         contact: 'Contact'
       },
       hero: {
-        title: 'Bienvenue sur mon site monitrice de Ski & Snowboard',
+        title: 'Cours de Ski & Snowboard',
         description: 'Nous créons des solutions web innovantes adaptées à vos besoins. Notre équipe experte vous accompagne dans tous vos projets digitaux.',
         cta: 'Découvrir nos services'
       },
@@ -48,10 +49,10 @@ function App() {
       },
       contact: {
         title: 'Contactez-nous',
-        description: 'Prêt à démarrer votre projet ? Contactez-nous dès aujourd\'hui.',
-        email: 'contact@example.com',
-        phone: '+33 1 23 45 67 89',
-        address: 'Paris, France'
+        description: 'Prêt à démarrer vos vacances ? Contactez-moi dès aujourd\'hui.',
+        email: 'meteniermyriam@yahoo.fr',
+        phone: '+33 7 68 10 61 07',
+        address: "Val d'Isère, France"
       }
     },
     en: {
@@ -92,12 +93,12 @@ function App() {
       },
       contact: {
         title: 'Contact Us',
-        description: 'Ready to start your project? Contact us today.',
-        email: 'contact@example.com',
-        phone: '+33 1 23 45 67 89',
-        address: 'Paris, France'
+        description: 'Ready to start your Holiday ? Contact me today.',
+        email: 'meteniermyriam@yahoo.fr',
+        phone: '+33 7 68 10 61 07',
+        address: 'Val d\'Isere, France'
       }
-    },
+    }/*,
     es: {
       title: 'Sitio Web Multilingüe',
       subtitle: 'Su solución web profesional',
@@ -138,10 +139,10 @@ function App() {
         title: 'Contáctanos',
         description: '¿Listo para comenzar su proyecto? Contáctenos hoy.',
         email: 'contact@example.com',
-        phone: '+33 1 23 45 67 89',
-        address: 'París, Francia'
+        phone: '+33 7 68 10 61 07',
+        address: 'Val , Francia'
       }
-    }
+    }*/
   }
 
   const t = translations[currentLang]
@@ -154,8 +155,8 @@ function App() {
       <header className="bg-white shadow-sm sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
-            <div className="flex items-center space-x-2">
-              <Globe className="h-8 w-8 text-blue-600" />
+            <div className="flex items-center space-x-3">
+              <img src={Logo} alt="Tignes logo" className="h-24 w-24 object-contain" />
               <span className="text-xl font-bold text-gray-900">{t.title}</span>
             </div>
             
@@ -176,7 +177,7 @@ function App() {
               >
                 <option value="fr">🇫🇷 FR</option>
                 <option value="en">🇬🇧 EN</option>
-                <option value="es">🇪🇸 ES</option>
+            /*  <option value="es">🇪🇸 ES</option>*/
               </select>
               
               {/* Mobile menu button */}
@@ -259,8 +260,8 @@ function App() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <Card className="hover:shadow-lg transition-shadow">
               <CardHeader>
-                <CardTitle className="flex items-center space-x-2">
-                  <Globe className="h-6 w-6 text-blue-600" />
+                <CardTitle className="flex items-center space-x-3">
+                  <img src={Logo} alt="Tignes logo" className="h-8 w-8 object-contain" />
                   <span>{t.services.web.title}</span>
                 </CardTitle>
               </CardHeader>
@@ -345,13 +346,13 @@ function App() {
       {/* Footer */}
       <footer className="bg-gray-900 text-white py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="flex items-center justify-center space-x-2 mb-4">
-            <Globe className="h-6 w-6" />
+          <div className="flex items-center justify-center space-x-3 mb-4">
+            <img src={Logo} alt="Tignes logo" className="h-10 w-10 object-contain" />
             <span className="text-lg font-semibold">{t.title}</span>
           </div>
           <p className="text-gray-400">{t.subtitle}</p>
           <p className="text-gray-500 text-sm mt-4">
-            © 2024 {t.title}. Tous droits réservés.
+            © 2025 {t.title}. Tous droits réservés.
           </p>
         </div>
       </footer>

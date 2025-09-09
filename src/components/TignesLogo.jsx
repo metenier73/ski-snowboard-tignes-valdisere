@@ -1,0 +1,97 @@
+import React from 'react'
+
+const TignesLogo = ({ className = "h-8 w-8", color = "#1e40af" }) => {
+  return (
+    <svg 
+      className={className} 
+      viewBox="0 0 100 100" 
+      fill="none" 
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      {/* Outer circle */}
+      <circle 
+        cx="50" 
+        cy="50" 
+        r="48" 
+        stroke={color} 
+        strokeWidth="4" 
+        fill="none"
+      />
+      
+      {/* TIGNES text */}
+      <text 
+        x="50" 
+        y="25" 
+        textAnchor="middle" 
+        fontSize="12" 
+        fontWeight="bold" 
+        fill={color}
+        fontFamily="Arial, sans-serif"
+      >
+        TIGNES
+      </text>
+      
+      {/* Eagle */}
+      <g fill={color}>
+        {/* Eagle body */}
+        <ellipse cx="50" cy="45" rx="3" ry="6" />
+        
+        {/* Eagle head */}
+        <circle cx="50" cy="38" r="2.5" />
+        
+        {/* Eagle beak */}
+        <polygon points="52,38 54,37 52,36" />
+        
+        {/* Eagle eye */}
+        <circle cx="51" cy="37" r="0.5" fill="white" />
+        
+        {/* Eagle wings */}
+        <path d="M 47 42 Q 40 35 35 42 Q 40 45 47 42" />
+        <path d="M 53 42 Q 60 35 65 42 Q 60 45 53 42" />
+        
+        {/* Eagle wing details */}
+        <path d="M 40 40 Q 37 38 35 40" stroke={color} strokeWidth="0.5" fill="none" />
+        <path d="M 60 40 Q 63 38 65 40" stroke={color} strokeWidth="0.5" fill="none" />
+      </g>
+      
+      {/* Shield */}
+      <g>
+        {/* Shield outline */}
+        <path 
+          d="M 40 50 L 35 60 L 50 70 L 65 60 L 60 50 Z" 
+          stroke={color} 
+          strokeWidth="2" 
+          fill="none"
+        />
+        
+        {/* Shield background - upper part */}
+        <path 
+          d="M 40 50 L 35 60 L 50 65 L 60 50 Z" 
+          fill="#f8fafc"
+        />
+        
+        {/* Shield background - lower part */}
+        <path 
+          d="M 35 60 L 50 70 L 65 60 L 50 65 Z" 
+          fill="#e0f2fe"
+        />
+        
+        {/* Mountains */}
+        <g fill="#f8fafc">
+          {/* Left mountain */}
+          <polygon points="42,58 38,62 46,62" />
+          {/* Right mountain */}
+          <polygon points="58,58 54,62 62,62" />
+        </g>
+        
+        {/* Mountain peaks */}
+        <g fill="#f8fafc">
+          <polygon points="42,58 40,60 44,60" />
+          <polygon points="58,58 56,60 60,60" />
+        </g>
+      </g>
+    </svg>
+  )
+}
+
+export default TignesLogo
