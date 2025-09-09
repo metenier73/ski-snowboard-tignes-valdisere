@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { Button } from '@/components/ui/button.jsx'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card.jsx'
 import { Badge } from '@/components/ui/badge.jsx'
-import { Menu, X, Mail, Phone, MapPin } from 'lucide-react'
+import { Menu, X, Mail, Phone, MapPin, Mountain, Snowflake, Compass } from 'lucide-react'
 import Logo from '@/assets/Logo.png'
 import './App.css'
 
@@ -35,20 +35,20 @@ function App() {
       services: {
         title: 'Nos Services',
         web: {
-          title: 'Développement Web',
-          description: 'Sites web modernes et responsives'
+          title: 'Cours de Ski',
+          description: 'Apprentissage du ski alpin pour tous niveaux'
         },
         mobile: {
-          title: 'Applications Mobile',
-          description: 'Apps iOS et Android natives'
+          title: 'Cours de Snowboard',
+          description: 'Initiation et perfectionnement en snowboard'
         },
         design: {
-          title: 'Design UI/UX',
-          description: 'Interfaces utilisateur intuitives'
+          title: 'Hors-piste',
+          description: 'Sorties sécurisées en terrain non balisé'
         }
       },
       contact: {
-        title: 'Contactez-nous',
+        title: 'Contactez-moi',
         description: 'Prêt à démarrer vos vacances ? Contactez-moi dès aujourd\'hui.',
         email: 'meteniermyriam@yahoo.fr',
         phone: '+33 7 68 10 61 07',
@@ -79,20 +79,20 @@ function App() {
       services: {
         title: 'Our Services',
         web: {
-          title: 'Web Development',
-          description: 'Modern and responsive websites'
+          title: 'Ski Lessons',
+          description: 'Alpine skiing lessons for all levels'
         },
         mobile: {
-          title: 'Mobile Applications',
-          description: 'Native iOS and Android apps'
+          title: 'Snowboard Lessons',
+          description: 'Snowboard initiation and improvement'
         },
         design: {
-          title: 'UI/UX Design',
-          description: 'Intuitive user interfaces'
+          title: 'Off-piste',
+          description: 'Safe off-piste adventures'
         }
       },
       contact: {
-        title: 'Contact Us',
+        title: 'Contact Me',
         description: 'Ready to start your Holiday ? Contact me today.',
         email: 'meteniermyriam@yahoo.fr',
         phone: '+33 7 68 10 61 07',
@@ -261,7 +261,7 @@ function App() {
             <Card className="hover:shadow-lg transition-shadow">
               <CardHeader>
                 <CardTitle className="flex items-center space-x-3">
-                  <img src={Logo} alt="Tignes logo" className="h-8 w-8 object-contain" />
+                  <Mountain className="h-6 w-6 text-blue-600" />
                   <span>{t.services.web.title}</span>
                 </CardTitle>
               </CardHeader>
@@ -273,7 +273,7 @@ function App() {
             <Card className="hover:shadow-lg transition-shadow">
               <CardHeader>
                 <CardTitle className="flex items-center space-x-2">
-                  <Phone className="h-6 w-6 text-blue-600" />
+                  <Snowflake className="h-6 w-6 text-blue-600" />
                   <span>{t.services.mobile.title}</span>
                 </CardTitle>
               </CardHeader>
@@ -285,7 +285,7 @@ function App() {
             <Card className="hover:shadow-lg transition-shadow">
               <CardHeader>
                 <CardTitle className="flex items-center space-x-2">
-                  <Badge className="h-6 w-6 text-blue-600" />
+                  <Compass className="h-6 w-6 text-blue-600" />
                   <span>{t.services.design.title}</span>
                 </CardTitle>
               </CardHeader>
