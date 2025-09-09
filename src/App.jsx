@@ -22,12 +22,12 @@ function App() {
       },
       hero: {
         title: 'Cours de Ski & Snowboard',
-        description: 'Nous créons des solutions web innovantes adaptées à vos besoins. Notre équipe experte vous accompagne dans tous vos projets digitaux.',
+        description: "Enseignement personnalisé, priorité absolue à la sécurité consciencieuse des bonnes pratiques, communication dans une atmosphère de confiance et de convivialité, organisation méticuleux, innovation pédagogique en quête constante de nouvelles techniques et outils pédagogiques.",
         cta: 'Découvrir nos services'
       },
       about: {
-        title: 'À propos de nous',
-        description: 'Nous sommes une équipe passionnée de développeurs et designers qui créent des expériences web exceptionnelles.',
+        title: 'À propos de moi',
+        description: "Monitrice de ski passionnée, avec plus de 20 ans d'expérience dans l'enseignement du ski, je suis reconnue pour mon expertise, ma pédagogie et mon amour pour les montagnes.",
         experience: 'Années d\'expérience',
         projects: 'Projets réalisés',
         clients: 'Clients satisfaits'
@@ -152,7 +152,7 @@ function App() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100">
       {/* Header */}
-      <header className="bg-white shadow-sm sticky top-0 z-50">
+      <header className="bg-white shadow-sm sticky top-5 z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             <div className="flex items-center space-x-3">

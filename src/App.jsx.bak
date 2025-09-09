@@ -3,7 +3,7 @@ import { Button } from '@/components/ui/button.jsx'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card.jsx'
 import { Badge } from '@/components/ui/badge.jsx'
 import { Menu, X, Mail, Phone, MapPin } from 'lucide-react'
-import TignesLogo from '@/components/TignesLogo.jsx'
+import Logo from '@/assets/Logo.png'
 import './App.css'
 
 function App() {
@@ -26,8 +26,8 @@ function App() {
         cta: 'Découvrir nos services'
       },
       about: {
-        title: 'À propos de nous',
-        description: 'Nous sommes une équipe passionnée de développeurs et designers qui créent des expériences web exceptionnelles.',
+        title: 'À propos de moi',
+        description: "Monitrice de ski passionnée, avec plus de 20 ans d'expérience dans l'enseignement du ski, je suis reconnue pour mon expertise, ma pédagogie et mon amour pour les montagnes.",
         experience: 'Années d\'expérience',
         projects: 'Projets réalisés',
         clients: 'Clients satisfaits'
@@ -152,11 +152,11 @@ function App() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100">
       {/* Header */}
-      <header className="bg-white shadow-sm sticky top-0 z-50">
+      <header className="bg-white shadow-sm sticky top-5 z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             <div className="flex items-center space-x-3">
-              <TignesLogo className="h-12 w-12" color="#2563eb" />
+              <img src={Logo} alt="Tignes logo" className="h-24 w-24 object-contain" />
               <span className="text-xl font-bold text-gray-900">{t.title}</span>
             </div>
             
@@ -261,7 +261,7 @@ function App() {
             <Card className="hover:shadow-lg transition-shadow">
               <CardHeader>
                 <CardTitle className="flex items-center space-x-3">
-                  <TignesLogo className="h-8 w-8" color="#2563eb" />
+                  <img src={Logo} alt="Tignes logo" className="h-8 w-8 object-contain" />
                   <span>{t.services.web.title}</span>
                 </CardTitle>
               </CardHeader>
@@ -347,7 +347,7 @@ function App() {
       <footer className="bg-gray-900 text-white py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="flex items-center justify-center space-x-3 mb-4">
-            <TignesLogo className="h-10 w-10" color="white" />
+            <img src={Logo} alt="Tignes logo" className="h-10 w-10 object-contain" />
             <span className="text-lg font-semibold">{t.title}</span>
           </div>
           <p className="text-gray-400">{t.subtitle}</p>
