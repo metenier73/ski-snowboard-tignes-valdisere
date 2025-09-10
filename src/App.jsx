@@ -336,9 +336,14 @@ function App() {
       <header className="bg-white shadow-sm sticky top-5 z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
-            <div className="flex items-center space-x-3">
-              <img src={Logo} alt="Tignes logo" className="h-24 w-24 object-contain" />
-              <span className="text-xl font-bold text-gray-900">{t.title}</span>
+            <div className="flex items-center space-x-4">
+              <div className="flex items-center">
+                <img src={Logo} alt="Tignes logo" className="h-16 w-16 object-contain" />
+                <span className="ml-3 text-xl font-bold text-gray-900 whitespace-nowrap">
+                  <span className="block text-sm font-normal text-gray-500 leading-none">Myriam</span>
+                  <span>Val d'Isère - Tignes</span>
+                </span>
+              </div>
             </div>
             
             {/* Desktop Navigation */}
