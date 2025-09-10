@@ -31,6 +31,34 @@ function App() {
   const [currentLang, setCurrentLang] = useState('fr')
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [weather, setWeather] = useState({ tignes: null, val: null })
+  const [currentSlide, setCurrentSlide] = useState(0)
+  
+  // Images pour le carrousel
+  const carouselImages = [
+    'https://images.unsplash.com/photo-1518604666863-5dde8b411599?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80',
+    'https://images.unsplash.com/photo-1501785888041-af3ef285b470?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80',
+    'https://images.unsplash.com/photo-1483728642387-6c3bdd6de93a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1471&q=80',
+    'https://images.unsplash.com/photo-1506744038136-46273834b3fb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80',
+    'https://images.unsplash.com/photo-1464278533981-50106e6176b1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80'
+  ]
+
+  // Fonction pour passer à la diapositive suivante
+  const nextSlide = () => {
+    setCurrentSlide((prev) => (prev === carouselImages.length - 1 ? 0 : prev + 1))
+  }
+
+  // Fonction pour revenir à la diapositive précédente
+  const prevSlide = () => {
+    setCurrentSlide((prev) => (prev === 0 ? carouselImages.length - 1 : prev - 1))
+  }
+
+  // Défilement automatique
+  useEffect(() => {
+    const timer = setInterval(() => {
+      nextSlide()
+    }, 5000)
+    return () => clearInterval(timer)
+  }, [])
 
   const translations = {
     fr: {
@@ -649,27 +677,77 @@ function App() {
 
       {/* Gallery Section */}
       <section id="gallery" className="py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-8">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 flex items-center justify-center gap-2">
-              <ImagePlus className="h-7 w-7 text-blue-600" /> Galerie (photos & vidéos)
+              <ImagePlus className="h-7 w-7 text-blue-600" /> Galerie
             </h2>
-            <p className="text-gray-600">Dépose locale (aperçu) – pas de stockage serveur.</p>
+            <p className="text-gray-600">Découvrez les paysages enneigés de Tignes et Val d'Isère</p>
           </div>
-          <div className="flex flex-col items-center gap-4">
-            <input type="file" accept="image/*,video/*" multiple className="block" onChange={(e)=>{
-              const container = document.getElementById('gallery-preview');
-              if(!container) return;
-              container.innerHTML = '';
-              Array.from(e.target.files||[]).slice(0,12).forEach(f=>{
-                const url = URL.createObjectURL(f);
-                const el = document.createElement(f.type.startsWith('video')?'video':'img');
-                el.src = url; el.className = 'w-full h-48 object-cover rounded-lg';
-                if(el.tagName==='VIDEO'){ el.controls=true; }
-                container.appendChild(el);
-              })
-            }} />
-            <div id="gallery-preview" className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 w-full"></div>
+          
+          <div className="relative overflow-hidden rounded-xl shadow-xl">
+            {/* Images du carrousel */}
+            <div className="relative h-96">
+              {carouselImages.map((image, index) => (
+                <div 
+                  key={index}
+                  className={`absolute inset-0 transition-opacity duration-1000 ${index === currentSlide ? 'opacity-100' : 'opacity-0'}`}
+                >
+                  <img 
+                    src={image} 
+                    alt={`Paysage enneigé ${index + 1}`}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+              ))}
+              
+              {/* Boutons de navigation */}
+              <button 
+                onClick={prevSlide}
+                className="absolute left-4 top-1/2 -translate-y-1/2 bg-black/30 hover:bg-black/50 text-white rounded-full p-2 transition-colors"
+                aria-label="Image précédente"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                </svg>
+              </button>
+              
+              <button 
+                onClick={nextSlide}
+                className="absolute right-4 top-1/2 -translate-y-1/2 bg-black/30 hover:bg-black/50 text-white rounded-full p-2 transition-colors"
+                aria-label="Image suivante"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
+              </button>
+              
+              {/* Indicateurs de diapositives */}
+              <div className="absolute bottom-4 left-0 right-0 flex justify-center space-x-2">
+                {carouselImages.map((_, index) => (
+                  <button
+                    key={index}
+                    onClick={() => setCurrentSlide(index)}
+                    className={`w-3 h-3 rounded-full transition-colors ${index === currentSlide ? 'bg-white' : 'bg-white/50'}`}
+                    aria-label={`Aller à l'image ${index + 1}`}
+                  />
+                ))}
+              </div>
+            </div>
+            
+            {/* Légende */}
+            <div className="bg-white p-4 text-center">
+              <p className="text-gray-700">
+                {currentSlide === 0 && "Vue imprenable sur les montagnes enneigées de Tignes"}
+                {currentSlide === 1 && "Paysage hivernal époustouflant dans les Alpes"}
+                {currentSlide === 2 && "Pentes enneigées parfaites pour le ski et le snowboard"}
+                {currentSlide === 3 && "Forêt enneigée sous un ciel bleu éclatant"}
+                {currentSlide === 4 && "Panorama montagneux sous la neige"}
+              </p>
+              <p className="text-sm text-gray-500 mt-1">
+                {currentSlide + 1} / {carouselImages.length}
+              </p>
+            </div>
           </div>
         </div>
       </section>
