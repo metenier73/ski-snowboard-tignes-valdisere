@@ -60,18 +60,18 @@ function App() {
         clients: 'Clients satisfaits'
       },
       services: {
-        title: 'Nos Services',
+        title: 'Mes Services',
         web: {
-          title: 'Cours de Ski',
-          description: 'Apprentissage du ski alpin pour tous niveaux'
+          title: 'Cours Privés de Ski',
+          description: 'À Tignes et Val d\'Isère, des cours adaptés à chaque profil :\n\n• Débutants : apprendre les bases en confiance\n• Intermédiaires : améliorer technique et fluidité\n• Avancés : perfectionnement et pistes rouges/noires\n\nUn suivi individuel pour une progression personnalisée.'
         },
         mobile: {
           title: 'Cours de Snowboard',
-          description: 'Initiation et perfectionnement en snowboard'
+          description: 'Pour tous les niveaux :\n\n• Initiation : équilibre et premières descentes\n• Perfectionnement : virages frontside/backside, carving\n• Freestyle & hors-piste*\n\n*Selon conditions et niveau, pour une expérience sécurisée.'
         },
         design: {
           title: 'Hors-piste',
-          description: 'Sorties sécurisées en terrain non balisé'
+          description: 'Exploration sécurisée du domaine hors des pistes balisées.\n\n• Découverte du hors-piste encadrée\n• Apprentissage des techniques spécifiques\n• Sécurité et lecture du terrain\n\nMatériel de sécurité recommandé.'
         }
       },
       contact: {
