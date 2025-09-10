@@ -53,7 +53,7 @@ function App() {
         cta: 'Réserver vos cours'
       },
       about: {
-        title: 'À propos de Myriam',
+        title: 'À propos de MYRIAM',
         description: "Reconnue pour mon expertise, ma pédagogie et mon attrait pour le milieu montagnard.\n\nJ’enseigne aux enfants et aux adultes les bases du ski alpin et du Snowboard. J’associe compétences pédagogiques et approche personnalisée pour m'adapter aux besoins de chacun.\n\nAu fil des années, j'ai guidé des groupes de pratiquants sur des terrains variés en enseignant les techniques avancées de ski et les principes de sécurité.\n\n",
         experience: 'Années d\'expérience',
         projects: 'Projets réalisés',
@@ -67,7 +67,7 @@ function App() {
         },
         mobile: {
           title: 'Cours de Snowboard',
-          description: 'Pour tous les niveaux :\n\n• Initiation : équilibre et premières descentes\n• Perfectionnement : virages frontside/backside, carving\n• Freestyle & hors-piste*\n\n*Selon conditions et niveau, pour une expérience sécurisée.'
+          description: 'Pour tous les niveaux :\n\n• Initiation : équilibre et premières descentes\n• Perfectionnement : virages frontside/backside, carving\n• Freestyle & hors-piste\n\nSelon conditions et niveau, pour une expérience sécurisée.'
         },
         design: {
           title: 'Hors-piste',
