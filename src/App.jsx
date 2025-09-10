@@ -457,7 +457,7 @@ function App() {
                 </CardTitle>
               </CardHeader>
               <CardContent>
-                <CardDescription>{t.services.web.description}</CardDescription>
+                <CardDescription className="whitespace-pre-line">{t.services.web.description}</CardDescription>
               </CardContent>
             </Card>
             
@@ -469,7 +469,7 @@ function App() {
                 </CardTitle>
               </CardHeader>
               <CardContent>
-                <CardDescription>{t.services.mobile.description}</CardDescription>
+                <CardDescription className="whitespace-pre-line">{t.services.mobile.description}</CardDescription>
               </CardContent>
             </Card>
             
@@ -481,7 +481,7 @@ function App() {
                 </CardTitle>
               </CardHeader>
               <CardContent>
-                <CardDescription>{t.services.design.description}</CardDescription>
+                <CardDescription className="whitespace-pre-line">{t.services.design.description}</CardDescription>
               </CardContent>
             </Card>
           </div>
