@@ -1,9 +1,8 @@
-import { useState, useEffect } from 'react'
+import Logo from '@/assets/Logo.png'
 import { Button } from '@/components/ui/button.jsx'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card.jsx'
-import { Badge } from '@/components/ui/badge.jsx'
-import { Menu, X, Mail, Phone, MapPin, Mountain, Snowflake, Compass, CloudSun, ImagePlus, ShieldAlert, BookOpen, Calendar, MessageCircle } from 'lucide-react'
-import Logo from '@/assets/Logo.png'
+import { BookOpen, Calendar, CloudSun, Compass, ImagePlus, Mail, MapPin, Menu, MessageCircle, Mountain, Phone, ShieldAlert, Snowflake, X } from 'lucide-react'
+import { useEffect, useState } from 'react'
 import './App.css'
 
 function App() {
@@ -33,7 +32,7 @@ function App() {
       },
       about: {
         title: 'À propos de moi',
-        description: "Reconnue pour mon expertise, ma pédagogie et mon attrait pour le milieu montagnard.\n\nJ’enseigne aux enfants et aux adultes les bases du ski alpin et du Snowboard. J’associe compétences pédagogiques et approche personnalisée pour m'adapter aux besoins de chacun.\n\nAu fil des années, j'ai guidé des groupes de skieurs sur des terrains variés en enseignant les techniques avancées de ski et les principes de sécurité.\n\n",
+        description: "Reconnue pour mon expertise, ma pédagogie et mon attrait pour le milieu montagnard.\n\nJ’enseigne aux enfants et aux adultes les bases du ski alpin et du Snowboard. J’associe compétences pédagogiques et approche personnalisée pour m'adapter aux besoins de chacun.\n\nAu fil des années, j'ai guidé des groupes de pratiquants sur des terrains variés en enseignant les techniques avancées de ski et les principes de sécurité.\n\n",
         experience: 'Années d\'expérience',
         projects: 'Projets réalisés',
         clients: 'Clients satisfaits'
@@ -62,8 +61,8 @@ function App() {
       }
     },
     en: {
-      title: 'Multilingual Website',
-      subtitle: 'Your professional web solution',
+      title: "Myriam Val d'Isère - Tignes",
+      subtitle: 'Your professional solution for dream holidays',
       nav: {
         home: 'Home',
         about: 'About',
@@ -76,22 +75,22 @@ function App() {
         contact: 'Contact'
       },
       hero: {
-        title: 'Private Ski & Snowboard Lessons',
-        description: 'Learn and progress safely with a certified instructor in Tignes & Val d’Isère.',
+        title: 'Ski & Snowboard Lessons',
+        description: 'Personalized teaching, absolute priority to safety, mindful of good practices, friendly communication in an atmosphere of trust, rigorous organization, educational innovation in constant search of new techniques.',
         cta: 'Book your lessons'
       },
       about: {
-        title: 'About Us',
-        description: 'We are a passionate team of developers and designers who create exceptional web experiences.',
+        title: 'About Me',
+        description: 'Recognized for my expertise, teaching skills, and attraction to the mountain environment.\n\nI teach children and adults the basics of alpine skiing and snowboarding. I combine teaching skills and a personalized approach to adapt to everyone\'s needs.\n\nOver the years, I have guided groups of practitioners on various terrains while teaching advanced skiing techniques and safety principles.',
         experience: 'Years of experience',
-        projects: 'Completed projects',
+        projects: 'Projects completed',
         clients: 'Satisfied clients'
       },
       services: {
         title: 'Our Services',
         web: {
           title: 'Ski Lessons',
-          description: 'Alpine skiing lessons for all levels'
+          description: 'Learning alpine skiing for all levels'
         },
         mobile: {
           title: 'Snowboard Lessons',
@@ -99,61 +98,17 @@ function App() {
         },
         design: {
           title: 'Off-piste',
-          description: 'Safe off-piste adventures'
+          description: 'Safe off-piste outings'
         }
       },
       contact: {
         title: 'Contact Me',
-        description: 'Ready to start your Holiday ? Contact me today.',
+        description: 'Ready to start your holidays? Contact me today.',
         email: 'meteniermyriam@yahoo.fr',
         phone: '+33 7 68 10 61 07',
-        address: 'Val d\'Isere, France'
+        address: 'Val d\'Isère, France'
       }
-    }/*,
-    es: {
-      title: 'Sitio Web Multilingüe',
-      subtitle: 'Su solución web profesional',
-      nav: {
-        home: 'Inicio',
-        about: 'Acerca de',
-        services: 'Servicios',
-        contact: 'Contacto'
-      },
-      hero: {
-        title: 'Bienvenido a nuestro sitio web multilingüe',
-        description: 'Creamos soluciones web innovadoras adaptadas a sus necesidades. Nuestro equipo experto le acompaña en todos sus proyectos digitales.',
-        cta: 'Descubrir nuestros servicios'
-      },
-      about: {
-        title: 'Acerca de Nosotros',
-        description: 'Somos un equipo apasionado de desarrolladores y diseñadores que crean experiencias web excepcionales.',
-        experience: 'Años de experiencia',
-        projects: 'Proyectos completados',
-        clients: 'Clientes satisfechos'
-      },
-      services: {
-        title: 'Nuestros Servicios',
-        web: {
-          title: 'Desarrollo Web',
-          description: 'Sitios web modernos y responsivos'
-        },
-        mobile: {
-          title: 'Aplicaciones Móviles',
-          description: 'Apps nativas iOS y Android'
-        },
-        design: {
-          title: 'Diseño UI/UX',
-          description: 'Interfaces de usuario intuitivas'
-        }
-      },
-      contact: {
-        title: 'Contáctanos',
-        description: '¿Listo para comenzar su proyecto? Contáctenos hoy.',
-        email: 'contact@example.com',
-        phone: '+33 7 68 10 61 07',
-        address: 'Val , Francia'
-      }
-    }*/
+    }
   }
 
   const t = translations[currentLang]
@@ -250,7 +205,6 @@ function App() {
               >
                 <option value="fr">🇫🇷 FR</option>
                 <option value="en">🇬🇧 EN</option>
-            /*  <option value="es">🇪🇸 ES</option>*/
               </select>
               
               {/* Mobile menu button */}
