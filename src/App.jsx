@@ -1,7 +1,30 @@
 import Logo from '@/assets/Logo.png'
 import { Button } from '@/components/ui/button.jsx'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card.jsx'
-import { BookOpen, Calendar, CloudSun, Compass, ImagePlus, Mail, MapPin, Menu, MessageCircle, Mountain, Phone, ShieldAlert, Snowflake, X } from 'lucide-react'
+import { 
+  BookOpen, 
+  Calendar, 
+  Cloud, 
+  CloudFog, 
+  CloudHail, 
+  CloudLightning, 
+  CloudRain, 
+  CloudSnow, 
+  CloudSun, 
+  Cloudy, 
+  Compass, 
+  ImagePlus, 
+  Mail, 
+  MapPin, 
+  Menu, 
+  MessageCircle, 
+  Mountain, 
+  Phone, 
+  ShieldAlert, 
+  Snowflake, 
+  Sun, 
+  X 
+} from 'lucide-react'
 import { useEffect, useState } from 'react'
 import './App.css'
 
@@ -23,7 +46,7 @@ function App() {
         avalanche: 'Avalanche',
         gallery: 'Galerie',
         booking: 'Réserver',
-        contact: 'Contact'
+        
       },
       hero: {
         title: 'Cours de Ski & Snowboard',
@@ -72,7 +95,7 @@ function App() {
         avalanche: 'Avalanche',
         gallery: 'Gallery',
         booking: 'Book',
-        contact: 'Contact'
+        
       },
       hero: {
         title: 'Ski & Snowboard Lessons',
@@ -117,39 +140,165 @@ function App() {
 
   useEffect(() => {
     const fetchWeather = async () => {
+      console.log('Début de la récupération des données météo...');
       try {
         const endpoints = [
           {
             key: 'tignes',
-            url: 'https://api.open-meteo.com/v1/forecast?latitude=45.468&longitude=6.909&current=temperature_2m,weather_code&daily=temperature_2m_max,temperature_2m_min,precipitation_sum,snowfall_sum&timezone=auto&forecast_days=7'
+            url: 'https://api.open-meteo.com/v1/forecast?latitude=45.468&longitude=6.909&current=temperature_2m,weather_code&daily=temperature_2m_max,temperature_2m_min,precipitation_sum,snowfall_sum,weather_code&timezone=auto&forecast_days=7'
           },
           {
             key: 'val',
-            url: 'https://api.open-meteo.com/v1/forecast?latitude=45.448&longitude=6.980&current=temperature_2m,weather_code&daily=temperature_2m_max,temperature_2m_min,precipitation_sum,snowfall_sum&timezone=auto&forecast_days=7'
+            url: 'https://api.open-meteo.com/v1/forecast?latitude=45.448&longitude=6.980&current=temperature_2m,weather_code&daily=temperature_2m_max,temperature_2m_min,precipitation_sum,snowfall_sum,weather_code&timezone=auto&forecast_days=7'
           }
-        ]
-        const responses = await Promise.all(endpoints.map(e => fetch(e.url)))
-        const data = await Promise.all(responses.map(r => r.json()))
-        setWeather({ tignes: data[0], val: data[1] })
+        ];
+        
+        const responses = await Promise.all(
+          endpoints.map(e => 
+            fetch(e.url)
+              .then(response => {
+                if (!response.ok) {
+                  throw new Error(`Erreur HTTP: ${response.status} pour ${e.key}`);
+                }
+                return response.json();
+              })
+              .then(data => {
+                console.log(`Données reçues pour ${e.key}:`, data);
+                return { key: e.key, data };
+              })
+              .catch(error => {
+                console.error(`Erreur lors de la récupération des données pour ${e.key}:`, error);
+                return { key: e.key, error: error.message };
+              })
+          )
+        );
+
+        // Créer un objet avec les données ou les erreurs
+        const weatherData = responses.reduce((acc, { key, data, error }) => {
+          if (error) {
+            console.error(`Erreur pour ${key}:`, error);
+            acc[key] = { error };
+          } else {
+            acc[key] = data;
+          }
+          return acc;
+        }, {});
+
+        console.log('Données météo mises à jour:', weatherData);
+        setWeather(weatherData);
+        
       } catch (e) {
-        // ignore errors in demo
+        console.error('Erreur lors de la récupération des données météo:', e);
+        // Mettre à jour l'état avec l'erreur pour l'affichage
+        setWeather({
+          tignes: { error: 'Impossible de charger les données météo pour Tignes' },
+          val: { error: 'Impossible de charger les données météo pour Val d\'Isère' }
+        });
       }
-    }
-    fetchWeather()
+    };
+
+    // Appel initial
+    fetchWeather();
+    
+    // Rafraîchir les données toutes les heures (3600000 ms)
+    const intervalId = setInterval(fetchWeather, 3600000);
+    
+    // Nettoyer l'intervalle lors du démontage du composant
+    return () => clearInterval(intervalId);
   }, [])
 
-  const renderForecast = (data) => {
-    if (!data || !data.daily) return <div className="text-gray-500">Chargement…</div>
-    const days = data.daily.time
+  const getWeatherIcon = (weatherCode) => {
+    // Map des codes météo vers les icônes Lucide
+    const iconMap = {
+      0: Sun,        // Ciel dégagé
+      1: CloudSun,   // Légèrement nuageux
+      2: CloudSun,   // Partiellement nuageux
+      3: Cloudy,     // Couvert
+      45: CloudFog,  // Brouillard
+      48: CloudFog,  // Brouillard givrant
+      51: CloudRain, // Légère bruine
+      53: CloudRain, // Bruine modérée
+      55: CloudRain, // Forte bruine
+      56: CloudHail, // Légère bruine verglaçante
+      57: CloudHail, // Forte bruine verglaçante
+      61: CloudRain, // Légère pluie
+      63: CloudRain, // Pluie modérée
+      65: CloudRain, // Forte pluie
+      66: CloudHail, // Légère pluie verglaçante
+      67: CloudHail, // Forte pluie verglaçante
+      71: CloudSnow, // Légère neige
+      73: CloudSnow, // Neige modérée
+      75: CloudSnow, // Forte neige
+      77: Snowflake, // Neige en grains
+      80: CloudRain, // Légères averses
+      81: CloudRain, // Averses modérées
+      82: CloudRain, // Fortes averses
+      85: CloudSnow, // Légères averses de neige
+      86: CloudSnow, // Fortes averses de neige
+      95: CloudLightning, // Orage
+      96: CloudLightning, // Orage avec grêle légère
+      99: CloudLightning  // Orage avec forte grêle
+    };
+    
+    const IconComponent = iconMap[weatherCode] || CloudSun;
+    return <IconComponent className="h-6 w-6 text-blue-500" />;
+  };
+
+  const renderForecast = (data, location) => {
+    if (!data || !data.daily) {
+      console.log('No weather data available for', location, data);
+      return <div className="text-gray-500">Chargement des données météo…</div>;
+    }
+    
+    const days = data.daily?.time || [];
+    if (days.length === 0) {
+      return <div className="text-gray-500">Aucune donnée météo disponible</div>;
+    }
+    
     return (
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
-        {days.map((d, i) => (
-          <div key={d} className="rounded-lg border p-3 bg-white/60">
-            <div className="text-sm text-gray-600">{new Date(d).toLocaleDateString(currentLang === 'fr' ? 'fr-FR' : 'en-GB', { weekday: 'short', day: '2-digit', month: '2-digit' })}</div>
-            <div className="text-gray-900 font-medium">{Math.round(data.daily.temperature_2m_min[i])}° / {Math.round(data.daily.temperature_2m_max[i])}°C</div>
-            <div className="text-sm text-gray-700">Neige: {Math.round((data.daily.snowfall_sum[i]||0))} cm • Précip.: {Math.round((data.daily.precipitation_sum[i]||0))} mm</div>
-          </div>
-        ))}
+      <div className="bg-white/80 backdrop-blur-sm rounded-xl p-6 shadow-lg">
+        <h3 className="text-xl font-semibold text-gray-800 mb-4 flex items-center">
+          {location === 'tignes' ? (
+            <Mountain className="h-5 w-5 mr-2 text-blue-600" />
+          ) : (
+            <Compass className="h-5 w-5 mr-2 text-blue-600" />
+          )}
+          {location === 'tignes' ? 'Tignes' : "Val d'Isère"}
+        </h3>
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-7 gap-4">
+          {days.map((d, i) => {
+            const tempMin = Math.round(data.daily.temperature_2m_min?.[i] || 0);
+            const tempMax = Math.round(data.daily.temperature_2m_max?.[i] || 0);
+            const snow = Math.round((data.daily.snowfall_sum?.[i] || 0));
+            const precip = Math.round((data.daily.precipitation_sum?.[i] || 0));
+            const weatherCode = data.daily.weather_code?.[i] || 0;
+            
+            return (
+              <div key={d} className="bg-white/90 p-3 rounded-lg border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
+                <div className="text-sm font-medium text-gray-700 mb-1">
+                  {new Date(d).toLocaleDateString(currentLang === 'fr' ? 'fr-FR' : 'en-GB', { weekday: 'short' })}
+                </div>
+                <div className="flex justify-center my-2">
+                  {getWeatherIcon(weatherCode)}
+                </div>
+                <div className="flex justify-between items-center mb-1">
+                  <span className="text-lg font-bold text-blue-600">{tempMax}°</span>
+                  <span className="text-gray-500 text-sm">{tempMin}°</span>
+                </div>
+                <div className="flex justify-between text-xs text-gray-500">
+                  <span className="flex items-center">
+                    <Snowflake className="h-3 w-3 mr-1 text-blue-400" />
+                    {snow}cm
+                  </span>
+                  <span className="flex items-center">
+                    <CloudRain className="h-3 w-3 mr-1 text-blue-400" />
+                    {precip}mm
+                  </span>
+                </div>
+              </div>
+            );
+          })}
+        </div>
       </div>
     )
   }
@@ -196,12 +345,21 @@ function App() {
               </a>
             </nav>
 
-            {/* Language Selector */}
-            <div className="flex items-center space-x-2">
+            {/* Language and Contact */}
+            <div className="flex items-center space-x-6">
+              <div className="hidden md:flex items-center space-x-4">
+                <a href="#contact" className="flex items-center text-gray-700 hover:text-blue-600 transition-colors">
+                  <Mail className="h-5 w-5 mr-1" />
+                  <span className="hidden lg:inline">Contact</span>
+                </a>
+              </div>
+              
+              <div className="border-l border-gray-200 h-6"></div>
+              
               <select 
                 value={currentLang} 
                 onChange={(e) => setCurrentLang(e.target.value)}
-                className="bg-white border border-gray-300 rounded-md px-3 py-1 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="bg-white border border-gray-300 rounded-md px-3 py-1.5 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 transition-colors"
               >
                 <option value="fr">🇫🇷 FR</option>
                 <option value="en">🇬🇧 EN</option>
@@ -210,7 +368,7 @@ function App() {
               {/* Mobile menu button */}
               <button
                 onClick={toggleMenu}
-                className="md:hidden p-2 rounded-md text-gray-700 hover:text-blue-600"
+                className="md:hidden p-2 rounded-md text-gray-700 hover:text-blue-600 hover:bg-gray-100 transition-colors"
               >
                 {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
               </button>
