@@ -49,7 +49,7 @@ function App() {
       },
       hero: {
         title: 'Cours de Ski & Snowboard',
-        description: "Enseignement personnalisé, priorité absolue à la sécurité, soucieuse des bonnes pratiques, communication conviviale dans une atmosphère de confiance, organisation rigoureuse, innovation pédagogique en recherche constante de nouvelles techniques.",
+        description: "Vous cherchez à apprendre le ski ou le snowboard à Tignes – Val d'Isère, ou à perfectionner votre technique ? Faites confiance à une monitrice diplômée et expérimentée pour des cours privés adaptés à votre niveau, vos objectifs et votre rythme.\n\nQue vous soyez débutant, confirmé ou passionné en quête de nouvelles sensations, je vous accompagne sur les pistes mythiques de l'Espace Killy pour une expérience unique, sécurisée et personnalisée.",
         cta: 'Réserver vos cours'
       },
       about: {
