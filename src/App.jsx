@@ -729,7 +729,14 @@ function App() {
                     <td className="py-3 pr-6">{row.r}</td>
                     <td className="py-3 pr-6">{row.c}</td>
                     <td className="py-3 pr-6">
-                      <a href="#cancellation" className="text-blue-600 hover:underline">Réserver</a>
+                      <a 
+                        href="https://maisonsport.com/fr/profile/927576662/myriam-m?omnisendContactID=65cb1772c613deaa1396a153&utm_campaign=automation%3A+Transactional+Flow+(6537bd845397fc850450a200)&utm_content=6537c00f5397fc850450a21a&utm_medium=email&utm_source=omnisend" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center px-3 py-1.5 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+                      >
+                        Réserver
+                      </a>
                       {row.rule && <span className="ml-2 text-xs text-gray-500">+ Règle de réservation</span>}
                     </td>
                   </tr>
