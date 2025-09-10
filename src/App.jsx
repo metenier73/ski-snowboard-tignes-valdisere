@@ -1,6 +1,7 @@
 import Logo from '@/assets/Logo.png'
 import { Button } from '@/components/ui/button.jsx'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card.jsx'
+import { galleryAltTexts, getGalleryImage, totalImages } from '@/data/galleryImages'
 import {
   BookOpen,
   Calendar,
@@ -34,23 +35,19 @@ function App() {
   const [weather, setWeather] = useState({ tignes: null, val: null })
   const [currentSlide, setCurrentSlide] = useState(0)
   
-  // Images pour le carrousel
-  const carouselImages = [
-    'https://images.unsplash.com/photo-1518604666863-5dde8b411599?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80',
-    'https://images.unsplash.com/photo-1501785888041-af3ef285b470?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80',
-    'https://images.unsplash.com/photo-1483728642387-6c3bdd6de93a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1471&q=80',
-    'https://images.unsplash.com/photo-1506744038136-46273834b3fb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80',
-    'https://images.unsplash.com/photo-1464278533981-50106e6176b1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80'
-  ]
+  // Fonction pour obtenir l'URL d'une image de la galerie
+  const getCarouselImage = (index) => {
+    return getGalleryImage(index);
+  };
 
   // Fonction pour passer à la diapositive suivante
   const nextSlide = () => {
-    setCurrentSlide((prev) => (prev === carouselImages.length - 1 ? 0 : prev + 1))
+    setCurrentSlide((prev) => (prev === totalImages - 1 ? 0 : prev + 1))
   }
 
   // Fonction pour revenir à la diapositive précédente
   const prevSlide = () => {
-    setCurrentSlide((prev) => (prev === 0 ? carouselImages.length - 1 : prev - 1))
+    setCurrentSlide((prev) => (prev === 0 ? totalImages - 1 : prev - 1))
   }
 
   // Défilement automatique
@@ -92,11 +89,11 @@ function App() {
         title: 'Mes Services',
         web: {
           title: 'Cours Privés de Ski',
-          description: 'À Tignes et Val d\'Isère, des cours adaptés à chaque profil :\n\n• Débutants : apprendre les bases en confiance\n• Intermédiaires : améliorer technique et fluidité\n• Avancés : perfectionnement et pistes rouges/noires\n\nUn suivi individuel pour une progression personnalisée.'
+          description: 'À Tignes et Val d\'Isère, des cours adaptés à chaque profil :\n\n• Débutant : apprendre les bases en confiance\n• Intermédiaire : améliorer technique et fluidité\n• Avancé : perfectionnement et pistes rouges/noires\n\nUn suivi individuel pour une progression personnalisée.'
         },
         mobile: {
           title: 'Cours de Snowboard',
-          description: 'Pour tous les niveaux :\n\n• Initiation : équilibre et premières descentes\n• Perfectionnement : virages frontside/backside, carving\n• Freestyle & hors-piste\n\nSelon conditions et niveau, pour une expérience sécurisée.'
+          description: 'Pour tous les niveaux :\n\n• Initiation : équilibre et premières descentes\n• Perfectionnement : virages frontside/backside, carving\n• Freestyle & hors-piste\n\nSelon conditions et niveaux, pour une expérience sécurisée.'
         },
         design: {
           title: 'Hors-piste',
@@ -272,15 +269,25 @@ function App() {
     return <IconComponent className="h-6 w-6 text-blue-500" />;
   };
 
-  const renderForecast = (data, location) => {
-    if (!data || !data.daily) {
-      console.log('No weather data available for', location, data);
-      return <div className="text-gray-500">Chargement des données météo…</div>;
+  const renderForecast = (data, location = 'inconnu') => {
+    // Vérification plus robuste des données manquantes
+    if (!data || data.error || !data.daily) {
+      console.log('No weather data available for', location, data?.error || 'No data');
+      return (
+        <div className="text-gray-500 p-4 bg-gray-50 rounded-lg">
+          {data?.error || 'Chargement des données météo…'}
+        </div>
+      );
     }
     
-    const days = data.daily?.time || [];
+    // Vérification des données quotidiennes
+    const days = Array.isArray(data.daily?.time) ? data.daily.time : [];
     if (days.length === 0) {
-      return <div className="text-gray-500">Aucune donnée météo disponible</div>;
+      return (
+        <div className="text-gray-500 p-4 bg-yellow-50 rounded-lg">
+          Aucune donnée météo disponible pour le moment
+        </div>
+      );
     }
     
     return (
@@ -694,7 +701,7 @@ function App() {
               </CardHeader>
               <CardContent>
                 <div className="text-gray-700 mb-3">Actuel: {weather.tignes?.current?.temperature_2m ?? '--'}°C</div>
-                {renderForecast(weather.tignes)}
+                {renderForecast(weather.tignes, 'tignes')}
               </CardContent>
             </Card>
             <Card>
@@ -703,7 +710,7 @@ function App() {
               </CardHeader>
               <CardContent>
                 <div className="text-gray-700 mb-3">Actuel: {weather.val?.current?.temperature_2m ?? '--'}°C</div>
-                {renderForecast(weather.val)}
+                {renderForecast(weather.val, 'val')}
               </CardContent>
             </Card>
           </div>
@@ -757,15 +764,16 @@ function App() {
           <div className="relative overflow-hidden rounded-xl shadow-xl">
             {/* Images du carrousel */}
             <div className="relative h-96">
-              {carouselImages.map((image, index) => (
+              {Array.from({ length: totalImages }).map((_, index) => (
                 <div 
                   key={index}
                   className={`absolute inset-0 transition-opacity duration-1000 ${index === currentSlide ? 'opacity-100' : 'opacity-0'}`}
                 >
                   <img 
-                    src={image} 
-                    alt={`Paysage enneigé ${index + 1}`}
+                    src={getCarouselImage(index)} 
+                    alt={galleryAltTexts[index] || `Paysage enneigé ${index + 1}`}
                     className="w-full h-full object-cover"
+                    loading="lazy"
                   />
                 </div>
               ))}
@@ -793,7 +801,7 @@ function App() {
               
               {/* Indicateurs de diapositives */}
               <div className="absolute bottom-4 left-0 right-0 flex justify-center space-x-2">
-                {carouselImages.map((_, index) => (
+                {Array.from({ length: totalImages }).map((_, index) => (
                   <button
                     key={index}
                     onClick={() => setCurrentSlide(index)}
@@ -814,7 +822,7 @@ function App() {
                 {currentSlide === 4 && "Panorama montagneux sous la neige"}
               </p>
               <p className="text-sm text-gray-500 mt-1">
-                {currentSlide + 1} / {carouselImages.length}
+                {currentSlide + 1} / {totalImages}
               </p>
             </div>
           </div>
