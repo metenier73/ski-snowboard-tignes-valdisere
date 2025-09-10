@@ -4,6 +4,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import {
   BookOpen,
   Calendar,
+  ChevronDown,
   CloudFog,
   CloudHail,
   CloudLightning,
@@ -347,25 +348,46 @@ function App() {
             </div>
             
             {/* Desktop Navigation */}
-            <nav className="hidden md:flex space-x-6">
+            <nav className="hidden md:flex space-x-6 items-center">
               <a href="#home" className="nav-link">
                 <Snowflake className="nav-snowflake h-3.5 w-3.5" /> {t.nav.home}
               </a>
               <a href="#about" className="nav-link">
                 <Snowflake className="nav-snowflake h-3.5 w-3.5" /> {t.nav.about}
               </a>
-              <a href="#services" className="nav-link">
-                <Snowflake className="nav-snowflake h-3.5 w-3.5" /> {t.nav.services}
-              </a>
-              <a href="#blog" className="nav-link">
-                <Snowflake className="nav-snowflake h-3.5 w-3.5" /> {t.nav.blog}
-              </a>
-              <a href="#weather" className="nav-link">
-                <Snowflake className="nav-snowflake h-3.5 w-3.5" /> {t.nav.weather}
-              </a>
-              <a href="#avalanche" className="nav-link">
-                <Snowflake className="nav-snowflake h-3.5 w-3.5" /> {t.nav.avalanche}
-              </a>
+              
+              {/* Menu Services déroulant */}
+              <div className="relative group">
+                <button className="nav-link flex items-center">
+                  <Snowflake className="nav-snowflake h-3.5 w-3.5" /> {t.nav.services}
+                  <ChevronDown className="ml-1 h-4 w-4 transition-transform group-hover:rotate-180" />
+                </button>
+                <div className="absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+                  <a href="#services" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                    Tous les services
+                  </a>
+                  <a href="#blog" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                    {t.nav.blog}
+                  </a>
+                </div>
+              </div>
+              
+              {/* Menu Météo déroulant */}
+              <div className="relative group">
+                <button className="nav-link flex items-center">
+                  <Snowflake className="nav-snowflake h-3.5 w-3.5" /> {t.nav.weather}
+                  <ChevronDown className="ml-1 h-4 w-4 transition-transform group-hover:rotate-180" />
+                </button>
+                <div className="absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+                  <a href="#weather" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                    Prévisions météo
+                  </a>
+                  <a href="#avalanche" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                    {t.nav.avalanche}
+                  </a>
+                </div>
+              </div>
+              
               <a href="#gallery" className="nav-link">
                 <Snowflake className="nav-snowflake h-3.5 w-3.5" /> {t.nav.gallery}
               </a>
@@ -409,17 +431,59 @@ function App() {
 
           {/* Mobile Navigation */}
           {isMenuOpen && (
-            <div className="md:hidden py-4 border-t border-gray-200">
+            <div className="md:hidden py-2 border-t border-gray-200">
               <nav className="flex flex-col space-y-1">
-                <a href="#home" className="py-2 nav-link">{t.nav.home}</a>
-                <a href="#about" className="py-2 nav-link">{t.nav.about}</a>
-                <a href="#services" className="py-2 nav-link">{t.nav.services}</a>
-                <a href="#blog" className="py-2 nav-link">{t.nav.blog}</a>
-                <a href="#weather" className="py-2 nav-link">{t.nav.weather}</a>
-                <a href="#avalanche" className="py-2 nav-link">{t.nav.avalanche}</a>
-                <a href="#gallery" className="py-2 nav-link">{t.nav.gallery}</a>
-                <a href="#booking" className="py-2 nav-link">{t.nav.booking}</a>
-                <a href="#contact" className="py-2 nav-link">{t.nav.contact}</a>
+                <a href="#home" className="py-3 px-4 nav-link flex items-center">
+                  <Snowflake className="h-4 w-4 mr-2" />
+                  {t.nav.home}
+                </a>
+                <a href="#about" className="py-3 px-4 nav-link flex items-center">
+                  <Snowflake className="h-4 w-4 mr-2" />
+                  {t.nav.about}
+                </a>
+                
+                <div className="border-t border-gray-100 my-1"></div>
+                
+                <div>
+                  <div className="py-2 px-4 font-medium text-gray-500 text-sm uppercase tracking-wider">
+                    {t.nav.services}
+                  </div>
+                  <a href="#services" className="py-2 pl-8 pr-4 nav-link block text-gray-700 hover:bg-gray-50">
+                    Tous les services
+                  </a>
+                  <a href="#blog" className="py-2 pl-8 pr-4 nav-link block text-gray-700 hover:bg-gray-50">
+                    {t.nav.blog}
+                  </a>
+                </div>
+                
+                <div className="border-t border-gray-100 my-1"></div>
+                
+                <div>
+                  <div className="py-2 px-4 font-medium text-gray-500 text-sm uppercase tracking-wider">
+                    {t.nav.weather}
+                  </div>
+                  <a href="#weather" className="py-2 pl-8 pr-4 nav-link block text-gray-700 hover:bg-gray-50">
+                    Prévisions météo
+                  </a>
+                  <a href="#avalanche" className="py-2 pl-8 pr-4 nav-link block text-gray-700 hover:bg-gray-50">
+                    {t.nav.avalanche}
+                  </a>
+                </div>
+                
+                <div className="border-t border-gray-100 my-1"></div>
+                
+                <a href="#gallery" className="py-3 px-4 nav-link flex items-center">
+                  <Snowflake className="h-4 w-4 mr-2" />
+                  {t.nav.gallery}
+                </a>
+                <a href="#booking" className="py-3 px-4 nav-link flex items-center">
+                  <Snowflake className="h-4 w-4 mr-2" />
+                  {t.nav.booking}
+                </a>
+                <a href="#contact" className="py-3 px-4 nav-link flex items-center">
+                  <Snowflake className="h-4 w-4 mr-2" />
+                  {t.nav.contact}
+                </a>
               </nav>
             </div>
           )}
