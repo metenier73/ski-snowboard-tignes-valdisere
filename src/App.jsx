@@ -723,28 +723,128 @@ function App() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-8">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 flex items-center justify-center gap-2">
-              <ShieldAlert className="h-7 w-7 text-blue-600" /> Risques d’avalanche & Sécurité
+              <ShieldAlert className="h-7 w-7 text-blue-600" /> Risques d'avalanche & Sécurité
             </h2>
           </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+            <Card>
+              <CardHeader>
+                <CardTitle>Bulletin d'avalanche & Niveaux de risque</CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                <div>
+                  <h3 className="font-semibold mb-2">Bulletins officiels :</h3>
+                  <ul className="list-disc pl-5 text-gray-700 space-y-1">
+                    <li>
+                      <a className="text-blue-600 hover:underline" href="http://www.meteo.fr/meteonet/temps/activite/mont/AVAL/DEPT73.html" target="_blank" rel="noreferrer">
+                        METEO FRANCE : Temps prévu sur la France (Savoie)
+                      </a>
+                    </li>
+                    <li>
+                      <a className="text-blue-600 hover:underline" href="https://meteofrance.com/bulletin-avalanches" target="_blank" rel="noreferrer">
+                        METEO FRANCE - Bulletins d'estimation du risque d'avalanche
+                      </a>
+                    </li>
+                    <li>
+                      <a className="text-blue-600 hover:underline" href="https://www.anena.org/" target="_blank" rel="noreferrer">
+                        ANENA - Association Nationale pour l'Étude de la Neige et des Avalanches
+                      </a>
+                    </li>
+                    <li>
+                      <a className="text-blue-600 hover:underline" href="https://www.avalanches.org/" target="_blank" rel="noreferrer">
+                        European Avalanche Services - Alps
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </CardContent>
+            </Card>
+            
+            <Card>
+              <CardHeader>
+                <CardTitle>Météo & Enneigement</CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                <div>
+                  <h3 className="font-semibold mb-2">Val d'Isère :</h3>
+                  <ul className="list-disc pl-5 text-gray-700 space-y-1">
+                    <li>
+                      <a className="text-blue-600 hover:underline" href="https://www.valdisere.com/live/enneigement/" target="_blank" rel="noreferrer">
+                        État des pistes et enneigement en direct
+                      </a>
+                    </li>
+                    <li>
+                      <a className="text-blue-600 hover:underline" href="https://www.valdisere.com/live/meteo-a-val-disere/" target="_blank" rel="noreferrer">
+                        Météo à Val d'Isère & ouverture du col de l'Iseran
+                      </a>
+                    </li>
+                    <li>
+                      <a className="text-blue-600 hover:underline" href="https://valdisere.roundshot.com/" target="_blank" rel="noreferrer">
+                        Webcams Val d'Isère en direct
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+                <div>
+                  <h3 className="font-semibold mb-2">Tignes :</h3>
+                  <ul className="list-disc pl-5 text-gray-700 space-y-1">
+                    <li>
+                      <a className="text-blue-600 hover:underline" href="https://www.snowtrex.fr/france/val_disere/meteo.html" target="_blank" rel="noreferrer">
+                        Météo et prévisions neige à Tignes
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+          
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <Card>
               <CardHeader>
-                <CardTitle>Niveau de risque (1-5)</CardTitle>
+                <CardTitle>Équipement de sécurité</CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="text-gray-700">Consultez le bulletin: <a className="text-blue-600 hover:underline" href="https://meteofrance.com/bulletin-avalanches" target="_blank" rel="noreferrer">Météo-France</a></p>
+                <ul className="list-disc pl-5 text-gray-700 space-y-2">
+                  <li><strong>Équipement obligatoire hors-piste :</strong>
+                    <ul className="list-[circle] pl-5 mt-1 space-y-1">
+                      <li>Détecteur de Victimes d'Avalanches (DVA)</li>
+                      <li>Pelle</li>
+                      <li>Sonde</li>
+                    </ul>
+                  </li>
+                  <li><strong>Équipement recommandé :</strong>
+                    <ul className="list-[circle] pl-5 mt-1 space-y-1">
+                      <li>Sac airbag</li>
+                      <li>Casque</li>
+                      <li>Gilet airbag</li>
+                      <li>Kit de premiers secours</li>
+                      <li>Téléphone portable chargé</li>
+                    </ul>
+                  </li>
+                  <li>Initiation à la recherche de victimes d'avalanche disponible avec votre monitrice</li>
+                </ul>
               </CardContent>
             </Card>
+            
             <Card>
               <CardHeader>
-                <CardTitle>Équipement & Initiation DVA</CardTitle>
+                <CardTitle>Conseils de sécurité</CardTitle>
               </CardHeader>
               <CardContent>
-                <ul className="list-disc pl-5 text-gray-700 space-y-1">
-                  <li>Pack DVA + pelle + sonde obligatoire hors-piste</li>
-                  <li>Sac airbag recommandé selon conditions</li>
-                  <li>Initiation recherche de victime avec monitrice</li>
+                <ul className="list-disc pl-5 text-gray-700 space-y-2">
+                  <li>Consultez toujours le bulletin d'avalanche avant de partir</li>
+                  <li>Ne partez jamais seul en hors-piste</li>
+                  <li>Informez quelqu'un de votre itinéraire et de votre heure de retour</li>
+                  <li>Respectez les zones sécurisées et la signalisation des pistes</li>
+                  <li>Adaptez votre itinéraire en fonction des conditions météorologiques</li>
+                  <li>En cas d'accident, composez le 112 (numéro d'urgence européen)</li>
                 </ul>
+                <div className="mt-4 p-4 bg-yellow-50 rounded-md border-l-4 border-yellow-400">
+                  <p className="text-yellow-700 font-medium">
+                    La sécurité en montagne est l'affaire de tous. En cas de doute, renoncez ou faites appel à un professionnel.
+                  </p>
+                </div>
               </CardContent>
             </Card>
           </div>
