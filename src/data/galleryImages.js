@@ -1,10 +1,17 @@
-// Images de la galerie (directement des URLs fiables)
+// Images de la galerie (chemins locaux)
+const basePath = '/ski-snowboard-tignes-valdisere';
 const galleryImages = [
-  'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=800&q=80', // Montagnes enneigées impressionnantes
-  'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=800&q=80', // Vue panoramique des Alpes
-  'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=800&q=80',  // Cimes enneigées au lever du soleil
-  'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=800&q=80',  // Paysage alpin hivernal
-  'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=800&q=80'   // Montagnes majestueuses
+  `${basePath}/images/gallery/montagne.jpg`,
+  `${basePath}/images/gallery/tignes1.png`,
+  `${basePath}/images/gallery/tignes2.png`,
+  `${basePath}/images/gallery/tignes3.png`,
+  `${basePath}/images/gallery/tignes.png`,
+  `${basePath}/images/gallery/tignes (1).png`,
+  `${basePath}/images/gallery/tignes (2).png`,
+  `${basePath}/images/gallery/tignes (3).png`,
+  `${basePath}/images/gallery/tignes (4).png`,
+  `${basePath}/images/gallery/tignes (5).png`,
+  `${basePath}/images/gallery/placeholder1.jpg`
 ];
 
 // Fonction pour obtenir une image de la galerie
@@ -13,11 +20,17 @@ export const getGalleryImage = (index) => {
 };
 
 export const galleryAltTexts = [
-  'Montagnes enneigées impressionnantes sous un ciel bleu',
-  'Vue panoramique des Alpes en hiver',
-  'Cimes enneigées des Alpes au lever du soleil',
-  'Paysage alpin hivernal avec forêt enneigée',
-  'Montagnes majestueuses sous un ciel dégagé'
+  'Paysage montagneux enneigé',
+  'Vue panoramique sur les montagnes',
+  'Station de ski Tignes',
+  'Paysage hivernal à Tignes',
+  'Domaine skiable de Tignes',
+  'Pistes de ski ensoleillées',
+  'Vue aérienne de la station',
+  'Paysage alpin en hiver',
+  'Télésiège de Tignes',
+  'Poudreuse fraîche sur les pistes',
+  'Panorama montagneux hivernal'
 ];
 
 // Nombre total d'images disponibles
