@@ -1,0 +1,12 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://votresite.com/sitemap.xml
+
+# Désactiver les dossiers inutiles au référencement
+Disallow: /node_modules/
+Disallow: /src/
+Disallow: /api/
+
+# Paramètres de crawl
+Crawl-delay: 10
