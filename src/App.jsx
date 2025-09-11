@@ -88,7 +88,7 @@ function App() {
       services: {
         title: 'Mes Services',
         web: {
-          title: 'Cours Privés de Ski',
+          title: 'Cours de Ski',
           description: 'À Tignes et Val d\'Isère, des cours adaptés à chaque profil :\n\n• Débutant : apprendre les bases en confiance\n• Intermédiaire : améliorer technique et fluidité\n• Avancé : perfectionnement et pistes rouges/noires\n\nUn suivi individuel pour une progression personnalisée.'
         },
         mobile: {
@@ -736,13 +736,13 @@ function App() {
                   <h3 className="font-semibold mb-2">Bulletins officiels :</h3>
                   <ul className="list-disc pl-5 text-gray-700 space-y-1">
                     <li>
-                      <a className="text-blue-600 hover:underline" href="http://www.meteo.fr/meteonet/temps/activite/mont/AVAL/DEPT73.html" target="_blank" rel="noreferrer">
-                        METEO FRANCE : Temps prévu sur la France (Savoie)
+                      <a className="text-blue-600 hover:underline" href="https://meteofrance.com/previsions-meteo-france/val-d-isere/73150" target="_blank" rel="noreferrer">
+                        METEO FRANCE : Météo Val d'Isère
                       </a>
                     </li>
                     <li>
-                      <a className="text-blue-600 hover:underline" href="https://meteofrance.com/bulletin-avalanches" target="_blank" rel="noreferrer">
-                        METEO FRANCE - Bulletins d'estimation du risque d'avalanche
+                      <a className="text-blue-600 hover:underline" href="https://meteofrance.com/meteo-montagne/tignes/732961" target="_blank" rel="noreferrer">
+                        METEO FRANCE - Météo Tignes
                       </a>
                     </li>
                     <li>
