@@ -750,7 +750,7 @@ function App() {
               <CardContent>
                 <ul className="list-disc pl-5 text-gray-700 space-y-1">
                   <li>Ski: appuis progressifs, regard loin, rythme</li>
-                  <li>Snowboard: posture centrée, dissociation épaules/bassin</li>
+                  <li>Snowboard: posture centrée, aucune dissociation épaules/bassin</li>
                 </ul>
               </CardContent>
             </Card>
