@@ -82,13 +82,13 @@ function App() {
         title: 'À propos de MYRIAM',
         description: "Reconnue pour mon expertise, ma pédagogie et mon attrait pour le milieu montagnard.\n\nJ’enseigne aux enfants et aux adultes les bases du ski alpin et du Snowboard. J’associe compétences pédagogiques et approche personnalisée pour m'adapter aux besoins de chacun.\n\nAu fil des années, j'ai guidé des groupes de pratiquants sur des terrains variés en enseignant les techniques avancées de ski et les principes de sécurité.\n\n",
         experience: 'Années d\'expérience',
-        projects: 'Projets réalisés',
+        projects: 'Hors-pistes',
         clients: 'Clients satisfaits'
       },
       services: {
         title: 'Mes Services',
         web: {
-          title: 'Cours Privés de Ski',
+          title: 'Cours de Ski',
           description: 'À Tignes et Val d\'Isère, des cours adaptés à chaque profil :\n\n• Débutant : apprendre les bases en confiance\n• Intermédiaire : améliorer technique et fluidité\n• Avancé : perfectionnement et pistes rouges/noires\n\nUn suivi individuel pour une progression personnalisée.'
         },
         mobile: {
@@ -364,6 +364,9 @@ function App() {
               </a>
               
               {/* Menu Services déroulant */}
+              <a href="#booking" className="nav-link">
+                <Snowflake className="nav-snowflake h-3.5 w-3.5" /> {t.nav.booking}
+              </a>
               <div className="relative group">
                 <button className="nav-link flex items-center">
                   <Snowflake className="nav-snowflake h-3.5 w-3.5" /> {t.nav.services}
@@ -397,9 +400,6 @@ function App() {
               
               <a href="#gallery" className="nav-link">
                 <Snowflake className="nav-snowflake h-3.5 w-3.5" /> {t.nav.gallery}
-              </a>
-              <a href="#booking" className="nav-link">
-                <Snowflake className="nav-snowflake h-3.5 w-3.5" /> {t.nav.booking}
               </a>
               <a href="#contact" className="nav-link">
                 <Snowflake className="nav-snowflake h-3.5 w-3.5" /> {t.nav.contact}
@@ -451,6 +451,11 @@ function App() {
                 
                 <div className="border-t border-gray-100 my-1"></div>
                 
+                <a href="#booking" className="py-3 px-4 nav-link flex items-center">
+                  <Snowflake className="h-4 w-4 mr-2" />
+                  {t.nav.booking}
+                </a>
+                <div className="border-t border-gray-100 my-1"></div>
                 <div>
                   <div className="py-2 px-4 font-medium text-gray-500 text-sm uppercase tracking-wider">
                     {t.nav.services}
@@ -482,10 +487,6 @@ function App() {
                 <a href="#gallery" className="py-3 px-4 nav-link flex items-center">
                   <Snowflake className="h-4 w-4 mr-2" />
                   {t.nav.gallery}
-                </a>
-                <a href="#booking" className="py-3 px-4 nav-link flex items-center">
-                  <Snowflake className="h-4 w-4 mr-2" />
-                  {t.nav.booking}
                 </a>
                 <a href="#contact" className="py-3 px-4 nav-link flex items-center">
                   <Snowflake className="h-4 w-4 mr-2" />
@@ -588,6 +589,78 @@ function App() {
                 <CardDescription className="whitespace-pre-line">{t.services.design.description}</CardDescription>
               </CardContent>
             </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* Booking Section */}
+      <section id="booking" className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-8">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 flex items-center justify-center gap-2">
+              <Calendar className="h-7 w-7 text-blue-600" /> Réserver vos cours (Hiver 2025-2026)
+            </h2>
+          </div>
+          <div className="overflow-x-auto">
+            <table className="min-w-full text-left">
+              <thead>
+                <tr className="text-gray-600">
+                  <th className="py-2 pr-6">Semaine</th>
+                  <th className="py-2 pr-6">Dates</th>
+                  <th className="py-2 pr-6">Tarif horaire</th>
+                  <th className="py-2 pr-6">Tarif journée</th>
+                  <th className="py-2 pr-6">Remise après-midi</th>
+                  <th className="py-2 pr-6">Créneaux</th>
+                  <th className="py-2 pr-6">Action</th>
+                </tr>
+              </thead>
+              <tbody className="text-gray-800">
+                {[
+                  {w:'49',d:'30/11/2025 - 06/12/2025',h:'€79.00',j:'€495.00',r:'8%',c:'09:00-13:00 ; 13:00-16:30'},
+                  {w:'50',d:'07/12/2025 - 13/12/2025',h:'€89.00',j:'€522.00',r:'8%',c:'09:00-13:00 ; 13:00-16:30'},
+                  {w:'51',d:'14/12/2025 - 20/12/2025',h:'€100.00',j:'€600.00',r:'8%',c:'09:00-13:00 ; 13:00-16:30'},
+                  {w:'52',d:'21/12/2025 - 27/12/2025',h:'€105.00',j:'€670.00',r:'8%',c:'09:00-13:00 ; 13:00-16:30',rule:true},
+                  {w:'1',d:'28/12/2025 - 03/01/2026',h:'€115.00',j:'€699.00',r:'8%',c:'09:00-13:00 ; 13:00-16:30',rule:true},
+                  {w:'2',d:'04/01/2026 - 10/01/2026',h:'€95.00',j:'€580.00',r:'8%',c:'09:00-13:00 ; 13:00-16:30'},
+                  {w:'3',d:'11/01/2026 - 17/01/2026',h:'€92.00',j:'€590.00',r:'8%',c:'09:00-13:00 ; 13:00-16:30'},
+                  {w:'4',d:'18/01/2026 - 24/01/2026',h:'€91.00',j:'€586.00',r:'8%',c:'09:00-13:00 ; 13:00-16:30'},
+                  {w:'5',d:'25/01/2026 - 31/01/2026',h:'€90.00',j:'€550.00',r:'8%',c:'09:00-13:00 ; 13:00-16:30'},
+                  {w:'6',d:'01/02/2026 - 07/02/2026',h:'€105.00',j:'€610.00',r:'8%',c:'09:00-13:00 ; 13:00-16:30'},
+                  {w:'7',d:'08/02/2026 - 14/02/2026',h:'€110.00',j:'€670.00',r:'8%',c:'09:00-13:00 ; 13:00-16:30',rule:true},
+                  {w:'8',d:'15/02/2026 - 21/02/2026',h:'€131.00',j:'€851.00',r:'8%',c:'09:00-13:00 ; 13:00-16:30',rule:true},
+                  {w:'9',d:'22/02/2026 - 28/02/2026',h:'€120.00',j:'€699.00',r:'8%',c:'09:00-13:00 ; 13:00-16:30',rule:true},
+                  {w:'10',d:'01/03/2026 - 07/03/2026',h:'€105.00',j:'€600.00',r:'8%',c:'09:00-13:00 ; 13:00-16:30'},
+                  {w:'11',d:'08/03/2026 - 14/03/2026',h:'€99.00',j:'€570.00',r:'8%',c:'09:00-13:00 ; 13:00-16:30'},
+                  {w:'12',d:'15/03/2026 - 21/03/2026',h:'€110.00',j:'€560.00',r:'8%',c:'09:00-13:00 ; 13:00-16:30'},
+                  {w:'13',d:'22/03/2026 - 28/03/2026',h:'€95.00',j:'€511.00',r:'8%',c:'09:00-13:00 ; 13:00-16:30'},
+                  {w:'14',d:'29/03/2026 - 04/04/2026',h:'€115.00',j:'€673.00',r:'8%',c:'09:00-13:00 ; 13:00-16:30',rule:true},
+                  {w:'15',d:'05/04/2026 - 11/04/2026',h:'€111.00',j:'€650.00',r:'8%',c:'09:00-13:00 ; 13:00-16:30',rule:true},
+                  {w:'16',d:'12/04/2026 - 18/04/2026',h:'€110.00',j:'€620.00',r:'8%',c:'09:00-13:00 ; 13:00-16:30'},
+                  {w:'17',d:'19/04/2026 - 25/04/2026',h:'€110.00',j:'€620.00',r:'8%',c:'09:00-13:00 ; 13:00-16:30'},
+                  {w:'18',d:'26/04/2026 - 02/05/2026',h:'€99.00',j:'€600.00',r:'8%',c:'09:00-13:00 ; 13:00-16:30'},
+                ].map((row,idx)=> (
+                  <tr key={idx} className="border-b border-gray-200">
+                    <td className="py-3 pr-6">{row.w}</td>
+                    <td className="py-3 pr-6">{row.d}</td>
+                    <td className="py-3 pr-6">{row.h}</td>
+                    <td className="py-3 pr-6">{row.j}</td>
+                    <td className="py-3 pr-6">{row.r}</td>
+                    <td className="py-3 pr-6">{row.c}</td>
+                    <td className="py-3 pr-6">
+                      <a 
+                        href="https://maisonsport.com/fr/profile/927576662/myriam-m?omnisendContactID=65cb1772c613deaa1396a153&utm_campaign=automation%3A+Transactional+Flow+(6537bd845397fc850450a200)&utm_content=6537c00f5397fc850450a21a&utm_medium=email&utm_source=omnisend" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center px-3 py-1.5 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+                      >
+                        Réserver
+                      </a>
+                      {row.rule && <span className="ml-2 text-xs text-gray-500">+ Règle de réservation</span>}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
           </div>
         </div>
       </section>
@@ -723,28 +796,128 @@ function App() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-8">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 flex items-center justify-center gap-2">
-              <ShieldAlert className="h-7 w-7 text-blue-600" /> Risques d’avalanche & Sécurité
+              <ShieldAlert className="h-7 w-7 text-blue-600" /> Risques d'avalanche & Sécurité
             </h2>
           </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+            <Card>
+              <CardHeader>
+                <CardTitle>Bulletin d'avalanche & Niveaux de risque</CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                <div>
+                  <h3 className="font-semibold mb-2">Bulletins officiels :</h3>
+                  <ul className="list-disc pl-5 text-gray-700 space-y-1">
+                    <li>
+                      <a className="text-blue-600 hover:underline" href="https://meteofrance.com/previsions-meteo-france/val-d-isere/73150" target="_blank" rel="noreferrer">
+                        METEO FRANCE : Météo Val d'Isère
+                      </a>
+                    </li>
+                    <li>
+                      <a className="text-blue-600 hover:underline" href="https://meteofrance.com/meteo-montagne/tignes/732961" target="_blank" rel="noreferrer">
+                        METEO FRANCE - Météo Tignes
+                      </a>
+                    </li>
+                    <li>
+                      <a className="text-blue-600 hover:underline" href="https://www.anena.org/" target="_blank" rel="noreferrer">
+                        ANENA - Association Nationale pour l'Étude de la Neige et des Avalanches
+                      </a>
+                    </li>
+                    <li>
+                      <a className="text-blue-600 hover:underline" href="https://www.avalanches.org/" target="_blank" rel="noreferrer">
+                        European Avalanche Services - Alps
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </CardContent>
+            </Card>
+            
+            <Card>
+              <CardHeader>
+                <CardTitle>Météo & Enneigement</CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                <div>
+                  <h3 className="font-semibold mb-2">Val d'Isère :</h3>
+                  <ul className="list-disc pl-5 text-gray-700 space-y-1">
+                    <li>
+                      <a className="text-blue-600 hover:underline" href="https://www.valdisere.com/live/enneigement/" target="_blank" rel="noreferrer">
+                        État des pistes et enneigement en direct
+                      </a>
+                    </li>
+                    <li>
+                      <a className="text-blue-600 hover:underline" href="https://www.valdisere.com/live/meteo-a-val-disere/" target="_blank" rel="noreferrer">
+                        Météo à Val d'Isère & ouverture du col de l'Iseran
+                      </a>
+                    </li>
+                    <li>
+                      <a className="text-blue-600 hover:underline" href="https://valdisere.roundshot.com/" target="_blank" rel="noreferrer">
+                        Webcams Val d'Isère en direct
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+                <div>
+                  <h3 className="font-semibold mb-2">Tignes :</h3>
+                  <ul className="list-disc pl-5 text-gray-700 space-y-1">
+                    <li>
+                      <a className="text-blue-600 hover:underline" href="https://www.snowtrex.fr/france/val_disere/meteo.html" target="_blank" rel="noreferrer">
+                        Météo et prévisions neige à Tignes
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+          
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <Card>
               <CardHeader>
-                <CardTitle>Niveau de risque (1-5)</CardTitle>
+                <CardTitle>Équipement de sécurité</CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="text-gray-700">Consultez le bulletin: <a className="text-blue-600 hover:underline" href="https://meteofrance.com/bulletin-avalanches" target="_blank" rel="noreferrer">Météo-France</a></p>
+                <ul className="list-disc pl-5 text-gray-700 space-y-2">
+                  <li><strong>Équipement obligatoire hors-piste :</strong>
+                    <ul className="list-[circle] pl-5 mt-1 space-y-1">
+                      <li>Détecteur de Victimes d'Avalanches (DVA)</li>
+                      <li>Pelle</li>
+                      <li>Sonde</li>
+                    </ul>
+                  </li>
+                  <li><strong>Équipement recommandé :</strong>
+                    <ul className="list-[circle] pl-5 mt-1 space-y-1">
+                      <li>Sac airbag</li>
+                      <li>Casque</li>
+                      <li>Gilet airbag</li>
+                      <li>Kit de premiers secours</li>
+                      <li>Téléphone portable chargé</li>
+                    </ul>
+                  </li>
+                  <li>Initiation à la recherche de victimes d'avalanche disponible avec votre monitrice</li>
+                </ul>
               </CardContent>
             </Card>
+            
             <Card>
               <CardHeader>
-                <CardTitle>Équipement & Initiation DVA</CardTitle>
+                <CardTitle>Conseils de sécurité</CardTitle>
               </CardHeader>
               <CardContent>
-                <ul className="list-disc pl-5 text-gray-700 space-y-1">
-                  <li>Pack DVA + pelle + sonde obligatoire hors-piste</li>
-                  <li>Sac airbag recommandé selon conditions</li>
-                  <li>Initiation recherche de victime avec monitrice</li>
+                <ul className="list-disc pl-5 text-gray-700 space-y-2">
+                  <li>Consultez toujours le bulletin d'avalanche avant de partir</li>
+                  <li>Ne partez jamais seul en hors-piste</li>
+                  <li>Informez quelqu'un de votre itinéraire et de votre heure de retour</li>
+                  <li>Respectez les zones sécurisées et la signalisation des pistes</li>
+                  <li>Adaptez votre itinéraire en fonction des conditions météorologiques</li>
+                  <li>En cas d'accident, composez le 112 (numéro d'urgence européen)</li>
                 </ul>
+                <div className="mt-4 p-4 bg-yellow-50 rounded-md border-l-4 border-yellow-400">
+                  <p className="text-yellow-700 font-medium">
+                    La sécurité en montagne est l'affaire de tous. En cas de doute, renoncez ou faites appel à un professionnel.
+                  </p>
+                </div>
               </CardContent>
             </Card>
           </div>
@@ -829,82 +1002,6 @@ function App() {
         </div>
       </section>
 
-      {/* Booking Section */}
-      <section id="booking" className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-8">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 flex items-center justify-center gap-2">
-              <Calendar className="h-7 w-7 text-blue-600" /> Réserver vos cours (Hiver 2025-2026)
-            </h2>
-          </div>
-          <div className="overflow-x-auto">
-            <table className="min-w-full text-left">
-              <thead>
-                <tr className="text-gray-600">
-                  <th className="py-2 pr-6">Semaine</th>
-                  <th className="py-2 pr-6">Dates</th>
-                  <th className="py-2 pr-6">Tarif horaire</th>
-                  <th className="py-2 pr-6">Tarif journée</th>
-                  <th className="py-2 pr-6">Remise après-midi</th>
-                  <th className="py-2 pr-6">Créneaux</th>
-                  <th className="py-2 pr-6">Action</th>
-                </tr>
-              </thead>
-              <tbody className="text-gray-800">
-                {[
-                  {w:'49',d:'30/11/2025 - 06/12/2025',h:'€79.00',j:'€495.00',r:'8%',c:'09:00-13:00 ; 13:00-16:30'},
-                  {w:'50',d:'07/12/2025 - 13/12/2025',h:'€89.00',j:'€522.00',r:'8%',c:'09:00-13:00 ; 13:00-16:30'},
-                  {w:'51',d:'14/12/2025 - 20/12/2025',h:'€100.00',j:'€600.00',r:'8%',c:'09:00-13:00 ; 13:00-16:30'},
-                  {w:'52',d:'21/12/2025 - 27/12/2025',h:'€105.00',j:'€670.00',r:'8%',c:'09:00-13:00 ; 13:00-16:30',rule:true},
-                  {w:'1',d:'28/12/2025 - 03/01/2026',h:'€115.00',j:'€699.00',r:'8%',c:'09:00-13:00 ; 13:00-16:30',rule:true},
-                  {w:'2',d:'04/01/2026 - 10/01/2026',h:'€95.00',j:'€580.00',r:'8%',c:'09:00-13:00 ; 13:00-16:30'},
-                  {w:'3',d:'11/01/2026 - 17/01/2026',h:'€92.00',j:'€590.00',r:'8%',c:'09:00-13:00 ; 13:00-16:30'},
-                  {w:'4',d:'18/01/2026 - 24/01/2026',h:'€91.00',j:'€586.00',r:'8%',c:'09:00-13:00 ; 13:00-16:30'},
-                  {w:'5',d:'25/01/2026 - 31/01/2026',h:'€90.00',j:'€550.00',r:'8%',c:'09:00-13:00 ; 13:00-16:30'},
-                  {w:'6',d:'01/02/2026 - 07/02/2026',h:'€105.00',j:'€610.00',r:'8%',c:'09:00-13:00 ; 13:00-16:30'},
-                  {w:'7',d:'08/02/2026 - 14/02/2026',h:'€110.00',j:'€670.00',r:'8%',c:'09:00-13:00 ; 13:00-16:30',rule:true},
-                  {w:'8',d:'15/02/2026 - 21/02/2026',h:'€131.00',j:'€851.00',r:'8%',c:'09:00-13:00 ; 13:00-16:30',rule:true},
-                  {w:'9',d:'22/02/2026 - 28/02/2026',h:'€120.00',j:'€699.00',r:'8%',c:'09:00-13:00 ; 13:00-16:30',rule:true},
-                  {w:'10',d:'01/03/2026 - 07/03/2026',h:'€105.00',j:'€600.00',r:'8%',c:'09:00-13:00 ; 13:00-16:30'},
-                  {w:'11',d:'08/03/2026 - 14/03/2026',h:'€99.00',j:'€570.00',r:'8%',c:'09:00-13:00 ; 13:00-16:30'},
-                  {w:'12',d:'15/03/2026 - 21/03/2026',h:'€110.00',j:'€560.00',r:'8%',c:'09:00-13:00 ; 13:00-16:30'},
-                  {w:'13',d:'22/03/2026 - 28/03/2026',h:'€95.00',j:'€511.00',r:'8%',c:'09:00-13:00 ; 13:00-16:30'},
-                  {w:'14',d:'29/03/2026 - 04/04/2026',h:'€115.00',j:'€673.00',r:'8%',c:'09:00-13:00 ; 13:00-16:30',rule:true},
-                  {w:'15',d:'05/04/2026 - 11/04/2026',h:'€111.00',j:'€650.00',r:'8%',c:'09:00-13:00 ; 13:00-16:30',rule:true},
-                  {w:'16',d:'12/04/2026 - 18/04/2026',h:'€110.00',j:'€620.00',r:'8%',c:'09:00-13:00 ; 13:00-16:30'},
-                  {w:'17',d:'19/04/2026 - 25/04/2026',h:'€110.00',j:'€620.00',r:'8%',c:'09:00-13:00 ; 13:00-16:30'},
-                  {w:'18',d:'26/04/2026 - 02/05/2026',h:'€99.00',j:'€600.00',r:'8%',c:'09:00-13:00 ; 13:00-16:30'},
-                ].map((row,idx)=> (
-                  <tr key={idx} className="border-b border-gray-200">
-                    <td className="py-3 pr-6">{row.w}</td>
-                    <td className="py-3 pr-6">{row.d}</td>
-                    <td className="py-3 pr-6">{row.h}</td>
-                    <td className="py-3 pr-6">{row.j}</td>
-                    <td className="py-3 pr-6">{row.r}</td>
-                    <td className="py-3 pr-6">{row.c}</td>
-                    <td className="py-3 pr-6">
-                      <a 
-                        href="https://maisonsport.com/fr/profile/927576662/myriam-m?omnisendContactID=65cb1772c613deaa1396a153&utm_campaign=automation%3A+Transactional+Flow+(6537bd845397fc850450a200)&utm_content=6537c00f5397fc850450a21a&utm_medium=email&utm_source=omnisend" 
-                        target="_blank" 
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center px-3 py-1.5 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
-                      >
-                        Réserver
-                      </a>
-                      {row.rule && <span className="ml-2 text-xs text-gray-500">+ Règle de réservation</span>}
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-          <div className="mt-6 text-sm text-gray-600">
-            <p>
-              Vacances UK: Noël (13/12/2025–05/01/2026), Half term (16–20/02/2026), Easter (28/03–19/04/2026). Périodes de forte affluence: Sem. 51–2 et vacances UK.
-            </p>
-          </div>
-        </div>
-      </section>
 
       {/* Cancellation Policy Section */}
       <section id="cancellation" className="py-20 bg-gray-50">
