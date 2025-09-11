@@ -63,15 +63,18 @@
     "@eslint/js": "^8.57.0",
     "@types/react": "^18.3.12",
     "@types/react-dom": "^18.3.1",
-    "@vitejs/plugin-react": "^4.3.0",
-    "autoprefixer": "^10.4.20",
-    "eslint": "^8.57.0",
+    "@vitejs/plugin-react": "^4.2.1",
+    "autoprefixer": "^10.4.17",
+    "eslint": "^8.56.0",
+    "eslint-plugin-react": "^7.33.2",
     "eslint-plugin-react-hooks": "^4.6.0",
-    "eslint-plugin-react-refresh": "^0.4.20",
+    "eslint-plugin-react-refresh": "^0.4.6",
     "gh-pages": "^6.3.0",
     "globals": "^15.12.0",
-    "postcss": "^8.4.47",
-    "vite": "^7.1.5"
+    "postcss": "^8.4.35",
+    "vite": "^5.1.4",
+    "vite-plugin-image-optimizer": "^1.1.1",
+    "vite-plugin-pwa": "^0.17.4"
   },
   "packageManager": "pnpm@10.4.1+sha512.c753b6c3ad7afa13af388fa6d808035a008e30ea9993f58c6663e2bc5ff21679aa834db094987129aa4d488b86df57f7b634981b2f827cdcacc698cc0cfb88af"
 }
