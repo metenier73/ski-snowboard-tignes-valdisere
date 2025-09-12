@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Serveur</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        .success {
+            color: green;
+            font-weight: bold;
+        }
+        .error {
+            color: red;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Test du serveur Vite</h1>
+    <div id="status">
+        <p>Vérification de la connexion au serveur...</p>
+    </div>
+
+    <h2>Ressources statiques</h2>
+    <div id="static-resources">
+        <p>Test du chargement des images statiques :</p>
+        <div id="images-test"></div>
+    </div>
+
+    <script>
+        // Tester si le serveur répond
+        async function testServer() {
+            const statusDiv = document.getElementById('status');
+            
+            try {
+                // Tester une requête fetch vers le serveur
+                const response = await fetch('/');
+                if (response.ok) {
+                    statusDiv.innerHTML += `<p class="success">✓ Le serveur répond correctement</p>`;
+                } else {
+                    statusDiv.innerHTML += `<p class="error">✗ Le serveur a répondu avec le statut: ${response.status}</p>`;
+                }
+            } catch (error) {
+                statusDiv.innerHTML += `<p class="error">✗ Erreur de connexion au serveur: ${error.message}</p>`;
+            }
+
+            // Tester le chargement d'images
+            const images = [
+                '/images/gallery/montagne.jpg',
+                '/images/gallery/tignes1.png',
+                '/images/gallery/tignes2.png',
+                '/images/gallery/tignes3.png',
+                '/images/gallery/tignes.png',
+                '/images/gallery/tignes (5).png'
+            ];
+
+            const imagesContainer = document.getElementById('images-test');
+            
+            images.forEach(src => {
+                const img = new Image();
+                const imgContainer = document.createElement('div');
+                imgContainer.style.margin = '10px 0';
+                
+                img.onload = function() {
+                    imgContainer.innerHTML += `<p class="success">✓ Image chargée: ${src} (${this.naturalWidth}x${this.naturalHeight})</p>`;
+                };
+                
+                img.onerror = function() {
+                    imgContainer.innerHTML += `<p class="error">✗ Erreur de chargement: ${src}</p>`;
+                };
+                
+                img.src = src;
+                imgContainer.prepend(`<p>Test de: ${src}</p>`);                
+                imagesContainer.appendChild(imgContainer);
+            });
+        }
+
+        // Démarrer les tests
+        document.addEventListener('DOMContentLoaded', testServer);
+    </script>
+</body>
+</html>

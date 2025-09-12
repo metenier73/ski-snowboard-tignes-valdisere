@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Test Serveur Simple</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 2rem;
+      line-height: 1.6;
+    }
+    h1 {
+      color: #2c3e50;
+    }
+    .status {
+      background-color: #f8f9fa;
+      padding: 1rem;
+      border-radius: 4px;
+      margin: 1rem 0;
+      font-family: monospace;
+    }
+  </style>
+</head>
+<body>
+  <h1>Test de Serveur Simple</h1>
+  <p>Cette page est servie par un serveur Node.js simple.</p>
+  
+  <div class="status">
+    <p><strong>Statut:</strong> <span id="status">Chargement...</span></p>
+  </div>
+
+  <h2>Vérification JavaScript</h2>
+  <p>Le JavaScript fonctionne correctement si vous voyez un message de confirmation ci-dessous :</p>
+  <div id="js-check" style="padding: 1rem; background-color: #e9f7ef; border-radius: 4px;">
+    <!-- Le contenu sera ajouté par JavaScript -->
+  </div>
+
+  <script>
+    // Vérification que JavaScript fonctionne
+    document.addEventListener('DOMContentLoaded', function() {
+      const jsCheck = document.getElementById('js-check');
+      jsCheck.innerHTML = '✅ JavaScript fonctionne correctement !';
+      
+      const statusElement = document.getElementById('status');
+      statusElement.textContent = 'Connecté avec succès';
+      statusElement.style.color = 'green';
+      
+      // Essayer de faire une requête fetch
+      fetch('/api/test')
+        .then(response => response.text())
+        .then(data => {
+          console.log('Réponse de l\'API de test:', data);
+        })
+        .catch(error => {
+          console.error('Erreur de requête API:', error);
+        });
+    });
+  </script>
+</body>
+</html>

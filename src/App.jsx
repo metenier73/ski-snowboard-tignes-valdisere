@@ -1,7 +1,8 @@
 import Logo from '@/assets/Logo.png'
 import { Button } from '@/components/ui/button.jsx'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card.jsx'
-import { galleryAltTexts, getGalleryImage, totalImages } from '@/data/galleryImages'
+import { galleryAltTexts, getGalleryImage, totalImages } from '@/data/galleryImages';
+import OptimizedGallery from '@/components/gallery/OptimizedGallery';
 import {
   BookOpen,
   Calendar,
@@ -37,8 +38,33 @@ function App() {
   
   // Fonction pour obtenir l'URL d'une image de la galerie
   const getCarouselImage = (index) => {
-    return getGalleryImage(index);
+    try {
+      const imagePath = getGalleryImage(index);
+      console.log(`Chargement de l'image ${index}:`, imagePath);
+      return imagePath;
+    } catch (error) {
+      console.error('Erreur lors du chargement de l\'image:', error);
+      return '/images/fallback.jpg';
+    }
   };
+
+  // Effet pour charger les images de la galerie au montage du composant
+  useEffect(() => {
+    console.log('Chargement des images de la galerie...');
+    console.log('Nombre total d\'images:', totalImages);
+    
+    // Vérifier que toutes les images existent
+    for (let i = 0; i < totalImages; i++) {
+      const imgPath = getCarouselImage(i);
+      console.log(`Image ${i}:`, imgPath);
+      
+      // Précharger l'image
+      const img = new Image();
+      img.onload = () => console.log(`Image ${i} chargée avec succès:`, imgPath);
+      img.onerror = () => console.error(`Erreur de chargement de l'image ${i}:`, imgPath);
+      img.src = imgPath;
+    }
+  }, []);
 
   // Fonction pour passer à la diapositive suivante
   const nextSlide = () => {
@@ -71,7 +97,7 @@ function App() {
         avalanche: 'Avalanche',
         gallery: 'Galerie',
         booking: 'Réserver',
-        
+      
       },
       hero: {
         title: 'Cours de Ski & Snowboard',
@@ -162,6 +188,21 @@ function App() {
   const t = translations[currentLang]
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen)
+  
+  // Ferme le menu lors du clic sur un lien
+  const closeMenu = () => setIsMenuOpen(false)
+  
+  // Ferme le menu lors du redimensionnement de la fenêtre
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 768) { // md breakpoint
+        setIsMenuOpen(false)
+      }
+    }
+    
+    window.addEventListener('resize', handleResize)
+    return () => window.removeEventListener('resize', handleResize)
+  }, [])
 
   useEffect(() => {
     const fetchWeather = async () => {
@@ -356,16 +397,16 @@ function App() {
             
             {/* Desktop Navigation */}
             <nav className="hidden md:flex space-x-6 items-center">
-              <a href="#home" className="nav-link">
-                <Snowflake className="nav-snowflake h-3.5 w-3.5" /> {t.nav.home}
+              <a href="#home" className="nav-link" onClick={closeMenu}>
+                {t.nav.home}
               </a>
-              <a href="#about" className="nav-link">
-                <Snowflake className="nav-snowflake h-3.5 w-3.5" /> {t.nav.about}
+              <a href="#about" className="nav-link" onClick={closeMenu}>
+                {t.nav.about}
               </a>
               
               {/* Menu Services déroulant */}
-              <a href="#booking" className="nav-link">
-                <Snowflake className="nav-snowflake h-3.5 w-3.5" /> {t.nav.booking}
+              <a href="#booking" className="nav-link" onClick={closeMenu}>
+                {t.nav.booking}
               </a>
               <div className="relative group">
                 <button className="nav-link flex items-center">
@@ -427,72 +468,88 @@ function App() {
               </select>
               
               {/* Mobile menu button */}
-              <button
-                onClick={toggleMenu}
-                className="md:hidden p-2 rounded-md text-gray-700 hover:text-blue-600 hover:bg-gray-100 transition-colors"
-              >
-                {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-              </button>
+              <div className="md:hidden flex items-center">
+                <button
+                  onClick={toggleMenu}
+                  className="inline-flex items-center justify-center p-2 rounded-md text-gray-700 hover:text-blue-600 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-500 transition-colors duration-200"
+                  aria-expanded={isMenuOpen}
+                  aria-controls="mobile-menu"
+                >
+                  <span className="sr-only">Ouvrir le menu principal</span>
+                  {isMenuOpen ? (
+                    <X className="block h-6 w-6" aria-hidden="true" />
+                  ) : (
+                    <Menu className="block h-6 w-6" aria-hidden="true" />
+                  )}
+                </button>
+              </div>
             </div>
           </div>
 
           {/* Mobile Navigation */}
           {isMenuOpen && (
-            <div className="md:hidden py-2 border-t border-gray-200">
-              <nav className="flex flex-col space-y-1">
-                <a href="#home" className="py-3 px-4 nav-link flex items-center">
-                  <Snowflake className="h-4 w-4 mr-2" />
+            <div 
+              id="mobile-menu"
+              className={`md:hidden transition-all duration-300 ease-in-out overflow-hidden ${isMenuOpen ? 'max-h-96' : 'max-h-0'}`}
+            >
+              <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white shadow-lg rounded-b-lg">
+                <a
+                  href="#home"
+                  onClick={closeMenu}
+                  className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50 transition-colors duration-200"
+                >
                   {t.nav.home}
                 </a>
-                <a href="#about" className="py-3 px-4 nav-link flex items-center">
-                  <Snowflake className="h-4 w-4 mr-2" />
+                <a
+                  href="#about"
+                  onClick={closeMenu}
+                  className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50 transition-colors duration-200"
+                >
                   {t.nav.about}
                 </a>
-                
-                <div className="border-t border-gray-100 my-1"></div>
-                
-                <a href="#booking" className="py-3 px-4 nav-link flex items-center">
-                  <Snowflake className="h-4 w-4 mr-2" />
+                <a
+                  href="#booking"
+                  onClick={closeMenu}
+                  className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50 transition-colors duration-200"
+                >
                   {t.nav.booking}
                 </a>
-                <div className="border-t border-gray-100 my-1"></div>
-                <div>
-                  <div className="py-2 px-4 font-medium text-gray-500 text-sm uppercase tracking-wider">
-                    {t.nav.services}
-                  </div>
-                  <a href="#services" className="py-2 pl-8 pr-4 nav-link block text-gray-700 hover:bg-gray-50">
-                    Tous les services
-                  </a>
-                  <a href="#blog" className="py-2 pl-8 pr-4 nav-link block text-gray-700 hover:bg-gray-50">
-                    {t.nav.blog}
-                  </a>
-                </div>
-                
-                <div className="border-t border-gray-100 my-1"></div>
-                
-                <div>
-                  <div className="py-2 px-4 font-medium text-gray-500 text-sm uppercase tracking-wider">
-                    {t.nav.weather}
-                  </div>
-                  <a href="#weather" className="py-2 pl-8 pr-4 nav-link block text-gray-700 hover:bg-gray-50">
-                    Prévisions météo
-                  </a>
-                  <a href="#avalanche" className="py-2 pl-8 pr-4 nav-link block text-gray-700 hover:bg-gray-50">
-                    {t.nav.avalanche}
-                  </a>
-                </div>
-                
-                <div className="border-t border-gray-100 my-1"></div>
-                
-                <a href="#gallery" className="py-3 px-4 nav-link flex items-center">
-                  <Snowflake className="h-4 w-4 mr-2" />
+                <a
+                  href="#services"
+                  onClick={closeMenu}
+                  className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50 transition-colors duration-200"
+                >
+                  {t.nav.services}
+                </a>
+                <a
+                  href="#blog"
+                  onClick={closeMenu}
+                  className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50 transition-colors duration-200"
+                >
+                  {t.nav.blog}
+                </a>
+                <a
+                  href="#weather"
+                  onClick={closeMenu}
+                  className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50 transition-colors duration-200"
+                >
+                  {t.nav.weather}
+                </a>
+                <a
+                  href="#avalanche"
+                  onClick={closeMenu}
+                  className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50 transition-colors duration-200"
+                >
+                  {t.nav.avalanche}
+                </a>
+                <a
+                  href="#gallery"
+                  onClick={closeMenu}
+                  className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50 transition-colors duration-200"
+                >
                   {t.nav.gallery}
                 </a>
-                <a href="#contact" className="py-3 px-4 nav-link flex items-center">
-                  <Snowflake className="h-4 w-4 mr-2" />
-                  {t.nav.contact}
-                </a>
-              </nav>
+              </div>
             </div>
           )}
         </div>
@@ -926,7 +983,7 @@ function App() {
 
       {/* Gallery Section */}
       <section id="gallery" className="py-20 bg-gray-50">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 flex items-center justify-center gap-2">
               <ImagePlus className="h-7 w-7 text-blue-600" /> Galerie
@@ -934,71 +991,8 @@ function App() {
             <p className="text-gray-600">Découvrez les paysages enneigés de Tignes et Val d'Isère</p>
           </div>
           
-          <div className="relative overflow-hidden rounded-xl shadow-xl">
-            {/* Images du carrousel */}
-            <div className="relative h-96">
-              {Array.from({ length: totalImages }).map((_, index) => (
-                <div 
-                  key={index}
-                  className={`absolute inset-0 transition-opacity duration-1000 ${index === currentSlide ? 'opacity-100' : 'opacity-0'}`}
-                >
-                  <img 
-                    src={getCarouselImage(index)} 
-                    alt={galleryAltTexts[index] || `Paysage enneigé ${index + 1}`}
-                    className="w-full h-full object-cover"
-                    loading="lazy"
-                  />
-                </div>
-              ))}
-              
-              {/* Boutons de navigation */}
-              <button 
-                onClick={prevSlide}
-                className="absolute left-4 top-1/2 -translate-y-1/2 bg-black/30 hover:bg-black/50 text-white rounded-full p-2 transition-colors"
-                aria-label="Image précédente"
-              >
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-                </svg>
-              </button>
-              
-              <button 
-                onClick={nextSlide}
-                className="absolute right-4 top-1/2 -translate-y-1/2 bg-black/30 hover:bg-black/50 text-white rounded-full p-2 transition-colors"
-                aria-label="Image suivante"
-              >
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                </svg>
-              </button>
-              
-              {/* Indicateurs de diapositives */}
-              <div className="absolute bottom-4 left-0 right-0 flex justify-center space-x-2">
-                {Array.from({ length: totalImages }).map((_, index) => (
-                  <button
-                    key={index}
-                    onClick={() => setCurrentSlide(index)}
-                    className={`w-3 h-3 rounded-full transition-colors ${index === currentSlide ? 'bg-white' : 'bg-white/50'}`}
-                    aria-label={`Aller à l'image ${index + 1}`}
-                  />
-                ))}
-              </div>
-            </div>
-            
-            {/* Légende */}
-            <div className="bg-white p-4 text-center">
-              <p className="text-gray-700">
-                {currentSlide === 0 && "Vue imprenable sur les montagnes enneigées de Tignes"}
-                {currentSlide === 1 && "Paysage hivernal époustouflant dans les Alpes"}
-                {currentSlide === 2 && "Pentes enneigées parfaites pour le ski et le snowboard"}
-                {currentSlide === 3 && "Forêt enneigée sous un ciel bleu éclatant"}
-                {currentSlide === 4 && "Panorama montagneux sous la neige"}
-              </p>
-              <p className="text-sm text-gray-500 mt-1">
-                {currentSlide + 1} / {totalImages}
-              </p>
-            </div>
-          </div>
+          {/* Utilisation du composant OptimizedGallery */}
+          <OptimizedGallery />
         </div>
       </section>
 

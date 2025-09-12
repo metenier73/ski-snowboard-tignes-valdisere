@@ -1,97 +1,96 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import path from 'path';
-import { VitePWA } from 'vite-plugin-pwa';
 
-export default defineConfig(({ mode }) => {
-  const isProduction = mode === 'production';
-  
-  return {
-    plugins: [
-      react(),
-      VitePWA({
-        registerType: 'autoUpdate',
-        includeAssets: ['favicon.ico', 'apple-touch-icon.png', 'masked-icon.svg'],
-        manifest: {
-          name: 'École de Ski Tignes - Val d\'Isère',
-          short_name: 'Ski Tignes',
-          description: 'Cours de ski et snowboard avec une monitrice diplômée sur le domaine de l\'Espace Killy',
-          theme_color: '#ffffff',
-          background_color: '#ffffff',
-          display: 'standalone',
-          icons: [
-            {
-              src: '/pwa-192x192.png',
-              sizes: '192x192',
-              type: 'image/png'
-            },
-            {
-              src: '/pwa-512x512.png',
-              sizes: '512x512',
-              type: 'image/png'
-            },
-            {
-              src: '/pwa-maskable-192x192.png',
-              sizes: '192x192',
-              type: 'image/png',
-              purpose: 'maskable'
-            },
-            {
-              src: '/pwa-maskable-512x512.png',
-              sizes: '512x512',
-              type: 'image/png',
-              purpose: 'maskable'
-            }
-          ]
-        }
-      })
-    ],
-    base: '/',
-    resolve: {
-      alias: {
-        '@': path.resolve(__dirname, './src')
-      }
+// Désactiver les source maps côté client
+process.env.VITE_DISABLE_SOURCEMAP = 'true';
+
+export default defineConfig({
+  plugins: [react({
+    // Réactive le Fast Refresh pour le débogage
+    fastRefresh: true,
+  })],
+  // Ignorer les avertissements de source maps manquants
+  optimizeDeps: {
+    exclude: ['@babel/runtime'],
+    esbuildOptions: {
+      target: 'es2020',
+      // Ignorer les erreurs de source maps manquants
+      logOverride: { 'this-is-undefined-in-esm': 'silent' },
     },
-    css: {
-      postcss: './postcss.config.cjs'
+  },
+  // Configuration du serveur de développement
+  server: {
+    port: 3000,
+    open: true,
+    host: '0.0.0.0',
+    // Configuration du HMR (Hot Module Replacement)
+    hmr: {
+      host: 'localhost',
+      port: 3000,
+      protocol: 'ws',
+      overlay: false, // Désactive l'overlay d'erreur HMR
     },
-    build: {
-      outDir: 'dist',
-      assetsDir: 'assets',
-      sourcemap: isProduction,
-      rollupOptions: {
-        output: {
-          manualChunks: {
-            'react-vendor': ['react', 'react-dom', 'react-router-dom'],
-            'ui-vendor': ['@radix-ui/react-*']
-          },
-          entryFileNames: 'assets/[name]-[hash].js',
-          chunkFileNames: 'assets/[name]-[hash].js',
-          assetFileNames: 'assets/[name]-[hash][extname]'
-        }
+    // Configuration du système de fichiers
+    fs: {
+      allow: ['..'], // Permet d'accéder aux fichiers en dehors de la racine du projet
+      strict: false, // Désactive les restrictions strictes sur les imports
+    },
+    // Configuration CORS pour le développement
+    cors: true,
+  },
+  build: {
+    outDir: 'dist',
+    assetsDir: 'assets',
+    // Désactiver complètement les source maps
+    sourcemap: false,
+    // Désactive les commentaires de sourcemap dans les fichiers de production
+    minify: 'terser',
+    terserOptions: {
+      format: {
+        comments: false,
       },
-      minify: isProduction ? 'terser' : false,
-      terserOptions: {
-        compress: {
-          drop_console: isProduction,
-          drop_debugger: isProduction
-        }
+    },
+    // Configuration pour les ressources statiques
+    assetsInlineLimit: 0, // Force l'inclusion des fichiers dans le bundle
+    rollupOptions: {
+      output: {
+        manualChunks: undefined,
+        assetFileNames: 'assets/[name].[hash].[ext]',
       },
-      chunkSizeWarningLimit: 1000
     },
-    esbuild: {
-      drop: isProduction ? ['console', 'debugger'] : []
-    },
-    server: {
-      port: 4000,
-      strictPort: true,
-      open: true,
-      host: true
-    },
-    preview: {
-      port: 4001,
-      strictPort: true,
-      open: false
+  },
+  resolve: {
+    alias: {
+      '@': path.resolve(__dirname, './src'),
+      // Alias pour le dossier public
+      '/public': path.resolve(__dirname, './public')
     }
-  };
+  },
+  // Active les logs de débogage
+  logLevel: 'info',
+  // Configuration pour les assets
+  publicDir: 'public',
+  // Configuration CSS
+  css: {
+    devSourcemap: true,
+    modules: {
+      scopeBehaviour: 'local',
+    },
+  },
+  // Configuration pour le développement
+  define: {
+    'process.env': {},
+    __VUE_OPTIONS_API__: true,
+    __VUE_PROD_DEVTOOLS__: false,
+  },
+  // Désactive la minification pour le débogage
+  esbuild: {
+    minify: false,
+  },
+  // Configuration pour le rechargement à chaud
+  optimizeDeps: {
+    include: ['react', 'react-dom'],
+    force: true,
+  },
 });

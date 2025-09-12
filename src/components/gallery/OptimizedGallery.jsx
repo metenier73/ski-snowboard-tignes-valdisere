@@ -10,6 +10,19 @@ const OptimizedGallery = () => {
   const [touchStart, setTouchStart] = useState(null);
   const [touchEnd, setTouchEnd] = useState(null);
 
+  // Effet pour le débogage
+  useEffect(() => {
+    console.log('OptimizedGallery - Montage du composant');
+    console.log('Nombre total d\'images:', totalImages);
+    
+    // Vérifier les chemins des images
+    console.log('Chemins des images:');
+    for (let i = 0; i < totalImages; i++) {
+      const imgPath = getGalleryImage(i);
+      console.log(`- Image ${i}: ${imgPath}`);
+    }
+  }, []);
+
   // Fonction pour passer à la diapositive suivante
   const nextSlide = () => {
     setCurrentSlide((prev) => (prev === totalImages - 1 ? 0 : prev + 1));
@@ -65,6 +78,16 @@ const OptimizedGallery = () => {
     
     // Mettre à jour l'URL avec le hash de la diapositive
     window.history.replaceState({}, '', `#slide-${currentSlide + 1}`);
+    
+    // Log de débogage
+    const currentImage = getGalleryImage(currentSlide);
+    const altText = galleryAltTexts[currentSlide % galleryAltTexts.length];
+    console.log('Chargement de l\'image:', {
+      index: currentSlide,
+      src: currentImage,
+      alt: altText,
+      totalImages: totalImages
+    });
   }, [currentSlide]);
 
   // Générer les points de navigation
