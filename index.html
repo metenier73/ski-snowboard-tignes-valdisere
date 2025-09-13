@@ -2,7 +2,8 @@
 <html lang="fr">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/x-icon" href="src/assets/Logo.png" />
+    <base href="/ski-snowboard-tignes-valdisere/" />
+    <link rel="icon" type="image/x-icon" href="/ski-snowboard-tignes-valdisere/src/assets/Logo.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     
@@ -46,7 +47,13 @@
   </head>
   <body>
     <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
+    <script type="module" src="/ski-snowboard-tignes-valdisere/src/main.jsx"></script>
+    <script>
+      // Vérification du chargement des ressources
+      window.addEventListener('error', function(e) {
+        console.error('Erreur de chargement de la ressource:', e);
+      });
+    </script>
     
     <!-- Start Single Page Apps for GitHub Pages -->
     <script type="text/javascript">
