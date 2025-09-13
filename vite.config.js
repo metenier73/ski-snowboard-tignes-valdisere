@@ -10,14 +10,17 @@ export default defineConfig({
     // Réactive le Fast Refresh pour le débogage
     fastRefresh: true,
   })],
-  // Ignorer les avertissements de source maps manquants
+  // Configuration pour désactiver les source maps
   optimizeDeps: {
     exclude: ['@babel/runtime'],
     esbuildOptions: {
       target: 'es2020',
-      // Ignorer les erreurs de source maps manquants
       logOverride: { 'this-is-undefined-in-esm': 'silent' },
     },
+  },
+  // Désactiver les source maps en développement
+  esbuild: {
+    sourcemap: false
   },
   // Configuration du serveur de développement
   server: {
@@ -38,6 +41,14 @@ export default defineConfig({
     },
     // Configuration CORS pour le développement
     cors: true,
+    // Configuration du proxy pour l'API Open-Meteo
+    proxy: {
+      '/api/weather': {
+        target: 'https://api.open-meteo.com',
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/api\/weather/, '/v1/forecast'),
+      },
+    },
   },
   build: {
     outDir: 'dist',

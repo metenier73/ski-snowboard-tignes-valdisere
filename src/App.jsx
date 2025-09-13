@@ -211,11 +211,11 @@ function App() {
         const endpoints = [
           {
             key: 'tignes',
-            url: 'https://api.open-meteo.com/v1/forecast?latitude=45.468&longitude=6.909&current=temperature_2m,weather_code&daily=temperature_2m_max,temperature_2m_min,precipitation_sum,snowfall_sum,weather_code&timezone=auto&forecast_days=7'
+            url: '/api/weather?latitude=45.468&longitude=6.909&current=temperature_2m,weather_code&daily=temperature_2m_max,temperature_2m_min,precipitation_sum,snowfall_sum,weather_code&timezone=auto&forecast_days=7'
           },
           {
             key: 'val',
-            url: 'https://api.open-meteo.com/v1/forecast?latitude=45.448&longitude=6.980&current=temperature_2m,weather_code&daily=temperature_2m_max,temperature_2m_min,precipitation_sum,snowfall_sum,weather_code&timezone=auto&forecast_days=7'
+            url: '/api/weather?latitude=45.448&longitude=6.980&current=temperature_2m,weather_code&daily=temperature_2m_max,temperature_2m_min,precipitation_sum,snowfall_sum,weather_code&timezone=auto&forecast_days=7'
           }
         ];
         
@@ -469,8 +469,8 @@ function App() {
               
               {/* Mobile menu button */}
               <div className="md:hidden flex items-center">
-                <button
-                  onClick={toggleMenu}
+              <button
+                onClick={toggleMenu}
                   className="inline-flex items-center justify-center p-2 rounded-md text-gray-700 hover:text-blue-600 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-500 transition-colors duration-200"
                   aria-expanded={isMenuOpen}
                   aria-controls="mobile-menu"
@@ -481,7 +481,7 @@ function App() {
                   ) : (
                     <Menu className="block h-6 w-6" aria-hidden="true" />
                   )}
-                </button>
+              </button>
               </div>
             </div>
           </div>
@@ -565,9 +565,9 @@ function App() {
             {t.hero.description}
           </p>
           <a href="#booking">
-            <Button size="lg" className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 text-lg">
-              {t.hero.cta}
-            </Button>
+          <Button size="lg" className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 text-lg">
+            {t.hero.cta}
+          </Button>
           </a>
         </div>
       </section>
