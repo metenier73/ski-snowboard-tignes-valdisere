@@ -10,17 +10,20 @@ export default defineConfig({
     // Réactive le Fast Refresh pour le débogage
     fastRefresh: true,
   })],
-  // Configuration pour désactiver les source maps
+  // Configuration pour optimiser les dépendances
   optimizeDeps: {
     exclude: ['@babel/runtime'],
+    include: ['react', 'react-dom'],
+    force: true,
     esbuildOptions: {
       target: 'es2020',
       logOverride: { 'this-is-undefined-in-esm': 'silent' },
     },
   },
-  // Désactiver les source maps en développement
+  // Configuration d'esbuild
   esbuild: {
-    sourcemap: false
+    sourcemap: false,
+    minify: false, // Désactive la minification pour le débogage
   },
   // Configuration du serveur de développement
   server: {
@@ -94,14 +97,5 @@ export default defineConfig({
     'process.env': {},
     __VUE_OPTIONS_API__: true,
     __VUE_PROD_DEVTOOLS__: false,
-  },
-  // Désactive la minification pour le débogage
-  esbuild: {
-    minify: false,
-  },
-  // Configuration pour le rechargement à chaud
-  optimizeDeps: {
-    include: ['react', 'react-dom'],
-    force: true,
   },
 });
