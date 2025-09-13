@@ -5,7 +5,10 @@ import path from 'path';
 // Désactiver les source maps côté client
 process.env.VITE_DISABLE_SOURCEMAP = 'true';
 
+// https://vitejs.dev/config/
 export default defineConfig({
+  // Définit le chemin de base pour le déploiement sur GitHub Pages
+  base: '/ski-snowboard-tignes-valdisere/',
   plugins: [react({
     // Réactive le Fast Refresh pour le débogage
     fastRefresh: true,
@@ -56,6 +59,14 @@ export default defineConfig({
   build: {
     outDir: 'dist',
     assetsDir: 'assets',
+    // Configuration pour éviter les problèmes de hachage des noms de fichiers
+    rollupOptions: {
+      output: {
+        entryFileNames: 'assets/[name].[hash].js',
+        chunkFileNames: 'assets/[name].[hash].js',
+        assetFileNames: 'assets/[name].[hash][extname]',
+      },
+    },
     // Désactiver complètement les source maps
     sourcemap: false,
     // Désactive les commentaires de sourcemap dans les fichiers de production
