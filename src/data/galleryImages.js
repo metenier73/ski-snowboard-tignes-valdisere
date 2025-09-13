@@ -1,14 +1,17 @@
 // Images de la galerie (chemins locaux)
-const basePath = ''; // Chemin de base vide car les images sont servies depuis la racine du site
+const basePath = '/ski-snowboard-tignes-valdisere';
 const galleryImages = [
-  // Chemins des images disponibles dans le dossier public
   `${basePath}/images/gallery/montagne.jpg`,
   `${basePath}/images/gallery/tignes1.png`,
   `${basePath}/images/gallery/tignes2.png`,
   `${basePath}/images/gallery/tignes3.png`,
   `${basePath}/images/gallery/tignes.png`,
-  `${basePath}/images/gallery/tignes (5).png`
-  // montagne1.jpg n'existe pas, elle a été supprimée de la liste
+  `${basePath}/images/gallery/tignes (1).png`,
+  `${basePath}/images/gallery/tignes (2).png`,
+  `${basePath}/images/gallery/tignes (3).png`,
+  `${basePath}/images/gallery/tignes (4).png`,
+  `${basePath}/images/gallery/tignes (5).png`,
+  `${basePath}/images/gallery/placeholder1.jpg`
 ];
 
 // Fonction pour obtenir une image de la galerie
@@ -22,7 +25,12 @@ export const galleryAltTexts = [
   'Station de ski Tignes',
   'Paysage hivernal à Tignes',
   'Domaine skiable de Tignes',
-  'Tignes sous la neige'
+  'Pistes de ski ensoleillées',
+  'Vue aérienne de la station',
+  'Paysage alpin en hiver',
+  'Télésiège de Tignes',
+  'Poudreuse fraîche sur les pistes',
+  'Panorama montagneux hivernal'
 ];
 
 // Nombre total d'images disponibles
