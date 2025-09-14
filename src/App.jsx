@@ -71,7 +71,7 @@ function App() {
         avalanche: 'Avalanche',
         gallery: 'Galerie',
         booking: 'Réserver',
-		contact: 'contact',
+		    contact: 'contact',
         
       },
       hero: {
@@ -121,7 +121,7 @@ function App() {
         avalanche: 'Avalanche',
         gallery: 'Gallery',
         booking: 'Book',
-		contact: 'Contact',
+		    contact: 'Contact',
         
       },
       hero: {

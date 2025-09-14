@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { ChevronDown, ChevronUp, ChevronRight, Menu, X } from 'lucide-react';
+import { ChevronDown, ChevronUp, Menu, X } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 const Navigation = ({ currentLang, setCurrentLang, translations }) => {
@@ -25,123 +25,36 @@ const Navigation = ({ currentLang, setCurrentLang, translations }) => {
 
   // Structure des menus déroulants
   const menuItems = [
-    {
-      id: 'home',
-      label: t.nav.home,
-      href: '#home',
-      submenu: [
-        { label: t.nav.about, href: '#about' }
-      ]
-    },
+    { id: 'home', label: t.nav.home, href: '#home' },
+    { id: 'about', label: t.nav.about, href: '#about' },
     {
       id: 'services',
       label: t.nav.services,
       submenu: [
         { label: 'Tous les services', href: '#services' },
+        { label: t.nav.booking, href: '#booking' },
         { label: t.nav.blog, href: '#blog' },
-        { 
-          label: t.nav.weather, 
-          href: '#weather',
-          submenu: [
-            { label: t.nav.avalanche, href: '#avalanche' }
-          ]
-        }
-      ]
+      ],
     },
-    { 
-      id: 'booking', 
-      label: t.nav.booking, 
-      href: '#booking' 
+    {
+      id: 'info',
+      label: 'Infos pratiques',
+      submenu: [
+        { label: t.nav.weather, href: '#weather' },
+        { label: t.nav.avalanche, href: '#avalanche' },
+      ],
     },
-    { 
-      id: 'gallery', 
-      label: t.nav.gallery, 
-      href: '#gallery' 
-    },
-    { 
-      id: 'contact', 
-      label: t.nav.contact, 
-      href: '#contact' 
-    }
+    { id: 'gallery', label: t.nav.gallery, href: '#gallery' },
+    { id: 'contact', label: t.nav.contact, href: '#contact' },
   ];
 
-  const toggleSubmenu = (id, event) => {
-    event.stopPropagation();
+  const toggleSubmenu = (id) => {
     setActiveSubmenu(activeSubmenu === id ? null : id);
   };
 
-  const handleMenuItemClick = (event, hasSubmenu = false) => {
-    if (!hasSubmenu) {
-      setIsMenuOpen(false);
-      setActiveSubmenu(null);
-    }
-  };
-  
-  const renderSubmenu = (items, level = 0) => {
-    return (
-      <ul 
-        className={cn(
-          'bg-white rounded-md shadow-lg',
-          'transition-all duration-200',
-          'overflow-hidden',
-          'z-50',
-          level > 0 ? 'ml-2 mt-1' : 'mt-1',
-          'border border-gray-100',
-          'min-w-[200px]'
-        )}
-      >
-        {items.map((item, index) => (
-          <li key={`${item.id || item.label}-${index}`} className="relative group">
-            {item.submenu ? (
-              <>
-                <button
-                  onClick={(e) => toggleSubmenu(`${item.id || item.label}-${index}`, e)}
-                  className={cn(
-                    'w-full flex items-center justify-between',
-                    'px-4 py-2',
-                    'text-gray-700 hover:bg-gray-50',
-                    'transition-colors duration-150',
-                    'hover:text-blue-600',
-                    'whitespace-nowrap',
-                    'border-b border-gray-50 last:border-0',
-                    'text-left',
-                    'group'
-                  )}
-                  aria-expanded={activeSubmenu === `${item.id || item.label}-${index}`}
-                  aria-haspopup="true"
-                >
-                  <span>{item.label}</span>
-                  <ChevronRight className="h-4 w-4 ml-2" />
-                </button>
-                {activeSubmenu === `${item.id || item.label}-${index}` && (
-                  <div className="relative">
-                    {renderSubmenu(item.submenu, level + 1)}
-                  </div>
-                )}
-              </>
-            ) : (
-              <a
-                href={item.href}
-                onClick={(e) => handleMenuItemClick(e, false)}
-                className={cn(
-                  'block px-4 py-2',
-                  'text-gray-700 hover:bg-gray-50',
-                  'transition-colors duration-150',
-                  'hover:text-blue-600',
-                  'whitespace-nowrap',
-                  'border-b border-gray-50 last:border-0',
-                  'flex items-center',
-                  'group'
-                )}
-              >
-                <span className="w-1.5 h-1.5 rounded-full bg-blue-500 mr-2 opacity-0 group-hover:opacity-100 transition-opacity"></span>
-                {item.label}
-              </a>
-            )}
-          </li>
-        ))}
-      </ul>
-    );
+  const handleMenuItemClick = () => {
+    setIsMenuOpen(false);
+    setActiveSubmenu(null);
   };
 
   return (
@@ -169,8 +82,7 @@ const Navigation = ({ currentLang, setCurrentLang, translations }) => {
           'z-50',
           'mt-2 md:mt-0',
           'rounded-b-lg md:rounded-none',
-          'border border-gray-100 md:border-none',
-          'py-2 md:py-0'
+          'border border-gray-100 md:border-none'
         )}
       >
         <ul className="flex flex-col md:flex-row md:items-center md:space-x-2 lg:space-x-4">
@@ -179,23 +91,21 @@ const Navigation = ({ currentLang, setCurrentLang, translations }) => {
               {item.submenu ? (
                 <>
                   <button
-                    onClick={(e) => toggleSubmenu(item.id, e)}
+                    onClick={() => toggleSubmenu(item.id)}
                     className={cn(
-                      'w-full md:w-auto flex items-center justify-between',
+                      'w-full md:w-auto flex items-center justify-between md:justify-center',
                       'px-4 py-3 md:px-3 md:py-2',
                       'text-gray-700 hover:text-blue-600',
                       'transition-colors duration-200',
                       'font-medium',
                       'rounded-md',
                       'hover:bg-gray-50 md:hover:bg-transparent',
-                      'text-left',
-                      'group',
-                      'md:group-hover:bg-gray-50',
-                      'md:group-hover:rounded-b-none',
-                      'relative'
+                      'text-left md:text-center',
+                      'group'
                     )}
                     aria-expanded={activeSubmenu === item.id}
                     aria-haspopup="true"
+                    aria-controls={`submenu-${item.id}`}
                   >
                     <span>{item.label}</span>
                     <span className="ml-2">
@@ -208,16 +118,49 @@ const Navigation = ({ currentLang, setCurrentLang, translations }) => {
                   </button>
                   
                   {/* Sous-menu */}
-                  {(activeSubmenu === item.id || isMenuOpen) && (
-                    <div className="md:absolute md:top-full md:left-0 md:z-50 md:pt-2">
-                      {renderSubmenu(item.submenu)}
-                    </div>
-                  )}
+                  <ul
+                    id={`submenu-${item.id}`}
+                    className={cn(
+                      'md:absolute md:top-full md:left-0',
+                      'md:bg-white md:rounded-md md:shadow-lg',
+                      'md:min-w-[200px]',
+                      'transition-all duration-200',
+                      'overflow-hidden',
+                      activeSubmenu === item.id || isMenuOpen
+                        ? 'max-h-96 opacity-100'
+                        : 'max-h-0 opacity-0 md:opacity-0 md:invisible',
+                      'md:group-hover:opacity-100 md:group-hover:visible md:group-hover:max-h-96',
+                      'md:border md:border-gray-100',
+                      'z-50'
+                    )}
+                  >
+                    {item.submenu.map((subItem, index) => (
+                      <li key={index}>
+                        <a
+                          href={subItem.href}
+                          onClick={handleMenuItemClick}
+                          className={cn(
+                            'block px-4 py-2',
+                            'text-gray-700 hover:bg-gray-50',
+                            'transition-colors duration-150',
+                            'hover:text-blue-600',
+                            'whitespace-nowrap',
+                            'flex items-center',
+                            'border-b border-gray-50 last:border-0',
+                            'md:border-b-0 md:last:border-0'
+                          )}
+                        >
+                          <span className="w-1.5 h-1.5 rounded-full bg-blue-500 mr-2 opacity-0 group-hover:opacity-100 transition-opacity"></span>
+                          {subItem.label}
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
                 </>
               ) : (
                 <a
                   href={item.href}
-                  onClick={(e) => handleMenuItemClick(e, false)}
+                  onClick={handleMenuItemClick}
                   className={cn(
                     'block px-4 py-3 md:px-3 md:py-2',
                     'text-gray-700 hover:text-blue-600',
@@ -247,7 +190,65 @@ const Navigation = ({ currentLang, setCurrentLang, translations }) => {
                 'px-3 py-1.5 text-sm',
                 'focus:outline-none focus:ring-2 focus:ring-blue-500',
                 'transition-colors',
-                'appearance-none bg-[url("data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'12\' height=\'12\' viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'currentColor\' stroke-width=\'2\' stroke-linecap=\'round\' stroke-linejoin=\'round\'%3E%3Cpolyline points=\'6 9 12 15 18 9\'%3E%3C/polyline%3E%3C/svg%3E")]',
+                'appearance-none bg-[url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E")]',
+                'bg-no-repeat bg-[right_0.5rem_center]',
+                'pr-8',
+                'cursor-pointer',
+                'hover:border-blue-400',
+                'focus:border-blue-500',
+                'dark:bg-gray-800 dark:border-gray-600 dark:text-white',
+                'dark:hover:border-blue-500',
+                'dark:focus:border-blue-500'
+              )}
+              aria-label="Sélectionner la langue"
+            >
+              <option value="fr">🇫🇷 FR</option>
+              <option value="en">🇬🇧 EN</option>
+            </select>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  );
+};
+
+export default Navigation;
+
+                'dark:hover:border-blue-500',
+                'dark:focus:border-blue-500'
+              )}
+              aria-label="Sélectionner la langue"
+            >
+              <option value="fr">🇫🇷 FR</option>
+              <option value="en">🇬🇧 EN</option>
+            </select>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  );
+};
+
+export default Navigation;
+
+                  {item.label}
+                </a>
+              )}
+            </li>
+          ))}
+
+          {/* Sélecteur de langue */}
+          <li className="mt-4 md:mt-0 md:ml-4 px-4 py-2 md:px-0 md:py-0">
+            <select
+              value={currentLang}
+              onChange={(e) => setCurrentLang(e.target.value)}
+              className={cn(
+                'w-full md:w-auto',
+                'bg-white border border-gray-300 rounded-md',
+                'px-3 py-1.5 text-sm',
+                'focus:outline-none focus:ring-2 focus:ring-blue-500',
+                'transition-colors',
+                'appearance-none bg-[url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E")]',
                 'bg-no-repeat bg-[right_0.5rem_center]',
                 'pr-8',
                 'cursor-pointer',
