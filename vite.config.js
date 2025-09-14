@@ -1,22 +1,39 @@
-import { defineConfig } from 'vite';
-import react from '@vitejs/plugin-react';
-import path from 'path';
+import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react'
+import path from 'path'
 
-export default defineConfig({
-  plugins: [react()],
-  server: {
-    port: 3000,
-    open: true,
-    host: '0.0.0.0',
-    hmr: true
-  },
-  resolve: {
-    alias: {
-      '@': path.resolve(__dirname, './src')
+// https://vite.dev/config/
+export default defineConfig(({ command, mode }) => {
+  const isProduction = mode === 'production'
+  
+  return {
+    plugins: [react()],
+    base: '/ski-snowboard-tignes-valdisere/',
+    resolve: {
+      alias: {
+        "@": path.resolve(__dirname, "./src"),
+      },
+    },
+    css: {
+      postcss: './postcss.config.cjs',
+    },
+    build: {
+      outDir: 'dist',
+      assetsDir: 'assets',
+      sourcemap: isProduction, // Désactive les sourcemaps en production
+    },
+    esbuild: {
+      drop: isProduction ? ['console', 'debugger'] : [], // Supprime les logs en production
+    },
+    server: {
+      port: 5173,
+      strictPort: true,
+      open: false
+    },
+    preview: {
+      port: 4173,
+      strictPort: true,
+      open: false
     }
-  },
-  build: {
-    outDir: 'dist',
-    sourcemap: true
   }
-});
+})
