@@ -1,0 +1,390 @@
+import React, { useState, useEffect, useRef } from 'react';
+import { ChevronDown, ChevronUp, Menu, X, Circle, Home, Info, Image, Calendar, Settings, BookOpen, CloudSun, ShieldAlert, Mail } from 'lucide-react';
+import { cn } from '@/lib/utils';
+
+const Navigation = ({ currentLang, setCurrentLang, translations }) => {
+  const [currentHash, setCurrentHash] = useState(typeof window !== 'undefined' ? (window.location.hash || '#home') : '#home');
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [activeSubmenu, setActiveSubmenu] = useState(null);
+  const menuRef = useRef(null);
+  const t = translations[currentLang];
+
+  // Icônes pour les items principaux
+  const getTopIcon = (id) => {
+    switch (id) {
+      case 'home':
+        return <Home className="h-4 w-4" />;
+      case 'services':
+        return <Settings className="h-4 w-4" />;
+      case 'info':
+        return <Info className="h-4 w-4" />;
+      case 'gallery':
+        return <Image className="h-4 w-4" />;
+      case 'contact':
+        return <Mail className="h-4 w-4" />;
+      default:
+        return <Circle className="h-3 w-3" />;
+    }
+  };
+
+  // Icônes pour les sous-items (basés sur le hash)
+  const getSubIcon = (href) => {
+    switch (href) {
+      case '#home':
+        return <Home className="h-4 w-4 text-blue-600 dark:text-blue-400" />;
+      case '#about':
+        return <Info className="h-4 w-4 text-blue-600 dark:text-blue-400" />;
+      case '#gallery':
+        return <Image className="h-4 w-4 text-blue-600 dark:text-blue-400" />;
+      case '#services':
+        return <Settings className="h-4 w-4 text-blue-600 dark:text-blue-400" />;
+      case '#booking':
+        return <Calendar className="h-4 w-4 text-blue-600 dark:text-blue-400" />;
+      case '#blog':
+        return <BookOpen className="h-4 w-4 text-blue-600 dark:text-blue-400" />;
+      case '#weather':
+        return <CloudSun className="h-4 w-4 text-blue-600 dark:text-blue-400" />;
+      case '#avalanche':
+        return <ShieldAlert className="h-4 w-4 text-blue-600 dark:text-blue-400" />;
+      case '#contact':
+        return <Mail className="h-4 w-4 text-blue-600 dark:text-blue-400" />;
+      default:
+        return <Circle className="h-3 w-3 text-blue-600 dark:text-blue-400" />;
+    }
+  };
+
+  // Gestion du clic en dehors du menu
+  useEffect(() => {
+    function handleClickOutside(event) {
+      if (menuRef.current && !menuRef.current.contains(event.target)) {
+        setIsMenuOpen(false);
+        setActiveSubmenu(null);
+      }
+    }
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
+
+  // Mise à jour du hash actif (desktop et mobile)
+  useEffect(() => {
+    function handleHashChange() {
+      setCurrentHash(window.location.hash || '#home');
+    }
+    handleHashChange();
+    window.addEventListener('hashchange', handleHashChange);
+    return () => window.removeEventListener('hashchange', handleHashChange);
+  }, []);
+
+  // Structure des menus déroulants
+  const menuItems = [
+    { 
+      id: 'home', 
+    label: t.nav.home, 
+    submenu: [
+      { label: 'Accueil', href: '#home' },
+      { label: 'A propos', href: '#about' },
+      { label: 'Galerie', href: '#gallery' },
+    ],
+    },
+        {
+      id: 'services',
+      label: t.nav.services,
+      submenu: [
+        { label: 'Tous les services', href: '#services' },
+        { label: t.nav.booking, href: '#booking' },
+        { label: t.nav.blog, href: '#blog' },
+      ],
+    },
+    {
+      id: 'info',
+      label: 'Infos pratiques',
+      submenu: [
+        { label: t.nav.weather, href: '#weather' },
+        { label: t.nav.avalanche, href: '#avalanche' },
+      ],
+    },
+    { id: 'gallery', label: t.nav.gallery, href: '#gallery' },
+    { id: 'contact', label: t.nav.contact, href: '#contact' },
+  ];
+
+  // Vérifie si un lien est actif (basé sur le hash)
+  const isActive = (href) => {
+    if (!href || href === '#') return false;
+    return href === currentHash;
+  };
+
+  const toggleSubmenu = (id) => {
+    setActiveSubmenu(activeSubmenu === id ? null : id);
+  };
+
+  const handleMenuItemClick = () => {
+    setIsMenuOpen(false);
+    setActiveSubmenu(null);
+  };
+
+  return (
+    <nav ref={menuRef} className="relative" role="navigation" aria-label="Navigation principale">
+      {/* Overlay pour le menu mobile */}
+      {isMenuOpen && (
+        <div 
+          className="fixed inset-0 bg-black/50 z-40 md:hidden"
+          onClick={() => setIsMenuOpen(false)}
+          aria-hidden="true"
+        />
+      )}
+      
+      {/* Bouton menu mobile */}
+      <div className="md:hidden z-50">
+        <button
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
+          className={cn(
+            'p-3 rounded-full transition-all duration-300',
+            'text-gray-700 hover:text-blue-600',
+            'bg-white/80 backdrop-blur-sm hover:bg-white',
+            'shadow-md hover:shadow-lg',
+            'fixed top-4 right-4',
+            'focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2',
+            'transform transition-transform hover:scale-105',
+            'flex items-center justify-center',
+            'w-12 h-12',
+            'dark:bg-gray-800/80 dark:text-white dark:hover:bg-gray-700'
+          )}
+          aria-expanded={isMenuOpen}
+          aria-label={isMenuOpen ? 'Fermer le menu' : 'Ouvrir le menu'}
+        >
+          {isMenuOpen ? (
+            <X className="h-6 w-6 transition-transform duration-300" aria-hidden="true" />
+          ) : (
+            <Menu className="h-6 w-6 transition-transform duration-300" aria-hidden="true" />
+          )}
+        </button>
+      </div>
+
+      {/* Menu principal */}
+      <div
+        className={cn(
+          'fixed md:relative inset-x-0 top-0 md:top-auto md:inset-x-auto',
+          'bg-white/95 backdrop-blur-md md:bg-transparent md:backdrop-blur-none',
+          'transition-all duration-300 ease-in-out transform',
+          'overflow-y-auto md:overflow-visible',
+          'z-50',
+          'md:mt-0',
+          'h-screen md:h-auto',
+          'pt-20 pb-8 md:pt-0 md:pb-0',
+          'shadow-xl md:shadow-none',
+          isMenuOpen 
+            ? 'translate-x-0 opacity-100 visible' 
+            : 'translate-x-full md:translate-x-0 opacity-0 md:opacity-100 invisible md:visible',
+          'md:visible md:translate-x-0',
+          'border-r border-gray-100 md:border-none',
+          'dark:bg-gray-900/95 dark:md:bg-transparent',
+          'w-4/5 max-w-sm md:w-auto md:max-w-none',
+          'md:ml-auto',
+          'md:block',
+          'right-0',
+          'scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-transparent',
+          'dark:scrollbar-thumb-gray-600'
+        )}
+      >
+        <ul className="flex flex-col md:flex-row md:items-center md:space-x-1 lg:space-x-2 px-4 md:px-0">
+          {menuItems.map((item) => (
+            <li key={item.id} className="relative group">
+              {item.submenu ? (
+                <>
+                  <button
+                    onClick={() => toggleSubmenu(item.id)}
+                    className={cn(
+                      'w-full flex items-center justify-between',
+                      'px-6 py-4 md:px-3 md:py-2',
+                      'text-gray-800 hover:text-blue-600 dark:text-gray-200 dark:hover:text-blue-400',
+                      'transition-all duration-200',
+                      'font-medium',
+                      'rounded-lg md:rounded-none',
+                      'hover:bg-gray-100 dark:hover:bg-gray-800 md:hover:bg-transparent',
+                      'text-left',
+                      'group',
+                      'relative',
+                      'overflow-hidden',
+                      'after:content-[""] after:absolute after:bottom-0 after:left-0',
+                      'after:h-0.5 after:w-0 after:bg-blue-600 dark:after:bg-blue-400',
+                      'after:transition-all after:duration-300',
+                      'hover:after:w-full',
+                      'focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2',
+                      'focus:ring-offset-white dark:focus:ring-offset-gray-900',
+                      'md:after:bottom-1',
+                      'md:after:left-1/2 md:after:-translate-x-1/2',
+                      'md:after:w-0 md:group-hover:after:w-4/5',
+                      isActive(item.href) && 'text-blue-600 dark:text-blue-400 after:w-full md:after:w-4/5',
+                      'dark:hover:text-blue-400',
+                      'md:px-4 md:py-2.5',
+                      'lg:px-5'
+                    )}
+                    aria-expanded={activeSubmenu === item.id}
+                    aria-haspopup="true"
+                    aria-controls={`submenu-${item.id}`}
+                  >
+                    <span className="flex items-center">
+                      <span className="mr-2 flex items-center justify-center">{getTopIcon(item.id)}</span>
+                      <span>{item.label}</span>
+                    </span>
+                    <span className="ml-2">
+                      {activeSubmenu === item.id ? (
+                        <ChevronUp className="h-4 w-4 inline-block" />
+                      ) : (
+                        <ChevronDown className="h-4 w-4 inline-block" />
+                      )}
+                    </span>
+                  </button>
+                  
+                  {/* Sous-menu */}
+                  <ul
+                    id={`submenu-${item.id}`}
+                    className={cn(
+                      'md:absolute md:top-full md:left-1/2 md:-translate-x-1/2',
+                      'bg-white dark:bg-gray-800 md:rounded-lg md:shadow-2xl',
+                      'min-w-[240px]',
+                      'transition-all duration-300 ease-out',
+                      'overflow-hidden',
+                      'border-t border-gray-100 dark:border-gray-700 md:border-t-0',
+                      'transform origin-top',
+                      activeSubmenu === item.id || isMenuOpen
+                        ? 'max-h-96 opacity-100 scale-y-100 translate-y-0'
+                        : 'max-h-0 opacity-0 scale-y-95 -translate-y-2 md:opacity-0 md:invisible md:scale-95',
+                      'md:group-hover:opacity-100 md:group-hover:visible md:group-hover:max-h-96 md:group-hover:scale-100',
+                      'md:border md:border-gray-200 dark:md:border-gray-700',
+                      'z-50',
+                      'py-1',
+                      'shadow-inner md:shadow-none',
+                      'backdrop-blur-sm bg-white/95 dark:bg-gray-800/95 md:bg-white md:dark:bg-gray-800'
+                    )}
+                    style={{
+                      transitionProperty: 'opacity, transform, max-height, visibility',
+                      transitionTimingFunction: 'cubic-bezier(0.4, 0, 0.2, 1)',
+                      transitionDuration: '200ms'
+                    }}
+                  >
+                    {item.submenu.map((subItem, index) => (
+                      <li key={index}>
+                        <a
+                          href={subItem.href}
+                          onClick={handleMenuItemClick}
+                          className={cn(
+                            'block px-6 py-3 md:px-4 md:py-2.5',
+                            'text-gray-700 hover:text-blue-600 dark:text-gray-300 dark:hover:text-blue-400',
+                            'bg-transparent hover:bg-gray-50 dark:hover:bg-gray-700/50',
+                            'transition-all duration-200',
+                            'whitespace-nowrap',
+                            'flex items-center',
+                            'border-b border-gray-100 dark:border-gray-700 last:border-0',
+                            'md:border-b-0 md:last:border-0',
+                            'group-hover:translate-x-1',
+                            'relative',
+                            'overflow-hidden',
+                            'pl-8 md:pl-4',
+                            'before:content-["»"] before:absolute before:left-4 before:opacity-0',
+                            'before:transition-all before:duration-200 before:-translate-x-2',
+                            'hover:before:opacity-100 hover:before:translate-x-0',
+                            'hover:pl-10 md:hover:pl-6',
+                            'focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2',
+                            'focus:ring-offset-white dark:focus:ring-offset-gray-800',
+                            'rounded-md mx-2',
+                            isActive(subItem.href) && 'text-blue-600 dark:text-blue-400 font-semibold bg-blue-50/50 dark:bg-blue-900/20',
+                            'dark:hover:bg-gray-700/70'
+                          )}
+                          aria-current={isActive(subItem.href) ? 'page' : undefined}
+                        >
+                          <span className="absolute left-4 md:left-0 flex items-center justify-center w-6 h-6 md:w-5 md:h-5 rounded-full group-hover:bg-blue-100 dark:group-hover:bg-blue-900/50 transition-colors duration-200">
+                            {getSubIcon(subItem.href)}
+                          </span>
+                          <span className="ml-6 md:ml-6">{subItem.label}</span>
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                </>
+              ) : (
+                <a
+                  href={item.href}
+                  onClick={handleMenuItemClick}
+                  className={cn(
+                    'block px-6 py-4 md:px-3 md:py-2',
+                    'text-gray-800 hover:text-blue-600 dark:text-gray-200 dark:hover:text-blue-400',
+                    'transition-all duration-200',
+                    'font-medium',
+                    'rounded-lg md:rounded-none',
+                    'hover:bg-gray-100 dark:hover:bg-gray-800 md:hover:bg-transparent',
+                    'flex items-center',
+                    'group',
+                    'relative',
+                    'after:content-[""] after:absolute after:bottom-0 after:left-0',
+                    'after:h-0.5 after:w-0 after:bg-blue-600 dark:after:bg-blue-400',
+                    'after:transition-all after:duration-300',
+                    'hover:after:w-full',
+                    'focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2',
+                    'focus:ring-offset-white dark:focus:ring-offset-gray-900',
+                    'md:after:bottom-1',
+                    'md:after:left-1/2 md:after:-translate-x-1/2',
+                    'md:after:w-0 md:group-hover:after:w-4/5',
+                    isActive(item.href) && 'text-blue-600 dark:text-blue-400 after:w-full md:after:w-4/5',
+                    'dark:hover:text-blue-400',
+                    'md:px-4 md:py-2.5',
+                    'lg:px-5'
+                  )}
+                  aria-current={isActive(item.href) ? 'page' : undefined}
+                >
+                  <span className="absolute left-4 md:left-0 flex items-center justify-center w-6 h-6 md:w-5 md:h-5 rounded-full group-hover:bg-blue-100 dark:group-hover:bg-blue-900/50 transition-colors duration-200">
+                    {getSubIcon(item.href)}
+                  </span>
+                  <span className="ml-6 md:ml-6">{item.label}</span>
+                </a>
+              )}
+            </li>
+          ))}
+
+          {/* Sélecteur de langue */}
+          <li className="mt-4 md:mt-0 md:ml-2 px-4 py-2 md:px-0 md:py-0">
+            <div className="relative">
+              <select
+                value={currentLang}
+                onChange={(e) => setCurrentLang(e.target.value)}
+                className={cn(
+                  'w-full md:w-auto',
+                  'bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm',
+                  'border border-gray-200 dark:border-gray-700',
+                  'px-4 py-2.5 pr-10 text-sm md:text-base',
+                  'focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2',
+                  'transition-all duration-200',
+                  'appearance-none',
+                  'rounded-full',
+                  'shadow-sm hover:shadow',
+                  'cursor-pointer',
+                  'hover:border-blue-400 dark:hover:border-blue-500',
+                  'focus:border-blue-500 dark:focus:border-blue-500',
+                  'text-gray-800 dark:text-gray-200',
+                  'dark:focus:ring-offset-gray-900',
+                  'font-medium',
+                  'pl-3',
+                  'h-11 md:h-10',
+                  'flex items-center',
+                  'hover:bg-white dark:hover:bg-gray-800'
+                )}
+                aria-label="Sélectionner la langue"
+              >
+                <option value="fr" className="bg-white dark:bg-gray-800">🇫🇷 Français</option>
+                <option value="en" className="bg-white dark:bg-gray-800">🇬🇧 English</option>
+              </select>
+              <div className="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none">
+                <ChevronDown className="h-4 w-4 text-gray-500 dark:text-gray-400" />
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  );
+};
+
+export default Navigation;

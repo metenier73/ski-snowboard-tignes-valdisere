@@ -20,15 +20,17 @@ export default defineConfig(({ command, mode }) => {
     build: {
       outDir: 'dist',
       assetsDir: 'assets',
-      sourcemap: isProduction, // Désactive les sourcemaps en production
+      sourcemap: false, // Désactive complètement les sourcemaps
     },
     esbuild: {
       drop: isProduction ? ['console', 'debugger'] : [], // Supprime les logs en production
+      sourcemap: false, // Désactive les sourcemaps esbuild
     },
     server: {
       port: 5173,
       strictPort: true,
-      open: false
+      open: false,
+      sourcemapIgnoreList: true, // Ignore les source maps en développement
     },
     preview: {
       port: 4173,

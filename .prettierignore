@@ -1,0 +1,21 @@
+# Dependencies and build outputs
+node_modules/
+dist/
+build/
+.eslintcache
+.pnp*
+.pnpm-store/
+
+# Vite caches
+.vite/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Misc
+coverage/
+.DS_Store
+Thumbs.db

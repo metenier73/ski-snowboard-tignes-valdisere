@@ -1,9 +1,11 @@
 import Logo from '@/assets/Logo.png'
+import RAGAssistant from '@/components/rag/RAGAssistant.jsx'
 import { Button } from '@/components/ui/button.jsx'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card.jsx'
 import { galleryAltTexts, getGalleryImage, totalImages } from '@/data/galleryImages'
 import {
   BookOpen,
+  Bot,
   Calendar,
   ChevronDown,
   CloudFog,
@@ -15,6 +17,7 @@ import {
   Cloudy,
   Compass,
   ImagePlus,
+  Image,
   Mail,
   MapPin,
   Menu,
@@ -22,7 +25,10 @@ import {
   Mountain,
   Phone,
   ShieldAlert,
+  Info,
+  Settings,
   Snowflake,
+  Sparkles,
   Sun,
   X
 } from 'lucide-react'
@@ -34,6 +40,22 @@ function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [weather, setWeather] = useState({ tignes: null, val: null })
   const [currentSlide, setCurrentSlide] = useState(0)
+  const [isRAGOpen, setIsRAGOpen] = useState(false)
+  const [currentHash, setCurrentHash] = useState(
+    typeof window !== 'undefined' ? (window.location.hash || '#home') : '#home'
+  )
+
+  // Suivre le hash pour marquer le lien actif dans la navigation
+  useEffect(() => {
+    function handleHashChange() {
+      setCurrentHash(window.location.hash || '#home')
+    }
+    handleHashChange()
+    window.addEventListener('hashchange', handleHashChange)
+    return () => window.removeEventListener('hashchange', handleHashChange)
+  }, [])
+
+  const isActive = (href) => !!href && href === currentHash
   
   // Fonction pour obtenir l'URL d'une image de la galerie
   const getCarouselImage = (index) => {
@@ -50,8 +72,10 @@ function App() {
     setCurrentSlide((prev) => (prev === 0 ? totalImages - 1 : prev - 1))
   }
 
-  // Défilement automatique
+  // Défilement automatique (respecte prefers-reduced-motion)
   useEffect(() => {
+    const mq = window.matchMedia('(prefers-reduced-motion: reduce)')
+    if (mq.matches) return
     const timer = setInterval(() => {
       nextSlide()
     }, 5000)
@@ -342,13 +366,21 @@ function App() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100">
+      {/* Lien d'accès rapide au contenu principal */}
+      <a
+        href="#home"
+        className="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-[60] bg-blue-600 text-white px-3 py-2 rounded shadow"
+      >
+        Aller au contenu
+      </a>
+
       {/* Header */}
       <header className="bg-white shadow-sm sticky top-5 z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             <div className="flex items-center space-x-4">
               <div className="flex items-center">
-                <img src={Logo} alt="Tignes logo" className="h-16 w-16 object-contain" />
+                <img src={Logo} alt="Tignes logo" className="h-16 w-16 object-contain" decoding="async" fetchpriority="high" loading="eager" />
                 <span className="ml-3 text-xl font-bold text-gray-900 whitespace-nowrap">
                   <span className="block text-sm font-normal text-gray-500 leading-none">Myriam</span>
                   <span>Val d'Isère - Tignes</span>
@@ -357,16 +389,32 @@ function App() {
             </div>
             
             {/* Desktop Navigation */}
-            <nav className="hidden md:flex space-x-6 items-center">
-              <a href="#home" className="nav-link">
-                <Snowflake className="nav-snowflake h-3.5 w-3.5" /> {t.nav.home}
-              </a>
-              <a href="#about" className="nav-link">
-                <Snowflake className="nav-snowflake h-3.5 w-3.5" /> {t.nav.about}
-              </a>
+            <nav className="hidden md:flex space-x-6 items-center" role="navigation" aria-label="Navigation principale">
+              {/* Premier groupe : Accueil avec sous-menu (A propos, Galerie) */}
+              <div className="relative group">
+                <button className="nav-link flex items-center">
+                  <Snowflake className="nav-snowflake h-3.5 w-3.5" /> {t.nav.home}
+                  <ChevronDown className="ml-1 h-4 w-4 transition-transform group-hover:rotate-180" />
+                </button>
+                <div className="absolute left-0 mt-2 w-56 bg-white rounded-md shadow-lg py-1 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+                  <a href="#home" className="flex items-center gap-2 px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 rounded-md">
+                    <Snowflake className="h-4 w-4 text-blue-600" />
+                    <span>Accueil</span>
+                  </a>
+                  <div className="my-1 border-t border-gray-100" />
+                  <a href="#about" className="flex items-center gap-2 px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 rounded-md" aria-current={isActive('#about') ? 'page' : undefined}>
+                    <Info className="h-4 w-4 text-gray-600" />
+                    <span>{t.nav.about}</span>
+                  </a>
+                  <a href="#gallery" className="flex items-center gap-2 px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 rounded-md" aria-current={isActive('#gallery') ? 'page' : undefined}>
+                    <Image className="h-4 w-4 text-gray-600" />
+                    <span>{t.nav.gallery}</span>
+                  </a>
+                </div>
+              </div>
               
-              {/* Menu Services déroulant */}
-              <a href="#booking" className="nav-link">
+              {/* Deuxième groupe : Réserver/Services */}
+              <a href="#booking" className={`nav-link focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 rounded-md ${isActive('#booking') ? 'text-blue-600 font-semibold' : ''}`} aria-current={isActive('#booking') ? 'page' : undefined}>
                 <Snowflake className="nav-snowflake h-3.5 w-3.5" /> {t.nav.booking}
               </a>
               <div className="relative group">
@@ -374,47 +422,47 @@ function App() {
                   <Snowflake className="nav-snowflake h-3.5 w-3.5" /> {t.nav.services}
                   <ChevronDown className="ml-1 h-4 w-4 transition-transform group-hover:rotate-180" />
                 </button>
-                <div className="absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
-                  <a href="#services" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
-                    Tous les services
+                <div className="absolute left-0 mt-2 w-56 bg-white rounded-md shadow-lg py-1 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+                  <a href="#services" className="flex items-center gap-2 px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 rounded-md">
+                    <Settings className="h-4 w-4 text-gray-600" />
+                    <span>Tous les services</span>
                   </a>
-                  <a href="#blog" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
-                    {t.nav.blog}
+                  <a href="#blog" className="flex items-center gap-2 px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 rounded-md">
+                    <BookOpen className="h-4 w-4 text-gray-600" />
+                    <span>{t.nav.blog}</span>
                   </a>
-                </div>
-              </div>
-              
-              {/* Menu Météo déroulant */}
-              <div className="relative group">
-                <button className="nav-link flex items-center">
-                  <Snowflake className="nav-snowflake h-3.5 w-3.5" /> {t.nav.weather}
-                  <ChevronDown className="ml-1 h-4 w-4 transition-transform group-hover:rotate-180" />
-                </button>
-                <div className="absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
-                  <a href="#weather" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
-                    Prévisions météo
+                  <div className="my-1 border-t border-gray-100" />
+                  <a href="#weather" className="flex items-center gap-2 px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 rounded-md">
+                    <CloudSun className="h-4 w-4 text-blue-600" />
+                    <span>Prévisions météo</span>
                   </a>
-                  <a href="#avalanche" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
-                    {t.nav.avalanche}
+                  <a href="#avalanche" className="flex items-center gap-2 px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 rounded-md">
+                    <ShieldAlert className="h-4 w-4 text-red-600" />
+                    <span>{t.nav.avalanche}</span>
                   </a>
                 </div>
               </div>
               
-              <a href="#gallery" className="nav-link">
-                <Snowflake className="nav-snowflake h-3.5 w-3.5" /> {t.nav.gallery}
-              </a>
-              <a href="#contact" className="nav-link">
+              {/* Contact */}
+              <a href="#contact" className={`nav-link focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 rounded-md ${isActive('#contact') ? 'text-blue-600 font-semibold' : ''}`} aria-current={isActive('#contact') ? 'page' : undefined}>
                 <Snowflake className="nav-snowflake h-3.5 w-3.5" /> {t.nav.contact}
               </a>
             </nav>
 
-            {/* Language and Contact */}
+            {/* Language and Assistant */}
             <div className="flex items-center space-x-6">
               <div className="hidden md:flex items-center space-x-4">
-                <a href="#contact" className="flex items-center text-gray-700 hover:text-blue-600 transition-colors">
-                  <Mail className="h-5 w-5 mr-1" />
-                  <span className="hidden lg:inline">Contact</span>
-                </a>
+                {/* Assistant RAG */}
+                <Button
+                  onClick={() => setIsRAGOpen(true)}
+                  variant="outline"
+                  size="sm"
+                  className="bg-gradient-to-r from-blue-600 to-blue-700 text-white border-blue-600 hover:from-blue-700 hover:to-blue-800 transition-all duration-200"
+                >
+                  <Bot className="h-4 w-4 mr-1" />
+                  <span className="hidden lg:inline">Assistant IA</span>
+                  <Sparkles className="h-3 w-3 ml-1" />
+                </Button>
               </div>
               
               <div className="border-l border-gray-200 h-6"></div>
@@ -422,6 +470,7 @@ function App() {
               <select 
                 value={currentLang} 
                 onChange={(e) => setCurrentLang(e.target.value)}
+                aria-label={currentLang === 'fr' ? 'Choisir la langue' : 'Choose language'}
                 className="bg-white border border-gray-300 rounded-md px-3 py-1.5 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 transition-colors"
               >
                 <option value="fr">🇫🇷 FR</option>
@@ -432,6 +481,9 @@ function App() {
               <button
                 onClick={toggleMenu}
                 className="md:hidden p-2 rounded-md text-gray-700 hover:text-blue-600 hover:bg-gray-100 transition-colors"
+                aria-expanded={isMenuOpen}
+                aria-controls="mobile-menu"
+                aria-label={isMenuOpen ? (currentLang === 'fr' ? 'Fermer le menu' : 'Close menu') : (currentLang === 'fr' ? 'Ouvrir le menu' : 'Open menu')}
               >
                 {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
               </button>
@@ -440,60 +492,89 @@ function App() {
 
           {/* Mobile Navigation */}
           {isMenuOpen && (
-            <div className="md:hidden py-2 border-t border-gray-200">
-              <nav className="flex flex-col space-y-1">
-                <a href="#home" className="py-3 px-4 nav-link flex items-center">
-                  <Snowflake className="h-4 w-4 mr-2" />
-                  {t.nav.home}
-                </a>
-                <a href="#about" className="py-3 px-4 nav-link flex items-center">
-                  <Snowflake className="h-4 w-4 mr-2" />
-                  {t.nav.about}
-                </a>
+            <div id="mobile-menu" className="md:hidden py-2 border-t border-gray-200">
+              <nav className="flex flex-col space-y-1" role="navigation" aria-label="Navigation mobile">
+                {/* Premier groupe : Accueil avec sous-menu (A propos, Galerie) */}
+                <div>
+                  <button className="py-3 px-4 nav-link flex items-center w-full text-left">
+                    <Snowflake className="h-4 w-4 mr-2" />
+                    {t.nav.home}
+                    <ChevronDown className="ml-auto h-4 w-4" />
+                  </button>
+                  <div className="pl-8 pr-4">
+                    <a href="#home" className="py-2 nav-link flex items-center gap-2 text-gray-700 hover:bg-gray-50 rounded-md">
+                      <Snowflake className="h-4 w-4 text-blue-600" />
+                      <span>Accueil</span>
+                    </a>
+                    <div className="my-1 border-t border-gray-100" />
+                    <a href="#about" className="py-2 nav-link flex items-center gap-2 text-gray-700 hover:bg-gray-50 rounded-md">
+                      <Info className="h-4 w-4 text-gray-600" />
+                      <span>{t.nav.about}</span>
+                    </a>
+                    <a href="#gallery" className="py-2 nav-link flex items-center gap-2 text-gray-700 hover:bg-gray-50 rounded-md">
+                      <Image className="h-4 w-4 text-gray-600" />
+                      <span>{t.nav.gallery}</span>
+                    </a>
+                  </div>
+                </div>
                 
                 <div className="border-t border-gray-100 my-1"></div>
                 
-                <a href="#booking" className="py-3 px-4 nav-link flex items-center">
+                {/* Deuxième groupe : Réserver/Services */}
+                <a href="#booking" className={`py-3 px-4 nav-link flex items-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 rounded-md ${isActive('#booking') ? 'text-blue-600 font-semibold' : ''}`} aria-current={isActive('#booking') ? 'page' : undefined}>
                   <Snowflake className="h-4 w-4 mr-2" />
                   {t.nav.booking}
                 </a>
-                <div className="border-t border-gray-100 my-1"></div>
                 <div>
-                  <div className="py-2 px-4 font-medium text-gray-500 text-sm uppercase tracking-wider">
+                  <button className="py-3 px-4 nav-link flex items-center w-full text-left">
+                    <Snowflake className="h-4 w-4 mr-2" />
                     {t.nav.services}
+                    <ChevronDown className="ml-auto h-4 w-4" />
+                  </button>
+                  <div className="pl-8 pr-4">
+                    <a href="#services" className="py-2 nav-link flex items-center gap-2 text-gray-700 hover:bg-gray-50 rounded-md">
+                      <Settings className="h-4 w-4 text-gray-600" />
+                      <span>Tous les services</span>
+                    </a>
+                    <a href="#blog" className="py-2 nav-link flex items-center gap-2 text-gray-700 hover:bg-gray-50 rounded-md">
+                      <BookOpen className="h-4 w-4 text-gray-600" />
+                      <span>{t.nav.blog}</span>
+                    </a>
+                    <div className="my-1 border-t border-gray-100" />
+                    <a href="#weather" className="py-2 nav-link flex items-center gap-2 text-gray-700 hover:bg-gray-50 rounded-md">
+                      <CloudSun className="h-4 w-4 text-blue-600" />
+                      <span>Prévisions météo</span>
+                    </a>
+                    <a href="#avalanche" className="py-2 nav-link flex items-center gap-2 text-gray-700 hover:bg-gray-50 rounded-md">
+                      <ShieldAlert className="h-4 w-4 text-red-600" />
+                      <span>{t.nav.avalanche}</span>
+                    </a>
                   </div>
-                  <a href="#services" className="py-2 pl-8 pr-4 nav-link block text-gray-700 hover:bg-gray-50">
-                    Tous les services
-                  </a>
-                  <a href="#blog" className="py-2 pl-8 pr-4 nav-link block text-gray-700 hover:bg-gray-50">
-                    {t.nav.blog}
-                  </a>
                 </div>
                 
                 <div className="border-t border-gray-100 my-1"></div>
                 
-                <div>
-                  <div className="py-2 px-4 font-medium text-gray-500 text-sm uppercase tracking-wider">
-                    {t.nav.weather}
-                  </div>
-                  <a href="#weather" className="py-2 pl-8 pr-4 nav-link block text-gray-700 hover:bg-gray-50">
-                    Prévisions météo
-                  </a>
-                  <a href="#avalanche" className="py-2 pl-8 pr-4 nav-link block text-gray-700 hover:bg-gray-50">
-                    {t.nav.avalanche}
-                  </a>
-                </div>
+                {/* Troisième groupe supprimé: météo/avalanche déplacés sous Services */}
                 
                 <div className="border-t border-gray-100 my-1"></div>
                 
-                <a href="#gallery" className="py-3 px-4 nav-link flex items-center">
-                  <Snowflake className="h-4 w-4 mr-2" />
-                  {t.nav.gallery}
-                </a>
-                <a href="#contact" className="py-3 px-4 nav-link flex items-center">
+                {/* Contact */}
+                <a href="#contact" className={`py-3 px-4 nav-link flex items-center ${isActive('#contact') ? 'text-blue-600 font-semibold' : ''}`} aria-current={isActive('#contact') ? 'page' : undefined}>
                   <Snowflake className="h-4 w-4 mr-2" />
                   {t.nav.contact}
                 </a>
+                
+                <div className="border-t border-gray-100 my-1"></div>
+                
+                {/* Assistant IA */}
+                <button 
+                  onClick={() => setIsRAGOpen(true)}
+                  className="py-3 px-4 nav-link flex items-center w-full text-left"
+                >
+                  <Bot className="h-4 w-4 mr-2" />
+                  Assistant IA
+                  <Sparkles className="h-3 w-3 ml-auto" />
+                </button>
               </nav>
             </div>
           )}
@@ -501,7 +582,7 @@ function App() {
       </header>
 
       {/* Hero Section */}
-      <section id="home" className="py-20">
+      <section id="home" role="main" tabIndex={-1} className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6">
             {t.hero.title}
@@ -509,7 +590,7 @@ function App() {
           <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
             {t.hero.description}
           </p>
-          <a href="#booking">
+          <a href="#booking" className="focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 rounded-md">
             <Button size="lg" className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 text-lg">
               {t.hero.cta}
             </Button>
@@ -622,14 +703,14 @@ function App() {
                   {w:'50',d:'07/12/2025 - 13/12/2025',h:'€89.00',j:'€522.00',r:'8%',c:'09:00-13:00 ; 13:00-16:30'},
                   {w:'51',d:'14/12/2025 - 20/12/2025',h:'€100.00',j:'€600.00',r:'8%',c:'09:00-13:00 ; 13:00-16:30'},
                   {w:'52',d:'21/12/2025 - 27/12/2025',h:'€105.00',j:'€670.00',r:'8%',c:'09:00-13:00 ; 13:00-16:30',rule:true},
-                  {w:'1',d:'28/12/2025 - 03/01/2026',h:'€115.00',j:'€699.00',r:'8%',c:'09:00-13:00 ; 13:00-16:30',rule:true},
+                  {w:'1',d:'28/12/2025 - 03/01/2026',h:'€115.00',j:'€699.00',r:'8%',c:'09:00-13:00 ; 13:00-16:30',reserved:true},
                   {w:'2',d:'04/01/2026 - 10/01/2026',h:'€95.00',j:'€580.00',r:'8%',c:'09:00-13:00 ; 13:00-16:30'},
                   {w:'3',d:'11/01/2026 - 17/01/2026',h:'€92.00',j:'€590.00',r:'8%',c:'09:00-13:00 ; 13:00-16:30'},
                   {w:'4',d:'18/01/2026 - 24/01/2026',h:'€91.00',j:'€586.00',r:'8%',c:'09:00-13:00 ; 13:00-16:30'},
                   {w:'5',d:'25/01/2026 - 31/01/2026',h:'€90.00',j:'€550.00',r:'8%',c:'09:00-13:00 ; 13:00-16:30'},
                   {w:'6',d:'01/02/2026 - 07/02/2026',h:'€105.00',j:'€610.00',r:'8%',c:'09:00-13:00 ; 13:00-16:30'},
                   {w:'7',d:'08/02/2026 - 14/02/2026',h:'€110.00',j:'€670.00',r:'8%',c:'09:00-13:00 ; 13:00-16:30',rule:true},
-                  {w:'8',d:'15/02/2026 - 21/02/2026',h:'€131.00',j:'€851.00',r:'8%',c:'09:00-13:00 ; 13:00-16:30',rule:true},
+                  {w:'8',d:'15/02/2026 - 21/02/2026',h:'€131.00',j:'€851.00',r:'8%',c:'09:00-13:00 ; 13:00-16:30',rule:true,morningReserved:true},
                   {w:'9',d:'22/02/2026 - 28/02/2026',h:'€120.00',j:'€699.00',r:'8%',c:'09:00-13:00 ; 13:00-16:30',rule:true},
                   {w:'10',d:'01/03/2026 - 07/03/2026',h:'€105.00',j:'€600.00',r:'8%',c:'09:00-13:00 ; 13:00-16:30'},
                   {w:'11',d:'08/03/2026 - 14/03/2026',h:'€99.00',j:'€570.00',r:'8%',c:'09:00-13:00 ; 13:00-16:30'},
@@ -649,14 +730,25 @@ function App() {
                     <td className="py-3 pr-6">{row.r}</td>
                     <td className="py-3 pr-6">{row.c}</td>
                     <td className="py-3 pr-6">
-                      <a 
-                        href="https://maisonsport.com/fr/profile/927576662/myriam-m?omnisendContactID=65cb1772c613deaa1396a153&utm_campaign=automation%3A+Transactional+Flow+(6537bd845397fc850450a200)&utm_content=6537c00f5397fc850450a21a&utm_medium=email&utm_source=omnisend" 
-                        target="_blank" 
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center px-3 py-1.5 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
-                      >
-                        Réserver
-                      </a>
+                      {row.reserved ? (
+                        <span className="inline-flex items-center px-3 py-1.5 border border-transparent text-sm font-semibold rounded-md shadow-sm text-white bg-gray-400 cursor-not-allowed select-none">
+                          Complet
+                        </span>
+                      ) : (
+                        <a 
+                          href="https://maisonsport.com/fr/profile/927576662/myriam-m?omnisendContactID=65cb1772c613deaa1396a153&utm_campaign=automation%3A+Transactional+Flow+(6537bd845397fc850450a200)&utm_content=6537c00f5397fc850450a21a&utm_medium=email&utm_source=omnisend" 
+                          target="_blank" 
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center px-3 py-1.5 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-500"
+                        >
+                          Réserver
+                        </a>
+                      )}
+                      {row.morningReserved && (
+                        <span className="ml-2 inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-amber-100 text-amber-800 border border-amber-200">
+                          Matins complets (jusqu'à 13h)
+                        </span>
+                      )}
                       {row.rule && <span className="ml-2 text-xs text-gray-500">+ Règle de réservation</span>}
                     </td>
                   </tr>
@@ -687,9 +779,9 @@ function App() {
                   <li>Tignes: Hiver 2025-2026 (prévision: fin nov. → début mai)</li>
                   <li>Val d’Isère: Hiver 2025-2026 (prévision: début déc. → début mai)</li>
                 </ul>
-                <a className="text-blue-600 hover:underline" href="https://www.tignes.net" target="_blank" rel="noreferrer">Site Tignes</a>
+                <a className="text-blue-600 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 rounded-sm" href="https://www.tignes.net" target="_blank" rel="noreferrer">Site Tignes</a>
                 <span className="mx-2">•</span>
-                <a className="text-blue-600 hover:underline" href="https://www.valdisere.com" target="_blank" rel="noreferrer">Site Val d’Isère</a>
+                <a className="text-blue-600 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 rounded-sm" href="https://www.valdisere.com" target="_blank" rel="noreferrer">Site Val d’Isère</a>
               </CardContent>
             </Card>
             <Card>
@@ -942,12 +1034,13 @@ function App() {
               {Array.from({ length: totalImages }).map((_, index) => (
                 <div 
                   key={index}
-                  className={`absolute inset-0 transition-opacity duration-1000 ${index === currentSlide ? 'opacity-100' : 'opacity-0'}`}
+                  className={`absolute inset-0 transition-opacity duration-1000 motion-reduce:transition-none ${index === currentSlide ? 'opacity-100' : 'opacity-0'}`}
                 >
                   <img 
                     src={getCarouselImage(index)} 
                     alt={galleryAltTexts[index] || `Paysage enneigé ${index + 1}`}
                     className="w-full h-full object-cover"
+                    decoding="async"
                     loading="lazy"
                   />
                 </div>
@@ -956,7 +1049,7 @@ function App() {
               {/* Boutons de navigation */}
               <button 
                 onClick={prevSlide}
-                className="absolute left-4 top-1/2 -translate-y-1/2 bg-black/30 hover:bg-black/50 text-white rounded-full p-2 transition-colors"
+                className="absolute left-4 top-1/2 -translate-y-1/2 bg-black/30 hover:bg-black/50 text-white rounded-full p-2 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
                 aria-label="Image précédente"
               >
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -966,7 +1059,7 @@ function App() {
               
               <button 
                 onClick={nextSlide}
-                className="absolute right-4 top-1/2 -translate-y-1/2 bg-black/30 hover:bg-black/50 text-white rounded-full p-2 transition-colors"
+                className="absolute right-4 top-1/2 -translate-y-1/2 bg-black/30 hover:bg-black/50 text-white rounded-full p-2 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
                 aria-label="Image suivante"
               >
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -1090,7 +1183,7 @@ function App() {
       <footer className="bg-gray-900 text-white py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="flex items-center justify-center space-x-3 mb-4">
-            <img src={Logo} alt="Tignes logo" className="h-10 w-10 object-contain" />
+            <img src={Logo} alt="Tignes logo" className="h-10 w-10 object-contain" loading="lazy" decoding="async" />
             <span className="text-lg font-semibold">{t.title}</span>
           </div>
           <p className="text-gray-400">{t.subtitle}</p>
@@ -1099,6 +1192,12 @@ function App() {
           </p>
         </div>
       </footer>
+
+      {/* Assistant RAG */}
+      <RAGAssistant 
+        isOpen={isRAGOpen} 
+        onClose={() => setIsRAGOpen(false)} 
+      />
     </div>
   )
 }
