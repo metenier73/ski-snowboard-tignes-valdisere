@@ -30,6 +30,8 @@ import {
   Snowflake,
   Sparkles,
   Sun,
+  AlertTriangle,
+  CheckCircle,
   X
 } from 'lucide-react'
 import { useEffect, useState } from 'react'
@@ -722,7 +724,7 @@ function App() {
                   {w:'17',d:'19/04/2026 - 25/04/2026',h:'€110.00',j:'€620.00',r:'8%',c:'09:00-13:00 ; 13:00-16:30'},
                   {w:'18',d:'26/04/2026 - 02/05/2026',h:'€99.00',j:'€600.00',r:'8%',c:'09:00-13:00 ; 13:00-16:30'},
                 ].map((row,idx)=> (
-                  <tr key={idx} className="border-b border-gray-200">
+                  <tr key={idx} className={`border-b border-gray-200 ${row.reserved ? 'opacity-60' : ''}`} aria-disabled={row.reserved ? true : undefined}>
                     <td className="py-3 pr-6">{row.w}</td>
                     <td className="py-3 pr-6">{row.d}</td>
                     <td className="py-3 pr-6">{row.h}</td>
@@ -731,7 +733,7 @@ function App() {
                     <td className="py-3 pr-6">{row.c}</td>
                     <td className="py-3 pr-6">
                       {row.reserved ? (
-                        <span className="inline-flex items-center px-3 py-1.5 border border-transparent text-sm font-semibold rounded-md shadow-sm text-white bg-gray-400 cursor-not-allowed select-none">
+                        <span title="Semaine complète – plus de créneaux disponibles" className="inline-flex items-center px-3 py-1.5 border border-transparent text-sm font-semibold rounded-md shadow-sm text-white bg-gray-400 cursor-not-allowed select-none">
                           Complet
                         </span>
                       ) : (
@@ -745,8 +747,15 @@ function App() {
                         </a>
                       )}
                       {row.morningReserved && (
-                        <span className="ml-2 inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-amber-100 text-amber-800 border border-amber-200">
+                        <span title="Les créneaux du matin (jusqu'à 13h) ne sont plus disponibles" className="ml-2 inline-flex items-center gap-1 px-2 py-0.5 rounded text-xs font-medium bg-amber-100 text-amber-800 border border-amber-200">
+                          <AlertTriangle className="h-3.5 w-3.5" />
                           Matins complets (jusqu'à 13h)
+                        </span>
+                      )}
+                      {row.morningReserved && (
+                        <span title="Les créneaux d'après-midi restent ouverts" className="ml-2 inline-flex items-center gap-1 px-2 py-0.5 rounded text-xs font-medium bg-emerald-100 text-emerald-800 border border-emerald-200">
+                          <CheckCircle className="h-3.5 w-3.5" />
+                          Après-midi disponibles
                         </span>
                       )}
                       {row.rule && <span className="ml-2 text-xs text-gray-500">+ Règle de réservation</span>}
