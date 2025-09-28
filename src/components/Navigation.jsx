@@ -179,40 +179,52 @@ const Navigation = ({ currentLang, setCurrentLang, translations }) => {
                 )}
               >
                 {item.id === 'home' ? (
-                  <div className="relative">
-                    <button
+                  <div className="relative group flex items-center justify-between md:block">
+                    {/* Label navigable */}
+                    <a
+                      href={item.href}
+                      onClick={handleMenuItemClick}
                       className={cn(
-                        'block w-full text-left px-6 py-4 md:px-3 md:py-2',
+                        'block px-6 py-4 md:px-3 md:py-2',
                         'text-gray-800 hover:text-blue-600 dark:text-gray-200 dark:hover:text-blue-400',
                         'transition-all duration-200',
                         'font-medium',
                         'rounded-lg md:rounded-none',
                         'hover:bg-gray-100 dark:hover:bg-gray-800 md:hover:bg-transparent',
                         'flex items-center',
-                        'group',
                         'relative',
                         'after:content-["" ] after:absolute after:bottom-0 after:left-0',
                         'after:h-0.5 after:w-0 after:bg-blue-600 dark:after:bg-blue-400',
                         'after:transition-all after:duration-300 motion-reduce:transition-none',
                         'hover:after:w-full',
-                        'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2',
-                        'focus:ring-offset-white dark:focus:ring-offset-gray-900',
                         'md:after:bottom-1',
                         'md:after:left-1/2 md:after:-translate-x-1/2',
                         'md:after:w-0 md:group-hover:after:w-4/5'
                       )}
+                      aria-current={isActive(item.href) ? 'page' : undefined}
+                    >
+                      <span className="mr-2 flex items-center justify-center">{getItemIcon(item.id)}</span>
+                      <span className="ml-1">{item.label}</span>
+                    </a>
+                    {/* Chevron toggle (mobile only) */}
+                    <button
+                      className="md:hidden p-2 mr-2 rounded hover:bg-gray-100 dark:hover:bg-gray-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
                       onClick={(e) => {
-                        // Only toggle on mobile; on desktop we keep hover behavior
-                        if (window.matchMedia('(min-width: 768px)').matches) return;
+                        e.preventDefault();
+                        e.stopPropagation();
+                        setOpenSub(openSub === 'home' ? null : 'home');
+                      }}
+                      onTouchStart={(e) => {
+                        e.preventDefault();
+                        e.stopPropagation();
                         setOpenSub(openSub === 'home' ? null : 'home');
                       }}
                       aria-haspopup="menu"
                       aria-expanded={openSub === 'home'}
                       aria-controls="submenu-home"
+                      aria-label="Ouvrir le sous-menu Accueil"
                     >
-                      <span className="mr-2 flex items-center justify-center">{getItemIcon(item.id)}</span>
-                      <span className="ml-1">{item.label}</span>
-                      <ChevronDown className={cn('ml-1 h-4 w-4 transition-transform duration-300 md:group-hover:rotate-180', openSub === 'home' && 'rotate-180 md:rotate-0')} />
+                      <ChevronDown className={cn('h-4 w-4 transition-transform duration-300', openSub === 'home' && 'rotate-180')} />
                     </button>
                     <div
                       id="submenu-home"
@@ -242,39 +254,52 @@ const Navigation = ({ currentLang, setCurrentLang, translations }) => {
                     </div>
                   </div>
                 ) : item.id === 'services' ? (
-                  <div className="relative">
-                    <button
+                  <div className="relative group flex items-center justify-between md:block">
+                    {/* Label navigable */}
+                    <a
+                      href={item.href}
+                      onClick={handleMenuItemClick}
                       className={cn(
-                        'block w-full text-left px-6 py-4 md:px-3 md:py-2',
+                        'block px-6 py-4 md:px-3 md:py-2',
                         'text-gray-800 hover:text-blue-600 dark:text-gray-200 dark:hover:text-blue-400',
                         'transition-all duration-200',
                         'font-medium',
                         'rounded-lg md:rounded-none',
                         'hover:bg-gray-100 dark:hover:bg-gray-800 md:hover:bg-transparent',
                         'flex items-center',
-                        'group',
                         'relative',
                         'after:content-["" ] after:absolute after:bottom-0 after:left-0',
                         'after:h-0.5 after:w-0 after:bg-blue-600 dark:after:bg-blue-400',
                         'after:transition-all after:duration-300 motion-reduce:transition-none',
                         'hover:after:w-full',
-                        'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2',
-                        'focus:ring-offset-white dark:focus:ring-offset-gray-900',
                         'md:after:bottom-1',
                         'md:after:left-1/2 md:after:-translate-x-1/2',
                         'md:after:w-0 md:group-hover:after:w-4/5'
                       )}
+                      aria-current={isActive(item.href) ? 'page' : undefined}
+                    >
+                      <span className="mr-2 flex items-center justify-center">{getItemIcon(item.id)}</span>
+                      <span className="ml-1">{item.label}</span>
+                    </a>
+                    {/* Chevron toggle (mobile only) */}
+                    <button
+                      className="md:hidden p-2 mr-2 rounded hover:bg-gray-100 dark:hover:bg-gray-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
                       onClick={(e) => {
-                        if (window.matchMedia('(min-width: 768px)').matches) return;
+                        e.preventDefault();
+                        e.stopPropagation();
+                        setOpenSub(openSub === 'services' ? null : 'services');
+                      }}
+                      onTouchStart={(e) => {
+                        e.preventDefault();
+                        e.stopPropagation();
                         setOpenSub(openSub === 'services' ? null : 'services');
                       }}
                       aria-haspopup="menu"
                       aria-expanded={openSub === 'services'}
                       aria-controls="submenu-services"
+                      aria-label="Ouvrir le sous-menu Services"
                     >
-                      <span className="mr-2 flex items-center justify-center">{getItemIcon(item.id)}</span>
-                      <span className="ml-1">{item.label}</span>
-                      <ChevronDown className={cn('ml-1 h-4 w-4 transition-transform duration-300 md:group-hover:rotate-180', openSub === 'services' && 'rotate-180 md:rotate-0')} />
+                      <ChevronDown className={cn('h-4 w-4 transition-transform duration-300', openSub === 'services' && 'rotate-180')} />
                     </button>
                     <div
                       id="submenu-services"
