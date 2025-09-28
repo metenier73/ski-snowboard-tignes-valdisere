@@ -226,16 +226,16 @@ const Navigation = ({ currentLang, setCurrentLang, translations }) => {
                         'z-50 border border-gray-100 md:overflow-visible'
                       )}
                     >
-                      <a href="#home" onClick={handleMenuItemClick} className={cn("flex items-center gap-2 px-4 py-2 text-sm rounded-md hover:bg-gray-100", isActive('#home') ? 'text-blue-600 bg-blue-50' : 'text-gray-700')} title="Accueil">
+                      <a href="#home" onClick={handleMenuItemClick} className={cn("flex items-center gap-2 px-4 py-2 text-sm rounded-md hover:bg-gray-100 transition-opacity duration-300 md:duration-150", isActive('#home') ? 'text-blue-600 bg-blue-50' : 'text-gray-700', openSub === 'home' ? 'opacity-100 delay-75 md:delay-0' : 'opacity-0 md:opacity-100')} title="Accueil">
                         <Home className="h-4 w-4 text-blue-600" />
                         <span>Accueil</span>
                       </a>
                       <div className="my-1 border-t border-gray-100" />
-                      <a href="#about" onClick={handleMenuItemClick} className={cn("flex items-center gap-2 px-4 py-2 text-sm rounded-md hover:bg-gray-100", isActive('#about') ? 'text-blue-600 bg-blue-50' : 'text-gray-700')} title="À propos">
+                      <a href="#about" onClick={handleMenuItemClick} className={cn("flex items-center gap-2 px-4 py-2 text-sm rounded-md hover:bg-gray-100 transition-opacity duration-300 md:duration-150", isActive('#about') ? 'text-blue-600 bg-blue-50' : 'text-gray-700', openSub === 'home' ? 'opacity-100 delay-150 md:delay-0' : 'opacity-0 md:opacity-100')} title="À propos">
                         <Info className="h-4 w-4 text-gray-600" />
                         <span>{t.nav.about}</span>
                       </a>
-                      <a href="#gallery" onClick={handleMenuItemClick} className={cn("flex items-center gap-2 px-4 py-2 text-sm rounded-md hover:bg-gray-100", isActive('#gallery') ? 'text-blue-600 bg-blue-50' : 'text-gray-700')} title="Galerie">
+                      <a href="#gallery" onClick={handleMenuItemClick} className={cn("flex items-center gap-2 px-4 py-2 text-sm rounded-md hover:bg-gray-100 transition-opacity duration-300 md:duration-150", isActive('#gallery') ? 'text-blue-600 bg-blue-50' : 'text-gray-700', openSub === 'home' ? 'opacity-100 delay-200 md:delay-0' : 'opacity-0 md:opacity-100')} title="Galerie">
                         <Image className="h-4 w-4 text-gray-600" />
                         <span>{t.nav.gallery}</span>
                       </a>
@@ -286,20 +286,20 @@ const Navigation = ({ currentLang, setCurrentLang, translations }) => {
                         'z-50 border border-gray-100 md:overflow-visible'
                       )}
                     >
-                      <a href="#services" onClick={handleMenuItemClick} className={cn("flex items-center gap-2 px-4 py-2 text-sm rounded-md hover:bg-gray-100", isActive('#services') ? 'text-blue-600 bg-blue-50' : 'text-gray-700')} title="Tous les services">
+                      <a href="#services" onClick={handleMenuItemClick} className={cn("flex items-center gap-2 px-4 py-2 text-sm rounded-md hover:bg-gray-100 transition-opacity duration-300 md:duration-150", isActive('#services') ? 'text-blue-600 bg-blue-50' : 'text-gray-700', openSub === 'services' ? 'opacity-100 delay-75 md:delay-0' : 'opacity-0 md:opacity-100')} title="Tous les services">
                         <Settings className="h-4 w-4 text-gray-600" />
                         <span>Tous les services</span>
                       </a>
-                      <a href="#blog" onClick={handleMenuItemClick} className={cn("flex items-center gap-2 px-4 py-2 text-sm rounded-md hover:bg-gray-100", isActive('#blog') ? 'text-blue-600 bg-blue-50' : 'text-gray-700')} title="Blog">
+                      <a href="#blog" onClick={handleMenuItemClick} className={cn("flex items-center gap-2 px-4 py-2 text-sm rounded-md hover:bg-gray-100 transition-opacity duration-300 md:duration-150", isActive('#blog') ? 'text-blue-600 bg-blue-50' : 'text-gray-700', openSub === 'services' ? 'opacity-100 delay-100 md:delay-0' : 'opacity-0 md:opacity-100')} title="Blog">
                         <BookOpen className="h-4 w-4 text-gray-600" />
                         <span>{t.nav.blog}</span>
                       </a>
                       <div className="my-1 border-t border-gray-100" />
-                      <a href="#weather" onClick={handleMenuItemClick} className={cn("flex items-center gap-2 px-4 py-2 text-sm rounded-md hover:bg-gray-100", isActive('#weather') ? 'text-blue-600 bg-blue-50' : 'text-gray-700')} title="Prévisions météo">
+                      <a href="#weather" onClick={handleMenuItemClick} className={cn("flex items-center gap-2 px-4 py-2 text-sm rounded-md hover:bg-gray-100 transition-opacity duration-300 md:duration-150", isActive('#weather') ? 'text-blue-600 bg-blue-50' : 'text-gray-700', openSub === 'services' ? 'opacity-100 delay-150 md:delay-0' : 'opacity-0 md:opacity-100')} title="Prévisions météo">
                         <CloudSun className="h-4 w-4 text-blue-600" />
                         <span>Prévisions météo</span>
                       </a>
-                      <a href="#avalanche" onClick={handleMenuItemClick} className={cn("flex items-center gap-2 px-4 py-2 text-sm rounded-md hover:bg-gray-100", isActive('#avalanche') ? 'text-blue-600 bg-blue-50' : 'text-gray-700')} title="Risques d'avalanche">
+                      <a href="#avalanche" onClick={handleMenuItemClick} className={cn("flex items-center gap-2 px-4 py-2 text-sm rounded-md hover:bg-gray-100 transition-opacity duration-300 md:duration-150", isActive('#avalanche') ? 'text-blue-600 bg-blue-50' : 'text-gray-700', openSub === 'services' ? 'opacity-100 delay-200 md:delay-0' : 'opacity-0 md:opacity-100')} title="Risques d'avalanche">
                         <ShieldAlert className="h-4 w-4 text-red-600" />
                         <span>{t.nav.avalanche}</span>
                       </a>
