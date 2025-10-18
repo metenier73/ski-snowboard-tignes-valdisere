@@ -14,6 +14,7 @@ export class RAGService {
     this.searchEngine = searchEngine;
     this.conversationHistory = [];
     this.maxHistoryLength = 10;
+    this._availabilityCache = { data: null, ts: 0 };
   }
 
   /**
@@ -30,14 +31,37 @@ export class RAGService {
     } = options;
 
     try {
-      // 1. Récupération des documents pertinents
-      const retrievedDocs = this.retrieveRelevantDocuments(userQuery, maxDocuments, { boostDocumentId, boostDocument });
+      const queryLower = userQuery.toLowerCase();
+
+      // 0. Déterminer si la requête concerne la disponibilité
+      const availabilityIntent = this.isAvailabilityQuery(queryLower);
+
+      // 0.b Charger les disponibilités si nécessaire et créer un document boosté
+      let availabilityDoc = null;
+      if (availabilityIntent) {
+        const availability = await this.loadAvailability();
+        availabilityDoc = this.buildAvailabilityDoc(availability);
+      }
+
+      // 1. Récupération des documents pertinents (avec boost éventuel)
+      const retrievedDocs = this.retrieveRelevantDocuments(
+        userQuery,
+        maxDocuments,
+        { boostDocumentId, boostDocument: availabilityDoc || boostDocument }
+      );
       
       // 2. Construction du contexte
       const context = this.buildContext(retrievedDocs, userQuery);
       
-      // 3. Génération de la réponse
-      const response = await this.generateContextualResponse(userQuery, context, language);
+      // 3. Génération de la réponse (spécial disponibilité si pertinent)
+      let response;
+      if (availabilityIntent) {
+        const availability = availabilityDoc ? null : await this.loadAvailability();
+        const data = availabilityDoc ? null : availability;
+        response = await this.generateAvailabilityResponse(userQuery, availabilityDoc?.payload || data);
+      } else {
+        response = await this.generateContextualResponse(userQuery, context, language);
+      }
       
       // 4. Ajout à l'historique
       this.addToHistory(userQuery, response, retrievedDocs);
@@ -49,7 +73,8 @@ export class RAGService {
           id: doc.id,
           title: doc.title,
           category: doc.category,
-          score: doc.score
+          score: doc.score,
+          preview: typeof doc.content === 'string' ? (doc.content.length > 240 ? doc.content.slice(0, 240) + '...' : doc.content) : ''
         })) : [],
         confidence: this.calculateConfidence(retrievedDocs),
         suggestions: this.generateFollowUpQuestions(userQuery, retrievedDocs)
@@ -79,6 +104,14 @@ export class RAGService {
 
     // Combine et déduplique les résultats
     let allResults = [...mainResults, ...contextResults];
+
+    // Boost par catégorie selon la requête
+    const q = query.toLowerCase();
+    const categoryBoosts = this.getCategoryBoosts(q);
+    allResults = allResults.map(doc => {
+      const boost = categoryBoosts[doc.category] || 0;
+      return { ...doc, score: (doc.score || 0) + boost };
+    });
 
     // Boost d'un document sélectionné (placé en tête)
     if (extra && (extra.boostDocument || extra.boostDocumentId)) {
@@ -149,6 +182,94 @@ Mots-clés: ${doc.keywords.join(', ')}`);
     
     // Réponse générique basée sur le contexte
     return this.generateGenericResponse(query, context);
+  }
+
+  // Détection d'intention disponibilité
+  isAvailabilityQuery(queryLower) {
+    const terms = ['disponible', 'disponibil', 'matin', 'après-midi', "apres-midi", 'matins', 'aprem', 'créneau', 'creneau', 'réserver', 'reservation', 'réservation'];
+    return terms.some(t => queryLower.includes(t)) || /\b\d{1,2}\/\d{1,2}\/\d{4}\b/.test(queryLower);
+  }
+
+  // Chargement et cache de availability.json
+  async loadAvailability() {
+    const now = Date.now();
+    if (this._availabilityCache.data && now - this._availabilityCache.ts < 5 * 60 * 1000) {
+      return this._availabilityCache.data;
+    }
+    try {
+      const res = await fetch('/availability.json', { cache: 'no-cache' });
+      const data = await res.json();
+      this._availabilityCache = { data, ts: now };
+      return data;
+    } catch (e) {
+      console.warn('RAGService: impossible de charger availability.json', e);
+      return { morningsBlocked: [], afternoonsBlocked: [] };
+    }
+  }
+
+  // Construire un document RAG depuis les disponibilités
+  buildAvailabilityDoc(availability) {
+    const m = availability?.morningsBlocked || [];
+    const a = availability?.afternoonsBlocked || [];
+    const content = `Disponibilités (source calendrier):\nMatins bloqués: ${m.length} dates\nAprès-midis bloqués: ${a.length} dates`;
+    return { id: 'availability-json', category: 'disponibilite', title: 'Disponibilités actuelles', content, score: 500, payload: availability };
+  }
+
+  // Générer une réponse ciblée disponibilité
+  async generateAvailabilityResponse(query, availability) {
+    const m = new Set(availability?.morningsBlocked || []);
+    const a = new Set(availability?.afternoonsBlocked || []);
+
+    // Cherche une date au format fr FR dd/mm/yyyy
+    const match = query.match(/\b(\d{1,2})\/(\d{1,2})\/(\d{4})\b/);
+    if (match) {
+      const iso = this.frDateToISO(match[0]);
+      const morning = m.has(iso);
+      const afternoon = a.has(iso);
+      if (morning && afternoon) {
+        return `Le ${match[0]}, je suis indisponible toute la journée (matin et après-midi).`;
+      } else if (morning) {
+        return `Le ${match[0]}, le matin (09:00–13:00) est indisponible. L'après-midi reste disponible.`;
+      } else if (afternoon) {
+        return `Le ${match[0]}, l'après-midi (13:00–16:30) est indisponible. Le matin reste disponible.`;
+      } else {
+        return `Le ${match[0]}, je suis disponible sur les deux créneaux (matin et après-midi).`;
+      }
+    }
+
+    // Pas de date précise: fournir un résumé utile
+    return `Je peux vérifier une date précise si vous me donnez le format jj/mm/aaaa. À titre indicatif: ${
+      (availability?.morningsBlocked?.length || 0)
+    } matin(s) et ${
+      (availability?.afternoonsBlocked?.length || 0)
+    } après-midi bloqué(s) dans le calendrier actuel.`;
+  }
+
+  frDateToISO(ddmmyyyy) {
+    const [d, m, y] = ddmmyyyy.split('/').map(v => parseInt(v, 10));
+    const mm = String(m).padStart(2, '0');
+    const dd = String(d).padStart(2, '0');
+    return `${y}-${mm}-${dd}`;
+  }
+
+  getCategoryBoosts(queryLower) {
+    const boosts = {
+      tarifs: 0,
+      services: 0,
+      contact: 0,
+      meteo: 0,
+      securite: 0,
+      stations: 0,
+      disponibilite: 0
+    };
+    if (/(tarif|prix|co[uû]t)/.test(queryLower)) boosts.tarifs = 2;
+    if (/(cours|le[çc]on|apprendre|niveau|hors-piste|snowboard|ski)/.test(queryLower)) boosts.services = 1.5;
+    if (/(contact|r[ée]server|r[ée]servation|t[ée]l[ée]phone|email)/.test(queryLower)) boosts.contact = 2;
+    if (/(m[ée]t[ée]o|neige|conditions)/.test(queryLower)) boosts.meteo = 1.5;
+    if (/(s[ée]curit[ée]|avalanche|DVA|urgence)/i.test(queryLower)) boosts.securite = 1.5;
+    if (/(tignes|val d'is[eè]re|station)/.test(queryLower)) boosts.stations = 1;
+    if (this.isAvailabilityQuery(queryLower)) boosts.disponibilite = 3;
+    return boosts;
   }
 
   /**

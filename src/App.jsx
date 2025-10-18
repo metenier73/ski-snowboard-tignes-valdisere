@@ -1,5 +1,6 @@
 import Logo from '@/assets/Logo.png'
 import RAGAssistant from '@/components/rag/RAGAssistant.jsx'
+import BookingWidget from '@/components/booking/BookingWidget.jsx'
 import { Button } from '@/components/ui/button.jsx'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card.jsx'
 import { galleryAltTexts, getGalleryImage, totalImages } from '@/data/galleryImages'
@@ -56,6 +57,25 @@ function App() {
     window.addEventListener('hashchange', handleHashChange)
     return () => window.removeEventListener('hashchange', handleHashChange)
   }, [])
+  // Indisponibilités dynamiques chargées depuis /availability.json
+  const [availability, setAvailability] = useState({ morningsBlocked: [], afternoonsBlocked: [] })
+  useEffect(() => {
+    let isMounted = true
+    fetch('/availability.json', { cache: 'no-cache' })
+      .then((r) => r.ok ? r.json() : Promise.reject(new Error(`HTTP ${r.status}`)))
+      .then((data) => {
+        if (!isMounted) return
+        const mornings = Array.isArray(data.morningsBlocked) ? data.morningsBlocked : []
+        const afternoons = Array.isArray(data.afternoonsBlocked) ? data.afternoonsBlocked : []
+        setAvailability({ morningsBlocked: mornings, afternoonsBlocked: afternoons })
+      })
+      .catch((e) => {
+        console.error('Failed to load availability.json', e)
+      })
+    return () => { isMounted = false }
+  }, [])
+
+  const bookingUrl = 'https://maisonsport.com/fr/profile/927576662/myriam-m?omnisendContactID=65cb1772c613deaa1396a153&utm_campaign=automation%3A+Transactional+Flow+(6537bd845397fc850450a200)&utm_content=6537c00f5397fc850450a21a&utm_medium=email&utm_source=omnisend'
 
   const isActive = (href) => !!href && href === currentHash
   
@@ -705,20 +725,20 @@ function App() {
                   {w:'50',d:'07/12/2025 - 13/12/2025',h:'€89.00',j:'€522.00',r:'8%',c:'09:00-13:00 ; 13:00-16:30'},
                   {w:'51',d:'14/12/2025 - 20/12/2025',h:'€100.00',j:'€554.00',r:'8%',c:'09:00-13:00 ; 13:00-16:30'},
                   {w:'52',d:'21/12/2025 - 27/12/2025',h:'€105.00',j:'€629.00',r:'8%',c:'09:00-13:00 ; 13:00-16:30',rule:true},
-                  {w:'1',d:'28/12/2025 - 03/01/2026',h:'€115.00',j:'€640.00',r:'8%',c:'09:00-13:00 ; 13:00-16:30',reserved:true,rule:true},
-                  {w:'2',d:'04/01/2026 - 10/01/2026',h:'€95.00',j:'€542.00',r:'8%',c:'09:00-13:00 ; 13:00-16:30'},
-                  {w:'3',d:'11/01/2026 - 17/01/2026',h:'€92.00',j:'€566.00',r:'8%',c:'09:00-13:00 ; 13:00-16:30'},
+                  {w:'1',d:'28/12/2025 - 03/01/2026',h:'€115.00',j:'€640.00',r:'8%',c:'09:00-13:00 ; 13:00-16:30',rule:true,dailyAvailableDates:['03/01/2026'],dailyFullBlockedDates:['28/12/2025','29/12/2025','30/12/2025','31/12/2025','01/01/2026','02/01/2026']},
+                  {w:'2',d:'04/01/2026 - 10/01/2026',h:'€95.00',j:'€542.00',r:'8%',c:'09:00-13:00 ; 13:00-16:30',dailyMorningBlocks:['10/01/2026']},
+                  {w:'3',d:'11/01/2026 - 17/01/2026',h:'€92.00',j:'€566.00',r:'8%',c:'09:00-13:00 ; 13:00-16:30',dailyMorningBlocks:['13/01/2026']},
                   {w:'4',d:'18/01/2026 - 24/01/2026',h:'€91.00',j:'€542.00',r:'8%',c:'09:00-13:00 ; 13:00-16:30'},
                   {w:'5',d:'25/01/2026 - 31/01/2026',h:'€90.00',j:'€535.00',r:'8%',c:'09:00-13:00 ; 13:00-16:30'},
                   {w:'6',d:'01/02/2026 - 07/02/2026',h:'€105.00',j:'€590.00',r:'8%',c:'09:00-13:00 ; 13:00-16:30'},
                   {w:'7',d:'08/02/2026 - 14/02/2026',h:'€110.00',j:'€595.00',r:'8%',c:'09:00-13:00 ; 13:00-16:30',rule:true},
-                  {w:'8',d:'15/02/2026 - 21/02/2026',h:'€131.00',j:'€851.00',r:'8%',c:'09:00-13:00 ; 13:00-16:30',rule:true,morningReserved:true},
+                  {w:'8',d:'15/02/2026 - 21/02/2026',h:'€131.00',j:'€851.00',r:'8%',c:'09:00-13:00 ; 13:00-16:30',rule:true,dailyMorningBlocks:['15/02/2026','16/02/2026','17/02/2026','18/02/2026','19/02/2026','20/02/2026'],dailyAvailableDates:['21/02/2026']},
                   {w:'9',d:'22/02/2026 - 28/02/2026',h:'€120.00',j:'€599.00',r:'8%',c:'09:00-13:00 ; 13:00-16:30',rule:true},
                   {w:'10',d:'01/03/2026 - 07/03/2026',h:'€105.00',j:'€549.00',r:'8%',c:'09:00-13:00 ; 13:00-16:30'},
                   {w:'11',d:'08/03/2026 - 14/03/2026',h:'€99.00',j:'€537.00',r:'8%',c:'09:00-13:00 ; 13:00-16:30'},
                   {w:'12',d:'15/03/2026 - 21/03/2026',h:'€94.00',j:'€507.00',r:'8%',c:'09:00-13:00 ; 13:00-16:30'},
                   {w:'13',d:'22/03/2026 - 28/03/2026',h:'€95.00',j:'€491.00',r:'8%',c:'09:00-13:00 ; 13:00-16:30'},
-                  {w:'14',d:'29/03/2026 - 04/04/2026',h:'€115.00',j:'€653.00',r:'8%',c:'09:00-13:00 ; 13:00-16:30',rule:true},
+                  {w:'14',d:'29/03/2026 - 04/04/2026',h:'€115.00',j:'€653.00',r:'8%',c:'09:00-13:00 ; 13:00-16:30',rule:true,dailyMorningBlocks:['29/03/2026','30/03/2026','31/03/2026','01/04/2026','02/04/2026','03/04/2026'],dailyAvailableDates:['04/04/2026']},
                   {w:'15',d:'05/04/2026 - 11/04/2026',h:'€111.00',j:'€630.00',r:'8%',c:'09:00-13:00 ; 13:00-16:30',rule:true},
                   {w:'16',d:'12/04/2026 - 18/04/2026',h:'€110.00',j:'€600.00',r:'8%',c:'09:00-13:00 ; 13:00-16:30'},
                   {w:'17',d:'19/04/2026 - 25/04/2026',h:'€110.00',j:'€600.00',r:'8%',c:'09:00-13:00 ; 13:00-16:30'},
@@ -758,6 +778,36 @@ function App() {
                           Après-midi disponibles
                         </span>
                       )}
+                      {Array.isArray(row.dailyMorningBlocks) && row.dailyMorningBlocks.length > 0 && (
+                        <div className="mt-2 flex flex-wrap gap-2">
+                          {row.dailyMorningBlocks.map((dateStr) => (
+                            <span key={dateStr} title={`Matin indisponible le ${dateStr} (09:00–13:00)`} className="inline-flex items-center gap-1 px-2 py-0.5 rounded text-xs font-medium bg-orange-50 text-orange-700 border border-orange-200">
+                              <AlertTriangle className="h-3 w-3" />
+                              {dateStr} · 09:00–13:00
+                            </span>
+                          ))}
+                        </div>
+                      )}
+                      {Array.isArray(row.dailyFullBlockedDates) && row.dailyFullBlockedDates.length > 0 && (
+                        <div className="mt-2 flex flex-wrap gap-2">
+                          {row.dailyFullBlockedDates.map((dateStr) => (
+                            <span key={dateStr} title={`Journée complète indisponible le ${dateStr}`} className="inline-flex items-center gap-1 px-2 py-0.5 rounded text-xs font-medium bg-red-50 text-red-700 border border-red-200">
+                              <AlertTriangle className="h-3 w-3" />
+                              {dateStr} · Journée complète
+                            </span>
+                          ))}
+                        </div>
+                      )}
+                      {Array.isArray(row.dailyAvailableDates) && row.dailyAvailableDates.length > 0 && (
+                        <div className="mt-2 flex flex-wrap gap-2">
+                          {row.dailyAvailableDates.map((dateStr) => (
+                            <span key={dateStr} title={`Disponible le ${dateStr}`} className="inline-flex items-center gap-1 px-2 py-0.5 rounded text-xs font-medium bg-emerald-50 text-emerald-700 border border-emerald-200">
+                              <CheckCircle className="h-3 w-3" />
+                              Disponible le {dateStr}
+                            </span>
+                          ))}
+                        </div>
+                      )}
                       {row.rule && <span className="ml-2 text-xs text-gray-500">+ Règle de réservation</span>}
                     </td>
                   </tr>
@@ -765,6 +815,9 @@ function App() {
               </tbody>
             </table>
           </div>
+
+          {/* Widget de réservation interactif par date/slot */}
+          <BookingWidget blockedMorningDates={availability.morningsBlocked} blockedAfternoonDates={availability.afternoonsBlocked} bookingUrl={bookingUrl} />
         </div>
       </section>
 

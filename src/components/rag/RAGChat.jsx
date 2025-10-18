@@ -241,12 +241,23 @@ const RAGChat = forwardRef(({ className = '', onClose, selectedResult, prefillQu
                         {message.sources && message.sources.length > 0 && (
                           <div className="mt-2 pt-2 border-top border-gray-200">
                             <div className="text-xs text-gray-500 mb-1">Sources :</div>
-                            <div className="flex flex-wrap gap-1">
+                            <div className="flex flex-wrap gap-2">
                               {message.sources.map((source, index) => (
-                                <Badge key={index} variant="secondary" className="text-xs" title={source.category}>
-                                  <BookOpen className="h-3 w-3 mr-1" />
-                                  {source.title || source.category}
-                                </Badge>
+                                <details key={index} className="group [&_summary::-webkit-details-marker]:hidden">
+                                  <summary className="list-none cursor-pointer">
+                                    <Badge variant="secondary" className="text-xs inline-flex items-center">
+                                      <BookOpen className="h-3 w-3 mr-1" />
+                                      {source.title || source.category}
+                                    </Badge>
+                                  </summary>
+                                  <div className="mt-1 max-w-sm rounded border border-gray-200 bg-white p-2 shadow-sm text-xs text-gray-700">
+                                    <div className="mb-1 font-medium text-gray-900">Aperçu de la source</div>
+                                    <div className="whitespace-pre-wrap leading-relaxed">{source.preview || 'Aperçu non disponible.'}</div>
+                                    <div className="mt-1 text-[10px] text-gray-500">
+                                      Catégorie: {source.category || '—'} · Score: {typeof source.score === 'number' ? source.score.toFixed(2) : '—'}
+                                    </div>
+                                  </div>
+                                </details>
                               ))}
                             </div>
                           </div>
