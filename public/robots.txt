@@ -1,7 +1,7 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://votresite.com/sitemap.xml
+Sitemap: https://metenier73.github.io/ski-snowboard-tignes-valdisere/sitemap.xml
 
 # Désactiver les dossiers inutiles au référencement
 Disallow: /node_modules/
