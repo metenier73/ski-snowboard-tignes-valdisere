@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import ImageOptimized from '@/components/ui/ImageOptimized';
@@ -9,6 +9,7 @@ const OptimizedGallery = () => {
   const [isAutoPlay, setIsAutoPlay] = useState(true);
   const [touchStart, setTouchStart] = useState(null);
   const [touchEnd, setTouchEnd] = useState(null);
+  const containerRef = useRef(null);
 
   // Effet pour le débogage
   useEffect(() => {
@@ -72,6 +73,39 @@ const OptimizedGallery = () => {
     };
   }, [isAutoPlay, currentSlide]);
 
+  // Pause si le composant n'est pas visible (IntersectionObserver)
+  useEffect(() => {
+    const el = containerRef.current;
+    if (!el || !('IntersectionObserver' in window)) return;
+    const obs = new IntersectionObserver((entries) => {
+      const entry = entries[0];
+      if (!entry.isIntersecting) {
+        setIsAutoPlay(false);
+      }
+    }, { threshold: 0.1 });
+    obs.observe(el);
+    return () => obs.disconnect();
+  }, []);
+
+  // Navigation clavier
+  useEffect(() => {
+    const onKey = (e) => {
+      if (e.key === 'ArrowRight') nextSlide();
+      if (e.key === 'ArrowLeft') prevSlide();
+      if (e.key === 'Home') setCurrentSlide(0);
+      if (e.key === 'End') setCurrentSlide(totalImages - 1);
+    };
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, []);
+
+  // Précharger l'image suivante pour fluidité
+  useEffect(() => {
+    const nextIndex = (currentSlide + 1) % totalImages;
+    const img = new Image();
+    img.src = getGalleryImage(nextIndex);
+  }, [currentSlide]);
+
   // Mettre à jour le titre de la page avec le numéro de la diapositive
   useEffect(() => {
     document.title = `Galerie - Photo ${currentSlide + 1}/${totalImages} | Tignes - Val d'Isère`;
@@ -105,7 +139,14 @@ const OptimizedGallery = () => {
   };
 
   return (
-    <div className="relative w-full max-w-4xl mx-auto my-8 overflow-hidden rounded-lg shadow-xl">
+    <div
+      ref={containerRef}
+      className="relative w-full max-w-4xl mx-auto my-8 overflow-hidden rounded-lg shadow-xl"
+      onMouseEnter={() => setIsAutoPlay(false)}
+      onMouseLeave={() => setIsAutoPlay(true)}
+      role="region"
+      aria-label="Galerie d'images Tignes & Val d'Isère"
+    >
       {/* Contrôles de navigation */}
       <button
         onClick={prevSlide}
@@ -148,7 +189,7 @@ const OptimizedGallery = () => {
         />
         
         {/* Légende de l'image */}
-        <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4 text-white">
+        <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4 text-white" aria-live="polite">
           <p className="text-sm md:text-base">
             {galleryAltTexts[currentSlide % galleryAltTexts.length]}
             <span className="block text-xs opacity-75 mt-1">
@@ -158,9 +199,28 @@ const OptimizedGallery = () => {
         </div>
       </div>
 
-      {/* Points de navigation */}
-      <div className="flex justify-center items-center p-4 bg-gray-50">
-        {renderDots()}
+      {/* Bandeau vignettes + points */}
+      <div className="p-3 bg-gray-50">
+        <div className="flex gap-2 overflow-x-auto pb-2">
+          {Array.from({ length: totalImages }).map((_, index) => (
+            <button
+              key={index}
+              onClick={() => setCurrentSlide(index)}
+              className={`relative flex-shrink-0 w-16 h-10 rounded overflow-hidden border ${index === currentSlide ? 'border-blue-600' : 'border-transparent hover:border-gray-300'}`}
+              aria-label={`Voir la photo ${index + 1}`}
+            >
+              <img
+                src={getGalleryImage(index)}
+                alt={galleryAltTexts[index % galleryAltTexts.length]}
+                loading="lazy"
+                className="w-full h-full object-cover"
+              />
+            </button>
+          ))}
+        </div>
+        <div className="flex justify-center items-center mt-2">
+          {renderDots()}
+        </div>
       </div>
     </div>
   );

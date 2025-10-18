@@ -2,16 +2,19 @@
 const basePath = '/ski-snowboard-tignes-valdisere';
 const galleryImages = [
   `${basePath}/images/gallery/montagne.jpg`,
+  `${basePath}/images/gallery/aig.JPG`,
+  `${basePath}/images/gallery/bel.JPG`,
   `${basePath}/images/gallery/tignes1.png`,
   `${basePath}/images/gallery/tignes2.png`,
   `${basePath}/images/gallery/tignes3.png`,
   `${basePath}/images/gallery/tignes.png`,
-  `${basePath}/images/gallery/tignes (1).png`,
-  `${basePath}/images/gallery/tignes (2).png`,
-  `${basePath}/images/gallery/tignes (3).png`,
-  `${basePath}/images/gallery/tignes (4).png`,
+  `${basePath}/images/gallery/tignes1.png`,
+  `${basePath}/images/gallery/tignes2.png`,
+  `${basePath}/images/gallery/tignes3.png`,
   `${basePath}/images/gallery/tignes (5).png`,
-  `${basePath}/images/gallery/placeholder1.jpg`
+  `${basePath}/images/gallery/pep.JPG`,
+  `${basePath}/images/gallery/pepi.JPG`,
+  `${basePath}/images/gallery/ros.JPG`
 ];
 
 // Fonction pour obtenir une image de la galerie
