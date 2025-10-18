@@ -1,7 +1,7 @@
-import React, { useMemo, useState } from 'react'
-import { Calendar } from '@/components/ui/calendar.jsx'
 import { Button } from '@/components/ui/button.jsx'
-import { AlertTriangle, CheckCircle, Calendar as CalendarIcon, Sun } from 'lucide-react'
+import { Calendar } from '@/components/ui/calendar.jsx'
+import { AlertTriangle, Calendar as CalendarIcon, CheckCircle, Sun } from 'lucide-react'
+import { useMemo, useState } from 'react'
 
 // Helper to normalize Date to yyyy-mm-dd
 function toISODate(d) {
@@ -21,6 +21,13 @@ export default function BookingWidget({ blockedMorningDates = [], blockedAfterno
   const isMorningBlocked = !!iso && blockedMorningSet.has(iso)
   const isAfternoonBlocked = !!iso && blockedAfternoonSet.has(iso)
 
+  const availabilityState = (() => {
+    if (!iso) return 'none'
+    if (isMorningBlocked && isAfternoonBlocked) return 'unavailable'
+    if (isMorningBlocked || isAfternoonBlocked) return 'partial'
+    return 'full'
+  })()
+
   return (
     <div className="mt-10 grid grid-cols-1 lg:grid-cols-2 gap-6">
       <div className="bg-white/80 backdrop-blur-sm rounded-xl p-4 shadow">
@@ -35,7 +42,34 @@ export default function BookingWidget({ blockedMorningDates = [], blockedAfterno
           showOutsideDays
           // Season defaults
           defaultMonth={new Date(2025, 11, 10)}
+          modifiers={{
+            unavailable: (date) => {
+              const d = toISODate(date)
+              return blockedMorningSet.has(d) && blockedAfternoonSet.has(d)
+            },
+            partial: (date) => {
+              const d = toISODate(date)
+              const m = blockedMorningSet.has(d)
+              const a = blockedAfternoonSet.has(d)
+              return (m && !a) || (!m && a)
+            },
+            full: (date) => {
+              const d = toISODate(date)
+              return !blockedMorningSet.has(d) && !blockedAfternoonSet.has(d)
+            }
+          }}
+          modifiersClassNames={{
+            unavailable: 'outline outline-2 outline-red-400 bg-red-50 text-red-900',
+            partial: 'outline outline-2 outline-amber-400 bg-amber-50 text-amber-900',
+            full: 'outline outline-2 outline-emerald-400 bg-emerald-50 text-emerald-900'
+          }}
+          className="rounded-md border"
         />
+        <div className="mt-2 flex items-center gap-3 text-xs text-gray-600">
+          <span className="inline-flex items-center gap-1"><span className="inline-block h-3 w-3 rounded-sm bg-red-200 border border-red-300"></span> Indisponible</span>
+          <span className="inline-flex items-center gap-1"><span className="inline-block h-3 w-3 rounded-sm bg-amber-200 border border-amber-300"></span> Partiel</span>
+          <span className="inline-flex items-center gap-1"><span className="inline-block h-3 w-3 rounded-sm bg-emerald-200 border border-emerald-300"></span> Disponible</span>
+        </div>
       </div>
 
       <div className="bg-white/80 backdrop-blur-sm rounded-xl p-4 shadow flex flex-col gap-4">
@@ -48,6 +82,28 @@ export default function BookingWidget({ blockedMorningDates = [], blockedAfterno
 
         {selected ? (
           <div className="space-y-3">
+            {/* Indicateur d'état (rouge / orange / vert) */}
+            <div>
+              {availabilityState === 'unavailable' && (
+                <span className="inline-flex items-center gap-2 px-2.5 py-1 rounded text-xs font-semibold bg-red-100 text-red-800 border border-red-200">
+                  <AlertTriangle className="h-3.5 w-3.5" />
+                  Indisponible toute la journée
+                </span>
+              )}
+              {availabilityState === 'partial' && (
+                <span className="inline-flex items-center gap-2 px-2.5 py-1 rounded text-xs font-semibold bg-amber-100 text-amber-800 border border-amber-200">
+                  <AlertTriangle className="h-3.5 w-3.5" />
+                  Disponible partiellement
+                </span>
+              )}
+              {availabilityState === 'full' && (
+                <span className="inline-flex items-center gap-2 px-2.5 py-1 rounded text-xs font-semibold bg-emerald-100 text-emerald-800 border border-emerald-200">
+                  <CheckCircle className="h-3.5 w-3.5" />
+                  Disponible toute la journée
+                </span>
+              )}
+            </div>
+
             <div className="flex gap-3 flex-wrap">
               <Button
                 disabled={isMorningBlocked}
