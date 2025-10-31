@@ -61,7 +61,7 @@ function App() {
   const [availability, setAvailability] = useState({ morningsBlocked: [], afternoonsBlocked: [] })
   useEffect(() => {
     let isMounted = true
-    fetch('/availability.json', { cache: 'no-cache' })
+    fetch(`${(import.meta.env && import.meta.env.BASE_URL) ? import.meta.env.BASE_URL : '/'}availability.json`, { cache: 'no-cache' })
       .then((r) => r.ok ? r.json() : Promise.reject(new Error(`HTTP ${r.status}`)))
       .then((data) => {
         if (!isMounted) return
@@ -723,7 +723,7 @@ function App() {
                 {[
                   {w:'49',d:'30/11/2025 - 06/12/2025',h:'€79.00',j:'€495.00',r:'8%',c:'09:00-13:00 ; 13:00-16:30'},
                   {w:'50',d:'07/12/2025 - 13/12/2025',h:'€89.00',j:'€522.00',r:'8%',c:'09:00-13:00 ; 13:00-16:30'},
-                  {w:'51',d:'14/12/2025 - 20/12/2025',h:'€100.00',j:'€554.00',r:'8%',c:'09:00-13:00 ; 13:00-16:30'},
+                  {w:'51',d:'14/12/2025 - 20/12/2025',h:'€100.00',j:'€554.00',r:'8%',c:'09:00-13:00 ; 13:00-16:30',dailyFullBlockedDates:['15/12/2025','16/12/2025','17/12/2025','18/12/2025','19/12/2025']},
                   {w:'52',d:'21/12/2025 - 27/12/2025',h:'€105.00',j:'€629.00',r:'8%',c:'09:00-13:00 ; 13:00-16:30',rule:true},
                   {w:'1',d:'28/12/2025 - 03/01/2026',h:'€115.00',j:'€640.00',r:'8%',c:'09:00-13:00 ; 13:00-16:30',rule:true,dailyAvailableDates:['03/01/2026'],dailyFullBlockedDates:['28/12/2025','29/12/2025','30/12/2025','31/12/2025','01/01/2026','02/01/2026']},
                   {w:'2',d:'04/01/2026 - 10/01/2026',h:'€95.00',j:'€542.00',r:'8%',c:'09:00-13:00 ; 13:00-16:30',dailyMorningBlocks:['10/01/2026']},
