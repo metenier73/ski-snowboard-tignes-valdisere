@@ -21,6 +21,18 @@ export default function BookingWidget({ blockedMorningDates = [], blockedAfterno
   const isMorningBlocked = !!iso && blockedMorningSet.has(iso)
   const isAfternoonBlocked = !!iso && blockedAfternoonSet.has(iso)
 
+  // Dates dont le matin s'étend exceptionnellement jusqu'à 14:00 (au lieu de 13:00)
+  const extendedMorningSet = useMemo(() => new Set([
+    '2026-01-26',
+    '2026-01-27',
+    '2026-01-28',
+    '2026-01-29',
+    '2026-01-30'
+  ]), [])
+  const isExtendedMorning = !!iso && extendedMorningSet.has(iso)
+  const morningRange = isExtendedMorning ? '09:00–14:00' : '09:00–13:00'
+  const afternoonRange = isExtendedMorning ? '14:00–16:30' : '13:00–16:30'
+
   const availabilityState = (() => {
     if (!iso) return 'none'
     if (isMorningBlocked && isAfternoonBlocked) return 'unavailable'
@@ -109,7 +121,7 @@ export default function BookingWidget({ blockedMorningDates = [], blockedAfterno
                 disabled={isMorningBlocked}
                 asChild={!isMorningBlocked}
                 className={`min-w-[220px] ${isMorningBlocked ? 'bg-gray-300 text-gray-600 cursor-not-allowed hover:bg-gray-300' : ''}`}
-                title={isMorningBlocked ? 'Matin indisponible (09:00–13:00)' : 'Réserver le matin (09:00–13:00)'}
+                title={isMorningBlocked ? `Matin indisponible (${morningRange})` : `Réserver le matin (${morningRange})`}
               >
                 {isMorningBlocked ? (
                   <span className="inline-flex items-center gap-2">
@@ -119,7 +131,7 @@ export default function BookingWidget({ blockedMorningDates = [], blockedAfterno
                 ) : (
                   <a href={bookingUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2">
                     <Sun className="h-4 w-4" />
-                    Réserver matin (09:00–13:00)
+                    Réserver matin ({morningRange})
                   </a>
                 )}
               </Button>
@@ -128,7 +140,7 @@ export default function BookingWidget({ blockedMorningDates = [], blockedAfterno
                 disabled={isAfternoonBlocked}
                 asChild={!isAfternoonBlocked}
                 className={`min-w-[220px] ${isAfternoonBlocked ? 'bg-gray-300 text-gray-600 cursor-not-allowed hover:bg-gray-300' : ''}`}
-                title={isAfternoonBlocked ? "Après-midi indisponible (13:00–16:30)" : "Réserver l'après-midi (13:00–16:30)"}
+                title={isAfternoonBlocked ? `Après-midi indisponible (${afternoonRange})` : `Réserver l'après-midi (${afternoonRange})`}
               >
                 {isAfternoonBlocked ? (
                   <span className="inline-flex items-center gap-2">
@@ -138,7 +150,7 @@ export default function BookingWidget({ blockedMorningDates = [], blockedAfterno
                 ) : (
                   <a href={bookingUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2">
                     <CheckCircle className="h-4 w-4" />
-                    Réserver après-midi (13:00–16:30)
+                    Réserver après-midi ({afternoonRange})
                   </a>
                 )}
               </Button>
@@ -150,8 +162,8 @@ export default function BookingWidget({ blockedMorningDates = [], blockedAfterno
                 <div>
                   <div className="text-sm font-medium">Indisponibilité ce jour</div>
                   <div className="text-xs">
-                    {isMorningBlocked && !isAfternoonBlocked && "Matin (09:00–13:00) fermé. L'après-midi reste disponible."}
-                    {!isMorningBlocked && isAfternoonBlocked && "Après-midi (13:00–16:30) fermé. Le matin reste disponible."}
+                    {isMorningBlocked && !isAfternoonBlocked && `Matin (${morningRange}) fermé. L'après-midi reste disponible.`}
+                    {!isMorningBlocked && isAfternoonBlocked && `Après-midi (${afternoonRange}) fermé. Le matin reste disponible.`}
                     {isMorningBlocked && isAfternoonBlocked && "Journée complète indisponible (matin et après-midi)."}
                   </div>
                 </div>

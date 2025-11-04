@@ -81,6 +81,50 @@
 }
 
 @layer components {
+  /* Fun dynamic background */
+  @keyframes funGradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  .fun-gradient-bg {
+    background: linear-gradient(120deg, rgba(59,130,246,0.12), rgba(236,72,153,0.12), rgba(34,197,94,0.12));
+    background-size: 200% 200%;
+    animation: funGradient 12s ease infinite;
+  }
+
+  /* Glassmorphism surfaces */
+  .glass-surface {
+    @apply bg-white/60 backdrop-blur-md border border-white/40 shadow-lg;
+  }
+
+  /* Fun primary button style */
+  .btn-fun-primary {
+    @apply bg-gradient-to-r from-fuchsia-500 to-blue-600 text-white shadow-lg shadow-fuchsia-200 hover:from-fuchsia-600 hover:to-blue-700 transition-colors;
+  }
+
+  /* Animated underline for links */
+  .link-underline {
+    position: relative;
+  }
+  .link-underline::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -4px;
+    height: 2px;
+    background: linear-gradient(90deg, #22c55e, #ec4899, #3b82f6);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 200ms ease;
+    border-radius: 9999px;
+  }
+  .link-underline:hover::after {
+    transform: scaleX(1);
+  }
+
   .nav-link {
     @apply relative inline-flex items-center gap-1 text-gray-700 transition-all duration-200 ease-out;
   }
