@@ -229,9 +229,17 @@ Mots-clés: ${doc.keywords.join(', ')}`);
       if (morning && afternoon) {
         return `Le ${match[0]}, je suis indisponible toute la journée (matin et après-midi).`;
       } else if (morning) {
-        return `Le ${match[0]}, le matin (09:00–13:00) est indisponible. L'après-midi reste disponible.`;
+        {
+          const extended = new Set(['26/01/2026','27/01/2026','28/01/2026','29/01/2026','30/01/2026']);
+          const morning = extended.has(match[0]) ? '09:00–14:00' : '09:00–13:00';
+          return `Le ${match[0]}, le matin (${morning}) est indisponible. L'après-midi reste disponible.`;
+        }
       } else if (afternoon) {
-        return `Le ${match[0]}, l'après-midi (13:00–16:30) est indisponible. Le matin reste disponible.`;
+        {
+          const extended = new Set(['26/01/2026','27/01/2026','28/01/2026','29/01/2026','30/01/2026']);
+          const afternoon = extended.has(match[0]) ? '14:00–16:30' : '13:00–16:30';
+          return `Le ${match[0]}, l'après-midi (${afternoon}) est indisponible. Le matin reste disponible.`;
+        }
       } else {
         return `Le ${match[0]}, je suis disponible sur les deux créneaux (matin et après-midi).`;
       }

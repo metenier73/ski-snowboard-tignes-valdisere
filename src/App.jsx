@@ -729,7 +729,7 @@ function App() {
                   {w:'2',d:'04/01/2026 - 10/01/2026',h:'€95.00',j:'€542.00',r:'8%',c:'09:00-13:00 ; 13:00-16:30',dailyMorningBlocks:['10/01/2026']},
                   {w:'3',d:'11/01/2026 - 17/01/2026',h:'€92.00',j:'€566.00',r:'8%',c:'09:00-13:00 ; 13:00-16:30',dailyMorningBlocks:['13/01/2026']},
                   {w:'4',d:'18/01/2026 - 24/01/2026',h:'€91.00',j:'€542.00',r:'8%',c:'09:00-13:00 ; 13:00-16:30'},
-                  {w:'5',d:'25/01/2026 - 31/01/2026',h:'€90.00',j:'€535.00',r:'8%',c:'09:00-13:00 ; 13:00-16:30'},
+                  {w:'5',d:'25/01/2026 - 31/01/2026',h:'€90.00',j:'€535.00',r:'8%',c:'09:00-13:00 ; 13:00-16:30',dailyMorningBlocks:['26/01/2026','27/01/2026','28/01/2026','29/01/2026','30/01/2026']},
                   {w:'6',d:'01/02/2026 - 07/02/2026',h:'€105.00',j:'€590.00',r:'8%',c:'09:00-13:00 ; 13:00-16:30'},
                   {w:'7',d:'08/02/2026 - 14/02/2026',h:'€110.00',j:'€595.00',r:'8%',c:'09:00-13:00 ; 13:00-16:30',rule:true},
                   {w:'8',d:'15/02/2026 - 21/02/2026',h:'€131.00',j:'€851.00',r:'8%',c:'09:00-13:00 ; 13:00-16:30',rule:true,dailyMorningBlocks:['15/02/2026','16/02/2026','17/02/2026','18/02/2026','19/02/2026','20/02/2026'],dailyAvailableDates:['21/02/2026']},
@@ -781,9 +781,9 @@ function App() {
                       {Array.isArray(row.dailyMorningBlocks) && row.dailyMorningBlocks.length > 0 && (
                         <div className="mt-2 flex flex-wrap gap-2">
                           {row.dailyMorningBlocks.map((dateStr) => (
-                            <span key={dateStr} title={`Matin indisponible le ${dateStr} (09:00–13:00)`} className="inline-flex items-center gap-1 px-2 py-0.5 rounded text-xs font-medium bg-orange-50 text-orange-700 border border-orange-200">
+                            <span key={dateStr} title={`Matin indisponible le ${dateStr} (${['26/01/2026','27/01/2026','28/01/2026','29/01/2026','30/01/2026'].includes(dateStr) ? '09:00–14:00' : '09:00–13:00'})`} className="inline-flex items-center gap-1 px-2 py-0.5 rounded text-xs font-medium bg-orange-50 text-orange-700 border border-orange-200">
                               <AlertTriangle className="h-3 w-3" />
-                              {dateStr} · 09:00–13:00
+                              {dateStr} · {['26/01/2026','27/01/2026','28/01/2026','29/01/2026','30/01/2026'].includes(dateStr) ? '09:00–14:00' : '09:00–13:00'}
                             </span>
                           ))}
                         </div>
