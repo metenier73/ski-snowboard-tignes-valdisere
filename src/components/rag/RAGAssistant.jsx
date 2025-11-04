@@ -8,7 +8,7 @@ import {
   Sparkles
 } from 'lucide-react';
 import RAGChat from './RAGChat.jsx';
-import RAGSearch from './RAGSearch.jsx';
+// import RAGSearch from './RAGSearch.jsx';
 
 /**
  * Composant principal de l'assistant RAG
@@ -53,14 +53,10 @@ const RAGAssistant = ({ isOpen, onClose, className = '' }) => {
 
         <CardContent className="p-0 h-full">
           <Tabs value={activeTab} onValueChange={setActiveTab} className="h-full flex flex-col">
-            <TabsList className="grid w-full grid-cols-2 bg-gray-50">
+            <TabsList className="grid w-full grid-cols-1 bg-gray-50">
               <TabsTrigger value="chat" className="flex items-center space-x-2">
                 <MessageCircle className="h-4 w-4" />
                 <span>Chat</span>
-              </TabsTrigger>
-              <TabsTrigger value="search" className="flex items-center space-x-2">
-                <Search className="h-4 w-4" />
-                <span>Recherche</span>
               </TabsTrigger>
             </TabsList>
 
@@ -76,14 +72,7 @@ const RAGAssistant = ({ isOpen, onClose, className = '' }) => {
                 </div>
               </TabsContent>
 
-              <TabsContent value="search" className="h-full m-0">
-                <div className="h-full p-4">
-                  <RAGSearch 
-                    onResultClick={handleResultClick}
-                    className="h-full"
-                  />
-                </div>
-              </TabsContent>
+              {/* Recherche désactivée (composant manquant) */}
             </div>
           </Tabs>
         </CardContent>

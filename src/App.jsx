@@ -387,7 +387,7 @@ function App() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100">
+    <div className="min-h-screen fun-gradient-bg">
       {/* Lien d'accès rapide au contenu principal */}
       <a
         href="#home"
@@ -397,7 +397,7 @@ function App() {
       </a>
 
       {/* Header */}
-      <header className="bg-white shadow-sm sticky top-5 z-50">
+      <header className="glass-surface sticky top-4 z-50 rounded-xl">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             <div className="flex items-center space-x-4">
@@ -613,7 +613,7 @@ function App() {
             {t.hero.description}
           </p>
           <a href="#booking" className="focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 rounded-md">
-            <Button size="lg" className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 text-lg">
+            <Button size="lg" className="btn-fun-primary px-8 py-3 text-lg">
               {t.hero.cta}
             </Button>
           </a>
