@@ -14,6 +14,8 @@ export default defineConfig(({ command, mode }) => {
         "@": path.resolve(__dirname, "./src"),
       },
     },
+    // Réduit les logs pour éviter les warnings de source maps
+    logLevel: 'warn',
     css: {
       postcss: './postcss.config.cjs',
     },
@@ -31,6 +33,11 @@ export default defineConfig(({ command, mode }) => {
       strictPort: true,
       open: false,
       sourcemapIgnoreList: true, // Ignore les source maps en développement
+      fs: {
+        strict: false, // Permet d'ignorer certaines requêtes
+      },
+      // Désactive les erreurs de source maps manquants
+      middlewareMode: false,
     },
     preview: {
       port: 4173,
