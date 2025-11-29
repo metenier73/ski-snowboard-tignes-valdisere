@@ -1,5 +1,5 @@
-import { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
+import { useEffect, useState } from 'react';
 
 /**
  * Composant d'image optimisée avec lazy loading et support WebP
@@ -35,8 +35,11 @@ const ImageOptimized = ({
     
     if (!src) {
       console.error('❌ Aucune source d\'image fournie');
-      setIsError(true);
-      setIsLoading(false);
+      // Défère la mise à jour de l'état pour éviter des rendus en cascade
+      Promise.resolve().then(() => {
+        setIsError(true);
+        setIsLoading(false);
+      });
       console.groupEnd();
       return;
     }
@@ -164,13 +167,13 @@ const ImageOptimized = ({
       />
       {/* Balise img pour la compatibilité */}
       <img
-        src={src}
+        src={imageSrc || src}
         alt={alt}
         className={className}
         style={style}
         loading={loading}
         sizes={sizes}
-        srcSet={srcSet}
+        srcSet={imageSrcSet || srcSet}
         {...props}
       />
     </picture>

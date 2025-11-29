@@ -14,6 +14,8 @@ function toISODate(d) {
 
 export default function BookingWidget({ blockedMorningDates = [], blockedAfternoonDates = [], bookingUrl }) {
   const [selected, setSelected] = useState(null)
+  // Ne pas permettre la sélection après le 03/05/2026 (JJ/MM/AAAA)
+  const calendarMaxDate = new Date(2026, 4, 3) // mois indexé à 0 -> 4 = mai
   const blockedMorningSet = useMemo(() => new Set(blockedMorningDates), [blockedMorningDates])
   const blockedAfternoonSet = useMemo(() => new Set(blockedAfternoonDates), [blockedAfternoonDates])
 
@@ -65,6 +67,7 @@ export default function BookingWidget({ blockedMorningDates = [], blockedAfterno
           mode="single"
           selected={selected}
           onSelect={setSelected}
+          toDate={calendarMaxDate}
           showOutsideDays
           // Season defaults
           defaultMonth={new Date(2025, 11, 10)}
