@@ -128,8 +128,8 @@ function App() {
         cta: 'Réserver vos cours'
       },
       about: {
-        title: 'À propos de MYRIAM',
-        description: "Reconnue pour mon expertise, ma pédagogie et mon attrait pour le milieu montagnard.\n\nJ’enseigne aux enfants et aux adultes les bases du ski alpin et du Snowboard. J’associe compétences pédagogiques et approche personnalisée pour m'adapter aux besoins de chacun.\n\nAu fil des années, j'ai guidé des groupes de pratiquants sur des terrains variés en enseignant les techniques avancées de ski et les principes de sécurité.\n\n",
+        title: 'À propos de Myriam',
+        description: "Je m'appelle **Myriam Metenier**, née à **Lyon** et installée en **Tarentaise depuis plus de 32 ans**. La montagne n'est pas seulement mon cadre de vie : c'est mon terrain d'expression, d'apprentissage et de transmission.\n\nReconnue pour mon **expertise**, ma **pédagogie** et mon **attachement profond au milieu montagnard**, j'enseigne le **ski alpin** et le **snowboard** aux enfants comme aux adultes. J'accompagne chacun avec une approche personnalisée, adaptée au niveau, aux objectifs et à la sensibilité de chaque pratiquant. Au fil des années, j'ai guidé de nombreux groupes sur des terrains variés, en transmettant aussi bien les techniques avancées que les principes essentiels de sécurité en montagne.\n\nTrès tôt, le sport a façonné mon parcours. Élevée dans la **pratique du sport de haut niveau**, j'ai évolué en **course à pied – demi-fond**, avec un **record de France à l'âge de 15 ans**. Le dépassement de soi a toujours été une valeur centrale dans ma vie, mais dans une approche plus **philosophique que compétitive** : se dépasser, oui, mais avant tout face à soi-même. Et ce dépassement prend encore plus de sens lorsque je peux **aider les autres à s'élever à travers leurs propres performances**.\n\nAprès un **baccalauréat en chimie**, le besoin viscéral d'être au plus proche de la montagne m'a conduite à m'installer définitivement en Tarentaise. J'y ai obtenu le **Diplôme d'État de ski alpin**, après avoir débuté comme **animatrice dès l'âge de 16 ans**, puis enseigné le ski et le snowboard avec passion et engagement.\n\nParallèlement à ma vie sportive et pédagogique, j'ai construit un parcours solide dans les **nouvelles technologies**. Titulaire d'un **BTS Services Informatiques aux Organisations – option SLAM (Solutions Logicielles et Applications Métiers)**, j'ai trouvé un équilibre précieux entre le besoin d'être active sur le terrain et celui de réfléchir, structurer et analyser. Cette dynamique m'a naturellement menée vers une **Maîtrise d'Administrateur Infrastructure et Cloud**.\n\nAujourd'hui, j'ai la chance de pouvoir **concilier mes deux passions** : les **technologies numériques** et mon **amour de la glisse**, en particulier de la neige. Curieuse et en constante évolution, je poursuis activement ma montée en compétences dans les domaines de la **cybersécurité** et de l'**intelligence artificielle**.\n\nEn parallèle, je m'intéresse profondément à tout ce qui permet une **meilleure connaissance de soi**. Cette quête m'a conduite à obtenir un **diplôme en naturopathie** ainsi qu'en **psychanalyse**, enrichissant ma compréhension de l'humain, de ses mécanismes et de son potentiel.\n\n### Ce vers quoi je tends\n\nLa **complémentarité de ces deux univers** – la montagne et la technologie, le corps et l'esprit, l'action et la réflexion – est aujourd'hui au cœur de mon épanouissement. Elle me permet de tendre vers une posture à la fois **humaine et structurée**, en restant **humble**, **observatrice**, **empathique** et **ouverte d'esprit**, tout en étant **critique**, **concentrée**, **pragmatique**, **organisée**, **réaliste**, **objective** et **stable**.\n\nC'est dans cet équilibre que je continue d'avancer, d'apprendre et de transmettre.",
         experience: 'Années d\'expérience',
         projects: 'Hors-pistes',
         clients: 'Clients satisfaits'
@@ -626,12 +626,43 @@ function App() {
       <section id="about" className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-8">
               {t.about.title}
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto whitespace-pre-line">
-              {t.about.description}
-            </p>
+            <div className="text-lg text-gray-700 max-w-4xl mx-auto prose prose-lg prose-blue">
+              <div className="space-y-6 text-left">
+                <p>
+                  Je m'appelle <strong>Myriam Metenier</strong>, née à <strong>Lyon</strong> et installée en <strong>Tarentaise depuis plus de 32 ans</strong>. La montagne n'est pas seulement mon cadre de vie : c'est mon terrain d'expression, d'apprentissage et de transmission.
+                </p>
+                <p>
+                  Reconnue pour mon <strong>expertise</strong>, ma <strong>pédagogie</strong> et mon <strong>attachement profond au milieu montagnard</strong>, j'enseigne le <strong>ski alpin</strong> et le <strong>snowboard</strong> aux enfants comme aux adultes. J'accompagne chacun avec une approche personnalisée, adaptée au niveau, aux objectifs et à la sensibilité de chaque pratiquant. Au fil des années, j'ai guidé de nombreux groupes sur des terrains variés, en transmettant aussi bien les techniques avancées que les principes essentiels de sécurité en montagne.
+                </p>
+                <p>
+                  Très tôt, le sport a façonné mon parcours. Élevée dans la <strong>pratique du sport de haut niveau</strong>, j'ai évolué en <strong>course à pied – demi-fond</strong>, avec un <strong>record de France à l'âge de 15 ans</strong>. Le dépassement de soi a toujours été une valeur centrale dans ma vie, mais dans une approche plus <strong>philosophique que compétitive</strong> : se dépasser, oui, mais avant tout face à soi-même. Et ce dépassement prend encore plus de sens lorsque je peux <strong>aider les autres à s'élever à travers leurs propres performances</strong>.
+                </p>
+                <p>
+                  Après un <strong>baccalauréat en chimie</strong>, le besoin viscéral d'être au plus proche de la montagne m'a conduite à m'installer définitivement en Tarentaise. J'y ai obtenu le <strong>Diplôme d'État de ski alpin</strong>, après avoir débuté comme <strong>animatrice dès l'âge de 16 ans</strong>, puis enseigné le ski et le snowboard avec passion et engagement.
+                </p>
+                <p>
+                  Parallèlement à ma vie sportive et pédagogique, j'ai construit un parcours solide dans les <strong>nouvelles technologies</strong>. Titulaire d'un <strong>BTS Services Informatiques aux Organisations – option SLAM (Solutions Logicielles et Applications Métiers)</strong>, j'ai trouvé un équilibre précieux entre le besoin d'être active sur le terrain et celui de réfléchir, structurer et analyser. Cette dynamique m'a naturellement menée vers une <strong>Maîtrise d'Administrateur Infrastructure et Cloud</strong>.
+                </p>
+                <p>
+                  Aujourd'hui, j'ai la chance de pouvoir <strong>concilier mes deux passions</strong> : les <strong>technologies numériques</strong> et mon <strong>amour de la glisse</strong>, en particulier de la neige. Curieuse et en constante évolution, je poursuis activement ma montée en compétences dans les domaines de la <strong>cybersécurité</strong> et de l'<strong>intelligence artificielle</strong>.
+                </p>
+                <p>
+                  En parallèle, je m'intéresse profondément à tout ce qui permet une <strong>meilleure connaissance de soi</strong>. Cette quête m'a conduite à obtenir un <strong>diplôme en naturopathie</strong> ainsi qu'en <strong>psychanalyse</strong>, enrichissant ma compréhension de l'humain, de ses mécanismes et de son potentiel.
+                </p>
+                <div className="mt-8 pt-6 border-t border-gray-200">
+                  <h3 className="text-2xl font-semibold text-gray-900 mb-4">Ce vers quoi je tends</h3>
+                  <p>
+                    La <strong>complémentarité de ces deux univers</strong> – la montagne et la technologie, le corps et l'esprit, l'action et la réflexion – est aujourd'hui au cœur de mon épanouissement. Elle me permet de tendre vers une posture à la fois <strong>humaine et structurée</strong>, en restant <strong>humble</strong>, <strong>observatrice</strong>, <strong>empathique</strong> et <strong>ouverte d'esprit</strong>, tout en étant <strong>critique</strong>, <strong>concentrée</strong>, <strong>pragmatique</strong>, <strong>organisée</strong>, <strong>réaliste</strong>, <strong>objective</strong> et <strong>stable</strong>.
+                  </p>
+                  <p className="mt-4 italic text-gray-600">
+                    C'est dans cet équilibre que je continue d'avancer, d'apprendre et de transmettre.
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
