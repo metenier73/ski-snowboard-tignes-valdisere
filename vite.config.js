@@ -8,7 +8,8 @@ export default defineConfig(({ command, mode }) => {
   
   return {
     plugins: [react()],
-    base: '/ski-snowboard-tignes-valdisere/',
+    // Base path uniquement en production (pour GitHub Pages)
+    base: isProduction ? '/ski-snowboard-tignes-valdisere/' : '/',
     resolve: {
       alias: {
         "@": path.resolve(__dirname, "./src"),
@@ -30,7 +31,7 @@ export default defineConfig(({ command, mode }) => {
     },
     server: {
       port: 5173,
-      strictPort: true,
+      strictPort: false, // Permet d'utiliser un autre port si 5173 est occupé
       open: false,
       sourcemapIgnoreList: true, // Ignore les source maps en développement
       fs: {
