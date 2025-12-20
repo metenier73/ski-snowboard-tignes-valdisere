@@ -713,14 +713,16 @@ function App() {
                   <Star key={i} className="h-5 w-5 text-yellow-500 fill-yellow-500" />
                 ))}
               </div>
-              <span className="text-2xl font-bold text-gray-900">4.96</span>
-              <span className="text-gray-600">(30 avis)</span>
+              <span className="text-2xl font-bold text-gray-900">4.97</span>
+              <span className="text-gray-600">(32 avis)</span>
             </div>
-            <p className="text-lg text-gray-600">90% des commentaires sont 5 étoiles</p>
+            <p className="text-lg text-gray-600">90% des commentaires de Myriam M sont 5 étoiles.</p>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
+              { name: 'Nicola M.', rating: 5, date: '10/12/2025', location: 'Ski, Tignes', hours: 3, text: "We had a super lesson with Myriam, she was extremely friendly and helpful from the first text message that she sent to me. She was able to look at how we skied and give us clear instruction of what we were doing wrong and what changes we needed make to improve our technique. By the end of the day I was skiing with much more confidence. Myriam was also a great ski guide, very familiar with all the ski routes/pistes and local restaurants - also extremely knowledgeable on local area and it's history. I'm hoping we return to Tignes again soon and would book her again for more lessons." },
+              { name: 'Xavi R.', rating: 5, date: '09/12/2025', location: 'Ski, Tignes', hours: 4, text: "The lesson was great! I couldn't have asked for a better teacher. Maryam was super friendly and knowledgeable. Communication was smooth and Maryam was super flexible. Looking forward to my next lesson with her!" },
               { name: 'Hannah M.', rating: 5, date: '17/04/2025', location: 'Ski, Tignes', hours: 8, text: "Myriam was absolutely fantastic - we could not have asked for a better instructor to teach our 6yo, 3yo and myself. The lesson was fun, with positive & constructive feedback. Myriam was so knowledgeable and patient with our children and managed to get our 6yo confidently down blue runs by the end of the lesson. Would highly recommend for skiers of all abilities. Thank you!!" },
               { name: 'Ami B.', rating: 5, date: '16/04/2025', location: 'Ski, Tignes', hours: 6, text: "My partner and I have both been skiing before but we're a bit out of practice so decided to get a couple of lessons. Myriam was a brilliant teacher with really constructive feedback on our techniques and we both have taken away some tips we plan to apply. Myriam has fantastic knowledge of the mountains and it was definitely the best way to explore them with Myriam as our guide. We loved our experience and we would definitely recommend booking lessons with her." },
               { name: 'Kate J.', rating: 5, date: '13/04/2025', location: 'Ski, Val d\'Isère', hours: 2, text: "Myriam was the best instructor I have had. I have skied a number of times but am naturally nervous and Myriam gave me confidence and taught me techniques to help with that. I will definitely ask for Myriam again!" },
@@ -793,20 +795,20 @@ function App() {
               <div className="text-left">
                 <div className="text-2xl font-bold text-gray-900 mb-1">Note moyenne</div>
                 <div className="flex items-center gap-2">
-                  <span className="text-4xl font-bold text-blue-600">4.96</span>
+                  <span className="text-4xl font-bold text-blue-600">4.97</span>
                   <div className="flex items-center gap-1">
                     {[1, 2, 3, 4, 5].map((i) => (
                       <Star key={i} className="h-5 w-5 text-yellow-500 fill-yellow-500" />
                     ))}
                   </div>
                 </div>
-                <div className="text-sm text-gray-600 mt-1">basé sur 30 avis</div>
+                <div className="text-sm text-gray-600 mt-1">basé sur 32 avis</div>
               </div>
               <div className="border-l border-gray-200 pl-6 text-left">
                 <div className="text-sm font-semibold text-gray-900 mb-2">Appréciations</div>
                 <div className="space-y-1 text-sm text-gray-600">
                   <div>Amabilité <span className="font-bold text-blue-600">5.0</span></div>
-                  <div>Communication <span className="font-bold text-blue-600">4.88</span></div>
+                  <div>Communication <span className="font-bold text-blue-600">4.89</span></div>
                   <div>Ponctualité <span className="font-bold text-blue-600">4.98</span></div>
                   <div>Feedback technique <span className="font-bold text-blue-600">4.98</span></div>
                 </div>
