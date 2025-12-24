@@ -54,11 +54,37 @@ function App() {
   useEffect(() => {
     function handleHashChange() {
       setCurrentHash(window.location.hash || '#home')
+      // Ferme le menu mobile lors de la navigation
+      setIsMenuOpen(false)
     }
     handleHashChange()
     window.addEventListener('hashchange', handleHashChange)
     return () => window.removeEventListener('hashchange', handleHashChange)
   }, [])
+
+  // Ferme le menu mobile lors d'un clic en dehors
+  useEffect(() => {
+    if (!isMenuOpen) return
+
+    const handleClickOutside = (event) => {
+      const mobileMenu = document.getElementById('mobile-menu')
+      const menuButton = event.target.closest('button[aria-controls="mobile-menu"]')
+      
+      if (mobileMenu && !mobileMenu.contains(event.target) && !menuButton) {
+        setIsMenuOpen(false)
+      }
+    }
+
+    // Ajoute un léger délai pour éviter la fermeture immédiate au clic sur le bouton
+    const timeoutId = setTimeout(() => {
+      document.addEventListener('click', handleClickOutside)
+    }, 100)
+
+    return () => {
+      clearTimeout(timeoutId)
+      document.removeEventListener('click', handleClickOutside)
+    }
+  }, [isMenuOpen])
   // Indisponibilités dynamiques chargées depuis /availability.json
   const [availability, setAvailability] = useState({ morningsBlocked: [], afternoonsBlocked: [] })
   useEffect(() => {
@@ -123,8 +149,8 @@ function App() {
         
       },
       hero: {
-        title: 'Cours de Ski & Snowboard',
-        description: "Vous cherchez à apprendre le ski ou le snowboard à Tignes – Val d'Isère, ou à perfectionner votre technique ? Faites confiance à une monitrice diplômée et expérimentée pour des cours privés adaptés à votre niveau, vos objectifs et votre rythme.\n\nQue vous soyez débutant, confirmé ou passionné en quête de nouvelles sensations, je vous accompagne sur les pistes mythiques de l'Espace Killy pour une expérience unique, sécurisée et personnalisée.",
+        title: 'Cours de ski et snowboard personnalisés à Tignes Le Lac et Val Claret ❄️',
+        description: 'Monitrice diplômée et expérimentée, je propose des cours privés de ski et snowboard à Tignes Le Lac et Val Claret, adaptés à tous les niveaux.',
         cta: 'Réserver vos cours'
       },
       about: {
@@ -212,6 +238,17 @@ function App() {
   const t = translations[currentLang]
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen)
+  
+  // Ferme le menu mobile lorsqu'un lien est cliqué
+  const closeMenu = () => setIsMenuOpen(false)
+  
+  // Gère le clic sur les liens de navigation mobile
+  const handleNavClick = (e) => {
+    // Ferme le menu après un court délai pour permettre la navigation
+    setTimeout(() => {
+      closeMenu()
+    }, 100)
+  }
 
   useEffect(() => {
     const fetchWeather = async () => {
@@ -526,16 +563,16 @@ function App() {
                     <ChevronDown className="ml-auto h-4 w-4" />
                   </button>
                   <div className="pl-8 pr-4">
-                    <a href="#home" className="py-2 nav-link flex items-center gap-2 text-gray-700 hover:bg-gray-50 rounded-md">
+                    <a href="#home" onClick={handleNavClick} className="py-2 nav-link flex items-center gap-2 text-gray-700 hover:bg-gray-50 rounded-md">
                       <Snowflake className="h-4 w-4 text-blue-600" />
                       <span>Accueil</span>
                     </a>
                     <div className="my-1 border-t border-gray-100" />
-                    <a href="#about" className="py-2 nav-link flex items-center gap-2 text-gray-700 hover:bg-gray-50 rounded-md">
+                    <a href="#about" onClick={handleNavClick} className="py-2 nav-link flex items-center gap-2 text-gray-700 hover:bg-gray-50 rounded-md">
                       <Info className="h-4 w-4 text-gray-600" />
                       <span>{t.nav.about}</span>
                     </a>
-                    <a href="#gallery" className="py-2 nav-link flex items-center gap-2 text-gray-700 hover:bg-gray-50 rounded-md">
+                    <a href="#gallery" onClick={handleNavClick} className="py-2 nav-link flex items-center gap-2 text-gray-700 hover:bg-gray-50 rounded-md">
                       <Image className="h-4 w-4 text-gray-600" />
                       <span>{t.nav.gallery}</span>
                     </a>
@@ -545,7 +582,7 @@ function App() {
                 <div className="border-t border-gray-100 my-1"></div>
                 
                 {/* Deuxième groupe : Réserver/Services */}
-                <a href="#booking" className={`py-3 px-4 nav-link flex items-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 rounded-md ${isActive('#booking') ? 'text-blue-600 font-semibold' : ''}`} aria-current={isActive('#booking') ? 'page' : undefined}>
+                <a href="#booking" onClick={handleNavClick} className={`py-3 px-4 nav-link flex items-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 rounded-md ${isActive('#booking') ? 'text-blue-600 font-semibold' : ''}`} aria-current={isActive('#booking') ? 'page' : undefined}>
                   <Snowflake className="h-4 w-4 mr-2" />
                   {t.nav.booking}
                 </a>
@@ -556,20 +593,20 @@ function App() {
                     <ChevronDown className="ml-auto h-4 w-4" />
                   </button>
                   <div className="pl-8 pr-4">
-                    <a href="#services" className="py-2 nav-link flex items-center gap-2 text-gray-700 hover:bg-gray-50 rounded-md">
+                    <a href="#services" onClick={handleNavClick} className="py-2 nav-link flex items-center gap-2 text-gray-700 hover:bg-gray-50 rounded-md">
                       <Settings className="h-4 w-4 text-gray-600" />
                       <span>Tous les services</span>
                     </a>
-                    <a href="#blog" className="py-2 nav-link flex items-center gap-2 text-gray-700 hover:bg-gray-50 rounded-md">
+                    <a href="#blog" onClick={handleNavClick} className="py-2 nav-link flex items-center gap-2 text-gray-700 hover:bg-gray-50 rounded-md">
                       <BookOpen className="h-4 w-4 text-gray-600" />
                       <span>{t.nav.blog}</span>
                     </a>
                     <div className="my-1 border-t border-gray-100" />
-                    <a href="#weather" className="py-2 nav-link flex items-center gap-2 text-gray-700 hover:bg-gray-50 rounded-md">
+                    <a href="#weather" onClick={handleNavClick} className="py-2 nav-link flex items-center gap-2 text-gray-700 hover:bg-gray-50 rounded-md">
                       <CloudSun className="h-4 w-4 text-blue-600" />
                       <span>Prévisions météo</span>
                     </a>
-                    <a href="#avalanche" className="py-2 nav-link flex items-center gap-2 text-gray-700 hover:bg-gray-50 rounded-md">
+                    <a href="#avalanche" onClick={handleNavClick} className="py-2 nav-link flex items-center gap-2 text-gray-700 hover:bg-gray-50 rounded-md">
                       <ShieldAlert className="h-4 w-4 text-red-600" />
                       <span>{t.nav.avalanche}</span>
                     </a>
@@ -583,7 +620,7 @@ function App() {
                 <div className="border-t border-gray-100 my-1"></div>
                 
                 {/* Contact */}
-                <a href="#contact" className={`py-3 px-4 nav-link flex items-center ${isActive('#contact') ? 'text-blue-600 font-semibold' : ''}`} aria-current={isActive('#contact') ? 'page' : undefined}>
+                <a href="#contact" onClick={handleNavClick} className={`py-3 px-4 nav-link flex items-center ${isActive('#contact') ? 'text-blue-600 font-semibold' : ''}`} aria-current={isActive('#contact') ? 'page' : undefined}>
                   <Snowflake className="h-4 w-4 mr-2" />
                   {t.nav.contact}
                 </a>
@@ -592,7 +629,10 @@ function App() {
                 
                 {/* Assistant IA */}
                 <button 
-                  onClick={() => setIsRAGOpen(true)}
+                  onClick={() => {
+                    setIsRAGOpen(true)
+                    closeMenu()
+                  }}
                   className="py-3 px-4 nav-link flex items-center w-full text-left"
                 >
                   <Bot className="h-4 w-4 mr-2" />
@@ -607,18 +647,95 @@ function App() {
 
       {/* Hero Section */}
       <section id="home" role="main" tabIndex={-1} className="py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6">
-            {t.hero.title}
-          </h1>
-          <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
-            {t.hero.description}
-          </p>
-          <a href="#booking" className="focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 rounded-md">
-            <Button size="lg" className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 text-lg">
-              {t.hero.cta}
-            </Button>
-          </a>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6">
+              {t.hero.title}
+            </h1>
+            <p className="text-xl text-gray-700 mb-8 max-w-4xl mx-auto">
+              {t.hero.description} Débutant, intermédiaire ou confirmé, chaque séance est conçue selon vos objectifs, votre rythme et votre expérience, pour une progression rapide et en toute sécurité ⛷️🏂.
+            </p>
+            <a href="#booking" className="focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 rounded-md">
+              <Button size="lg" className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 text-lg">
+                {t.hero.cta}
+              </Button>
+            </a>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-16">
+            <Card className="bg-gradient-to-br from-blue-50 to-indigo-50 border-blue-200">
+              <CardHeader>
+                <CardTitle className="text-2xl flex items-center gap-2">
+                  <Mountain className="h-6 w-6 text-blue-600" />
+                  Cours particuliers de ski et snowboard à Val d'Isère 🏔️
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <CardDescription className="text-base text-gray-700">
+                  Profitez de cours particuliers à Val d'Isère, au cœur de l'un des plus beaux domaines skiables des Alpes. Que vous souhaitiez apprendre les bases, perfectionner votre technique ou explorer de nouvelles sensations, je vous accompagne sur les pistes mythiques de l'Espace Killy avec un suivi personnalisé et bienveillant ❄️✨.
+                </CardDescription>
+              </CardContent>
+            </Card>
+
+            <Card className="bg-gradient-to-br from-emerald-50 to-teal-50 border-emerald-200">
+              <CardHeader>
+                <CardTitle className="text-2xl flex items-center gap-2">
+                  <Snowflake className="h-6 w-6 text-emerald-600" />
+                  Cours de ski et snowboard pour tous les niveaux 🎯
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <CardDescription className="text-base text-gray-700">
+                  Mes cours de ski et snowboard à Tignes – Val d'Isère s'adressent aussi bien aux débutants qu'aux skieurs confirmés et riders en quête de performance 🏂🔥. L'objectif : progresser efficacement, gagner en confiance et surtout prendre du plaisir sur la neige 😄.
+                </CardDescription>
+              </CardContent>
+            </Card>
+          </div>
+
+          <div className="mt-12">
+            <Card className="bg-gradient-to-br from-amber-50 to-orange-50 border-amber-200">
+              <CardHeader>
+                <CardTitle className="text-2xl flex items-center gap-2 justify-center">
+                  <Star className="h-6 w-6 text-amber-600" />
+                  Pourquoi choisir un cours privé à Tignes – Val d'Isère ? ⭐
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+                  <div className="flex items-start gap-3">
+                    <CheckCircle className="h-5 w-5 text-amber-600 mt-1 flex-shrink-0" />
+                    <div>
+                      <div className="font-semibold text-gray-900">Cours particuliers 100 % personnalisés</div>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <CheckCircle className="h-5 w-5 text-amber-600 mt-1 flex-shrink-0" />
+                    <div>
+                      <div className="font-semibold text-gray-900">Monitrice diplômée et passionnée</div>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <CheckCircle className="h-5 w-5 text-amber-600 mt-1 flex-shrink-0" />
+                    <div>
+                      <div className="font-semibold text-gray-900">Progression rapide et encadrement sécurisé</div>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <CheckCircle className="h-5 w-5 text-amber-600 mt-1 flex-shrink-0" />
+                    <div>
+                      <div className="font-semibold text-gray-900">Découverte des plus beaux secteurs de Tignes Le Lac, Val Claret et Val d'Isère</div>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3 md:col-span-2">
+                    <MapPin className="h-5 w-5 text-amber-600 mt-1 flex-shrink-0" />
+                    <div>
+                      <div className="font-semibold text-gray-900">Flexibilité des horaires et du lieu de rendez-vous 📍</div>
+                    </div>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
         </div>
       </section>
 
@@ -627,38 +744,38 @@ function App() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-8">
-              {t.about.title}
+              À propos de Myriam 🏔️⛷️💻
             </h2>
-            <div className="text-lg text-gray-700 max-w-4xl mx-auto prose prose-lg prose-blue">
+            <div className="text-lg text-gray-700 max-w-4xl mx-auto">
               <div className="space-y-6 text-left">
                 <p>
-                  Je m'appelle <strong>Myriam Metenier</strong>, née à <strong>Lyon</strong> et installée en <strong>Tarentaise depuis plus de 32 ans</strong>. La montagne n'est pas seulement mon cadre de vie : c'est mon terrain d'expression, d'apprentissage et de transmission.
+                  Je m'appelle <strong>Myriam Metenier</strong>, née à <strong>Lyon</strong> et installée en <strong>Tarentaise depuis plus de 32 ans</strong>. La montagne n'est pas seulement mon cadre de vie : c'est mon terrain d'expression, d'apprentissage et de transmission 🌲❄️.
                 </p>
                 <p>
-                  Reconnue pour mon <strong>expertise</strong>, ma <strong>pédagogie</strong> et mon <strong>attachement profond au milieu montagnard</strong>, j'enseigne le <strong>ski alpin</strong> et le <strong>snowboard</strong> aux enfants comme aux adultes. J'accompagne chacun avec une approche personnalisée, adaptée au niveau, aux objectifs et à la sensibilité de chaque pratiquant. Au fil des années, j'ai guidé de nombreux groupes sur des terrains variés, en transmettant aussi bien les techniques avancées que les principes essentiels de sécurité en montagne.
+                  Reconnue pour mon <strong>expertise</strong>, ma <strong>pédagogie</strong> et mon <strong>attachement profond au milieu montagnard</strong>, j'enseigne le <strong>ski alpin</strong> et le <strong>snowboard</strong> aux enfants comme aux adultes ⛷️🏂. J'accompagne chacun avec une approche personnalisée, adaptée au niveau, aux objectifs et à la sensibilité de chaque pratiquant. Au fil des années, j'ai guidé de nombreux groupes sur des terrains variés, en transmettant aussi bien les techniques avancées que les principes essentiels de sécurité en montagne 🛡️🏔️.
                 </p>
                 <p>
-                  Très tôt, le sport a façonné mon parcours. Élevée dans la <strong>pratique du sport de haut niveau</strong>, j'ai évolué en <strong>course à pied – demi-fond</strong>, avec un <strong>record de France à l'âge de 15 ans</strong>. Le dépassement de soi a toujours été une valeur centrale dans ma vie, mais dans une approche plus <strong>philosophique que compétitive</strong> : se dépasser, oui, mais avant tout face à soi-même. Et ce dépassement prend encore plus de sens lorsque je peux <strong>aider les autres à s'élever à travers leurs propres performances</strong>.
+                  Très tôt, le sport a façonné mon parcours. Élevée dans la <strong>pratique du sport de haut niveau</strong>, j'ai évolué en <strong>course à pied – demi-fond</strong>, avec un <strong>record de France à 15 ans</strong> 🏃‍♀️🔥. Le dépassement de soi a toujours été une valeur centrale pour moi : se dépasser, oui, mais avant tout face à soi-même 💪. Et ce dépassement prend encore plus de sens lorsque je peux aider les autres à s'élever à travers leurs propres performances 🌟.
                 </p>
                 <p>
-                  Après un <strong>baccalauréat en chimie</strong>, le besoin viscéral d'être au plus proche de la montagne m'a conduite à m'installer définitivement en Tarentaise. J'y ai obtenu le <strong>Diplôme d'État de ski alpin</strong>, après avoir débuté comme <strong>animatrice dès l'âge de 16 ans</strong>, puis enseigné le ski et le snowboard avec passion et engagement.
+                  Après un <strong>baccalauréat en chimie</strong>, le besoin viscéral d'être proche de la montagne m'a conduite à m'installer définitivement en Tarentaise 🏔️. J'y ai obtenu le <strong>Diplôme d'État de ski alpin</strong>, après avoir débuté comme <strong>animatrice dès l'âge de 16 ans</strong>, puis enseigné le ski et le snowboard avec passion et engagement ⛷️🏂❤️.
                 </p>
                 <p>
-                  Parallèlement à ma vie sportive et pédagogique, j'ai construit un parcours solide dans les <strong>nouvelles technologies</strong>. Titulaire d'un <strong>BTS Services Informatiques aux Organisations – option SLAM (Solutions Logicielles et Applications Métiers)</strong>, j'ai trouvé un équilibre précieux entre le besoin d'être active sur le terrain et celui de réfléchir, structurer et analyser. Cette dynamique m'a naturellement menée vers une <strong>Maîtrise d'Administrateur Infrastructure et Cloud</strong>.
+                  Parallèlement, j'ai construit un parcours solide dans les <strong>nouvelles technologies</strong> 💻. Titulaire d'un <strong>BTS Services Informatiques aux Organisations – option SLAM</strong>, j'ai trouvé un équilibre précieux entre le besoin d'être active sur le terrain et celui de réfléchir, structurer et analyser 🧠. Cette dynamique m'a naturellement menée vers une <strong>Maîtrise d'Administrateur Infrastructure et Cloud</strong> ☁️.
                 </p>
                 <p>
-                  Aujourd'hui, j'ai la chance de pouvoir <strong>concilier mes deux passions</strong> : les <strong>technologies numériques</strong> et mon <strong>amour de la glisse</strong>, en particulier de la neige. Curieuse et en constante évolution, je poursuis activement ma montée en compétences dans les domaines de la <strong>cybersécurité</strong> et de l'<strong>intelligence artificielle</strong>.
+                  Aujourd'hui, j'ai la chance de pouvoir concilier mes deux passions : les <strong>technologies numériques</strong> et mon <strong>amour de la glisse</strong> ❄️. Curieuse et en constante évolution, je poursuis activement mes compétences dans la <strong>cybersécurité</strong> 🔒 et l'<strong>intelligence artificielle</strong> 🤖.
                 </p>
                 <p>
-                  En parallèle, je m'intéresse profondément à tout ce qui permet une <strong>meilleure connaissance de soi</strong>. Cette quête m'a conduite à obtenir un <strong>diplôme en naturopathie</strong> ainsi qu'en <strong>psychanalyse</strong>, enrichissant ma compréhension de l'humain, de ses mécanismes et de son potentiel.
+                  En parallèle, je m'intéresse profondément à tout ce qui permet une <strong>meilleure connaissance de soi</strong> 🌿. Cette quête m'a conduite à obtenir des diplômes en <strong>naturopathie</strong> 🌱 et en <strong>psychanalyse</strong> 🧠, enrichissant ma compréhension de l'humain, de ses mécanismes et de son potentiel.
                 </p>
                 <div className="mt-8 pt-6 border-t border-gray-200">
-                  <h3 className="text-2xl font-semibold text-gray-900 mb-4">Ce vers quoi je tends</h3>
+                  <h3 className="text-2xl font-semibold text-gray-900 mb-4">🌟 Ce vers quoi je tends</h3>
                   <p>
-                    La <strong>complémentarité de ces deux univers</strong> – la montagne et la technologie, le corps et l'esprit, l'action et la réflexion – est aujourd'hui au cœur de mon épanouissement. Elle me permet de tendre vers une posture à la fois <strong>humaine et structurée</strong>, en restant <strong>humble</strong>, <strong>observatrice</strong>, <strong>empathique</strong> et <strong>ouverte d'esprit</strong>, tout en étant <strong>critique</strong>, <strong>concentrée</strong>, <strong>pragmatique</strong>, <strong>organisée</strong>, <strong>réaliste</strong>, <strong>objective</strong> et <strong>stable</strong>.
+                    La <strong>complémentarité de ces deux univers</strong> – montagne et technologie, corps et esprit, action et réflexion – est aujourd'hui au cœur de mon épanouissement ⚖️. Elle me permet de tendre vers une posture à la fois <strong>humaine et structurée</strong>, en restant <strong>humaine</strong>, <strong>observatrice</strong> et <strong>empathique</strong> 💛, tout en étant <strong>critique</strong>, <strong>concentrée</strong>, <strong>pragmatique</strong> et <strong>organisée</strong> 🎯.
                   </p>
                   <p className="mt-4 italic text-gray-600">
-                    C'est dans cet équilibre que je continue d'avancer, d'apprendre et de transmettre.
+                    C'est dans cet équilibre que je continue d'avancer, d'apprendre et de transmettre 🏔️✨.
                   </p>
                 </div>
               </div>
