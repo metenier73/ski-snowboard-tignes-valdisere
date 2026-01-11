@@ -149,8 +149,8 @@ function App() {
         
       },
       hero: {
-        title: 'Cours de ski et snowboard personnalisés à Tignes Le Lac et Val Claret ❄️',
-        description: 'Monitrice diplômée et expérimentée, je propose des cours privés de ski et snowboard à Tignes Le Lac et Val Claret, adaptés à tous les niveaux.',
+        title: "Cours de ski et snowboard personnalisés à Tignes - Val d' Isère - Les Arcs ❄️",
+        description: "Monitrice diplômée et expérimentée, je propose des cours de ski et snowboard adaptés à tous les niveaux.",
         cta: 'Réserver vos cours'
       },
       about: {
@@ -164,15 +164,15 @@ function App() {
         title: 'Mes Services',
         web: {
           title: 'Cours de Ski',
-          description: 'À Tignes et Val d\'Isère, des cours adaptés à chaque profil :\n\n• Débutant : apprendre les bases en confiance\n• Intermédiaire : améliorer technique et fluidité\n• Avancé : perfectionnement et pistes rouges/noires\n\nUn suivi individuel pour une progression personnalisée.'
+          description: 'Découvrez le plaisir du ski alpin ⛷️❄️ avec des cours adaptés à tous les niveaux, du débutant au skieur confirmé ! \n \n 🌱 Débutants \n \n Pour les skieurs qui découvrent le ski alpin : \n \n  • Découverte et réglage du matériel (chaussures, skis, bâtons) 🎿\n  • Position de base et équilibre ⚖️ \n    • Glisse en ligne droite et premières sensations 🛷 \n   • Techniques de freinage (chasse-neige) ⛔ et premiers virages ↩️ \n \n 🎯 Objectif : acquérir les bases du ski, gagner en confiance et descendre des pentes douces en toute sécurité 🛡️. \n \n ⛷️ Intermédiaires \n \n Pour ceux qui souhaitent améliorer leur technique : \n \n  • Virages en parallèle et enchaînement fluide 🔄 \n   • Meilleur contrôle de la vitesse et de la trajectoire 🏁 \n  • Travail de l’équilibre et des appuis 🎯 \n   • Introduction au carving sur pistes bleues et rouges ✨ \n \n 🎯 Objectif : skier avec aisance sur des pentes plus soutenues et gagner en précision et en fluidité ⛷️💨. \n \n 🔥 Avancé \n \n Pour les skieurs confirmés souhaitant se perfectionner : \n \n   • Carving avancé et virages coupés à haute vitesse ⚡ \n    • Techniques sur pistes rouges et noires 🖤 \n  • Initiation au freestyle (modules, sauts simples) 🤸‍♂️ \n    • Bases du hors-piste et sécurité en montagne ⚠️❄️ \n \n🎯 Objectif : maîtriser une technique avancée, repousser ses limites et profiter pleinement du ski alpin dans toutes les conditions 🌟.'
         },
         mobile: {
           title: 'Cours de Snowboard',
-          description: 'Pour tous les niveaux :\n\n• Initiation : équilibre et premières descentes\n• Perfectionnement : virages frontside/backside, carving\n• Freestyle & hors-piste\n\nSelon conditions et niveaux, pour une expérience sécurisée.'
+          description: 'Découvrez le plaisir du snowboard 🏂❄️ avec mes cours adaptés à tous les niveaux !\n \n 🌱 Débutants \n \n Pour les riders qui découvrent le snowboard :\n \n • Apprendre à connaître et ajuster l’équipement 🎒\n • Positions de base et équilibre ⚖️ \n • Glisser sur une surface plane 🛷 \n • Techniques de freinage de base ⛔ et premiers virages ↩️ \n \n 🎯 Objectif : gagner en confiance et maîtriser les bases pour vos premières descentes sur des pentes douces en toute sécurité 🛡️.\n \n ⛷️ Intermédiaires \n \n Pour ceux qui veulent progresser :\n \n • Techniques de virage avancées 🔄 \n • Contrôle de la vitesse et de la direction 🏁 \n • Initiation au carving 🎯 \n • Introduction au freestyle (sauts simples et figures de base) ✨\n \n 🎯 Objectif : être à l’aise sur des pentes plus raides et commencer à explorer le freestyle 🏂💨. \n \n 🔥 Avancés \n \n Pour les riders confirmés souhaitant repousser leurs limites :\n \n • Carving avancé et techniques de virage ⛷️ \n • Sauts et figures en freestyle (grabs, rotations…) 🤸‍♂️ \n • Techniques de hors-piste / backcountry 🏔️ \n • Sécurité en montagne et avalanche ⚠️❄️ \n \n 🎯 Objectif : maîtriser des techniques avancées et profiter pleinement du snowboard dans toutes ses dimensions 🌟.'
         },
         design: {
           title: 'Hors-piste',
-          description: 'Exploration sécurisée du domaine hors des pistes balisées.\n\n• Découverte du hors-piste encadrée\n• Apprentissage des techniques spécifiques\n• Sécurité et lecture du terrain\n\nMatériel de sécurité recommandé.'
+          description: 'Explorez les montagnes 🏔️ et découvrez les sensations uniques du ski hors-piste ❄️⛷️ avec mes cours adaptés à tous les niveaux.\n Que vous soyez débutant en hors-piste 🌱 ou skieur expérimenté 🔥 cherchant à perfectionner votre technique, je vous accompagne avec sérieux et bienveillance, en toute sécurité 🛡️.\n \n 🌨️ Découverte du ski hors-piste \n \n Ce cours est idéal pour les skieurs expérimentés sur piste 🎿 souhaitant découvrir le hors-piste en douceur.\n \n Vous apprendrez les bases essentielles de la pratique et de la sécurité en montagne 🏔️ :\n \n • Introduction à l’équipement de ski hors-piste 🎒 (skis, DVA 📡, pelle, sonde)\n  • Techniques de base du ski hors-piste ⛷️ (positions, virages) \n • Lecture du terrain 🧭 et choix des lignes de descente\n • Premiers principes de sécurité avalanche ⚠️❄️\n \n 🎯 Objectif : acquérir les bases nécessaires pour skier en toute sécurité en hors-piste et explorer des terrains faciles à modérés en confiance.\n \n ❄️ Perfectionnement hors-piste \n Pour les skieurs ayant déjà une première expérience du hors-piste, ce cours vise à améliorer la technique et approfondir les connaissances en matière de sécurité :\n \n  • Techniques avancées de ski hors-piste ⛷️ (virages serrés, contrôle de la vitesse)\n • Navigation en terrain varié 🌲 (poudreuse, neige croûtée, forêts)\n • Utilisation avancée du DVA 📡\n • Gestion des risques ⚠️ et choix des lignes de descente \n \n 🎯 Objectif : gagner en confiance et en compétence sur des terrains intermédiaires à difficiles, tout en renforçant les bonnes pratiques de sécurité.\n \n 🏔️ Hors-piste expert / engagement \n Destiné aux skieurs confirmés 💪, ce cours permet de perfectionner la technique sur des terrains exigeants et de maîtriser les outils de sécurité avancés :\n \n  • Ski en pente raide et couloirs ⛰️\n • Gestion des conditions de neige difficiles ❄️\n  • Techniques de secours en avalanche 🚑\n • Planification d’itinéraires 🧭 et prise de décision en haute montagne \n \n 🎯 Objectif : devenir un skieur hors-piste autonome et compétent, capable d’évoluer sur des terrains complexes en toute sécurité.'
         }
       },
       contact: {
@@ -667,12 +667,12 @@ function App() {
               <CardHeader>
                 <CardTitle className="text-2xl flex items-center gap-2">
                   <Mountain className="h-6 w-6 text-blue-600" />
-                  Cours particuliers de ski et snowboard à Val d'Isère 🏔️
+                  Cours de ski & snowboard 🏔️
                 </CardTitle>
               </CardHeader>
               <CardContent>
                 <CardDescription className="text-base text-gray-700">
-                  Profitez de cours particuliers à Val d'Isère, au cœur de l'un des plus beaux domaines skiables des Alpes. Que vous souhaitiez apprendre les bases, perfectionner votre technique ou explorer de nouvelles sensations, je vous accompagne sur les pistes mythiques de l'Espace Killy avec un suivi personnalisé et bienveillant ❄️✨.
+                  Profitez de cours particuliers à Tignes - Val d'Isère - Les Arcs , au cœur des plus beaux domaines skiables des Alpes. Que vous souhaitiez apprendre les bases, perfectionner votre technique ou explorer de nouvelles sensations, je vous accompagne sur les pistes mythiques de l'Espace Killy et du Paradiski avec un suivi personnalisé et bienveillant ❄️✨.
                 </CardDescription>
               </CardContent>
             </Card>
@@ -681,12 +681,12 @@ function App() {
               <CardHeader>
                 <CardTitle className="text-2xl flex items-center gap-2">
                   <Snowflake className="h-6 w-6 text-emerald-600" />
-                  Cours de ski et snowboard pour tous les niveaux 🎯
+                  Cours Hors-piste en ski où en snowboard pour tous les niveaux 🎯
                 </CardTitle>
               </CardHeader>
               <CardContent>
                 <CardDescription className="text-base text-gray-700">
-                  Mes cours de ski et snowboard à Tignes – Val d'Isère s'adressent aussi bien aux débutants qu'aux skieurs confirmés et riders en quête de performance 🏂🔥. L'objectif : progresser efficacement, gagner en confiance et surtout prendre du plaisir sur la neige 😄.
+                  Mes cours Hors-piste à Tignes – Val d'Isère - Les Arcs s'adressent aussi bien aux débutants qu'aux skieurs confirmés et riders en quête de performance 🏂🔥. L'objectif : progresser efficacement, gagner en confiance et surtout prendre du plaisir sur la neige 😄.
                 </CardDescription>
               </CardContent>
             </Card>
@@ -697,7 +697,7 @@ function App() {
               <CardHeader>
                 <CardTitle className="text-2xl flex items-center gap-2 justify-center">
                   <Star className="h-6 w-6 text-amber-600" />
-                  Pourquoi choisir un cours privé à Tignes – Val d'Isère ? ⭐
+                  Pourquoi choisir un cours privé à Tignes – Val d'Isère - Les Arcs ? ⭐
                 </CardTitle>
               </CardHeader>
               <CardContent>
@@ -723,7 +723,7 @@ function App() {
                   <div className="flex items-start gap-3">
                     <CheckCircle className="h-5 w-5 text-amber-600 mt-1 flex-shrink-0" />
                     <div>
-                      <div className="font-semibold text-gray-900">Découverte des plus beaux secteurs de Tignes Le Lac, Val Claret et Val d'Isère</div>
+                      <div className="font-semibold text-gray-900">Découverte des plus beaux secteurs de Tignes , Val d'Isère et des Arcs </div>
                     </div>
                   </div>
                   <div className="flex items-start gap-3 md:col-span-2">
