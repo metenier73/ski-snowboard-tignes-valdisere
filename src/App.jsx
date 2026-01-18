@@ -1124,94 +1124,290 @@ function App() {
       </section>
 
       {/* Blog Section */}
-      <section id="blog" className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4 flex items-center justify-center gap-2">
-              <BookOpen className="h-7 w-7 text-blue-600" /> Blog
+      <section id="blog" className="py-20 bg-gradient-to-br from-blue-50 via-white to-indigo-50 relative overflow-hidden">
+        {/* Background decoration */}
+        <div className="absolute inset-0 opacity-5">
+          <div className="absolute top-10 left-10 w-64 h-64 bg-blue-500 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-10 right-10 w-96 h-96 bg-indigo-500 rounded-full blur-3xl"></div>
+        </div>
+        
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="text-center mb-16">
+            <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-blue-600 to-indigo-600 rounded-2xl mb-6 shadow-lg">
+              <BookOpen className="h-8 w-8 text-white" />
+            </div>
+            <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent mb-4">
+              Blog
             </h2>
-            <p className="text-gray-600">Actus, conseils et bons plans Tignes & Val d’Isère</p>
+            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+              Actus, conseils et bons plans Tignes & Val d'Isère
+            </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <Card>
-              <CardHeader>
-                <CardTitle>Dates d’ouverture & fermeture</CardTitle>
-                <CardDescription>Val d’Isère et Tignes</CardDescription>
-              </CardHeader>
-              <CardContent className="space-y-2">
-                <ul className="list-disc pl-5 text-gray-700">
-                  <li>Tignes: Hiver 2025-2026 (prévision: fin nov. → début mai)</li>
-                  <li>Val d’Isère: Hiver 2025-2026 (prévision: début déc. → début mai)</li>
-                </ul>
-                <a className="text-blue-600 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 rounded-sm" href="https://www.tignes.net" target="_blank" rel="noreferrer">Site Tignes</a>
-                <span className="mx-2">•</span>
-                <a className="text-blue-600 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 rounded-sm" href="https://www.valdisere.com" target="_blank" rel="noreferrer">Site Val d’Isère</a>
-              </CardContent>
-            </Card>
-            <Card>
-              <CardHeader>
-                <CardTitle>Programme d’animations</CardTitle>
-                <CardDescription>Agenda des évènements</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <a className="text-blue-600 hover:underline" href="https://www.tignes.net/que-faire-a-tignes/agenda" target="_blank" rel="noreferrer">Agenda Tignes</a>
-                <span className="mx-2">•</span>
-                <a className="text-blue-600 hover:underline" href="https://www.valdisere.com/agenda/" target="_blank" rel="noreferrer">Agenda Val d’Isère</a>
-              </CardContent>
-            </Card>
-            <Card>
-              <CardHeader>
-                <CardTitle>Applications officielles</CardTitle>
-              </CardHeader>
-              <CardContent className="space-x-3">
-                <a className="text-blue-600 hover:underline" href="https://play.google.com/store/search?q=tignes&c=apps" target="_blank" rel="noreferrer">Apps Tignes</a>
-                <a className="text-blue-600 hover:underline" href="https://play.google.com/store/search?q=val%20d%27isere&c=apps" target="_blank" rel="noreferrer">Apps Val d’Isère</a>
-              </CardContent>
-            </Card>
-            <Card>
-              <CardHeader>
-                <CardTitle>Offices & Remontées</CardTitle>
-              </CardHeader>
-              <CardContent className="space-x-3">
-                <a className="text-blue-600 hover:underline" href="https://www.tignes.net" target="_blank" rel="noreferrer">Office Tignes</a>
-                <a className="text-blue-600 hover:underline" href="https://www.compagniedesalpes.com/" target="_blank" rel="noreferrer">Remontées</a>
-                <a className="text-blue-600 hover:underline" href="https://www.valdisere.com" target="_blank" rel="noreferrer">Office Val d’Isère</a>
-              </CardContent>
-            </Card>
-            <Card>
-              <CardHeader>
-                <CardTitle>Conseils équipement</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <ul className="list-disc pl-5 text-gray-700 space-y-1">
-                  <li>Casque, dorsale, DVA, pelle, sonde en hors-piste</li>
-                  <li>Location: privilégier boutique proche des pistes</li>
-                  <li>Bootfitting pour le confort et contrôle</li>
-                </ul>
-              </CardContent>
-            </Card>
-            <Card>
-              <CardHeader>
-                <CardTitle>Conseils choix des pistes</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <ul className="list-disc pl-5 text-gray-700 space-y-1">
-                  <li>Matin: pentes ensoleillées, après-midi: neiges plus souples</li>
-                  <li>Consulter le bulletin d’avalanche avant hors-piste</li>
-                </ul>
-              </CardContent>
-            </Card>
-            <Card>
-              <CardHeader>
-                <CardTitle>Technique ski & snowboard</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <ul className="list-disc pl-5 text-gray-700 space-y-1">
-                  <li>Ski: appuis progressifs, regard loin, rythme</li>
-                  <li>Snowboard: posture centrée, dissociation épaules/bassin</li>
-                </ul>
-              </CardContent>
-            </Card>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {/* Carte 1: Dates d'ouverture */}
+            <div className="group relative bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 overflow-hidden border border-gray-100">
+              <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-blue-100 to-indigo-100 rounded-full -mr-16 -mt-16 opacity-50"></div>
+              <div className="p-8 relative z-10">
+                <div className="flex items-center mb-4">
+                  <div className="flex items-center justify-center w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl mr-4">
+                    <Calendar className="h-6 w-6 text-white" />
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-bold text-gray-900">Dates d'ouverture</h3>
+                    <p className="text-sm text-gray-500">Saison 2025-2026</p>
+                  </div>
+                </div>
+                <div className="space-y-3">
+                  <div className="flex items-start space-x-3">
+                    <div className="w-2 h-2 bg-blue-500 rounded-full mt-2 flex-shrink-0"></div>
+                    <div>
+                      <p className="font-semibold text-gray-800">Tignes</p>
+                      <p className="text-gray-600">Fin novembre → début mai</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start space-x-3">
+                    <div className="w-2 h-2 bg-indigo-500 rounded-full mt-2 flex-shrink-0"></div>
+                    <div>
+                      <p className="font-semibold text-gray-800">Val d'Isère</p>
+                      <p className="text-gray-600">Début décembre → début mai</p>
+                    </div>
+                  </div>
+                </div>
+                <div className="mt-6 pt-6 border-t border-gray-100 flex flex-wrap gap-3">
+                  <a href="https://www.tignes.net" target="_blank" rel="noreferrer" className="inline-flex items-center text-blue-600 hover:text-blue-700 font-medium text-sm transition-colors">
+                    <span className="mr-1">🏔️</span> Tignes.net
+                  </a>
+                  <a href="https://www.valdisere.com" target="_blank" rel="noreferrer" className="inline-flex items-center text-blue-600 hover:text-blue-700 font-medium text-sm transition-colors">
+                    <span className="mr-1">⛷️</span> Valdisere.com
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            {/* Carte 2: Programme d'animations */}
+            <div className="group relative bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 overflow-hidden border border-gray-100">
+              <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-purple-100 to-pink-100 rounded-full -mr-16 -mt-16 opacity-50"></div>
+              <div className="p-8 relative z-10">
+                <div className="flex items-center mb-4">
+                  <div className="flex items-center justify-center w-12 h-12 bg-gradient-to-br from-purple-500 to-pink-500 rounded-xl mr-4">
+                    <Star className="h-6 w-6 text-white" />
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-bold text-gray-900">Animations</h3>
+                    <p className="text-sm text-gray-500">Événements & agenda</p>
+                  </div>
+                </div>
+                <div className="space-y-4">
+                  <div className="bg-gradient-to-r from-purple-50 to-pink-50 rounded-xl p-4">
+                    <p className="font-semibold text-gray-800 mb-2">🎉 À ne pas manquer</p>
+                    <ul className="space-y-2 text-sm text-gray-600">
+                      <li className="flex items-center"><span className="mr-2">•</span> Concerts et festivals</li>
+                      <li className="flex items-center"><span className="mr-2">•</span> Compétitions de ski</li>
+                      <li className="flex items-center"><span className="mr-2">•</span> Soirées thématiques</li>
+                    </ul>
+                  </div>
+                </div>
+                <div className="mt-6 pt-6 border-t border-gray-100 flex flex-wrap gap-3">
+                  <a href="https://www.tignes.net/que-faire-a-tignes/agenda" target="_blank" rel="noreferrer" className="inline-flex items-center text-purple-600 hover:text-purple-700 font-medium text-sm transition-colors">
+                    <span className="mr-1">📅</span> Agenda Tignes
+                  </a>
+                  <a href="https://www.valdisere.com/agenda/" target="_blank" rel="noreferrer" className="inline-flex items-center text-purple-600 hover:text-purple-700 font-medium text-sm transition-colors">
+                    <span className="mr-1">📆</span> Agenda Val d'Isère
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            {/* Carte 3: Applications officielles */}
+            <div className="group relative bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 overflow-hidden border border-gray-100">
+              <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-green-100 to-emerald-100 rounded-full -mr-16 -mt-16 opacity-50"></div>
+              <div className="p-8 relative z-10">
+                <div className="flex items-center mb-4">
+                  <div className="flex items-center justify-center w-12 h-12 bg-gradient-to-br from-green-500 to-emerald-500 rounded-xl mr-4">
+                    <Settings className="h-6 w-6 text-white" />
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-bold text-gray-900">Applications</h3>
+                    <p className="text-sm text-gray-500">Tools officiels</p>
+                  </div>
+                </div>
+                <div className="space-y-3">
+                  <div className="bg-gradient-to-r from-green-50 to-emerald-50 rounded-xl p-4">
+                    <p className="font-semibold text-gray-800 mb-3">📱 Apps indispensables</p>
+                    <div className="grid grid-cols-2 gap-2 text-sm">
+                      <div className="flex items-center space-x-2">
+                        <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+                        <span className="text-gray-600">Météo</span>
+                      </div>
+                      <div className="flex items-center space-x-2">
+                        <div className="w-2 h-2 bg-emerald-500 rounded-full"></div>
+                        <span className="text-gray-600">Pistes</span>
+                      </div>
+                      <div className="flex items-center space-x-2">
+                        <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+                        <span className="text-gray-600">Webcams</span>
+                      </div>
+                      <div className="flex items-center space-x-2">
+                        <div className="w-2 h-2 bg-emerald-500 rounded-full"></div>
+                        <span className="text-gray-600">Navettes</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div className="mt-6 pt-6 border-t border-gray-100 flex flex-wrap gap-3">
+                  <a href="https://play.google.com/store/search?q=tignes&c=apps" target="_blank" rel="noreferrer" className="inline-flex items-center text-green-600 hover:text-green-700 font-medium text-sm transition-colors">
+                    <span className="mr-1">🏔️</span> Apps Tignes
+                  </a>
+                  <a href="https://play.google.com/store/search?q=val%20d%27isere&c=apps" target="_blank" rel="noreferrer" className="inline-flex items-center text-green-600 hover:text-green-700 font-medium text-sm transition-colors">
+                    <span className="mr-1">⛷️</span> Apps Val d'Isère
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            {/* Carte 4: Offices & Remontées */}
+            <div className="group relative bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 overflow-hidden border border-gray-100">
+              <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-orange-100 to-red-100 rounded-full -mr-16 -mt-16 opacity-50"></div>
+              <div className="p-8 relative z-10">
+                <div className="flex items-center mb-4">
+                  <div className="flex items-center justify-center w-12 h-12 bg-gradient-to-br from-orange-500 to-red-500 rounded-xl mr-4">
+                    <MapPin className="h-6 w-6 text-white" />
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-bold text-gray-900">Services</h3>
+                    <p className="text-sm text-gray-500">Offices & remontées</p>
+                  </div>
+                </div>
+                <div className="space-y-3">
+                  <div className="bg-gradient-to-r from-orange-50 to-red-50 rounded-xl p-4">
+                    <p className="font-semibold text-gray-800 mb-3">🎿 Info pratiques</p>
+                    <ul className="space-y-2 text-sm text-gray-600">
+                      <li className="flex items-center justify-between">
+                        <span>🏢 Offices de tourisme</span>
+                        <span className="text-xs bg-orange-100 text-orange-700 px-2 py-1 rounded-full">Info</span>
+                      </li>
+                      <li className="flex items-center justify-between">
+                        <span>🚠 Remontées mécaniques</span>
+                        <span className="text-xs bg-red-100 text-red-700 px-2 py-1 rounded-full">Horaires</span>
+                      </li>
+                      <li className="flex items-center justify-between">
+                        <span>🎫 Forfaits en ligne</span>
+                        <span className="text-xs bg-orange-100 text-orange-700 px-2 py-1 rounded-full">Achat</span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                <div className="mt-6 pt-6 border-t border-gray-100 flex flex-wrap gap-3">
+                  <a href="https://www.tignes.net" target="_blank" rel="noreferrer" className="inline-flex items-center text-orange-600 hover:text-orange-700 font-medium text-sm transition-colors">
+                    <span className="mr-1">🏔️</span> Office Tignes
+                  </a>
+                  <a href="https://www.compagniedesalpes.com/" target="_blank" rel="noreferrer" className="inline-flex items-center text-orange-600 hover:text-orange-700 font-medium text-sm transition-colors">
+                    <span className="mr-1">🚠</span> Remontées
+                  </a>
+                  <a href="https://www.valdisere.com" target="_blank" rel="noreferrer" className="inline-flex items-center text-orange-600 hover:text-orange-700 font-medium text-sm transition-colors">
+                    <span className="mr-1">⛷️</span> Office Val d'Isère
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            {/* Carte 5: Conseils équipement */}
+            <div className="group relative bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 overflow-hidden border border-gray-100">
+              <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-cyan-100 to-blue-100 rounded-full -mr-16 -mt-16 opacity-50"></div>
+              <div className="p-8 relative z-10">
+                <div className="flex items-center mb-4">
+                  <div className="flex items-center justify-center w-12 h-12 bg-gradient-to-br from-cyan-500 to-blue-500 rounded-xl mr-4">
+                    <ShieldAlert className="h-6 w-6 text-white" />
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-bold text-gray-900">Équipement</h3>
+                    <p className="text-sm text-gray-500">Conseils pro</p>
+                  </div>
+                </div>
+                <div className="space-y-3">
+                  <div className="space-y-2">
+                    <div className="flex items-start space-x-3">
+                      <div className="w-6 h-6 bg-cyan-100 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5">
+                        <span className="text-cyan-600 text-xs font-bold">1</span>
+                      </div>
+                      <div>
+                        <p className="font-semibold text-gray-800">Sécurité hors-piste</p>
+                        <p className="text-sm text-gray-600">Casque, dorsale, DVA, pelle, sonde</p>
+                      </div>
+                    </div>
+                    <div className="flex items-start space-x-3">
+                      <div className="w-6 h-6 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5">
+                        <span className="text-blue-600 text-xs font-bold">2</span>
+                      </div>
+                      <div>
+                        <p className="font-semibold text-gray-800">Location maline</p>
+                        <p className="text-sm text-gray-600">Privilégier boutique proche des pistes</p>
+                      </div>
+                    </div>
+                    <div className="flex items-start space-x-3">
+                      <div className="w-6 h-6 bg-cyan-100 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5">
+                        <span className="text-cyan-600 text-xs font-bold">3</span>
+                      </div>
+                      <div>
+                        <p className="font-semibold text-gray-800">Bootfitting</p>
+                        <p className="text-sm text-gray-600">Pour le confort et contrôle optimal</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div className="mt-6 pt-6 border-t border-gray-100">
+                  <div className="flex items-center justify-between">
+                    <span className="text-xs bg-cyan-100 text-cyan-700 px-3 py-1 rounded-full font-medium">Expert</span>
+                    <span className="text-xs text-gray-500">Conseil pro Myriam</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Carte 6: Technique ski & snowboard */}
+            <div className="group relative bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 overflow-hidden border border-gray-100">
+              <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-indigo-100 to-purple-100 rounded-full -mr-16 -mt-16 opacity-50"></div>
+              <div className="p-8 relative z-10">
+                <div className="flex items-center mb-4">
+                  <div className="flex items-center justify-center w-12 h-12 bg-gradient-to-br from-indigo-500 to-purple-500 rounded-xl mr-4">
+                    <Mountain className="h-6 w-6 text-white" />
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-bold text-gray-900">Technique</h3>
+                    <p className="text-sm text-gray-500">Ski & snowboard</p>
+                  </div>
+                </div>
+                <div className="space-y-4">
+                  <div className="bg-gradient-to-r from-indigo-50 to-purple-50 rounded-xl p-4">
+                    <div className="space-y-3">
+                      <div>
+                        <p className="font-semibold text-gray-800 mb-2">⛷️ Ski alpin</p>
+                        <ul className="space-y-1 text-sm text-gray-600">
+                          <li>• Appuis progressifs</li>
+                          <li>• Regard loin devant</li>
+                          <li>• Rythme et fluidité</li>
+                        </ul>
+                      </div>
+                      <div>
+                        <p className="font-semibold text-gray-800 mb-2">🏂 Snowboard</p>
+                        <ul className="space-y-1 text-sm text-gray-600">
+                          <li>• Posture centrée</li>
+                          <li>• Dissociation épaules/bassin</li>
+                          <li>• Transfert de poids fluide</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div className="mt-6 pt-6 border-t border-gray-100">
+                  <div className="flex items-center justify-between">
+                    <span className="text-xs bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full font-medium">Coach</span>
+                    <span className="text-xs text-gray-500">Avec Myriam</span>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
