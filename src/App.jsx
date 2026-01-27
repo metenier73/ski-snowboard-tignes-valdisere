@@ -1331,13 +1331,21 @@ function App() {
                 ))}
               </div>
               <span className="text-2xl font-bold text-gray-900">4.97</span>
-              <span className="text-gray-600">(32 avis)</span>
+              <span className="text-gray-600">(40 avis)</span>
             </div>
             <p className="text-lg text-gray-600">90% des commentaires de Myriam M sont 5 étoiles.</p>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
+              { name: 'Louis B.', rating: 5, date: '26/01/2026', location: 'Ski, Tignes', hours: 4, text: "Après un seul après midi ma copine qui a été accompagnée de Myriam n'avait que des bonnes choses a dire à propos de Myriam, et pouvait descendre des pistes bleues. Je recommande vivement les services de Myriam." },
+              { name: 'Benny A.', rating: 5, date: '26/01/2026', location: 'Snowboard, Les Arcs', hours: 4, text: "I highly recommend taking Myriam as an instructor. She proved to be very patient and was very helpful in creating confidence on the slopes." },
+              { name: 'Gilly W.', rating: 5, date: '21/01/2026', location: 'Ski, Les Arcs 1600', hours: 6, text: "Highly recommend Myriam! Excellent in every way. She gave me plenty of simple, useful tips to improve my technique. I really appreciated that she showed me plenty of different slopes and lifts, so that we would have a fantastic holiday. Such a nice person, too - I felt really comfortable with her. Only positive things to say and I would absolutely book another session with Myriam, if I return to Les Arcs." },
+              { name: 'Charlie B.', rating: 5, date: '18/01/2026', location: 'Ski, Les Arcs', hours: 6, text: "We had a really successful day with Myriam. We are a family of four from Australia & Myriam gave us a group lesson for the first day of our skiing holiday. The two kids (10 & 12) hadn't really skied before & the adults are intermediate and in need of some tips to get us started for the trip. Myriam did a fantastic job getting the kids up and going very quickly within one day, skiing down a blue run by the end of day one. We were very impressed. Myriam's communication was ever so slightly unclear at times but her ability to teach the kids so quickly easily outshone any minor issues!" },
+              { name: 'Charles C.', rating: 5, date: '13/01/2026', location: 'Ski, Tignes', hours: 6, text: "Myriam pushed us to our limits with great feedback on how to improve our technique. Where one technique may not have worked, she had another method to help us. A very nice instructor that we both recommend!!" },
+              { name: 'Scout S.', rating: 5, date: '07/01/2026', location: 'Ski, Val d\'Isère', hours: 36, text: "I booked Myriam for my clients & they said she was a fantastic instructor." },
+              { name: 'Nadia B.', rating: 5, date: '25/12/2025', location: 'Ski, Les Arcs 1950', hours: 2, text: "Merci beaucoup Myriam, ces 2 heures de cours m'ont beaucoup aidée à me concentrer sur les bonnes techniques et ont été faciles à appliquer par la suite." },
+              { name: 'Julien M.', rating: 5, date: '25/12/2025', location: 'Ski, Les Arcs 1600', hours: 2, text: "Séance au top! Myriam a vraiment adapté la séance à mon niveau et de très bon conseil. Je recommande fortement!! Excellente monitrice!" },
               { name: 'Nicola M.', rating: 5, date: '10/12/2025', location: 'Ski, Tignes', hours: 3, text: "We had a super lesson with Myriam, she was extremely friendly and helpful from the first text message that she sent to me. She was able to look at how we skied and give us clear instruction of what we were doing wrong and what changes we needed make to improve our technique. By the end of the day I was skiing with much more confidence. Myriam was also a great ski guide, very familiar with all the ski routes/pistes and local restaurants - also extremely knowledgeable on local area and it's history. I'm hoping we return to Tignes again soon and would book her again for more lessons." },
               { name: 'Xavi R.', rating: 5, date: '09/12/2025', location: 'Ski, Tignes', hours: 4, text: "The lesson was great! I couldn't have asked for a better teacher. Maryam was super friendly and knowledgeable. Communication was smooth and Maryam was super flexible. Looking forward to my next lesson with her!" },
               { name: 'Hannah M.', rating: 5, date: '17/04/2025', location: 'Ski, Tignes', hours: 8, text: "Myriam was absolutely fantastic - we could not have asked for a better instructor to teach our 6yo, 3yo and myself. The lesson was fun, with positive & constructive feedback. Myriam was so knowledgeable and patient with our children and managed to get our 6yo confidently down blue runs by the end of the lesson. Would highly recommend for skiers of all abilities. Thank you!!" },
@@ -1419,7 +1427,7 @@ function App() {
                     ))}
                   </div>
                 </div>
-                <div className="text-sm text-gray-600 mt-1">basé sur 32 avis</div>
+                <div className="text-sm text-gray-600 mt-1">basé sur 40 avis</div>
               </div>
               <div className="border-l border-gray-200 pl-6 text-left">
                 <div className="text-sm font-semibold text-gray-900 mb-2">Appréciations</div>
