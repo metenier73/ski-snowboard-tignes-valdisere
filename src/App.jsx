@@ -1,15 +1,18 @@
 import Logo from '@/assets/Logo.png'
 import QRCode from '@/assets/qr-code.png'
-import RAGAssistant from '@/components/rag/RAGAssistant.jsx'
 import BookingWidget from '@/components/booking/BookingWidget.jsx'
+import RAGAssistant from '@/components/rag/RAGAssistant.jsx'
 import { Button } from '@/components/ui/button.jsx'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card.jsx'
 import { galleryAltTexts, getGalleryImage, totalImages } from '@/data/galleryImages'
 import {
+  AlertTriangle,
   BookOpen,
   Bot,
   Calendar,
+  CheckCircle,
   ChevronDown,
+  Cloud,
   CloudFog,
   CloudHail,
   CloudLightning,
@@ -18,24 +21,25 @@ import {
   CloudSun,
   Cloudy,
   Compass,
-  ImagePlus,
   Image,
+  ImagePlus,
+  Info,
   Mail,
   MapPin,
   Menu,
   MessageCircle,
   Mountain,
   Phone,
-  ShieldAlert,
-  Info,
   Settings,
+  Shield,
+  ShieldAlert,
+  Smartphone,
   Snowflake,
   Sparkles,
   Star,
   Sun,
-  AlertTriangle,
-  CheckCircle,
-  X
+  X,
+  Zap
 } from 'lucide-react'
 import { useEffect, useState } from 'react'
 import './App.css'
@@ -1444,438 +1448,947 @@ function App() {
       </section>
 
       {/* Booking Section */}
-      <section id="booking" className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-8">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 flex items-center justify-center gap-2">
-              <Calendar className="h-7 w-7 text-blue-600" /> Réserver vos cours (Hiver 2025-2026)
+      <section id="booking" className="py-20 bg-gradient-to-br from-teal-50 via-cyan-50 to-blue-50 relative overflow-hidden">
+        {/* Background decoration */}
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute top-10 left-20 w-72 h-72 bg-teal-400 rounded-full blur-3xl"></div>
+          <div className="absolute top-40 right-20 w-96 h-96 bg-cyan-400 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-20 left-1/2 w-80 h-80 bg-blue-400 rounded-full blur-3xl"></div>
+        </div>
+        
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="text-center mb-16">
+            <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-teal-600 to-cyan-600 rounded-2xl mb-6 shadow-2xl">
+              <Calendar className="h-8 w-8 text-white" />
+            </div>
+            <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-teal-600 via-cyan-600 to-blue-600 bg-clip-text text-transparent mb-4">
+              Réserver vos cours (Hiver 2025-2026)
             </h2>
+            <p className="text-xl text-gray-700 max-w-3xl mx-auto">
+              Planning détaillé et tarifs pour vos cours particuliers de ski et snowboard
+            </p>
           </div>
-          <div className="overflow-x-auto">
-            <table className="min-w-full text-left">
-              <thead>
-                <tr className="text-gray-600">
-                  <th className="py-2 pr-6">Semaine</th>
-                  <th className="py-2 pr-6">Dates</th>
-                  <th className="py-2 pr-6">Tarif horaire</th>
-                  <th className="py-2 pr-6">Tarif journée</th>
-                  <th className="py-2 pr-6">Remise après-midi</th>
-                  <th className="py-2 pr-6">Créneaux</th>
-                  <th className="py-2 pr-6">Action</th>
-                </tr>
-              </thead>
-              <tbody className="text-gray-800">
-                {[
-                  {w:'49',d:'30/11/2025 - 06/12/2025',h:'€79.00',j:'€495.00',r:'8%',c:'09:00-13:00 ; 13:00-16:30',dailyPartialSlots:[{date:'01/12/2025',blocked:'09:00-12:30',availableSlots:['12:30-13:00', '13:00-16:30']},{date:'02/12/2025',blocked:'09:00-11:00',availableSlots:['11:00-13:00', '13:00-16:30']},{date:'04/12/2025',blocked:'11:00-13:00',availableSlots:['09:00-11:00', '13:00-16:30']}],dailyAvailableDates:['05/12/2025','06/12/2025','07/12/2025']},
-                  {w:'50',d:'07/12/2025 - 13/12/2025',h:'€89.00',j:'€522.00',r:'8%',c:'09:00-13:00 ; 13:00-16:30',dailyPartialSlots:[{date:'08/12/2025',blocked:'11:00-13:00 et 14:00-16:00',availableSlots:['09:00-11:00', '13:00-14:00']},{date:'13/12/2025',blocked:'09:00-13:00',availableSlots:['13:00-16:30']}],dailyAvailableDates:['09/12/2025','10/12/2025','11/12/2025','12/12/2025']},
-                  {w:'51',d:'14/12/2025 - 20/12/2025',h:'€100.00',j:'€554.00',r:'8%',c:'09:00-13:00 ; 13:00-16:30',dailyFullBlockedDates:['14/12/2025','15/12/2025','16/12/2025','17/12/2025','18/12/2025','19/12/2025']},
-                  {w:'52',d:'21/12/2025 - 27/12/2025',h:'€105.00',j:'€629.00',r:'8%',c:'09:00-13:00 ; 13:00-16:30',rule:true,dailyPartialSlots:[{date:'21/12/2025',blocked:'09:00-12:00',availableSlots:['12:00-16:30']},{date:'22/12/2025',blocked:'09:00-12:00',availableSlots:['12:00-16:30']},{date:'23/12/2025',blocked:'09:00-14:00',availableSlots:['14:00-16:30']}],dailyFullBlockedDates:['24/12/2025','25/12/2025','26/12/2025']},
-                  {w:'1',d:'28/12/2025 - 03/01/2026',h:'€115.00',j:'€640.00',r:'8%',c:'09:00-13:00 ; 13:00-16:30',rule:true,dailyAvailableDates:['03/01/2026'],dailyFullBlockedDates:['28/12/2025','29/12/2025','30/12/2025','31/12/2025','01/01/2026','02/01/2026']},
-                  {w:'2',d:'04/01/2026 - 10/01/2026',h:'€95.00',j:'€542.00',r:'8%',c:'09:00-13:00 ; 13:00-16:30',dailyPartialSlots:[{date:'06/01/2026',blocked:'09:00-13:00',availableSlots:['13:00-16:30']},{date:'07/01/2026',blocked:'09:00-13:00',availableSlots:['13:00-16:30']},{date:'08/01/2026',blocked:'09:00-13:00',availableSlots:['13:00-16:30']},{date:'10/01/2026',blocked:'09:00-13:00',availableSlots:['13:00-16:30']}],dailyFullBlockedDates:['05/01/2026']},
-                  {w:'3',d:'11/01/2026 - 17/01/2026',h:'€92.00',j:'€566.00',r:'8%',c:'09:00-13:00 ; 13:00-16:30',dailyPartialSlots:[{date:'13/01/2026',blocked:'12:00-14:00',availableSlots:['09:00-12:00', '14:00-17:00']}]},
-                  {w:'4',d:'18/01/2026 - 24/01/2026',h:'€91.00',j:'€542.00',r:'8%',c:'09:00-13:00 ; 13:00-16:30'},
-                  {w:'5',d:'25/01/2026 - 31/01/2026',h:'€90.00',j:'€535.00',r:'8%',c:'09:00-13:00 ; 13:00-16:30 (26-30/01: 09:00-14:00 indisponible ; 14:00-17:00 disponible)',dailyExtendedMorningBlocks:['26/01/2026','27/01/2026','28/01/2026','29/01/2026','30/01/2026']},
-                  {w:'6',d:'01/02/2026 - 07/02/2026',h:'€105.00',j:'€590.00',r:'8%',c:'09:00-13:00 ; 13:00-16:30',dailyPartialSlots:[{date:'01/02/2026',blocked:'09:00-13:00',availableSlots:['13:00-16:30']},{date:'02/02/2026',blocked:'09:00-13:00',availableSlots:['13:00-16:30']},{date:'03/02/2026',blocked:'09:00-13:00',availableSlots:['13:00-16:30']}]},
-                  {w:'7',d:'08/02/2026 - 14/02/2026',h:'€110.00',j:'€595.00',r:'8%',c:'09:00-13:00 ; 13:00-16:30',rule:true},
-                  {w:'8',d:'15/02/2026 - 21/02/2026',h:'€131.00',j:'€851.00',r:'8%',c:'09:00-13:00 ; 13:00-17:00',rule:true,dailyPartialSlots:[{date:'15/02/2026',blocked:'09:00-13:00',availableSlots:['13:00-17:00']},{date:'16/02/2026',blocked:'09:00-13:00',availableSlots:['13:00-17:00']},{date:'17/02/2026',blocked:'09:00-13:00',availableSlots:['13:00-17:00']},{date:'18/02/2026',blocked:'09:00-13:00',availableSlots:['13:00-17:00']},{date:'19/02/2026',blocked:'09:00-13:00',availableSlots:['13:00-17:00']},{date:'20/02/2026',blocked:'09:00-13:00',availableSlots:['13:00-17:00']}],dailyAvailableDates:['21/02/2026']},
-                  {w:'9',d:'22/02/2026 - 28/02/2026',h:'€120.00',j:'€599.00',r:'8%',c:'09:00-13:00 ; 13:00-16:30',rule:true},
-                  {w:'10',d:'01/03/2026 - 07/03/2026',h:'€105.00',j:'€549.00',r:'8%',c:'09:00-13:00 ; 13:00-16:30'},
-                  {w:'11',d:'08/03/2026 - 14/03/2026',h:'€99.00',j:'€537.00',r:'8%',c:'09:00-13:00 ; 13:00-16:30'},
-                  {w:'12',d:'15/03/2026 - 21/03/2026',h:'€94.00',j:'€507.00',r:'8%',c:'09:00-13:00 ; 13:00-16:30'},
-                  {w:'13',d:'22/03/2026 - 28/03/2026',h:'€95.00',j:'€491.00',r:'8%',c:'09:00-13:00 ; 13:00-16:30'},
-                  {w:'14',d:'29/03/2026 - 04/04/2026',h:'€115.00',j:'€653.00',r:'8%',c:'09:00-13:00 ; 13:00-16:30',rule:true,dailyMorningBlocks:['29/03/2026','30/03/2026','31/03/2026','01/04/2026','02/04/2026','03/04/2026'],dailyAvailableDates:['04/04/2026']},
-                  {w:'15',d:'05/04/2026 - 11/04/2026',h:'€111.00',j:'€630.00',r:'8%',c:'09:00-13:00 ; 13:00-16:30',rule:true},
-                  {w:'16',d:'12/04/2026 - 18/04/2026',h:'€110.00',j:'€600.00',r:'8%',c:'09:00-13:00 ; 13:00-16:30'},
-                  {w:'17',d:'19/04/2026 - 25/04/2026',h:'€110.00',j:'€600.00',r:'8%',c:'09:00-13:00 ; 13:00-16:30'},
-                  {w:'18',d:'26/04/2026 - 02/05/2026',h:'€99.00',j:'€600.00',r:'8%',c:'09:00-13:00 ; 13:00-16:30'},
-                ].map((row,idx)=> (
-                  <tr key={idx} className={`border-b border-gray-200 ${row.reserved ? 'opacity-60' : ''}`} aria-disabled={row.reserved ? true : undefined}>
-                    <td className="py-3 pr-6">{row.w}</td>
-                    <td className="py-3 pr-6">{row.d}</td>
-                    <td className="py-3 pr-6">{row.h}</td>
-                    <td className="py-3 pr-6">{row.j}</td>
-                    <td className="py-3 pr-6">{row.r}</td>
-                    <td className="py-3 pr-6">{row.c}</td>
-                    <td className="py-3 pr-6">
-                      {row.reserved ? (
-                        <span title="Semaine complète – plus de créneaux disponibles" className="inline-flex items-center px-3 py-1.5 border border-transparent text-sm font-semibold rounded-md shadow-sm text-white bg-gray-400 cursor-not-allowed select-none">
-                          Complet
-                        </span>
-                      ) : (
-                        <a 
-                          href="https://maisonsport.com/fr/profile/927576662/myriam-m?omnisendContactID=65cb1772c613deaa1396a153&utm_campaign=automation%3A+Transactional+Flow+(6537bd845397fc850450a200)&utm_content=6537c00f5397fc850450a21a&utm_medium=email&utm_source=omnisend" 
-                          target="_blank" 
-                          rel="noopener noreferrer"
-                          className="inline-flex items-center px-3 py-1.5 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-500"
-                        >
-                          Réserver
-                        </a>
-                      )}
-                      {row.morningReserved && (
-                        <span title="Les créneaux du matin (jusqu'à 13h) ne sont plus disponibles" className="ml-2 inline-flex items-center gap-1 px-2 py-0.5 rounded text-xs font-medium bg-amber-100 text-amber-800 border border-amber-200">
-                          <AlertTriangle className="h-3.5 w-3.5" />
-                          Matins complets (jusqu'à 13h)
-                        </span>
-                      )}
-                      {row.morningReserved && (
-                        <span title="Les créneaux d'après-midi restent ouverts" className="ml-2 inline-flex items-center gap-1 px-2 py-0.5 rounded text-xs font-medium bg-emerald-100 text-emerald-800 border border-emerald-200">
-                          <CheckCircle className="h-3.5 w-3.5" />
-                          Après-midi disponibles
-                        </span>
-                      )}
-                      {Array.isArray(row.dailyPartialSlots) && row.dailyPartialSlots.length > 0 && (
-                        <div className="mt-2 flex flex-wrap gap-2">
-                          {row.dailyPartialSlots.map((slot, idx) => (
-                            <div key={idx} className="flex flex-wrap gap-2">
-                              <span title={`Créneau indisponible le ${slot.date} (${slot.blocked})`} className="inline-flex items-center gap-1 px-2 py-0.5 rounded text-xs font-medium bg-orange-50 text-orange-700 border border-orange-200">
-                                <AlertTriangle className="h-3 w-3" />
-                                {slot.date} · {slot.blocked} indisponible
-                              </span>
-                              {Array.isArray(slot.availableSlots) && slot.availableSlots.map((availableSlot, slotIdx) => (
-                                <span key={slotIdx} title={`Disponible le ${slot.date} (${availableSlot})`} className="inline-flex items-center gap-1 px-2 py-0.5 rounded text-xs font-medium bg-emerald-50 text-emerald-700 border border-emerald-200">
-                                  <CheckCircle className="h-3 w-3" />
-                                  {slot.date} · {availableSlot} disponible
-                                </span>
-                              ))}
-                            </div>
-                          ))}
+          
+          <div className="bg-gradient-to-br from-white/90 to-white/70 backdrop-blur-sm rounded-2xl p-8 shadow-xl border border-white/20 hover:shadow-2xl transition-all duration-300">
+            <div className="mb-8">
+              <div className="flex items-center gap-3 mb-6">
+                <div className="w-12 h-12 bg-gradient-to-br from-teal-500 to-cyan-600 rounded-xl flex items-center justify-center shadow-lg">
+                  <Calendar className="h-6 w-6 text-white" />
+                </div>
+                <div>
+                  <h3 className="text-2xl font-bold text-gray-900">Planning des disponibilités</h3>
+                  <p className="text-sm text-gray-600">Sélectionnez votre semaine et réservez en ligne</p>
+                </div>
+              </div>
+              
+              {/* Légende des statuts */}
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
+                <div className="flex items-center gap-2 px-3 py-2 bg-emerald-50 rounded-lg border border-emerald-200">
+                  <CheckCircle className="h-4 w-4 text-emerald-600" />
+                  <span className="text-sm text-emerald-700">Disponible</span>
+                </div>
+                <div className="flex items-center gap-2 px-3 py-2 bg-amber-50 rounded-lg border border-amber-200">
+                  <AlertTriangle className="h-4 w-4 text-amber-600" />
+                  <span className="text-sm text-amber-700">Partiel</span>
+                </div>
+                <div className="flex items-center gap-2 px-3 py-2 bg-red-50 rounded-lg border border-red-200">
+                  <X className="h-4 w-4 text-red-600" />
+                  <span className="text-sm text-red-700">Complet</span>
+                </div>
+                <div className="flex items-center gap-2 px-3 py-2 bg-blue-50 rounded-lg border border-blue-200">
+                  <Info className="h-4 w-4 text-blue-600" />
+                  <span className="text-sm text-blue-700">Règle spéciale</span>
+                </div>
+              </div>
+            </div>
+            
+            <div className="overflow-x-auto">
+              <div className="min-w-full">
+                <div className="bg-gradient-to-r from-teal-50 to-cyan-50 rounded-t-xl p-4 border border-teal-200">
+                  <div className="grid grid-cols-7 gap-4 text-center font-semibold text-gray-800">
+                    <div>Semaine</div>
+                    <div>Dates</div>
+                    <div>Tarif H</div>
+                    <div>Tarif J</div>
+                    <div>Remise</div>
+                    <div>Créneaux</div>
+                    <div>Action</div>
+                  </div>
+                </div>
+                <div className="divide-y divide-gray-200">
+                  {[
+                    {w:'49',d:'30/11/2025 - 06/12/2025',h:'€78.00',j:'€495.00',r:'8%',c:'09:00-13:00 ; 13:00-16:30',
+                      dailyPartialSlots:[
+                        {date:'01/12/2025',blocked:'09:00-12:30',availableSlots:['12:30-16:30']},
+                        {date:'02/12/2025',blocked:'09:00-11:00',availableSlots:['11:00-16:30']},
+                        {date:'04/12/2025',blocked:'11:00-13:00',availableSlots:['09:00-11:00', '13:00-16:30']},
+                        {date:'08/12/2025',blocked:'11:00-13:00 et 14:00-16:00',availableSlots:['09:00-11:00', '13:00-14:00', '16:00-16:30']},
+                        {date:'13/12/2025',blocked:'09:00-13:00',availableSlots:['13:00-16:30']}
+                      ],
+                      dailyAvailableDates:['03/12/2025','05/12/2025','06/12/2025','07/12/2025','09/12/2025','10/12/2025','11/12/2025','12/12/2025','27/12/2025'],
+                      dailyFullBlockedDates:['14/12/2025','15/12/2025','16/12/2025','17/12/2025','18/12/2025','19/12/2025'],
+                      dailyPartialSlots2:[
+                        {date:'21/12/2025',blocked:'09:00-12:00',availableSlots:['12:00-16:30']},
+                        {date:'22/12/2025',blocked:'09:00-12:00',availableSlots:['12:00-16:30']},
+                        {date:'23/12/2025',blocked:'09:00-14:00',availableSlots:['14:00-16:30']}
+                      ],
+                      dailyFullBlockedDates2:['24/12/2025','25/12/2025','26/12/2025']
+                    },
+                    {w:'1',d:'28/12/2025 - 03/01/2026',h:'€115.00',j:'€699.00',r:'8%',c:'09:00-13:00 ; 13:00-16:30',rule:true,
+                      dailyFullBlockedDates:['28/12/2025','29/12/2025','30/12/2025','31/12/2025','01/01/2026','02/01/2026','04/01/2026','05/01/2026'],
+                      dailyPartialSlots:[
+                        {date:'06/01/2026',blocked:'09:00-13:00',availableSlots:['13:00-16:30']},
+                        {date:'07/01/2026',blocked:'09:00-13:00',availableSlots:['13:00-16:30']},
+                        {date:'08/01/2026',blocked:'09:00-13:00',availableSlots:['13:00-16:30']},
+                        {date:'09/01/2026',blocked:'09:00-13:00',availableSlots:['13:00-16:30']},
+                        {date:'10/01/2026',blocked:'09:00-13:00',availableSlots:['13:00-16:30']},
+                        {date:'13/01/2026',blocked:'09:00-14:00',availableSlots:['14:00-16:30']},
+                        {date:'14/01/2026',blocked:'10:30-13:30',availableSlots:['09:00-10:30', '13:30-16:30']},
+                        {date:'15/01/2026',blocked:'10:30-13:30',availableSlots:['09:00-10:30', '13:30-16:30']},
+                        {date:'16/01/2026',blocked:'10:30-16:30',availableSlots:['09:00-10:30']},
+                        {date:'18/01/2026',blocked:'09:00-12:00 et 16:30-18:00',availableSlots:['12:00-16:30']},
+                        {date:'19/01/2026',blocked:'09:00-12:00 et 13:00-16:30',availableSlots:['12:00-13:00']},
+                        {date:'20/01/2026',blocked:'09:00-12:00',availableSlots:['12:00-16:30']},
+                        {date:'21/01/2026',blocked:'09:00-12:00',availableSlots:['12:00-16:30']},
+                        {date:'22/01/2026',blocked:'09:00-13:00 et 13:30-16:30',availableSlots:['13:00-13:30']},
+                        {date:'23/01/2026',blocked:'09:00-13:00 et 13:30-16:30',availableSlots:['13:00-13:30']},
+                        {date:'25/01/2026',blocked:'13:00-16:30',availableSlots:['09:00-13:00']},
+                        {date:'26/01/2026',blocked:'09:00-16:30',availableSlots:[]},
+                        {date:'27/01/2026',blocked:'09:00-14:00',availableSlots:['14:00-16:30']},
+                        {date:'28/01/2026',blocked:'09:00-14:00',availableSlots:['14:00-16:30']},
+                        {date:'29/01/2026',blocked:'09:00-14:00',availableSlots:['14:00-16:30']},
+                        {date:'30/01/2026',blocked:'09:00-16:30',availableSlots:[]},
+                        {date:'31/01/2026',blocked:'09:00-12:15',availableSlots:['12:15-16:30']}
+                      ],
+                      dailyAvailableDates:['11/01/2026','17/01/2026','24/01/2026'],
+                      dailyFullBlockedDates2:['12/01/2026']
+                    },
+                    {w:'50',d:'07/12/2025 - 13/12/2025',h:'€79.00',j:'€522.00',r:'8%',c:'09:00-13:00 ; 13:00-16:30',
+                      dailyPartialSlots:[
+                        {date:'08/12/2025',blocked:'11:00-13:00 et 14:00-16:00',availableSlots:['09:00-11:00', '13:00-14:00', '16:00-16:30']},
+                        {date:'13/12/2025',blocked:'09:00-13:00',availableSlots:['13:00-16:30']}
+                      ],
+                      dailyAvailableDates:['09/12/2025','10/12/2025','11/12/2025','12/12/2025']
+                    },
+                    {w:'51',d:'14/12/2025 - 20/12/2025',h:'€91.00',j:'€554.00',r:'8%',c:'09:00-13:00 ; 13:00-16:30',
+                      dailyFullBlockedDates:['14/12/2025','15/12/2025','16/12/2025','17/12/2025','18/12/2025','19/12/2025']
+                    },
+                    {w:'52',d:'21/12/2025 - 27/12/2025',h:'€101.00',j:'€629.00',r:'8%',c:'09:00-13:00 ; 13:00-16:30',rule:true,
+                      dailyPartialSlots:[
+                        {date:'21/12/2025',blocked:'09:00-12:00',availableSlots:['12:00-16:30']},
+                        {date:'22/12/2025',blocked:'09:00-12:00',availableSlots:['12:00-16:30']},
+                        {date:'23/12/2025',blocked:'09:00-14:00',availableSlots:['14:00-16:30']}
+                      ],
+                      dailyFullBlockedDates:['24/12/2025','25/12/2025','26/12/2025']
+                    },
+                    {w:'2',d:'04/01/2026 - 10/01/2026',h:'€95.00',j:'€550.00',r:'5%',c:'09:00-13:00 ; 13:00-16:30',
+                      dailyPartialSlots:[
+                        {date:'06/01/2026',blocked:'09:00-13:00',availableSlots:['13:00-16:30']},
+                        {date:'07/01/2026',blocked:'09:00-13:00',availableSlots:['13:00-16:30']},
+                        {date:'08/01/2026',blocked:'09:00-13:00',availableSlots:['13:00-16:30']},
+                        {date:'09/01/2026',blocked:'09:00-13:00',availableSlots:['13:00-16:30']},
+                        {date:'10/01/2026',blocked:'09:00-13:00',availableSlots:['13:00-16:30']}
+                      ],
+                      dailyFullBlockedDates:['04/01/2026','05/01/2026']
+                    },
+                    {w:'3',d:'11/01/2026 - 17/01/2026',h:'€105.00',j:'€566.00',r:'5%',c:'09:00-13:00 ; 13:00-16:30',},
+                    {w:'4',d:'18/01/2026 - 24/01/2026',h:'€90.00',j:'€550.00',r:'5%',c:'09:00-13:00 ; 13:00-16:30',},
+                    {w:'5',d:'25/01/2026 - 31/01/2026',h:'€95.00',j:'€660.00',r:'5%',c:'09:00-13:00 ; 13:00-16:30 (26-30/01: 09:00-14:00 indisponible ; 14:00-17:00 disponible)',dailyExtendedMorningBlocks:['26/01/2026','27/01/2026','28/01/2026','29/01/2026','30/01/2026'],},
+                    {w:'6',d:'01/02/2026 - 07/02/2026',h:'€96.00',j:'€700.00',r:'5%',c:'09:00-13:00 ; 13:00-16:30',dailyPartialSlots:[{date:'01/02/2026',blocked:'09:00-13:00',availableSlots:['13:00-16:30']},{date:'02/02/2026',blocked:'09:00-13:00',availableSlots:['13:00-16:30']},{date:'03/02/2026',blocked:'09:00-13:00',availableSlots:['13:00-16:30']}]},
+                    {w:'7',d:'08/02/2026 - 14/02/2026',h:'€110.00',j:'€750.00',r:'5%',c:'09:00-13:00 ; 13:00-16:30',rule:true,
+                      dailyPartialSlots:[
+                        {date:'01/02/2026',blocked:'09:00-13:00',availableSlots:['13:00-16:30']},
+                        {date:'02/02/2026',blocked:'09:00-13:00',availableSlots:['13:00-16:30']},
+                        {date:'03/02/2026',blocked:'09:00-13:00',availableSlots:['13:00-16:30']},
+                        {date:'04/02/2026',blocked:'09:00-13:00',availableSlots:['13:00-16:30']},
+                        {date:'05/02/2026',blocked:'09:00-13:30',availableSlots:['13:30-16:30']},
+                        {date:'10/02/2026',blocked:'09:00-13:30',availableSlots:['13:30-16:30']},
+                        {date:'14/02/2026',blocked:'13:00-16:30',availableSlots:['09:00-13:00']}
+                      ],
+                      dailyAvailableDates:['06/02/2026','07/02/2026','08/02/2026','11/02/2026','12/02/2026','13/02/2026'],
+                      dailyFullBlockedDates:['09/02/2026']
+                    },
+                    {w:'8',d:'15/02/2026 - 21/02/2026',h:'€131.00',j:'€900.00',r:'8%',c:'09:00-13:00 ; 13:00-17:00',rule:true,
+                      dailyFullBlockedDates:['15/02/2026','16/02/2026','17/02/2026','18/02/2026','19/02/2026','20/02/2026'],
+                      dailyPartialSlots:[
+                        {date:'21/02/2026',blocked:'09:00-13:00',availableSlots:['13:00-16:30']}
+                      ]
+                    },
+                    {w:'9',d:'22/02/2026 - 28/02/2026',h:'€120.00',j:'€599.00',r:'8%',c:'09:00-13:00 ; 13:00-16:30',rule:true},
+                    {w:'10',d:'01/03/2026 - 07/03/2026',h:'€105.00',j:'€549.00',r:'8%',c:'09:00-13:00 ; 13:00-16:30',
+                      dailyPartialSlots:[
+                        {date:'01/03/2026',blocked:'09:00-13:00',availableSlots:['13:00-16:30']}
+                      ]
+                    },
+                    {w:'11',d:'08/03/2026 - 14/03/2026',h:'€99.00',j:'€537.00',r:'8%',c:'09:00-13:00 ; 13:00-16:30'},
+                    {w:'12',d:'15/03/2026 - 21/03/2026',h:'€94.00',j:'€507.00',r:'8%',c:'09:00-13:00 ; 13:00-16:30'},
+                    {w:'13',d:'22/03/2026 - 28/03/2026',h:'€95.00',j:'€491.00',r:'8%',c:'09:00-13:00 ; 13:00-16:30'},
+                    {w:'14',d:'29/03/2026 - 04/04/2026',h:'€115.00',j:'€653.00',r:'8%',c:'09:00-13:00 ; 13:00-16:30',rule:true,
+                      dailyPartialSlots:[
+                        {date:'29/03/2026',blocked:'09:00-13:00',availableSlots:['13:00-16:30']},
+                        {date:'30/03/2026',blocked:'09:00-13:00',availableSlots:['13:00-16:30']},
+                        {date:'31/03/2026',blocked:'09:00-13:00',availableSlots:['13:00-16:30']},
+                        {date:'01/04/2026',blocked:'09:00-13:00',availableSlots:['13:00-16:30']},
+                        {date:'02/04/2026',blocked:'09:00-13:00',availableSlots:['13:00-16:30']},
+                        {date:'03/04/2026',blocked:'09:00-13:00',availableSlots:['13:00-16:30']}
+                      ],
+                      dailyAvailableDates:['04/04/2026']
+                    },
+                    {w:'15',d:'05/04/2026 - 11/04/2026',h:'€111.00',j:'€630.00',r:'8%',c:'09:00-13:00 ; 13:00-16:30',rule:true},
+                    {w:'16',d:'12/04/2026 - 18/04/2026',h:'€110.00',j:'€600.00',r:'8%',c:'09:00-13:00 ; 13:00-16:30'},
+                    {w:'17',d:'19/04/2026 - 25/04/2026',h:'€110.00',j:'€600.00',r:'8%',c:'09:00-13:00 ; 13:00-16:30'},
+                    {w:'18',d:'26/04/2026 - 02/05/2026',h:'€99.00',j:'€600.00',r:'8%',c:'09:00-13:00 ; 13:00-16:30'}
+                  ].map((row,idx)=> (
+                    <div key={idx} className={`p-4 hover:bg-gray-50 transition-colors ${row.reserved ? 'opacity-60' : ''}`}>
+                      <div className="grid grid-cols-7 gap-4 items-center">
+                        <div className="font-semibold text-gray-900">{row.w}</div>
+                        <div className="text-sm text-gray-700">{row.d}</div>
+                        <div className="text-sm font-medium text-teal-600">{row.h}</div>
+                        <div className="text-sm font-medium text-teal-600">{row.j}</div>
+                        <div className="text-sm text-teal-600">{row.r}</div>
+                        <div className="text-sm text-gray-700">{row.c}</div>
+                        <div>
+                          {row.reserved ? (
+                            <span className="inline-flex items-center px-3 py-1.5 border border-transparent text-sm font-semibold rounded-md shadow-sm text-white bg-gray-400 cursor-not-allowed select-none">
+                              Complet
+                            </span>
+                          ) : (
+                            <a 
+                              href="https://maisonsport.com/fr/profile/927576662/myriam-m?omnisendContactID=65cb1772c613deaa1396a153&utm_campaign=automation%3A+Transactional+Flow+(6537bd845397fc850450a200)&utm_content=6537c00f5397fc850450a21a&utm_medium=email&utm_source=omnisend" 
+                              target="_blank" 
+                              rel="noopener noreferrer"
+                              className="inline-flex items-center px-3 py-1.5 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-gradient-to-r from-teal-600 to-cyan-600 hover:from-teal-700 hover:to-cyan-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-teal-500 transition-all duration-300"
+                            >
+                              Réserver
+                            </a>
+                          )}
                         </div>
-                      )}
-                      {Array.isArray(row.dailyExtendedMorningBlocks) && row.dailyExtendedMorningBlocks.length > 0 && (
-                        <div className="mt-2 flex flex-wrap gap-2">
-                          {row.dailyExtendedMorningBlocks.map((dateStr) => (
-                            <div key={dateStr} className="flex flex-wrap gap-2">
-                              <span title={`Matin indisponible le ${dateStr} (09:00–14:00)`} className="inline-flex items-center gap-1 px-2 py-0.5 rounded text-xs font-medium bg-orange-50 text-orange-700 border border-orange-200">
-                                <AlertTriangle className="h-3 w-3" />
-                                {dateStr} · 09:00–14:00 indisponible
-                              </span>
-                              <span title={`Après-midi disponible le ${dateStr} (14:00–17:00)`} className="inline-flex items-center gap-1 px-2 py-0.5 rounded text-xs font-medium bg-emerald-50 text-emerald-700 border border-emerald-200">
+                      </div>
+                      
+                      {/* Affichage détaillé des disponibilités */}
+                      <div className="mt-3 space-y-2">
+                        {Array.isArray(row.dailyPartialSlots) && row.dailyPartialSlots.length > 0 && (
+                          <div className="flex flex-wrap gap-2">
+                            {row.dailyPartialSlots.map((slot, slotIdx) => (
+                              <div key={slotIdx} className="flex flex-wrap gap-2">
+                                {slot.blocked && (
+                                  <span title={`Indisponible le ${slot.date} (${slot.blocked})`} className="inline-flex items-center gap-1 px-2 py-0.5 rounded text-xs font-medium bg-red-50 text-red-700 border border-red-200">
+                                    <X className="h-3 w-3" />
+                                    {slot.date} · {slot.blocked} indisponible
+                                  </span>
+                                )}
+                                {Array.isArray(slot.availableSlots) && slot.availableSlots.map((availableSlot, availableIdx) => (
+                                  <span key={availableIdx} title={`Disponible le ${slot.date} (${availableSlot})`} className="inline-flex items-center gap-1 px-2 py-0.5 rounded text-xs font-medium bg-emerald-50 text-emerald-700 border border-emerald-200">
+                                    <CheckCircle className="h-3 w-3" />
+                                    {slot.date} · {availableSlot}
+                                  </span>
+                                ))}
+                              </div>
+                            ))}
+                          </div>
+                        )}
+                        
+                        {Array.isArray(row.dailyAvailableDates) && row.dailyAvailableDates.length > 0 && (
+                          <div className="flex flex-wrap gap-2">
+                            {row.dailyAvailableDates.map((dateStr) => (
+                              <span key={dateStr} title={`Disponible le ${dateStr}`} className="inline-flex items-center gap-1 px-2 py-0.5 rounded text-xs font-medium bg-emerald-50 text-emerald-700 border border-emerald-200">
                                 <CheckCircle className="h-3 w-3" />
-                                {dateStr} · 14:00–17:00 disponible
+                                {dateStr} · Journée complète
                               </span>
-                            </div>
-                          ))}
-                        </div>
-                      )}
-                      {Array.isArray(row.dailyMorningBlocks) && row.dailyMorningBlocks.length > 0 && (
-                        <div className="mt-2 flex flex-wrap gap-2">
-                          {row.dailyMorningBlocks.map((dateStr) => (
-                            <span key={dateStr} title={`Matin indisponible le ${dateStr} (09:00–13:00)`} className="inline-flex items-center gap-1 px-2 py-0.5 rounded text-xs font-medium bg-orange-50 text-orange-700 border border-orange-200">
-                              <AlertTriangle className="h-3 w-3" />
-                              {dateStr} · 09:00–13:00
-                            </span>
-                          ))}
-                        </div>
-                      )}
-                      {Array.isArray(row.dailyFullBlockedDates) && row.dailyFullBlockedDates.length > 0 && (
-                        <div className="mt-2 flex flex-wrap gap-2">
-                          {row.dailyFullBlockedDates.map((dateStr) => (
-                            <span key={dateStr} title={`Journée complète indisponible le ${dateStr}`} className="inline-flex items-center gap-1 px-2 py-0.5 rounded text-xs font-medium bg-red-50 text-red-700 border border-red-200">
-                              <AlertTriangle className="h-3 w-3" />
-                              {dateStr} · Journée complète
-                            </span>
-                          ))}
-                        </div>
-                      )}
-                      {Array.isArray(row.dailyAvailableDates) && row.dailyAvailableDates.length > 0 && (
-                        <div className="mt-2 flex flex-wrap gap-2">
-                          {row.dailyAvailableDates.map((dateStr) => (
-                            <span key={dateStr} title={`Disponible le ${dateStr}`} className="inline-flex items-center gap-1 px-2 py-0.5 rounded text-xs font-medium bg-emerald-50 text-emerald-700 border border-emerald-200">
-                              <CheckCircle className="h-3 w-3" />
-                              Disponible le {dateStr}
-                            </span>
-                          ))}
-                        </div>
-                      )}
-                      {row.rule && <span className="ml-2 text-xs text-gray-500">+ Règle de réservation</span>}
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
+                            ))}
+                          </div>
+                        )}
+                        
+                        {Array.isArray(row.dailyFullBlockedDates) && row.dailyFullBlockedDates.length > 0 && (
+                          <div className="flex flex-wrap gap-2">
+                            {row.dailyFullBlockedDates.map((dateStr) => (
+                              <span key={dateStr} title={`Journée complète indisponible le ${dateStr}`} className="inline-flex items-center gap-1 px-2 py-0.5 rounded text-xs font-medium bg-red-50 text-red-700 border border-red-200">
+                                <X className="h-3 w-3" />
+                                {dateStr} · Complet
+                              </span>
+                            ))}
+                          </div>
+                        )}
+                        
+                        {Array.isArray(row.dailyPartialSlots2) && row.dailyPartialSlots2.length > 0 && (
+                          <div className="flex flex-wrap gap-2">
+                            {row.dailyPartialSlots2.map((slot, slotIdx) => (
+                              <div key={slotIdx} className="flex flex-wrap gap-2">
+                                {slot.blocked && (
+                                  <span title={`Indisponible le ${slot.date} (${slot.blocked})`} className="inline-flex items-center gap-1 px-2 py-0.5 rounded text-xs font-medium bg-red-50 text-red-700 border border-red-200">
+                                    <X className="h-3 w-3" />
+                                    {slot.date} · {slot.blocked} indisponible
+                                  </span>
+                                )}
+                                {Array.isArray(slot.availableSlots) && slot.availableSlots.map((availableSlot, availableIdx) => (
+                                  <span key={availableIdx} title={`Disponible le ${slot.date} (${availableSlot})`} className="inline-flex items-center gap-1 px-2 py-0.5 rounded text-xs font-medium bg-emerald-50 text-emerald-700 border border-emerald-200">
+                                    <CheckCircle className="h-3 w-3" />
+                                    {slot.date} · {availableSlot}
+                                  </span>
+                                ))}
+                              </div>
+                            ))}
+                          </div>
+                        )}
+                        
+                        {Array.isArray(row.dailyFullBlockedDates2) && row.dailyFullBlockedDates2.length > 0 && (
+                          <div className="flex flex-wrap gap-2">
+                            {row.dailyFullBlockedDates2.map((dateStr) => (
+                              <span key={dateStr} title={`Journée complète indisponible le ${dateStr}`} className="inline-flex items-center gap-1 px-2 py-0.5 rounded text-xs font-medium bg-red-50 text-red-700 border border-red-200">
+                                <X className="h-3 w-3" />
+                                {dateStr} · Complet
+                              </span>
+                            ))}
+                          </div>
+                        )}
+                        
+                        {row.rule && (
+                          <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded text-xs font-medium bg-blue-50 text-blue-700 border border-blue-200">
+                            <Info className="h-3 w-3" />
+                            Règle spéciale de réservation
+                          </span>
+                        )}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
 
-          {/* Widget de réservation interactif par date/slot */}
-          <BookingWidget blockedMorningDates={availability.morningsBlocked} blockedAfternoonDates={availability.afternoonsBlocked} bookingUrl={bookingUrl} />
+            {/* Widget de réservation interactif par date/slot */}
+            <div className="mt-12">
+              <div className="text-center mb-8">
+                <h2 className="text-3xl font-bold text-gray-900 mb-4">Réserver par date</h2>
+                <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+                  Consultez le calendrier interactif pour vérifier les disponibilités en temps réel et réservez directement votre créneau horaire.
+                </p>
+              </div>
+              <BookingWidget 
+                bookingUrl="https://maisonsport.com/fr/profile/927576662/myriam-m?omnisendContactID=65cb1772c613deaa1396a153&utm_campaign=automation%3A+Transactional+Flow+(6537bd845397fc850450a200)&utm_content=6537c00f5397fc850450a21a&utm_medium=email&utm_source=omnisend"
+              />
+            </div>
+          </div>
         </div>
       </section>
 
       {/* Blog Section */}
-      <section id="blog" className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4 flex items-center justify-center gap-2">
-              <BookOpen className="h-7 w-7 text-blue-600" /> Blog
+      <section id="blog" className="py-20 bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 relative overflow-hidden">
+        {/* Background decoration */}
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute top-10 left-20 w-72 h-72 bg-blue-400 rounded-full blur-3xl"></div>
+          <div className="absolute top-40 right-20 w-96 h-96 bg-indigo-400 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-20 left-1/2 w-80 h-80 bg-purple-400 rounded-full blur-3xl"></div>
+        </div>
+        
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="text-center mb-16">
+            <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-blue-600 to-indigo-600 rounded-2xl mb-6 shadow-2xl">
+              <BookOpen className="h-8 w-8 text-white" />
+            </div>
+            <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 bg-clip-text text-transparent mb-4">
+              Blog
             </h2>
-            <p className="text-gray-600">Actus, conseils et bons plans Tignes & Val d’Isère</p>
+            <p className="text-xl text-gray-700 max-w-3xl mx-auto">
+              Actus, conseils et bons plans Tignes & Val d'Isère
+            </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <Card>
-              <CardHeader>
-                <CardTitle>Dates d’ouverture & fermeture</CardTitle>
-                <CardDescription>Val d’Isère et Tignes</CardDescription>
-              </CardHeader>
-              <CardContent className="space-y-2">
-                <ul className="list-disc pl-5 text-gray-700">
-                  <li>Tignes: Hiver 2025-2026 (prévision: fin nov. → début mai)</li>
-                  <li>Val d’Isère: Hiver 2025-2026 (prévision: début déc. → début mai)</li>
-                </ul>
-                <a className="text-blue-600 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 rounded-sm" href="https://www.tignes.net" target="_blank" rel="noreferrer">Site Tignes</a>
-                <span className="mx-2">•</span>
-                <a className="text-blue-600 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 rounded-sm" href="https://www.valdisere.com" target="_blank" rel="noreferrer">Site Val d’Isère</a>
-              </CardContent>
-            </Card>
-            <Card>
-              <CardHeader>
-                <CardTitle>Programme d’animations</CardTitle>
-                <CardDescription>Agenda des évènements</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <a className="text-blue-600 hover:underline" href="https://www.tignes.net/que-faire-a-tignes/agenda" target="_blank" rel="noreferrer">Agenda Tignes</a>
-                <span className="mx-2">•</span>
-                <a className="text-blue-600 hover:underline" href="https://www.valdisere.com/agenda/" target="_blank" rel="noreferrer">Agenda Val d’Isère</a>
-              </CardContent>
-            </Card>
-            <Card>
-              <CardHeader>
-                <CardTitle>Applications officielles</CardTitle>
-              </CardHeader>
-              <CardContent className="space-x-3">
-                <a className="text-blue-600 hover:underline" href="https://play.google.com/store/search?q=tignes&c=apps" target="_blank" rel="noreferrer">Apps Tignes</a>
-                <a className="text-blue-600 hover:underline" href="https://play.google.com/store/search?q=val%20d%27isere&c=apps" target="_blank" rel="noreferrer">Apps Val d’Isère</a>
-              </CardContent>
-            </Card>
-            <Card>
-              <CardHeader>
-                <CardTitle>Offices & Remontées</CardTitle>
-              </CardHeader>
-              <CardContent className="space-x-3">
-                <a className="text-blue-600 hover:underline" href="https://www.tignes.net" target="_blank" rel="noreferrer">Office Tignes</a>
-                <a className="text-blue-600 hover:underline" href="https://www.compagniedesalpes.com/" target="_blank" rel="noreferrer">Remontées</a>
-                <a className="text-blue-600 hover:underline" href="https://www.valdisere.com" target="_blank" rel="noreferrer">Office Val d’Isère</a>
-              </CardContent>
-            </Card>
-            <Card>
-              <CardHeader>
-                <CardTitle>Conseils équipement</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <ul className="list-disc pl-5 text-gray-700 space-y-1">
-                  <li>Casque, dorsale, DVA, pelle, sonde en hors-piste</li>
-                  <li>Location: privilégier boutique proche des pistes</li>
-                  <li>Bootfitting pour le confort et contrôle</li>
-                </ul>
-              </CardContent>
-            </Card>
-            <Card>
-              <CardHeader>
-                <CardTitle>Conseils choix des pistes</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <ul className="list-disc pl-5 text-gray-700 space-y-1">
-                  <li>Matin: pentes ensoleillées, après-midi: neiges plus souples</li>
-                  <li>Consulter le bulletin d’avalanche avant hors-piste</li>
-                </ul>
-              </CardContent>
-            </Card>
-            <Card>
-              <CardHeader>
-                <CardTitle>Technique ski & snowboard</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <ul className="list-disc pl-5 text-gray-700 space-y-1">
-                  <li>Ski: appuis progressifs, regard loin, rythme</li>
-                  <li>Snowboard: posture centrée, dissociation épaules/bassin</li>
-                </ul>
-              </CardContent>
-            </Card>
+          
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <div className="group relative bg-white rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-3 overflow-hidden border border-gray-100">
+              <div className="absolute top-0 right-0 w-40 h-40 bg-gradient-to-br from-blue-100 to-indigo-100 rounded-full -mr-20 -mt-20 opacity-50"></div>
+              <div className="p-8 relative z-10">
+                <div className="flex items-center mb-6">
+                  <div className="flex items-center justify-center w-12 h-12 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-xl mr-4">
+                    <Calendar className="h-6 w-6 text-white" />
+                  </div>
+                  <div>
+                    <h3 className="text-2xl font-bold text-gray-900 mb-1">Dates d'ouverture & fermeture</h3>
+                    <p className="text-gray-600">Saison hiver 2025-2026</p>
+                  </div>
+                </div>
+                <div className="space-y-4">
+                  <div className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl p-4">
+                    <div className="flex items-center gap-3 mb-2">
+                      <Mountain className="h-5 w-5 text-blue-600" />
+                      <span className="font-semibold text-gray-900">Tignes</span>
+                    </div>
+                    <p className="text-gray-700">Fin novembre → début mai</p>
+                  </div>
+                  <div className="bg-gradient-to-r from-purple-50 to-pink-50 rounded-xl p-4">
+                    <div className="flex items-center gap-3 mb-2">
+                      <Compass className="h-5 w-5 text-purple-600" />
+                      <span className="font-semibold text-gray-900">Val d'Isère</span>
+                    </div>
+                    <p className="text-gray-700">Début décembre → début mai</p>
+                  </div>
+                  <div className="flex gap-4 pt-4">
+                    <a href="https://www.tignes.net" target="_blank" rel="noreferrer" className="flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
+                      <span>🏔️</span>
+                      <span>Site Tignes</span>
+                    </a>
+                    <a href="https://www.valdisere.com" target="_blank" rel="noreferrer" className="flex items-center gap-2 px-4 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors">
+                      <span>🎿</span>
+                      <span>Site Val d'Isère</span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="group relative bg-white rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-3 overflow-hidden border border-gray-100">
+              <div className="absolute top-0 right-0 w-40 h-40 bg-gradient-to-br from-emerald-100 to-teal-100 rounded-full -mr-20 -mt-20 opacity-50"></div>
+              <div className="p-8 relative z-10">
+                <div className="flex items-center mb-6">
+                  <div className="flex items-center justify-center w-12 h-12 bg-gradient-to-br from-emerald-500 to-teal-600 rounded-xl mr-4">
+                    <Star className="h-6 w-6 text-white" />
+                  </div>
+                  <div>
+                    <h3 className="text-2xl font-bold text-gray-900 mb-1">Programme d'animations</h3>
+                    <p className="text-gray-600">Agenda des événements</p>
+                  </div>
+                </div>
+                <div className="space-y-4">
+                  <div className="bg-gradient-to-r from-emerald-50 to-teal-50 rounded-xl p-4">
+                    <p className="text-gray-700 mb-3">Découvrez tous les événements et animations proposés dans les stations :</p>
+                    <div className="space-y-3">
+                      <div className="flex items-center gap-3">
+                        <div className="w-2 h-2 bg-emerald-500 rounded-full"></div>
+                        <span className="text-gray-700">Concerts et festivals</span>
+                      </div>
+                      <div className="flex items-center gap-3">
+                        <div className="w-2 h-2 bg-emerald-500 rounded-full"></div>
+                        <span className="text-gray-700">Compétitions sportives</span>
+                      </div>
+                      <div className="flex items-center gap-3">
+                        <div className="w-2 h-2 bg-emerald-500 rounded-full"></div>
+                        <span className="text-gray-700">Animations familiales</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="flex gap-4 pt-4">
+                    <a href="https://www.tignes.net/que-faire-a-tignes/agenda" target="_blank" rel="noreferrer" className="flex items-center gap-2 px-4 py-2 bg-emerald-600 text-white rounded-lg hover:bg-emerald-700 transition-colors">
+                      <span>📅</span>
+                      <span>Agenda Tignes</span>
+                    </a>
+                    <a href="https://www.valdisere.com/agenda/" target="_blank" rel="noreferrer" className="flex items-center gap-2 px-4 py-2 bg-teal-600 text-white rounded-lg hover:bg-teal-700 transition-colors">
+                      <span>🎭</span>
+                      <span>Agenda Val d'Isère</span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="group relative bg-white rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-3 overflow-hidden border border-gray-100">
+              <div className="absolute top-0 right-0 w-40 h-40 bg-gradient-to-br from-amber-100 to-orange-100 rounded-full -mr-20 -mt-20 opacity-50"></div>
+              <div className="p-8 relative z-10">
+                <div className="flex items-center mb-6">
+                  <div className="flex items-center justify-center w-12 h-12 bg-gradient-to-br from-amber-500 to-orange-600 rounded-xl mr-4">
+                    <Smartphone className="h-6 w-6 text-white" />
+                  </div>
+                  <div>
+                    <h3 className="text-2xl font-bold text-gray-900 mb-1">Applications officielles</h3>
+                    <p className="text-gray-600">Restez connectés</p>
+                  </div>
+                </div>
+                <div className="space-y-4">
+                  <div className="bg-gradient-to-r from-amber-50 to-orange-50 rounded-xl p-4">
+                    <p className="text-gray-700 mb-3">Téléchargez les applications mobiles pour :</p>
+                    <div className="space-y-3">
+                      <div className="flex items-center gap-3">
+                        <div className="w-2 h-2 bg-amber-500 rounded-full"></div>
+                        <span className="text-gray-700">Forfaits et remontées</span>
+                      </div>
+                      <div className="flex items-center gap-3">
+                        <div className="w-2 h-2 bg-amber-500 rounded-full"></div>
+                        <span className="text-gray-700">Météo en temps réel</span>
+                      </div>
+                      <div className="flex items-center gap-3">
+                        <div className="w-2 h-2 bg-amber-500 rounded-full"></div>
+                        <span className="text-gray-700">Plan des pistes interactif</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="flex gap-4 pt-4">
+                    <a href="https://play.google.com/store/search?q=tignes&c=apps" target="_blank" rel="noreferrer" className="flex items-center gap-2 px-4 py-2 bg-amber-600 text-white rounded-lg hover:bg-amber-700 transition-colors">
+                      <span>📱</span>
+                      <span>Apps Tignes</span>
+                    </a>
+                    <a href="https://play.google.com/store/search?q=val%20d%27isere&c=apps" target="_blank" rel="noreferrer" className="flex items-center gap-2 px-4 py-2 bg-orange-600 text-white rounded-lg hover:bg-orange-700 transition-colors">
+                      <span>📲</span>
+                      <span>Apps Val d'Isère</span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="group relative bg-white rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-3 overflow-hidden border border-gray-100">
+              <div className="absolute top-0 right-0 w-40 h-40 bg-gradient-to-br from-green-100 to-emerald-100 rounded-full -mr-20 -mt-20 opacity-50"></div>
+              <div className="p-8 relative z-10">
+                <div className="flex items-center mb-6">
+                  <div className="flex items-center justify-center w-12 h-12 bg-gradient-to-br from-green-500 to-emerald-600 rounded-xl mr-4">
+                    <Info className="h-6 w-6 text-white" />
+                  </div>
+                  <div>
+                    <h3 className="text-2xl font-bold text-gray-900 mb-1">Offices & Remontées</h3>
+                    <p className="text-gray-600">Services pratiques</p>
+                  </div>
+                </div>
+                <div className="space-y-4">
+                  <div className="bg-gradient-to-r from-green-50 to-emerald-50 rounded-xl p-4">
+                    <p className="text-gray-700 mb-3">Accédez aux services essentiels :</p>
+                    <div className="space-y-3">
+                      <div className="flex items-center gap-3">
+                        <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+                        <span className="text-gray-700">Offices de tourisme</span>
+                      </div>
+                      <div className="flex items-center gap-3">
+                        <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+                        <span className="text-gray-700">Achat de forfaits en ligne</span>
+                      </div>
+                      <div className="flex items-center gap-3">
+                        <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+                        <span className="text-gray-700">Informations remontées</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="flex gap-4 pt-4">
+                    <a href="https://www.tignes.net" target="_blank" rel="noreferrer" className="flex items-center gap-2 px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors">
+                      <span>🏢</span>
+                      <span>Office Tignes</span>
+                    </a>
+                    <a href="https://www.compagniedesalpes.com/" target="_blank" rel="noreferrer" className="flex items-center gap-2 px-4 py-2 bg-emerald-600 text-white rounded-lg hover:bg-emerald-700 transition-colors">
+                      <span>🚡</span>
+                      <span>Remontées</span>
+                    </a>
+                    <a href="https://www.valdisere.com" target="_blank" rel="noreferrer" className="flex items-center gap-2 px-4 py-2 bg-teal-600 text-white rounded-lg hover:bg-teal-700 transition-colors">
+                      <span>🏔️</span>
+                      <span>Office Val d'Isère</span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="group relative bg-white rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-3 overflow-hidden border border-gray-100">
+              <div className="absolute top-0 right-0 w-40 h-40 bg-gradient-to-br from-red-100 to-pink-100 rounded-full -mr-20 -mt-20 opacity-50"></div>
+              <div className="p-8 relative z-10">
+                <div className="flex items-center mb-6">
+                  <div className="flex items-center justify-center w-12 h-12 bg-gradient-to-br from-red-500 to-pink-600 rounded-xl mr-4">
+                    <Shield className="h-6 w-6 text-white" />
+                  </div>
+                  <div>
+                    <h3 className="text-2xl font-bold text-gray-900 mb-1">Conseils équipement</h3>
+                    <p className="text-gray-600">Sécurité & performance</p>
+                  </div>
+                </div>
+                <div className="space-y-4">
+                  <div className="bg-gradient-to-r from-red-50 to-pink-50 rounded-xl p-4">
+                    <p className="text-gray-700 mb-3">Équipement obligatoire en hors-piste :</p>
+                    <div className="space-y-3">
+                      <div className="flex items-center gap-3">
+                        <ShieldAlert className="h-4 w-4 text-red-600" />
+                        <span className="text-gray-700 font-medium">DVA (Détecteur de Victimes d'Avalanche)</span>
+                      </div>
+                      <div className="flex items-center gap-3">
+                        <div className="w-2 h-2 bg-red-500 rounded-full"></div>
+                        <span className="text-gray-700">Pelle et sonde</span>
+                      </div>
+                      <div className="flex items-center gap-3">
+                        <div className="w-2 h-2 bg-red-500 rounded-full"></div>
+                        <span className="text-gray-700">Casque et dorsale</span>
+                      </div>
+                    </div>
+                    <div className="mt-4 pt-4 border-t border-red-100">
+                      <p className="text-gray-700 mb-2">💡 <strong>Conseils pro :</strong></p>
+                      <div className="space-y-2">
+                        <div className="flex items-center gap-2">
+                          <div className="w-2 h-2 bg-pink-500 rounded-full"></div>
+                          <span className="text-gray-700">Location près des pistes</span>
+                        </div>
+                        <div className="flex items-center gap-2">
+                          <div className="w-2 h-2 bg-pink-500 rounded-full"></div>
+                          <span className="text-gray-700">Bootfitting pour le confort</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="group relative bg-white rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-3 overflow-hidden border border-gray-100">
+              <div className="absolute top-0 right-0 w-40 h-40 bg-gradient-to-br from-indigo-100 to-blue-100 rounded-full -mr-20 -mt-20 opacity-50"></div>
+              <div className="p-8 relative z-10">
+                <div className="flex items-center mb-6">
+                  <div className="flex items-center justify-center w-12 h-12 bg-gradient-to-br from-indigo-500 to-blue-600 rounded-xl mr-4">
+                    <MapPin className="h-6 w-6 text-white" />
+                  </div>
+                  <div>
+                    <h3 className="text-2xl font-bold text-gray-900 mb-1">Conseils choix des pistes</h3>
+                    <p className="text-gray-600">Optimisez vos descentes</p>
+                  </div>
+                </div>
+                <div className="space-y-4">
+                  <div className="bg-gradient-to-r from-indigo-50 to-blue-50 rounded-xl p-4">
+                    <p className="text-gray-700 mb-3">Stratégies selon l'heure :</p>
+                    <div className="space-y-3">
+                      <div className="flex items-center gap-3">
+                        <Sun className="h-4 w-4 text-indigo-600" />
+                        <span className="text-gray-700 font-medium">🌅 Matin</span>
+                        <span className="text-gray-600">Pentes ensoleillées, neige dure</span>
+                      </div>
+                      <div className="flex items-center gap-3">
+                        <Cloud className="h-4 w-4 text-blue-600" />
+                        <span className="text-gray-700 font-medium">🌤️ Après-midi</span>
+                        <span className="text-gray-600">Neiges plus souples, ombragées</span>
+                      </div>
+                    </div>
+                    <div className="mt-4 pt-4 border-t border-indigo-100">
+                      <p className="text-gray-700 mb-2">⚠️ <strong>Avant hors-piste :</strong></p>
+                      <div className="flex items-center gap-2">
+                        <ShieldAlert className="h-4 w-4 text-orange-600" />
+                        <span className="text-gray-700">Consulter le bulletin d'avalanche</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="group relative bg-white rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-3 overflow-hidden border border-gray-100">
+              <div className="absolute top-0 right-0 w-40 h-40 bg-gradient-to-br from-purple-100 to-indigo-100 rounded-full -mr-20 -mt-20 opacity-50"></div>
+              <div className="p-8 relative z-10">
+                <div className="flex items-center mb-6">
+                  <div className="flex items-center justify-center w-12 h-12 bg-gradient-to-br from-purple-500 to-indigo-600 rounded-xl mr-4">
+                    <Zap className="h-6 w-6 text-white" />
+                  </div>
+                  <div>
+                    <h3 className="text-2xl font-bold text-gray-900 mb-1">Technique ski & snowboard</h3>
+                    <p className="text-gray-600">Progression optimale</p>
+                  </div>
+                </div>
+                <div className="space-y-4">
+                  <div className="bg-gradient-to-r from-purple-50 to-indigo-50 rounded-xl p-4">
+                    <p className="text-gray-700 mb-3">Points clés techniques :</p>
+                    <div className="space-y-3">
+                      <div className="flex items-center gap-3">
+                        <span className="text-2xl">🎿</span>
+                        <div>
+                          <span className="text-gray-700 font-medium">Ski</span>
+                          <p className="text-gray-600 text-sm">Appuis progressifs, regard loin, rythme</p>
+                        </div>
+                      </div>
+                      <div className="flex items-center gap-3">
+                        <span className="text-2xl">🏂</span>
+                        <div>
+                          <span className="text-gray-700 font-medium">Snowboard</span>
+                          <p className="text-gray-600 text-sm">Posture centrée, dissociation épaules/bassin</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="mt-4 pt-4 border-t border-purple-100">
+                      <p className="text-gray-700 mb-2">🎯 <strong>Objectif progression :</strong></p>
+                      <div className="flex items-center gap-2">
+                        <CheckCircle className="h-4 w-4 text-green-600" />
+                        <span className="text-gray-700">Maîtrise des techniques avancées</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
-
-      {/* Weather Section */}
-      <section id="weather" className="py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-8">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 flex items-center justify-center gap-2">
-              <CloudSun className="h-7 w-7 text-blue-600" /> Météo (J+7)
+      <section id="weather" className="py-20 bg-gradient-to-br from-sky-50 via-blue-50 to-indigo-50 relative overflow-hidden">
+        {/* Background decoration */}
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute top-10 left-20 w-72 h-72 bg-sky-400 rounded-full blur-3xl"></div>
+          <div className="absolute top-40 right-20 w-96 h-96 bg-blue-400 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-20 left-1/2 w-80 h-80 bg-indigo-400 rounded-full blur-3xl"></div>
+        </div>
+        
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="text-center mb-16">
+            <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-sky-600 to-blue-600 rounded-2xl mb-6 shadow-2xl">
+              <CloudSun className="h-8 w-8 text-white" />
+            </div>
+            <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-sky-600 via-blue-600 to-indigo-600 bg-clip-text text-transparent mb-4">
+              Météo (J+7)
             </h2>
-            <p className="text-gray-600">Temps réel et prévisions (démonstration)</p>
+            <p className="text-xl text-gray-700 max-w-3xl mx-auto">
+              Temps réel et prévisions détaillées pour Tignes et Val d'Isère
+            </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <Card>
-              <CardHeader>
-                <CardTitle>Tignes</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <div className="text-gray-700 mb-3">Actuel: {weather.tignes?.current?.temperature_2m ?? '--'}°C</div>
-                {renderForecast(weather.tignes, 'tignes')}
-              </CardContent>
-            </Card>
-            <Card>
-              <CardHeader>
-                <CardTitle>Val d’Isère</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <div className="text-gray-700 mb-3">Actuel: {weather.val?.current?.temperature_2m ?? '--'}°C</div>
-                {renderForecast(weather.val, 'val')}
-              </CardContent>
-            </Card>
+          
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <div className="bg-gradient-to-br from-white/90 to-white/70 backdrop-blur-sm rounded-2xl p-8 shadow-xl border border-white/20 hover:shadow-2xl transition-all duration-300 hover:scale-[1.02]">
+              <div className="flex items-center gap-3 mb-6">
+                <div className="w-12 h-12 bg-gradient-to-br from-sky-500 to-blue-600 rounded-xl flex items-center justify-center shadow-lg">
+                  <Mountain className="h-6 w-6 text-white" />
+                </div>
+                <div>
+                  <h3 className="text-2xl font-bold text-gray-900">Tignes</h3>
+                  <p className="text-sm text-gray-600">Station de haute altitude</p>
+                </div>
+              </div>
+              <div className="bg-gradient-to-r from-sky-50 to-blue-50 rounded-xl p-4 mb-6">
+                <div className="flex items-center justify-between">
+                  <span className="text-lg font-semibold text-gray-700">Température actuelle</span>
+                  <span className="text-3xl font-bold bg-gradient-to-r from-sky-600 to-blue-600 bg-clip-text text-transparent">
+                    {weather.tignes?.current?.temperature_2m ?? '--'}°C
+                  </span>
+                </div>
+              </div>
+              {renderForecast(weather.tignes, 'tignes')}
+            </div>
+            
+            <div className="bg-gradient-to-br from-white/90 to-white/70 backdrop-blur-sm rounded-2xl p-8 shadow-xl border border-white/20 hover:shadow-2xl transition-all duration-300 hover:scale-[1.02]">
+              <div className="flex items-center gap-3 mb-6">
+                <div className="w-12 h-12 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-xl flex items-center justify-center shadow-lg">
+                  <Compass className="h-6 w-6 text-white" />
+                </div>
+                <div>
+                  <h3 className="text-2xl font-bold text-gray-900">Val d'Isère</h3>
+                  <p className="text-sm text-gray-600">Station historique</p>
+                </div>
+              </div>
+              <div className="bg-gradient-to-r from-indigo-50 to-purple-50 rounded-xl p-4 mb-6">
+                <div className="flex items-center justify-between">
+                  <span className="text-lg font-semibold text-gray-700">Température actuelle</span>
+                  <span className="text-3xl font-bold bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
+                    {weather.val?.current?.temperature_2m ?? '--'}°C
+                  </span>
+                </div>
+              </div>
+              {renderForecast(weather.val, 'val')}
+            </div>
           </div>
-          <p className="text-xs text-gray-500 mt-4">Source: Open-Meteo (libre) – peut être migrée en API serveur.</p>
+          
+          <div className="mt-12 text-center">
+            <div className="inline-flex items-center gap-2 px-6 py-3 bg-white/80 backdrop-blur-sm rounded-full shadow-lg border border-white/20">
+              <Cloud className="h-5 w-5 text-blue-500" />
+              <span className="text-sm text-gray-600">Source: Open-Meteo (libre) – peut être migrée en API serveur</span>
+            </div>
+          </div>
         </div>
       </section>
 
       {/* Avalanche Section */}
-      <section id="avalanche" className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-8">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 flex items-center justify-center gap-2">
-              <ShieldAlert className="h-7 w-7 text-blue-600" /> Risques d'avalanche & Sécurité
+      <section id="avalanche" className="py-20 bg-gradient-to-br from-orange-50 via-amber-50 to-yellow-50 relative overflow-hidden">
+        {/* Background decoration */}
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute top-10 left-20 w-72 h-72 bg-orange-400 rounded-full blur-3xl"></div>
+          <div className="absolute top-40 right-20 w-96 h-96 bg-amber-400 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-20 left-1/2 w-80 h-80 bg-yellow-400 rounded-full blur-3xl"></div>
+        </div>
+        
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="text-center mb-16">
+            <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-orange-600 to-amber-600 rounded-2xl mb-6 shadow-2xl">
+              <ShieldAlert className="h-8 w-8 text-white" />
+            </div>
+            <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-orange-600 via-amber-600 to-yellow-600 bg-clip-text text-transparent mb-4">
+              Risques d'avalanche & Sécurité
             </h2>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
-            <Card>
-              <CardHeader>
-                <CardTitle>Bulletin d'avalanche & Niveaux de risque</CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-4">
-                <div>
-                  <h3 className="font-semibold mb-2">Bulletins officiels :</h3>
-                  <ul className="list-disc pl-5 text-gray-700 space-y-1">
-                    <li>
-                      <a className="text-blue-600 hover:underline" href="https://meteofrance.com/previsions-meteo-france/val-d-isere/73150" target="_blank" rel="noreferrer">
-                        METEO FRANCE : Météo Val d'Isère
-                      </a>
-                    </li>
-                    <li>
-                      <a className="text-blue-600 hover:underline" href="https://meteofrance.com/meteo-montagne/tignes/732961" target="_blank" rel="noreferrer">
-                        METEO FRANCE - Météo Tignes
-                      </a>
-                    </li>
-                    <li>
-                      <a className="text-blue-600 hover:underline" href="https://www.anena.org/" target="_blank" rel="noreferrer">
-                        ANENA - Association Nationale pour l'Étude de la Neige et des Avalanches
-                      </a>
-                    </li>
-                    <li>
-                      <a className="text-blue-600 hover:underline" href="https://www.avalanches.org/" target="_blank" rel="noreferrer">
-                        European Avalanche Services - Alps
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-              </CardContent>
-            </Card>
-            
-            <Card>
-              <CardHeader>
-                <CardTitle>Météo & Enneigement</CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-4">
-                <div>
-                  <h3 className="font-semibold mb-2">Val d'Isère :</h3>
-                  <ul className="list-disc pl-5 text-gray-700 space-y-1">
-                    <li>
-                      <a className="text-blue-600 hover:underline" href="https://www.valdisere.com/live/enneigement/" target="_blank" rel="noreferrer">
-                        État des pistes et enneigement en direct
-                      </a>
-                    </li>
-                    <li>
-                      <a className="text-blue-600 hover:underline" href="https://www.valdisere.com/live/meteo-a-val-disere/" target="_blank" rel="noreferrer">
-                        Météo à Val d'Isère & ouverture du col de l'Iseran
-                      </a>
-                    </li>
-                    <li>
-                      <a className="text-blue-600 hover:underline" href="https://valdisere.roundshot.com/" target="_blank" rel="noreferrer">
-                        Webcams Val d'Isère en direct
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-                <div>
-                  <h3 className="font-semibold mb-2">Tignes :</h3>
-                  <ul className="list-disc pl-5 text-gray-700 space-y-1">
-                    <li>
-                      <a className="text-blue-600 hover:underline" href="https://www.snowtrex.fr/france/val_disere/meteo.html" target="_blank" rel="noreferrer">
-                        Météo et prévisions neige à Tignes
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-              </CardContent>
-            </Card>
+            <p className="text-xl text-gray-700 max-w-3xl mx-auto">
+              Informations essentielles pour pratiquer en toute sécurité dans l'Espace Killy
+            </p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <Card>
-              <CardHeader>
-                <CardTitle>Équipement de sécurité</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <ul className="list-disc pl-5 text-gray-700 space-y-2">
-                  <li><strong>Équipement obligatoire hors-piste :</strong>
-                    <ul className="list-[circle] pl-5 mt-1 space-y-1">
-                      <li>Détecteur de Victimes d'Avalanches (DVA)</li>
-                      <li>Pelle</li>
-                      <li>Sonde</li>
-                    </ul>
-                  </li>
-                  <li><strong>Équipement recommandé :</strong>
-                    <ul className="list-[circle] pl-5 mt-1 space-y-1">
-                      <li>Sac airbag</li>
-                      <li>Casque</li>
-                      <li>Gilet airbag</li>
-                      <li>Kit de premiers secours</li>
-                      <li>Téléphone portable chargé</li>
-                    </ul>
-                  </li>
-                  <li>Initiation à la recherche de victimes d'avalanche disponible avec votre monitrice</li>
-                </ul>
-              </CardContent>
-            </Card>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
+            <div className="bg-gradient-to-br from-white/90 to-white/70 backdrop-blur-sm rounded-2xl p-8 shadow-xl border border-white/20 hover:shadow-2xl transition-all duration-300 hover:scale-[1.02]">
+              <div className="flex items-center gap-3 mb-6">
+                <div className="w-12 h-12 bg-gradient-to-br from-orange-500 to-red-600 rounded-xl flex items-center justify-center shadow-lg">
+                  <AlertTriangle className="h-6 w-6 text-white" />
+                </div>
+                <div>
+                  <h3 className="text-2xl font-bold text-gray-900">Bulletin d'avalanche</h3>
+                  <p className="text-sm text-gray-600">Sources officielles et fiables</p>
+                </div>
+              </div>
+              <div className="space-y-4">
+                {[
+                  { href: "https://meteofrance.com/previsions-meteo-france/val-d-isere/73150", title: "METEO FRANCE", desc: "Météo Val d'Isère" },
+                  { href: "https://meteofrance.com/meteo-montagne/tignes/732961", title: "METEO FRANCE", desc: "Météo Tignes" },
+                  { href: "https://www.anena.org/", title: "ANENA", desc: "Association Nationale pour l'Étude de la Neige et des Avalanches" },
+                  { href: "https://www.avalanches.org/", title: "European Avalanche Services", desc: "Alps" }
+                ].map((link, i) => (
+                  <a key={i} href={link.href} target="_blank" rel="noreferrer" 
+                     className="flex items-center justify-between p-4 bg-gradient-to-r from-orange-50 to-amber-50 rounded-xl hover:from-orange-100 hover:to-amber-100 transition-all duration-300 group">
+                    <div>
+                      <div className="font-semibold text-gray-900 group-hover:text-orange-600">{link.title}</div>
+                      <div className="text-sm text-gray-600">{link.desc}</div>
+                    </div>
+                    <ChevronDown className="h-5 w-5 text-gray-400 rotate-270 group-hover:translate-x-1 transition-transform" />
+                  </a>
+                ))}
+              </div>
+            </div>
             
-            <Card>
-              <CardHeader>
-                <CardTitle>Conseils de sécurité</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <ul className="list-disc pl-5 text-gray-700 space-y-2">
-                  <li>Consultez toujours le bulletin d'avalanche avant de partir</li>
-                  <li>Ne partez jamais seul en hors-piste</li>
-                  <li>Informez quelqu'un de votre itinéraire et de votre heure de retour</li>
-                  <li>Respectez les zones sécurisées et la signalisation des pistes</li>
-                  <li>Adaptez votre itinéraire en fonction des conditions météorologiques</li>
-                  <li>En cas d'accident, composez le 112 (numéro d'urgence européen)</li>
-                </ul>
-                <div className="mt-4 p-4 bg-yellow-50 rounded-md border-l-4 border-yellow-400">
-                  <p className="text-yellow-700 font-medium">
+            <div className="bg-gradient-to-br from-white/90 to-white/70 backdrop-blur-sm rounded-2xl p-8 shadow-xl border border-white/20 hover:shadow-2xl transition-all duration-300 hover:scale-[1.02]">
+              <div className="flex items-center gap-3 mb-6">
+                <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-cyan-600 rounded-xl flex items-center justify-center shadow-lg">
+                  <CloudSnow className="h-6 w-6 text-white" />
+                </div>
+                <div>
+                  <h3 className="text-2xl font-bold text-gray-900">Météo & Enneigement</h3>
+                  <p className="text-sm text-gray-600">Conditions en temps réel</p>
+                </div>
+              </div>
+              <div className="space-y-6">
+                <div>
+                  <h4 className="font-semibold text-gray-900 mb-3 flex items-center gap-2">
+                    <MapPin className="h-4 w-4 text-blue-500" />
+                    Val d'Isère
+                  </h4>
+                  <div className="space-y-2">
+                    {[
+                      { href: "https://www.valdisere.com/live/enneigement/", title: "État des pistes et enneigement en direct" },
+                      { href: "https://www.valdisere.com/live/meteo-a-val-disere/", title: "Météo & ouverture du col de l'Iseran" },
+                      { href: "https://valdisere.roundshot.com/", title: "Webcams en direct" }
+                    ].map((link, i) => (
+                      <a key={i} href={link.href} target="_blank" rel="noreferrer"
+                         className="flex items-center justify-between p-3 bg-gradient-to-r from-blue-50 to-cyan-50 rounded-lg hover:from-blue-100 hover:to-cyan-100 transition-all duration-300 group">
+                        <span className="text-gray-700 group-hover:text-blue-600">{link.title}</span>
+                        <ChevronDown className="h-4 w-4 text-gray-400 rotate-270 group-hover:translate-x-1 transition-transform" />
+                      </a>
+                    ))}
+                  </div>
+                </div>
+                <div>
+                  <h4 className="font-semibold text-gray-900 mb-3 flex items-center gap-2">
+                    <MapPin className="h-4 w-4 text-orange-500" />
+                    Tignes
+                  </h4>
+                  <a href="https://www.snowtrex.fr/france/val_disere/meteo.html" target="_blank" rel="noreferrer"
+                     className="flex items-center justify-between p-3 bg-gradient-to-r from-orange-50 to-amber-50 rounded-lg hover:from-orange-100 hover:to-amber-100 transition-all duration-300 group">
+                    <span className="text-gray-700 group-hover:text-orange-600">Météo et prévisions neige</span>
+                    <ChevronDown className="h-4 w-4 text-gray-400 rotate-270 group-hover:translate-x-1 transition-transform" />
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <div className="bg-gradient-to-br from-white/90 to-white/70 backdrop-blur-sm rounded-2xl p-8 shadow-xl border border-white/20 hover:shadow-2xl transition-all duration-300 hover:scale-[1.02]">
+              <div className="flex items-center gap-3 mb-6">
+                <div className="w-12 h-12 bg-gradient-to-br from-green-500 to-emerald-600 rounded-xl flex items-center justify-center shadow-lg">
+                  <Shield className="h-6 w-6 text-white" />
+                </div>
+                <div>
+                  <h3 className="text-2xl font-bold text-gray-900">Équipement de sécurité</h3>
+                  <p className="text-sm text-gray-600">Le matériel indispensable</p>
+                </div>
+              </div>
+              <div className="space-y-6">
+                <div className="bg-gradient-to-r from-red-50 to-orange-50 rounded-xl p-6 border-l-4 border-red-500">
+                  <h4 className="font-bold text-red-700 mb-3 flex items-center gap-2">
+                    <AlertTriangle className="h-5 w-5" />
+                    Équipement obligatoire hors-piste
+                  </h4>
+                  <div className="grid grid-cols-1 gap-3">
+                    {["Détecteur de Victimes d'Avalanches (DVA)", "Pelle", "Sonde"].map((item, i) => (
+                      <div key={i} className="flex items-center gap-3">
+                        <div className="w-2 h-2 bg-red-500 rounded-full"></div>
+                        <span className="text-gray-700 font-medium">{item}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+                <div className="bg-gradient-to-r from-green-50 to-emerald-50 rounded-xl p-6">
+                  <h4 className="font-bold text-green-700 mb-3 flex items-center gap-2">
+                    <CheckCircle className="h-5 w-5" />
+                    Équipement recommandé
+                  </h4>
+                  <div className="grid grid-cols-1 gap-3">
+                    {["Sac airbag", "Casque", "Gilet airbag", "Kit de premiers secours", "Téléphone portable chargé"].map((item, i) => (
+                      <div key={i} className="flex items-center gap-3">
+                        <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+                        <span className="text-gray-700">{item}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+                <div className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl p-4 text-center">
+                  <Sparkles className="h-6 w-6 text-blue-600 mx-auto mb-2" />
+                  <p className="text-gray-700 font-medium">Initiation à la recherche de victimes d'avalanche disponible avec votre monitrice</p>
+                </div>
+              </div>
+            </div>
+            
+            <div className="bg-gradient-to-br from-white/90 to-white/70 backdrop-blur-sm rounded-2xl p-8 shadow-xl border border-white/20 hover:shadow-2xl transition-all duration-300 hover:scale-[1.02]">
+              <div className="flex items-center gap-3 mb-6">
+                <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-indigo-600 rounded-xl flex items-center justify-center shadow-lg">
+                  <Info className="h-6 w-6 text-white" />
+                </div>
+                <div>
+                  <h3 className="text-2xl font-bold text-gray-900">Conseils de sécurité</h3>
+                  <p className="text-sm text-gray-600">Les règles d'or</p>
+                </div>
+              </div>
+              <div className="space-y-4">
+                {[
+                  "Consultez toujours le bulletin d'avalanche avant de partir",
+                  "Ne partez jamais seul en hors-piste",
+                  "Informez quelqu'un de votre itinéraire et de votre heure de retour",
+                  "Respectez les zones sécurisées et la signalisation des pistes",
+                  "Adaptez votre itinéraire en fonction des conditions météorologiques",
+                  "En cas d'accident, composez le 112 (numéro d'urgence européen)"
+                ].map((conseil, i) => (
+                  <div key={i} className="flex items-start gap-3 p-3 bg-gradient-to-r from-purple-50 to-indigo-50 rounded-lg">
+                    <div className="w-6 h-6 bg-purple-600 text-white rounded-full flex items-center justify-center flex-shrink-0 text-sm font-bold">
+                      {i + 1}
+                    </div>
+                    <span className="text-gray-700">{conseil}</span>
+                  </div>
+                ))}
+              </div>
+              <div className="mt-6 p-4 bg-gradient-to-r from-yellow-50 to-orange-50 rounded-xl border-l-4 border-yellow-500 shadow-lg">
+                <div className="flex items-center gap-3">
+                  <AlertTriangle className="h-6 w-6 text-yellow-600" />
+                  <p className="text-yellow-800 font-medium">
                     La sécurité en montagne est l'affaire de tous. En cas de doute, renoncez ou faites appel à un professionnel.
                   </p>
                 </div>
-              </CardContent>
-            </Card>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
       {/* Gallery Section */}
-      <section id="gallery" className="py-20 bg-gray-50">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 flex items-center justify-center gap-2">
-              <ImagePlus className="h-7 w-7 text-blue-600" /> Galerie
+      <section id="gallery" className="py-20 bg-gradient-to-br from-purple-50 via-pink-50 to-rose-50 relative overflow-hidden">
+        {/* Background decoration */}
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute top-10 left-20 w-72 h-72 bg-purple-400 rounded-full blur-3xl"></div>
+          <div className="absolute top-40 right-20 w-96 h-96 bg-pink-400 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-20 left-1/2 w-80 h-80 bg-rose-400 rounded-full blur-3xl"></div>
+        </div>
+        
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="text-center mb-16">
+            <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-purple-600 to-pink-600 rounded-2xl mb-6 shadow-2xl">
+              <ImagePlus className="h-8 w-8 text-white" />
+            </div>
+            <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-purple-600 via-pink-600 to-rose-600 bg-clip-text text-transparent mb-4">
+              Galerie
             </h2>
-            <p className="text-gray-600">Découvrez les paysages enneigés de Tignes et Val d'Isère</p>
+            <p className="text-xl text-gray-700 max-w-3xl mx-auto">
+              Découvrez les paysages enneigés spectaculaires de Tignes et Val d'Isère
+            </p>
           </div>
           
-          <div className="relative overflow-hidden rounded-xl shadow-xl">
+          <div className="relative overflow-hidden rounded-2xl shadow-2xl bg-white/80 backdrop-blur-sm border border-white/20">
             {/* Images du carrousel */}
-            <div className="relative h-96">
+            <div className="relative h-[500px]">
               {Array.from({ length: totalImages }).map((_, index) => (
                 <div 
                   key={index}
-                  className={`absolute inset-0 transition-opacity duration-1000 motion-reduce:transition-none ${index === currentSlide ? 'opacity-100' : 'opacity-0'}`}
+                  className={`absolute inset-0 transition-all duration-1000 motion-reduce:transition-none ${index === currentSlide ? 'opacity-100 scale-100' : 'opacity-0 scale-95'}`}
                 >
                   <img 
                     src={getCarouselImage(index)} 
@@ -1884,55 +2397,62 @@ function App() {
                     decoding="async"
                     loading="lazy"
                   />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent"></div>
                 </div>
               ))}
               
-              {/* Boutons de navigation */}
+              {/* Boutons de navigation modernisés */}
               <button 
                 onClick={prevSlide}
-                className="absolute left-4 top-1/2 -translate-y-1/2 bg-black/30 hover:bg-black/50 text-white rounded-full p-2 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
+                className="absolute left-6 top-1/2 -translate-y-1/2 bg-white/90 backdrop-blur-sm hover:bg-white text-gray-900 rounded-full p-3 transition-all duration-300 hover:scale-110 shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-500 focus-visible:ring-offset-2"
                 aria-label="Image précédente"
               >
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-                </svg>
+                <ChevronDown className="h-6 w-6 rotate-90" />
               </button>
               
               <button 
                 onClick={nextSlide}
-                className="absolute right-4 top-1/2 -translate-y-1/2 bg-black/30 hover:bg-black/50 text-white rounded-full p-2 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
+                className="absolute right-6 top-1/2 -translate-y-1/2 bg-white/90 backdrop-blur-sm hover:bg-white text-gray-900 rounded-full p-3 transition-all duration-300 hover:scale-110 shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-500 focus-visible:ring-offset-2"
                 aria-label="Image suivante"
               >
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                </svg>
+                <ChevronDown className="h-6 w-6 -rotate-90" />
               </button>
               
-              {/* Indicateurs de diapositives */}
-              <div className="absolute bottom-4 left-0 right-0 flex justify-center space-x-2">
+              {/* Indicateurs de diapositives modernisés */}
+              <div className="absolute bottom-6 left-0 right-0 flex justify-center space-x-3">
                 {Array.from({ length: totalImages }).map((_, index) => (
                   <button
                     key={index}
                     onClick={() => setCurrentSlide(index)}
-                    className={`w-3 h-3 rounded-full transition-colors ${index === currentSlide ? 'bg-white' : 'bg-white/50'}`}
+                    className={`w-3 h-3 rounded-full transition-all duration-300 ${index === currentSlide ? 'bg-white w-8 shadow-lg' : 'bg-white/50 hover:bg-white/70'}`}
                     aria-label={`Aller à l'image ${index + 1}`}
                   />
                 ))}
               </div>
             </div>
             
-            {/* Légende */}
-            <div className="bg-white p-4 text-center">
-              <p className="text-gray-700">
+            {/* Légende modernisée */}
+            <div className="bg-gradient-to-r from-purple-50 to-pink-50 p-6 text-center backdrop-blur-sm">
+              <p className="text-gray-800 font-medium text-lg mb-2">
                 {currentSlide === 0 && "Vue imprenable sur les montagnes enneigées de Tignes"}
                 {currentSlide === 1 && "Paysage hivernal époustouflant dans les Alpes"}
                 {currentSlide === 2 && "Pentes enneigées parfaites pour le ski et le snowboard"}
                 {currentSlide === 3 && "Forêt enneigée sous un ciel bleu éclatant"}
                 {currentSlide === 4 && "Panorama montagneux sous la neige"}
               </p>
-              <p className="text-sm text-gray-500 mt-1">
-                {currentSlide + 1} / {totalImages}
-              </p>
+              <div className="flex items-center justify-center gap-2">
+                <div className="flex items-center gap-1">
+                  {Array.from({ length: totalImages }).map((_, index) => (
+                    <div 
+                      key={index}
+                      className={`w-2 h-2 rounded-full transition-all duration-300 ${index === currentSlide ? 'bg-purple-600' : 'bg-purple-300'}`}
+                    />
+                  ))}
+                </div>
+                <span className="text-gray-600 text-sm font-medium">
+                  {currentSlide + 1} / {totalImages}
+                </span>
+              </div>
             </div>
           </div>
         </div>
@@ -1940,93 +2460,177 @@ function App() {
 
 
       {/* Cancellation Policy Section */}
-      <section id="cancellation" className="py-20 bg-gray-50">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Annulation Flexible</h2>
-          <p className="text-gray-700 mb-4">Protection contre les annulations clients, inspirée des politiques Maison Sport.</p>
-          <div className="space-y-3 text-gray-800">
-            <p><strong>21+ jours:</strong> Remboursement 95% au client, pas de paiement.</p>
-            <p><strong>14–20 jours:</strong> Remboursé 50%. Si non rebooké: paiement 50%.</p>
-            <p><strong>≤13 jours:</strong> Pas de remboursement. Si non rebooké: paiement 100%.</p>
-            <p className="text-sm text-gray-600">Calendrier rouvert automatiquement en cas d’annulation.</p>
+      <section id="cancellation" className="py-20 bg-gradient-to-br from-green-50 via-emerald-50 to-teal-50 relative overflow-hidden">
+        {/* Background decoration */}
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute top-10 left-20 w-72 h-72 bg-green-400 rounded-full blur-3xl"></div>
+          <div className="absolute top-40 right-20 w-96 h-96 bg-emerald-400 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-20 left-1/2 w-80 h-80 bg-teal-400 rounded-full blur-3xl"></div>
+        </div>
+        
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="text-center mb-16">
+            <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-green-600 to-emerald-600 rounded-2xl mb-6 shadow-2xl">
+              <Settings className="h-8 w-8 text-white" />
+            </div>
+            <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-green-600 via-emerald-600 to-teal-600 bg-clip-text text-transparent mb-4">
+              Annulation Flexible
+            </h2>
+            <p className="text-xl text-gray-700 max-w-3xl mx-auto">
+              Protection contre les annulations clients, inspirée des politiques Maison Sport
+            </p>
           </div>
-          <div className="mt-6">
-            <a href="#contact" className="inline-flex items-center gap-2 text-blue-600 hover:underline">
-              <MessageCircle className="h-4 w-4" /> Nous contacter
-            </a>
+          
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <div className="bg-gradient-to-br from-white/90 to-white/70 backdrop-blur-sm rounded-2xl p-8 shadow-xl border border-white/20 hover:shadow-2xl transition-all duration-300 hover:scale-[1.02]">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-12 h-12 bg-gradient-to-br from-green-500 to-emerald-600 rounded-xl flex items-center justify-center shadow-lg">
+                  <CheckCircle className="h-6 w-6 text-white" />
+                </div>
+                <h3 className="text-xl font-bold text-gray-900">21+ jours</h3>
+              </div>
+              <div className="space-y-3">
+                <div className="bg-gradient-to-r from-green-50 to-emerald-50 rounded-xl p-4">
+                  <p className="text-green-700 font-semibold text-lg">Remboursement 95%</p>
+                  <p className="text-gray-600">Pas de paiement pour le moniteur</p>
+                </div>
+              </div>
+            </div>
+            
+            <div className="bg-gradient-to-br from-white/90 to-white/70 backdrop-blur-sm rounded-2xl p-8 shadow-xl border border-white/20 hover:shadow-2xl transition-all duration-300 hover:scale-[1.02]">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-12 h-12 bg-gradient-to-br from-amber-500 to-orange-600 rounded-xl flex items-center justify-center shadow-lg">
+                  <AlertTriangle className="h-6 w-6 text-white" />
+                </div>
+                <h3 className="text-xl font-bold text-gray-900">14–20 jours</h3>
+              </div>
+              <div className="space-y-3">
+                <div className="bg-gradient-to-r from-amber-50 to-orange-50 rounded-xl p-4">
+                  <p className="text-amber-700 font-semibold text-lg">Remboursé 50%</p>
+                  <p className="text-gray-600">Si non rebooké: paiement 50%</p>
+                </div>
+              </div>
+            </div>
+            
+            <div className="bg-gradient-to-br from-white/90 to-white/70 backdrop-blur-sm rounded-2xl p-8 shadow-xl border border-white/20 hover:shadow-2xl transition-all duration-300 hover:scale-[1.02]">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-12 h-12 bg-gradient-to-br from-red-500 to-rose-600 rounded-xl flex items-center justify-center shadow-lg">
+                  <X className="h-6 w-6 text-white" />
+                </div>
+                <h3 className="text-xl font-bold text-gray-900">≤13 jours</h3>
+              </div>
+              <div className="space-y-3">
+                <div className="bg-gradient-to-r from-red-50 to-rose-50 rounded-xl p-4">
+                  <p className="text-red-700 font-semibold text-lg">Pas de remboursement</p>
+                  <p className="text-gray-600">Si non rebooké: paiement 100%</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div className="mt-12 text-center">
+            <div className="inline-flex items-center gap-3 px-6 py-4 bg-gradient-to-r from-green-50 to-emerald-50 rounded-2xl shadow-lg border border-green-200">
+              <Sparkles className="h-6 w-6 text-green-600" />
+              <span className="text-gray-700 font-medium">Calendrier rouvert automatiquement en cas d'annulation</span>
+            </div>
+            <div className="mt-8">
+              <a href="#contact" className="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-green-600 to-emerald-600 text-white rounded-xl hover:from-green-700 hover:to-emerald-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105">
+                <MessageCircle className="h-5 w-5" />
+                <span className="font-semibold">Nous contacter</span>
+              </a>
+            </div>
           </div>
         </div>
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section id="contact" className="py-20 bg-gradient-to-br from-indigo-50 via-blue-50 to-cyan-50 relative overflow-hidden">
+        {/* Background decoration */}
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute top-10 left-20 w-72 h-72 bg-indigo-400 rounded-full blur-3xl"></div>
+          <div className="absolute top-40 right-20 w-96 h-96 bg-blue-400 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-20 left-1/2 w-80 h-80 bg-cyan-400 rounded-full blur-3xl"></div>
+        </div>
+        
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-indigo-600 to-blue-600 rounded-2xl mb-6 shadow-2xl">
+              <Mail className="h-8 w-8 text-white" />
+            </div>
+            <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-indigo-600 via-blue-600 to-cyan-600 bg-clip-text text-transparent mb-4">
               {t.contact.title}
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xl text-gray-700 max-w-3xl mx-auto">
               {t.contact.description}
             </p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <Card className="text-center">
-              <CardHeader>
-                <Mail className="h-8 w-8 text-blue-600 mx-auto mb-4" />
-                <CardTitle>Email</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <a href={`mailto:${t.contact.email}`} className="text-blue-600 hover:text-blue-800 hover:underline transition-colors">
-                  {t.contact.email}
-                </a>
-              </CardContent>
-            </Card>
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
+            <div className="bg-gradient-to-br from-white/90 to-white/70 backdrop-blur-sm rounded-2xl p-8 shadow-xl border border-white/20 hover:shadow-2xl transition-all duration-300 hover:scale-[1.02] text-center">
+              <div className="w-16 h-16 bg-gradient-to-br from-indigo-500 to-blue-600 rounded-2xl flex items-center justify-center shadow-lg mx-auto mb-6">
+                <Mail className="h-8 w-8 text-white" />
+              </div>
+              <h3 className="text-2xl font-bold text-gray-900 mb-4">Email</h3>
+              <a href={`mailto:${t.contact.email}`} className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-indigo-50 to-blue-50 rounded-xl hover:from-indigo-100 hover:to-blue-100 transition-all duration-300 group">
+                <span className="text-gray-700 group-hover:text-indigo-600 font-medium">{t.contact.email}</span>
+                <ChevronDown className="h-4 w-4 text-gray-400 rotate-270 group-hover:translate-x-1 transition-transform" />
+              </a>
+            </div>
             
-            <Card className="text-center">
-              <CardHeader>
-                <Phone className="h-8 w-8 text-blue-600 mx-auto mb-4" />
-                <CardTitle>Téléphone</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <div className="flex flex-col items-center gap-1">
-                  <a href={`tel:${t.contact.phone.replace(/\s/g, '')}`} className="text-blue-600 hover:text-blue-800 hover:underline transition-colors">
-                    {t.contact.phone}
-                  </a>
-                  <a href={`https://wa.me/${t.contact.phone.replace(/\s/g,'')}`} target="_blank" rel="noreferrer" className="text-green-600 hover:underline inline-flex items-center gap-1">
-                    WhatsApp
-                  </a>
-                </div>
-              </CardContent>
-            </Card>
-            
-            <Card className="text-center">
-              <CardHeader>
-                <MapPin className="h-8 w-8 text-blue-600 mx-auto mb-4" />
-                <CardTitle>Adresse</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <a 
-                  href="https://www.google.com/maps/search/Val+d%27Isère,+France" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="text-blue-600 hover:text-blue-800 hover:underline transition-colors"
-                >
-                  {t.contact.address}
+            <div className="bg-gradient-to-br from-white/90 to-white/70 backdrop-blur-sm rounded-2xl p-8 shadow-xl border border-white/20 hover:shadow-2xl transition-all duration-300 hover:scale-[1.02] text-center">
+              <div className="w-16 h-16 bg-gradient-to-br from-green-500 to-emerald-600 rounded-2xl flex items-center justify-center shadow-lg mx-auto mb-6">
+                <Phone className="h-8 w-8 text-white" />
+              </div>
+              <h3 className="text-2xl font-bold text-gray-900 mb-4">Téléphone</h3>
+              <div className="space-y-3">
+                <a href={`tel:${t.contact.phone.replace(/\s/g, '')}`} className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-green-50 to-emerald-50 rounded-xl hover:from-green-100 hover:to-emerald-100 transition-all duration-300 group">
+                  <span className="text-gray-700 group-hover:text-green-600 font-medium">{t.contact.phone}</span>
+                  <ChevronDown className="h-4 w-4 text-gray-400 rotate-270 group-hover:translate-x-1 transition-transform" />
                 </a>
-              </CardContent>
-            </Card>
+                <a href={`https://wa.me/${t.contact.phone.replace(/\s/g,'')}`} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-green-50 to-emerald-50 rounded-xl hover:from-green-100 hover:to-emerald-100 transition-all duration-300 group">
+                  <MessageCircle className="h-4 w-4 text-green-600" />
+                  <span className="text-gray-700 group-hover:text-green-600 font-medium">WhatsApp</span>
+                </a>
+              </div>
+            </div>
+            
+            <div className="bg-gradient-to-br from-white/90 to-white/70 backdrop-blur-sm rounded-2xl p-8 shadow-xl border border-white/20 hover:shadow-2xl transition-all duration-300 hover:scale-[1.02] text-center">
+              <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-600 rounded-2xl flex items-center justify-center shadow-lg mx-auto mb-6">
+                <MapPin className="h-8 w-8 text-white" />
+              </div>
+              <h3 className="text-2xl font-bold text-gray-900 mb-4">Adresse</h3>
+              <a 
+                href="https://www.google.com/maps/search/Val+d%27Isère,+France" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-purple-50 to-pink-50 rounded-xl hover:from-purple-100 hover:to-pink-100 transition-all duration-300 group"
+              >
+                <span className="text-gray-700 group-hover:text-purple-600 font-medium">{t.contact.address}</span>
+                <ChevronDown className="h-4 w-4 text-gray-400 rotate-270 group-hover:translate-x-1 transition-transform" />
+              </a>
+            </div>
           </div>
           
-          <div className="mt-12 flex flex-col items-center">
-            <h3 className="text-xl font-semibold text-gray-900 mb-4">QR Code</h3>
-            <img 
-              src={QRCode} 
-              alt="QR Code de contact" 
-              className="w-64 h-64 object-contain rounded-lg shadow-lg"
-              loading="lazy"
-              decoding="async"
-            />
+          <div className="flex flex-col items-center">
+            <div className="bg-gradient-to-br from-white/90 to-white/70 backdrop-blur-sm rounded-2xl p-8 shadow-xl border border-white/20">
+              <h3 className="text-2xl font-bold text-gray-900 mb-6 text-center flex items-center gap-3">
+                <div className="w-8 h-8 bg-gradient-to-br from-indigo-500 to-blue-600 rounded-xl flex items-center justify-center">
+                  <Smartphone className="h-4 w-4 text-white" />
+                </div>
+                QR Code
+              </h3>
+              <div className="relative group">
+                <img 
+                  src={QRCode} 
+                  alt="QR Code de contact" 
+                  className="w-64 h-64 object-contain rounded-2xl shadow-xl transition-all duration-300 group-hover:scale-105"
+                  loading="lazy"
+                  decoding="async"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-indigo-500/20 to-transparent rounded-2xl pointer-events-none"></div>
+              </div>
+              <p className="text-center text-gray-600 mt-4">Scannez pour me contacter directement</p>
+            </div>
           </div>
         </div>
       </section>

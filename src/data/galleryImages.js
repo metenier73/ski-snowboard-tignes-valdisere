@@ -1,20 +1,19 @@
 // Images de la galerie (chemins locaux)
-const basePath = '/ski-snowboard-tignes-valdisere';
 const galleryImages = [
-  `${basePath}/images/gallery/montagne.jpg`,
-  `${basePath}/images/gallery/aig.JPG`,
-  `${basePath}/images/gallery/bel.JPG`,
-  `${basePath}/images/gallery/tignes1.png`,
-  `${basePath}/images/gallery/tignes2.png`,
-  `${basePath}/images/gallery/tignes3.png`,
-  `${basePath}/images/gallery/tignes.png`,
-  `${basePath}/images/gallery/tignes1.png`,
-  `${basePath}/images/gallery/tignes2.png`,
-  `${basePath}/images/gallery/tignes3.png`,
-  `${basePath}/images/gallery/tignes (5).png`,
-  `${basePath}/images/gallery/pep.JPG`,
-  `${basePath}/images/gallery/pepi.JPG`,
-  `${basePath}/images/gallery/ros.JPG`
+  '/images/gallery/montagne.jpg',
+  '/images/gallery/aig.JPG',
+  '/images/gallery/bel.JPG',
+  '/images/gallery/tignes1.png',
+  '/images/gallery/tignes2.png',
+  '/images/gallery/tignes3.png',
+  '/images/gallery/tignes.png',
+  '/images/gallery/tignes1.png',
+  '/images/gallery/tignes2.png',
+  '/images/gallery/tignes3.png',
+  '/images/gallery/tignes (5).png',
+  '/images/gallery/pep.JPG',
+  '/images/gallery/pepi.JPG',
+  '/images/gallery/ros.JPG'
 ];
 
 // Fonction pour obtenir une image de la galerie

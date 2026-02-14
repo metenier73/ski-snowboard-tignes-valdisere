@@ -1,10 +1,12 @@
-import { useMemo } from 'react'
 import {
-  PARTIAL_SLOT_DATES,
-  EXTENDED_MORNING_DATES,
-  EXTENDED_AFTERNOON_DATES,
-  DEFAULT_TIME_SLOTS
+    DEFAULT_TIME_SLOTS,
+    EXTENDED_AFTERNOON_DATES,
+    EXTENDED_MORNING_DATES,
+    FULLY_AVAILABLE_DATES,
+    FULLY_BLOCKED_DATES,
+    PARTIAL_SLOT_DATES
 } from '@/config/booking.js'
+import { useMemo } from 'react'
 
 /**
  * Convertit une Date en format ISO (yyyy-mm-dd)
@@ -35,6 +37,8 @@ export function useBookingAvailability(selectedDate, blockedMorningDates = [], b
   const partialSlot = iso ? PARTIAL_SLOT_DATES.get(iso) : null
   const isExtendedMorning = !!iso && EXTENDED_MORNING_DATES.has(iso)
   const isExtendedAfternoon = !!iso && EXTENDED_AFTERNOON_DATES.has(iso)
+  const isFullyAvailable = !!iso && FULLY_AVAILABLE_DATES.has(iso)
+  const isFullyBlocked = !!iso && FULLY_BLOCKED_DATES.has(iso)
 
   // Calcul de la disponibilité
   const isMorningBlocked = !!iso && blockedMorningSet.has(iso) && !partialSlot
@@ -56,14 +60,16 @@ export function useBookingAvailability(selectedDate, blockedMorningDates = [], b
     afternoonRange = '13:00–17:00'
   }
 
-  // État de disponibilité
+  // État de disponibilité - priorité aux dates complètes
   const availabilityState = useMemo(() => {
     if (!iso) return 'none'
+    if (isFullyBlocked) return 'unavailable'
+    if (isFullyAvailable) return 'full'
     if (partialSlot) return 'partial'
     if (isMorningBlocked && isAfternoonBlocked) return 'unavailable'
     if (isMorningBlocked || isAfternoonBlocked) return 'partial'
     return 'full'
-  }, [iso, partialSlot, isMorningBlocked, isAfternoonBlocked])
+  }, [iso, partialSlot, isMorningBlocked, isAfternoonBlocked, isFullyAvailable, isFullyBlocked])
 
   return {
     iso,
@@ -75,7 +81,9 @@ export function useBookingAvailability(selectedDate, blockedMorningDates = [], b
     afternoonRange,
     availabilityState,
     blockedMorningSet,
-    blockedAfternoonSet
+    blockedAfternoonSet,
+    isFullyAvailable,
+    isFullyBlocked
   }
 }
 

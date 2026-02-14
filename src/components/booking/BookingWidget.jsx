@@ -1,27 +1,21 @@
 import { Button } from '@/components/ui/button.jsx'
 import { Calendar } from '@/components/ui/calendar.jsx'
-import { AlertTriangle, Calendar as CalendarIcon, CheckCircle, Sun } from 'lucide-react'
-import { useState, useCallback } from 'react'
 import {
-  PARTIAL_SLOT_DATES,
-  CALENDAR_CONFIG,
-  DATE_MODIFIER_CLASSES
+    CALENDAR_CONFIG,
+    DATE_MODIFIER_CLASSES,
+    FULLY_AVAILABLE_DATES,
+    FULLY_BLOCKED_DATES,
+    PARTIAL_SLOT_DATES
 } from '@/config/booking.js'
-import { useBookingAvailability, toISODate } from '@/hooks/useBookingAvailability.js'
+import { toISODate, useBookingAvailability } from '@/hooks/useBookingAvailability.js'
+import { AlertTriangle, Calendar as CalendarIcon, CheckCircle, Sun } from 'lucide-react'
+import { useCallback, useState } from 'react'
 import { AvailabilityBadge } from './AvailabilityBadge.jsx'
 import { TimeSlotButton } from './TimeSlotButton.jsx'
 
-/**
- * Composant de widget de réservation avec calendrier interactif
- * @param {Object} props
- * @param {string[]} props.blockedMorningDates - Dates où le matin est bloqué
- * @param {string[]} props.blockedAfternoonDates - Dates où l'après-midi est bloqué
- * @param {string} props.bookingUrl - URL de réservation
- */
 export default function BookingWidget({ blockedMorningDates = [], blockedAfternoonDates = [], bookingUrl }) {
   const [selected, setSelected] = useState(null)
   
-  // Utilisation du hook personnalisé pour gérer la disponibilité
   const {
     partialSlot,
     isMorningBlocked,
@@ -36,22 +30,18 @@ export default function BookingWidget({ blockedMorningDates = [], blockedAfterno
   // Fonctions de vérification pour les modificateurs du calendrier
   const checkUnavailable = useCallback((date) => {
     const d = toISODate(date)
-    return blockedMorningSet.has(d) && blockedAfternoonSet.has(d) && !PARTIAL_SLOT_DATES.has(d)
-  }, [blockedMorningSet, blockedAfternoonSet])
+    return FULLY_BLOCKED_DATES.has(d)
+  }, [])
 
   const checkPartial = useCallback((date) => {
     const d = toISODate(date)
-    // Dates avec créneaux partiels
-    if (PARTIAL_SLOT_DATES.has(d)) return true
-    const m = blockedMorningSet.has(d)
-    const a = blockedAfternoonSet.has(d)
-    return (m && !a) || (!m && a)
-  }, [blockedMorningSet, blockedAfternoonSet])
+    return PARTIAL_SLOT_DATES.has(d)
+  }, [])
 
   const checkFull = useCallback((date) => {
     const d = toISODate(date)
-    return !blockedMorningSet.has(d) && !blockedAfternoonSet.has(d) && !PARTIAL_SLOT_DATES.has(d)
-  }, [blockedMorningSet, blockedAfternoonSet])
+    return FULLY_AVAILABLE_DATES.has(d)
+  }, [])
 
   return (
     <div className="mt-10 grid grid-cols-1 lg:grid-cols-2 gap-6">
