@@ -9,46 +9,31 @@ export default defineConfig(({ command, mode }) => {
   return {
     plugins: [
       react(),
-      // Plugin pour intercepter les requêtes de source maps manquants et gérer l'encodage
+      // Plugin pour intercepter les requêtes de source maps manquants
       {
-        name: 'encoding-handler',
+        name: 'ignore-source-map-errors',
         configureServer(server) {
           server.middlewares.use((req, res, next) => {
-            // Ne pas interférer avec les requêtes internes Vite
+            // Intercepte toutes les requêtes de fichiers .map (y compris react_devtools_backend_compact.js.map et installHook.js.map)
             if (req.url && (
-              req.url.startsWith('/@vite/') || 
-              req.url.startsWith('/@react-refresh') ||
-              req.url.includes('node_modules') ||
-              req.url.includes('.vite') ||
-              req.url.includes('source-map')
+              req.url.endsWith('.map') ||
+              req.url.includes('react_devtools_backend') ||
+              req.url.includes('installHook')
             )) {
-              return next()
-            }
-            
-            // Intercepte les requêtes de fichiers .map et retourne une réponse vide appropriée
-            if (req.url && req.url.endsWith('.map')) {
               res.writeHead(200, { 
-                'Content-Type': 'application/json; charset=utf-8',
+                'Content-Type': 'application/json',
                 'Cache-Control': 'no-cache, no-store, must-revalidate'
               })
-              res.end('{"version": 3, "sources": [], "names": [], "mappings": ""}')
+              // Retourne un source map valide mais vide pour éviter les erreurs
+              res.end(JSON.stringify({
+                version: 3,
+                sources: [],
+                names: [],
+                mappings: '',
+                file: req.url.replace('.map', '')
+              }))
               return
             }
-            
-            // N'ajouter les en-têtes d'encodage que pour les fichiers statiques spécifiques
-            if (req.url && !req.url.includes('?')) {
-              const url = req.url
-              if (url.endsWith('.jsx') || url.endsWith('.js') || url.endsWith('.ts') || url.endsWith('.tsx')) {
-                res.setHeader('Content-Type', 'application/javascript; charset=utf-8')
-              } else if (url.endsWith('.css')) {
-                res.setHeader('Content-Type', 'text/css; charset=utf-8')
-              } else if (url.endsWith('.html')) {
-                res.setHeader('Content-Type', 'text/html; charset=utf-8')
-              } else if (url.endsWith('.json')) {
-                res.setHeader('Content-Type', 'application/json; charset=utf-8')
-              }
-            }
-            
             next()
           })
         },

@@ -203,8 +203,8 @@ function App() {
         
       },
       hero: {
-        title: 'Ski & Snowboard Lessons',
-        description: 'Personalized teaching, absolute priority to safety, mindful of good practices, friendly communication in an atmosphere of trust, rigorous organization, educational innovation in constant search of new techniques.',
+        title: 'Private ski and snowboard lessons in Val d\'Isère 🏔️',
+        description: 'Enjoy private lessons in Val d\'Isère, in the heart of one of the most beautiful ski areas in the Alps. Whether you want to learn the basics, perfect your technique, or explore new sensations, I\'ll guide you on the legendary slopes of the Espace Killy with personalized and supportive instruction ❄️✨.',
         cta: 'Book your lessons'
       },
       about: {
@@ -657,7 +657,9 @@ function App() {
               {t.hero.title}
             </h1>
             <p className="text-xl text-gray-700 mb-8 max-w-4xl mx-auto">
-              {t.hero.description} Débutant, intermédiaire ou confirmé, chaque séance est conçue selon vos objectifs, votre rythme et votre expérience, pour une progression rapide et en toute sécurité ⛷️🏂.
+              {t.hero.description}
+              {currentLang === 'fr' && ' Débutant, intermédiaire ou confirmé, chaque séance est conçue selon vos objectifs, votre rythme et votre expérience, pour une progression rapide et en toute sécurité ⛷️🏂.'}
+              {currentLang === 'en' && ' My ski and snowboard lessons in Tignes – Val d\'Isère are suitable for beginners as well as experienced skiers and riders looking to improve their performance 🏂🔥. The goal: to progress effectively, gain confidence, and above all, have fun on the snow 😄.'}
             </p>
             <a href="#booking" className="focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 rounded-md">
               <Button size="lg" className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 text-lg">

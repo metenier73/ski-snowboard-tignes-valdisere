@@ -114,7 +114,7 @@ export const PARTIAL_SLOT_DATES = new Map([
     {
       blocked: '09:00–13:00',
       availableSlots: [
-        { label: 'Après-midi', range: '13:00–16:30' }
+        { label: 'Après-midi', range: '13:00–17:00' }
       ]
     }
   ],
@@ -432,7 +432,7 @@ export const EXTENDED_MORNING_DATES = new Set([
 
 // Dates avec après-midi étendu jusqu'à 17:00 (au lieu de 16:30)
 export const EXTENDED_AFTERNOON_DATES = new Set([
-  '2026-01-13', '2026-02-21'
+  '2026-01-09', '2026-01-13', '2026-02-21'
 ]);
 
 // Créneaux horaires par défaut
