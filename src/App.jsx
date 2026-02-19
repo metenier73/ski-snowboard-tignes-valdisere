@@ -38,6 +38,7 @@ import {
   Sparkles,
   Star,
   Sun,
+  Target,
   X,
   Zap
 } from 'lucide-react'
@@ -1795,6 +1796,164 @@ function App() {
             </p>
           </div>
           
+          {/* Encart Diplôme d'État français */}
+          <div className="mb-12">
+            <div className="relative bg-gradient-to-br from-blue-600 via-indigo-600 to-purple-600 rounded-3xl shadow-2xl overflow-hidden border-4 border-white/20">
+              {/* Décoration de fond */}
+              <div className="absolute inset-0 opacity-10">
+                <div className="absolute top-0 right-0 w-96 h-96 bg-white rounded-full blur-3xl"></div>
+                <div className="absolute bottom-0 left-0 w-80 h-80 bg-white rounded-full blur-3xl"></div>
+              </div>
+              
+              <div className="relative z-10 p-8 md:p-12">
+                <div className="flex items-start gap-6 mb-8">
+                  <div className="flex-shrink-0">
+                    <div className="flex items-center justify-center w-20 h-20 bg-white/20 backdrop-blur-sm rounded-2xl border-2 border-white/30">
+                      <span className="text-4xl">🇫🇷</span>
+                    </div>
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="text-3xl md:text-4xl font-bold text-white mb-3">
+                      Diplôme d'État de Ski Alpin 🇫🇷
+                    </h3>
+                    <p className="text-xl text-white/90 mb-4">
+                      Une formation d'excellence reconnue mondialement
+                    </p>
+                    <div className="flex flex-wrap gap-3">
+                      <span className="px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full text-white text-sm font-medium border border-white/30">
+                        ⭐ Référence mondiale
+                      </span>
+                      <span className="px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full text-white text-sm font-medium border border-white/30">
+                        🏆 Niveau technique exceptionnel
+                      </span>
+                      <span className="px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full text-white text-sm font-medium border border-white/30">
+                        📚 Formation complète
+                      </span>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                  <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
+                    <h4 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
+                      <CheckCircle className="h-6 w-6" />
+                      Structure du diplôme
+                    </h4>
+                    <ul className="space-y-3 text-white/90">
+                      <li className="flex items-start gap-2">
+                        <span className="text-white mt-1">✓</span>
+                        <span><strong>Autorité :</strong> École Nationale des Sports de Montagne + Ministère des Sports</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span className="text-white mt-1">✓</span>
+                        <span><strong>Statut :</strong> Diplôme d'État national</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span className="text-white mt-1">✓</span>
+                        <span><strong>Durée :</strong> 4 à 6 ans de formation</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span className="text-white mt-1">✓</span>
+                        <span><strong>Reconnaissance :</strong> Carte ISIA, travail en Europe</span>
+                      </li>
+                    </ul>
+                  </div>
+
+                  <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
+                    <h4 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
+                      <Star className="h-6 w-6" />
+                      Parcours de formation
+                    </h4>
+                    <div className="space-y-3 text-white/90 mb-4">
+                      <div className="flex items-start gap-2">
+                        <span className="text-white font-bold">1.</span>
+                        <span>Test technique (slalom géant chronométré)</span>
+                      </div>
+                      <div className="flex items-start gap-2">
+                        <span className="text-white font-bold">2.</span>
+                        <span>Cycle préparatoire</span>
+                      </div>
+                      <div className="flex items-start gap-2">
+                        <span className="text-white font-bold">3.</span>
+                        <span>Eurotest</span>
+                      </div>
+                      <div className="flex items-start gap-2">
+                        <span className="text-white font-bold">4.</span>
+                        <span>Stages pédagogiques et techniques</span>
+                      </div>
+                      <div className="flex items-start gap-2">
+                        <span className="text-white font-bold">5.</span>
+                        <span><strong>Diplôme d'État Ski Alpin</strong></span>
+                      </div>
+                    </div>
+                    <div className="pt-4 border-t border-white/20 space-y-2">
+                      <a 
+                        href="https://www.ensm.sports.gouv.fr/formation-de-moniteur-de-ski-alpin/" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-2 text-white hover:text-blue-200 transition-colors underline decoration-white/50 hover:decoration-white"
+                      >
+                        <BookOpen className="h-4 w-4" />
+                        <span className="text-sm">En savoir plus sur la formation ENSM</span>
+                      </a>
+                      <a 
+                        href="https://www.ensm.sports.gouv.fr/wp-content/uploads/2024/12/D.E-SKI-ALPIN.pdf" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-2 text-white hover:text-blue-200 transition-colors underline decoration-white/50 hover:decoration-white"
+                      >
+                        <BookOpen className="h-4 w-4" />
+                        <span className="text-sm">Télécharger le cursus complet (PDF)</span>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20 mb-6">
+                  <h4 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
+                    <Target className="h-6 w-6" />
+                    Philosophie pédagogique française
+                  </h4>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-white/90">
+                    <div>
+                      <p className="font-semibold text-white mb-2">Caractéristiques :</p>
+                      <ul className="space-y-2 text-sm">
+                        <li>• Sélection initiale très compétitive (Eurotest)</li>
+                        <li>• Forte dominance du ski de géant</li>
+                        <li>• Progression longue avec alternance stages–enseignements</li>
+                        <li>• Accent sur précision technique et démonstration parfaite</li>
+                      </ul>
+                    </div>
+                    <div>
+                      <p className="font-semibold text-white mb-2">Objectif :</p>
+                      <p className="text-sm">
+                        Former un <strong>technicien expert</strong> capable d'enseigner au plus haut niveau, avec une pédagogie structurée nationale et une maîtrise technique exceptionnelle.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                  <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20 text-center">
+                    <div className="text-3xl font-bold text-white mb-1">⭐</div>
+                    <div className="text-white font-semibold">Référence mondiale</div>
+                    <div className="text-white/80 text-sm mt-1">Diplôme le plus sélectif techniquement</div>
+                  </div>
+                  <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20 text-center">
+                    <div className="text-3xl font-bold text-white mb-1">🏆</div>
+                    <div className="text-white font-semibold">Excellence technique</div>
+                    <div className="text-white/80 text-sm mt-1">Niveau technique exceptionnel</div>
+                  </div>
+                  <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20 text-center">
+                    <div className="text-3xl font-bold text-white mb-1">📚</div>
+                    <div className="text-white font-semibold">Formation complète</div>
+                    <div className="text-white/80 text-sm mt-1">Pédagogie structurée nationale</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             <div className="group relative bg-white rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-3 overflow-hidden border border-gray-100">
               <div className="absolute top-0 right-0 w-40 h-40 bg-gradient-to-br from-blue-100 to-indigo-100 rounded-full -mr-20 -mt-20 opacity-50"></div>
