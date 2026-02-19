@@ -2260,6 +2260,129 @@ function App() {
                 </div>
               </div>
             </div>
+
+            {/* Encart Bars & Vie nocturne Tignes */}
+            <div className="mt-12">
+              <div className="relative bg-gradient-to-br from-purple-600 via-pink-600 to-rose-600 rounded-3xl shadow-2xl overflow-hidden border-4 border-white/20">
+                {/* Décoration de fond */}
+                <div className="absolute inset-0 opacity-10">
+                  <div className="absolute top-0 right-0 w-96 h-96 bg-white rounded-full blur-3xl"></div>
+                  <div className="absolute bottom-0 left-0 w-80 h-80 bg-white rounded-full blur-3xl"></div>
+                </div>
+                
+                <div className="relative z-10 p-8 md:p-12">
+                  <div className="flex items-start gap-6 mb-8">
+                    <div className="flex-shrink-0">
+                      <div className="flex items-center justify-center w-20 h-20 bg-white/20 backdrop-blur-sm rounded-2xl border-2 border-white/30">
+                        <span className="text-4xl">🍹</span>
+                      </div>
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="text-3xl md:text-4xl font-bold text-white mb-3">
+                        Bars & Vie nocturne à Tignes Val Claret 🎿🍹
+                      </h3>
+                      <p className="text-xl text-white/90 mb-4">
+                        Une sélection de bars branchés et animés — parfaits pour l'après-ski, boire un verre entre amis ou faire la fête !
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
+                    {/* Bars & Apéro animés */}
+                    <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
+                      <h4 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
+                        <span className="text-2xl">🍸</span>
+                        Bars & Apéro animés
+                      </h4>
+                      <p className="text-white/80 text-sm mb-4">Bars parfaits pour l'après-ski ou soirée chill :</p>
+                      <ul className="space-y-2 text-white/90 text-sm">
+                        <li className="flex items-start gap-2">
+                          <span className="text-white mt-1">•</span>
+                          <span><strong>Le Studio</strong> – Bar très bien noté avec ambiance festive en soirée</span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <span className="text-white mt-1">•</span>
+                          <span><strong>Inside bar</strong> – Ambiance conviviale, bon choix de boissons et après-ski animé</span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <span className="text-white mt-1">•</span>
+                          <span><strong>Ranga's Bar</strong> – Bar très apprécié avec happy hour, sport à l'écran et bonne vibe</span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <span className="text-white mt-1">•</span>
+                          <span><strong>Arobaze</strong> – Ambiance détendue et cocktails dans Val Claret</span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <span className="text-white mt-1">•</span>
+                          <span><strong>Granite-bar</strong> – Bar cocktail cosy et branché (souvent apprécié pour apéro)</span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <span className="text-white mt-1">•</span>
+                          <span><strong>Le Caveau</strong> – Petit bar sympa avec bonne sélection de boissons</span>
+                        </li>
+                      </ul>
+                    </div>
+
+                    {/* Spots après-ski */}
+                    <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
+                      <h4 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
+                        <span className="text-2xl">🍻</span>
+                        Spots après-ski & lieux conviviaux
+                      </h4>
+                      <ul className="space-y-2 text-white/90 text-sm">
+                        <li className="flex items-start gap-2">
+                          <span className="text-white mt-1">•</span>
+                          <span><strong>Le Couloir</strong> – Après-ski classique avec bière pression, snacks, musique</span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <span className="text-white mt-1">•</span>
+                          <span><strong>Cocorico Après Ski</strong> – Grand concept après-ski avec terrasse dancefloor</span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <span className="text-white mt-1">•</span>
+                          <span><strong>Le Whitney Bar</strong> – Bar convivial pour début/fin de soirée</span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <span className="text-white mt-1">•</span>
+                          <span><strong>Tom Crean's Pub</strong> – Pub irlandais avec ambiance détendue et bières</span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <span className="text-white mt-1">•</span>
+                          <span><strong>L'Embuscade Tignes</strong> – Bar animé avec bonne clientèle locale</span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <span className="text-white mt-1">•</span>
+                          <span><strong>Loop Bar & Restaurant</strong> – Bon spot pour boire un verre + manger</span>
+                        </li>
+                      </ul>
+                    </div>
+
+                    {/* Clubs */}
+                    <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
+                      <h4 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
+                        <span className="text-2xl">🕺</span>
+                        Clubs / Soirée tardive
+                      </h4>
+                      <ul className="space-y-2 text-white/90 text-sm mb-4">
+                        <li className="flex items-start gap-2">
+                          <span className="text-white mt-1">•</span>
+                          <span><strong>Avant Garde Tignes</strong> – Discothèque pour pousser la soirée tard dans la nuit</span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <span className="text-white mt-1">•</span>
+                          <span><strong>Discothèque Le Blue Girl</strong> – Club populaire (souvent tôt matin) pour danser</span>
+                        </li>
+                      </ul>
+                      <div className="mt-4 pt-4 border-t border-white/20">
+                        <p className="text-white/90 text-sm">
+                          <strong className="text-white">💡 Tips pour la nuit à Val Claret :</strong> l'ambiance commence souvent avec un après-ski vers 15-17h, puis se transforme en soirée musicale plus tard (bars + clubs), et beaucoup de gens finissent en club après 23h.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
