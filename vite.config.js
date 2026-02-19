@@ -14,28 +14,35 @@ export default defineConfig(({ command, mode }) => {
         name: 'ignore-source-map-errors',
         configureServer(server) {
           server.middlewares.use((req, res, next) => {
-            // Intercepte toutes les requêtes de fichiers .map (y compris react_devtools_backend_compact.js.map et installHook.js.map)
+            // Intercepte toutes les requêtes de fichiers .map
             if (req.url && (
               req.url.endsWith('.map') ||
               req.url.includes('react_devtools_backend') ||
-              req.url.includes('installHook')
+              req.url.includes('installHook') ||
+              req.url.includes('source-map') ||
+              req.url.includes('chunk-') && req.url.endsWith('.map')
             )) {
               res.writeHead(200, { 
                 'Content-Type': 'application/json',
-                'Cache-Control': 'no-cache, no-store, must-revalidate'
+                'Cache-Control': 'no-cache, no-store, must-revalidate',
+                'Access-Control-Allow-Origin': '*'
               })
-              // Retourne un source map valide mais vide pour éviter les erreurs
+              // Retourne un source map valide avec au moins une source vide pour éviter l'erreur "No sources"
               res.end(JSON.stringify({
                 version: 3,
-                sources: [],
+                sources: [''],
                 names: [],
                 mappings: '',
-                file: req.url.replace('.map', '')
+                file: req.url.replace('.map', '').split('/').pop()
               }))
               return
             }
             next()
           })
+        },
+        // Hook pour transformer les réponses de source maps
+        transformIndexHtml(html) {
+          return html
         },
       },
     ],
@@ -50,10 +57,34 @@ export default defineConfig(({ command, mode }) => {
       postcss: './postcss.config.cjs',
       devSourcemap: false
     },
+    // Optimisation des dépendances pour éviter les problèmes de chargement
+    optimizeDeps: {
+      include: [
+        'react',
+        'react-dom',
+        'react/jsx-dev-runtime',
+        'lucide-react',
+        '@radix-ui/react-tabs',
+        '@radix-ui/react-slot',
+        'class-variance-authority',
+        'tailwind-merge',
+        'clsx',
+        'react-day-picker'
+      ],
+      esbuildOptions: {
+        sourcemap: false,
+      },
+    },
     build: {
       outDir: 'dist',
       assetsDir: 'assets',
       sourcemap: false, // Désactive complètement les sourcemaps
+      rollupOptions: {
+        output: {
+          // Ne pas générer de source maps même pour le debug
+          sourcemap: false,
+        },
+      },
     },
     esbuild: {
       drop: isProduction ? ['console', 'debugger'] : [], // Supprime les logs en production

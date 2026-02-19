@@ -1,4 +1,13 @@
-// Images de la galerie (chemins locaux)
+// Base URL pour les images (gère le base path en production)
+const getBaseUrl = () => {
+  // En production avec GitHub Pages, utilise le base path
+  if (import.meta.env.PROD && import.meta.env.BASE_URL) {
+    return import.meta.env.BASE_URL.replace(/\/$/, '') // Enlève le slash final
+  }
+  return ''
+}
+
+// Images de la galerie (chemins relatifs au base path)
 const galleryImages = [
   '/images/gallery/montagne.jpg',
   '/images/gallery/aig.JPG',
@@ -16,9 +25,11 @@ const galleryImages = [
   '/images/gallery/ros.JPG'
 ];
 
-// Fonction pour obtenir une image de la galerie
+// Fonction pour obtenir une image de la galerie avec le bon base path
 export const getGalleryImage = (index) => {
-  return galleryImages[index % galleryImages.length];
+  const baseUrl = getBaseUrl()
+  const imagePath = galleryImages[index % galleryImages.length]
+  return `${baseUrl}${imagePath}`
 };
 
 export const galleryAltTexts = [

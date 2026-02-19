@@ -18,6 +18,8 @@
     <script>
       // Ignore les erreurs de source maps manquants dans la console
       const originalError = console.error;
+      const originalWarn = console.warn;
+      
       console.error = function(...args) {
         const message = args[0]?.toString() || '';
         // Ignore les erreurs de source maps spécifiques
@@ -29,10 +31,25 @@
             message.includes('react_devtools_backend') ||
             message.includes('installHook') ||
             message.includes("can't access property") ||
-            message.includes('map is undefined')) {
+            message.includes('map is undefined') ||
+            message.includes('No sources are declared') ||
+            message.includes('Échec du chargement pour le module') ||
+            message.includes('Failed to load module')) {
           return;
         }
         originalError.apply(console, args);
+      };
+      
+      console.warn = function(...args) {
+        const message = args[0]?.toString() || '';
+        // Ignore les warnings de source maps
+        if (message.includes('source map') || 
+            message.includes('SourceMap') || 
+            message.includes('.map') ||
+            message.includes('No sources are declared')) {
+          return;
+        }
+        originalWarn.apply(console, args);
       };
       
       // Intercepte les erreurs réseau pour les source maps
@@ -42,15 +59,41 @@
         // Retourne une réponse vide pour les requêtes de source maps
         if (url.includes('.map') || url.includes('react_devtools_backend') || url.includes('installHook')) {
           return Promise.resolve(new Response(
-            JSON.stringify({ version: 3, sources: [], names: [], mappings: '' }),
+            JSON.stringify({ version: 3, sources: [''], names: [], mappings: '' }),
             { 
               status: 200,
               headers: { 'Content-Type': 'application/json' }
             }
           ));
         }
-        return originalFetch.apply(this, args);
+        return originalFetch.apply(this, args).catch((error) => {
+          // Ignore les erreurs 404 pour les source maps
+          if (url.includes('.map') || url.includes('react_devtools_backend') || url.includes('installHook')) {
+            return Promise.resolve(new Response(
+              JSON.stringify({ version: 3, sources: [''], names: [], mappings: '' }),
+              { 
+                status: 200,
+                headers: { 'Content-Type': 'application/json' }
+              }
+            ));
+          }
+          throw error;
+        });
       };
+      
+      // Intercepte les erreurs de chargement d'images 404 et les ignore silencieusement
+      window.addEventListener('error', (event) => {
+        if (event.target && event.target.tagName === 'IMG') {
+          const img = event.target;
+          // Ignore les erreurs 404 pour les images de galerie manquantes
+          if (img.src && img.src.includes('/images/gallery/')) {
+            event.preventDefault();
+            event.stopPropagation();
+            // Optionnel : masquer l'image ou afficher un placeholder
+            img.style.display = 'none';
+          }
+        }
+      }, true);
       
       // Ignore les erreurs de source maps dans les workers
       if (typeof Worker !== 'undefined') {
