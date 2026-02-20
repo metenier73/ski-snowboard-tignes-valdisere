@@ -7,12 +7,15 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { galleryAltTexts, getGalleryImage, totalImages } from '@/data/galleryImages'
 import {
   AlertTriangle,
+  Award,
+  BarChart3,
   BookOpen,
   Bot,
   Calendar,
   CheckCircle,
   ChevronDown,
   ChevronUp,
+  Clock,
   Cloud,
   CloudFog,
   CloudHail,
@@ -40,6 +43,7 @@ import {
   Star,
   Sun,
   Target,
+  TrendingUp,
   X,
   Zap
 } from 'lucide-react'
@@ -1342,22 +1346,39 @@ function App() {
       </section>
 
       {/* Testimonials Section */}
-      <section id="testimonials" className="py-20 bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section id="testimonials" className="py-20 bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 relative overflow-hidden">
+        {/* Background decoration */}
+        <div className="absolute inset-0 opacity-5">
+          <div className="absolute top-10 left-10 w-32 h-32 bg-blue-200 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-10 right-10 w-40 h-40 bg-purple-200 rounded-full blur-3xl"></div>
+          <div className="absolute top-1/2 left-1/4 w-24 h-24 bg-indigo-200 rounded-full blur-2xl"></div>
+        </div>
+        
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4 flex items-center justify-center gap-2">
-              <Star className="h-7 w-7 text-yellow-500 fill-yellow-500" /> Avis Clients
-            </h2>
-            <div className="flex items-center justify-center gap-4 mb-4">
-              <div className="flex items-center gap-1">
-                {[1, 2, 3, 4, 5].map((i) => (
-                  <Star key={i} className="h-5 w-5 text-yellow-500 fill-yellow-500" />
-                ))}
+            <div className="inline-flex items-center gap-3 bg-white/90 backdrop-blur-sm rounded-2xl px-8 py-4 shadow-xl border border-white/20">
+              <div className="flex items-center gap-2">
+                <Star className="h-8 w-8 text-yellow-500 fill-yellow-500 drop-shadow-lg" />
+                <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+                  Avis Clients
+                </h2>
               </div>
-              <span className="text-2xl font-bold text-gray-900">4.97</span>
-              <span className="text-gray-600">(65 avis)</span>
             </div>
-            <p className="text-lg text-gray-600">90% des commentaires de Myriam M sont 5 étoiles.</p>
+            <div className="flex items-center justify-center gap-6 mt-6">
+              <div className="flex items-center gap-2 bg-white/80 backdrop-blur-sm rounded-xl px-6 py-3 shadow-lg">
+                {[1, 2, 3, 4, 5].map((i) => (
+                  <Star key={i} className="h-6 w-6 text-yellow-500 fill-yellow-500 drop-shadow-md" />
+                ))}
+                <span className="ml-2 text-3xl font-bold text-gray-900">4.97</span>
+                <span className="text-lg text-gray-600 font-medium ml-2">(65 avis)</span>
+              </div>
+            </div>
+            <div className="mt-4">
+              <div className="inline-flex items-center gap-2 bg-gradient-to-r from-green-50 to-emerald-50 rounded-full px-4 py-2 border border-green-200">
+                <TrendingUp className="h-5 w-5 text-green-600" />
+                <span className="text-lg font-semibold text-green-700">90% des commentaires sont 5 étoiles</span>
+              </div>
+            </div>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -1427,57 +1448,76 @@ function App() {
             ].map((review, idx) => (
               <Card 
                 key={idx} 
-                className="bg-white hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 border border-gray-100"
+                className="bg-white/95 backdrop-blur-sm hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 border border-gray-100/50 hover:border-blue-200/50 relative overflow-hidden group"
               >
-                <CardHeader>
-                  <div className="flex items-start justify-between mb-2">
-                    <div>
-                      <CardTitle className="text-lg font-semibold text-gray-900">{review.name}</CardTitle>
-                      <div className="flex items-center gap-1 mt-1">
-                        {[1, 2, 3, 4, 5].map((i) => (
-                          <Star 
-                            key={i} 
-                            className={`h-4 w-4 ${i <= Math.round(review.rating) ? 'text-yellow-500 fill-yellow-500' : 'text-gray-300'}`} 
-                          />
-                        ))}
-                        <span className="ml-1 text-sm font-medium text-gray-700">{review.rating} {review.rating === 5 ? 'Etoiles' : 'Etoiles'}</span>
+                {/* Card decoration */}
+                <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-blue-100 to-purple-100 rounded-bl-full opacity-50 group-hover:opacity-70 transition-opacity duration-300"></div>
+                <div className="absolute bottom-0 left-0 w-16 h-16 bg-gradient-to-tr from-green-100 to-emerald-100 rounded-tr-full opacity-30 group-hover:opacity-50 transition-opacity duration-300"></div>
+                
+                <CardHeader className="relative z-10 pb-4">
+                  <div className="flex items-start justify-between mb-3">
+                    <div className="flex items-center gap-3">
+                      <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-500 rounded-full flex items-center justify-center text-white font-bold text-lg shadow-lg">
+                        {review.name.charAt(0)}
+                      </div>
+                      <div>
+                        <CardTitle className="text-xl font-bold text-gray-900 mb-1">{review.name}</CardTitle>
+                        <div className="flex items-center gap-2">
+                          {[1, 2, 3, 4, 5].map((i) => (
+                            <Star 
+                              key={i} 
+                              className={`h-4 w-4 ${i <= Math.round(review.rating) ? 'text-yellow-500 fill-yellow-500 drop-shadow-sm' : 'text-gray-300'}`} 
+                            />
+                          ))}
+                          <span className="ml-1 text-sm font-medium text-gray-700">{review.rating} ⭐</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="flex flex-col items-end gap-1">
+                      <div className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg px-3 py-1 border border-blue-200/50">
+                        <span className="text-xs font-semibold text-blue-700">{review.date}</span>
                       </div>
                     </div>
                   </div>
-                  <div className="flex items-center gap-2 text-sm text-gray-500 mt-2">
-                    <Calendar className="h-4 w-4" />
-                    <span>{review.date}</span>
-                    <span>•</span>
-                    <Mountain className="h-4 w-4" />
-                    <span>{review.location}</span>
-                  </div>
-                  {review.hours && (
-                    <div className="mt-2 text-sm text-gray-500">
-                      <span className="font-medium">{review.hours}</span> heures réservées
+                  <div className="flex items-center gap-3 text-sm text-gray-600 mt-3">
+                    <div className="flex items-center gap-1 bg-gray-50 rounded-full px-3 py-1">
+                      <Mountain className="h-4 w-4 text-gray-500" />
+                      <span className="font-medium text-gray-700">{review.location}</span>
                     </div>
-                  )}
+                    {review.hours && (
+                      <div className="flex items-center gap-1 bg-green-50 rounded-full px-3 py-1">
+                        <Clock className="h-4 w-4 text-green-500" />
+                        <span className="font-medium text-green-700">{review.hours}h</span>
+                      </div>
+                    )}
+                  </div>
                 </CardHeader>
-                <CardContent>
+                <CardContent className="relative z-10 pt-0">
                   <div className="relative">
-                    <p className={`text-gray-700 leading-relaxed ${isLongReview(review.text) && !expandedReviews[idx] ? 'max-h-32 overflow-hidden' : ''}`}>
+                    <div className="absolute -top-2 -left-2 text-3xl text-blue-200 opacity-50">"</div>
+                    <p className={`text-gray-700 leading-relaxed pl-6 pr-2 ${isLongReview(review.text) && !expandedReviews[idx] ? 'max-h-32 overflow-hidden' : ''}`}>
                       {review.text}
                     </p>
                     {isLongReview(review.text) && (
                       <button
                         onClick={() => toggleReviewExpansion(idx)}
-                        className="mt-3 text-blue-600 hover:text-blue-800 font-medium text-sm flex items-center gap-1 transition-colors duration-200"
+                        className="mt-3 text-blue-600 hover:text-blue-800 font-medium text-sm flex items-center gap-1 transition-all duration-200 hover:gap-2 group"
                         aria-expanded={expandedReviews[idx]}
                         aria-label={expandedReviews[idx] ? "Lire moins" : "Lire plus"}
                       >
                         {expandedReviews[idx] ? (
                           <>
-                            <ChevronUp className="h-4 w-4" />
-                            Lire moins
+                            <ChevronUp className="h-4 w-4 transition-transform duration-200 group-hover:-translate-y-1" />
+                            <span className="bg-blue-50 px-3 py-1 rounded-full border border-blue-200 group-hover:bg-blue-100 transition-colors duration-200">
+                              Réduire
+                            </span>
                           </>
                         ) : (
                           <>
-                            <ChevronDown className="h-4 w-4" />
-                            Lire plus
+                            <ChevronDown className="h-4 w-4 transition-transform duration-200 group-hover:translate-y-1" />
+                            <span className="bg-blue-50 px-3 py-1 rounded-full border border-blue-200 group-hover:bg-blue-100 transition-colors duration-200">
+                              Lire plus
+                            </span>
                           </>
                         )}
                       </button>
@@ -1488,27 +1528,56 @@ function App() {
             ))}
           </div>
           
-          <div className="mt-12 text-center">
-            <div className="inline-flex items-center gap-4 bg-white/80 backdrop-blur-sm rounded-xl p-6 shadow-lg">
+          <div className="mt-16 text-center">
+            <div className="inline-flex items-center gap-8 bg-white/90 backdrop-blur-sm rounded-2xl p-8 shadow-2xl border border-white/30">
               <div className="text-left">
-                <div className="text-2xl font-bold text-gray-900 mb-1">Note moyenne</div>
-                <div className="flex items-center gap-2">
-                  <span className="text-4xl font-bold text-blue-600">4.97</span>
+                <div className="text-2xl font-bold text-gray-900 mb-2 flex items-center gap-2">
+                  <Award className="h-6 w-6 text-blue-600" />
+                  Note moyenne
+                </div>
+                <div className="flex items-center gap-3">
+                  <span className="text-5xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">4.97</span>
                   <div className="flex items-center gap-1">
                     {[1, 2, 3, 4, 5].map((i) => (
-                      <Star key={i} className="h-5 w-5 text-yellow-500 fill-yellow-500" />
+                      <Star key={i} className="h-6 w-6 text-yellow-500 fill-yellow-500 drop-shadow-md" />
                     ))}
                   </div>
                 </div>
-                <div className="text-sm text-gray-600 mt-1">basé sur 40 avis</div>
+                <div className="text-sm text-gray-600 mt-1">basé sur 65 avis</div>
               </div>
-              <div className="border-l border-gray-200 pl-6 text-left">
-                <div className="text-sm font-semibold text-gray-900 mb-2">Appréciations</div>
-                <div className="space-y-1 text-sm text-gray-600">
-                  <div>Amabilité <span className="font-bold text-blue-600">5.0</span></div>
-                  <div>Communication <span className="font-bold text-blue-600">4.89</span></div>
-                  <div>Ponctualité <span className="font-bold text-blue-600">4.98</span></div>
-                  <div>Feedback technique <span className="font-bold text-blue-600">4.98</span></div>
+              <div className="border-l-2 border-gray-200 pl-8 text-left">
+                <div className="text-sm font-bold text-gray-900 mb-3 flex items-center gap-2">
+                  <BarChart3 className="h-5 w-5 text-green-600" />
+                  Appréciations
+                </div>
+                <div className="space-y-2 text-sm text-gray-700">
+                  <div className="flex items-center justify-between">
+                    <span>Amabilité</span>
+                    <div className="flex items-center gap-2">
+                      <div className="w-20 bg-gray-200 rounded-full h-2">
+                        <div className="bg-gradient-to-r from-green-400 to-green-600 h-2 rounded-full" style={{width: '100%'}}></div>
+                      </div>
+                      <span className="font-bold text-green-600">5.0</span>
+                    </div>
+                  </div>
+                  <div className="flex items-center justify-between">
+                    <span>Communication</span>
+                    <div className="flex items-center gap-2">
+                      <div className="w-20 bg-gray-200 rounded-full h-2">
+                        <div className="bg-gradient-to-r from-green-400 to-green-600 h-2 rounded-full" style={{width: '97.8%'}}></div>
+                      </div>
+                      <span className="font-bold text-green-600">4.89</span>
+                    </div>
+                  </div>
+                  <div className="flex items-center justify-between">
+                    <span>Ponctualité</span>
+                    <div className="flex items-center gap-2">
+                      <div className="w-20 bg-gray-200 rounded-full h-2">
+                        <div className="bg-gradient-to-r from-green-400 to-green-600 h-2 rounded-full" style={{width: '99.6%'}}></div>
+                      </div>
+                      <span className="font-bold text-green-600">4.98</span>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -2489,7 +2558,7 @@ function App() {
                     <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
                       <h4 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
                         <span className="text-2xl">🕺</span>
-                        Clubs / Soirée tardive
+        ou              Clubs / Soirée tardive
                       </h4>
                       <div className="space-y-3 mb-4">
                         <div className="bg-white/10 rounded-lg p-3">
