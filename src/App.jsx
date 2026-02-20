@@ -12,6 +12,7 @@ import {
   Calendar,
   CheckCircle,
   ChevronDown,
+  ChevronUp,
   Cloud,
   CloudFog,
   CloudHail,
@@ -109,6 +110,22 @@ function App() {
   }, [])
 
   const bookingUrl = 'https://maisonsport.com/fr/profile/927576662/myriam-m?omnisendContactID=65cb1772c613deaa1396a153&utm_campaign=automation%3A+Transactional+Flow+(6537bd845397fc850450a200)&utm_content=6537c00f5397fc850450a21a&utm_medium=email&utm_source=omnisend'
+
+  // État pour gérer l'expansion des avis clients
+  const [expandedReviews, setExpandedReviews] = useState({})
+
+  // Fonction pour basculer l'expansion d'un avis
+  const toggleReviewExpansion = (idx) => {
+    setExpandedReviews(prev => ({
+      ...prev,
+      [idx]: !prev[idx]
+    }))
+  }
+
+  // Fonction pour déterminer si un avis est long
+  const isLongReview = (text) => {
+    return text.length > 200 // Seuil de caractères pour considérer un avis comme long
+  }
 
   const isActive = (href) => !!href && href === currentHash
   
@@ -1338,13 +1355,38 @@ function App() {
                 ))}
               </div>
               <span className="text-2xl font-bold text-gray-900">4.97</span>
-              <span className="text-gray-600">(40 avis)</span>
+              <span className="text-gray-600">(65 avis)</span>
             </div>
             <p className="text-lg text-gray-600">90% des commentaires de Myriam M sont 5 étoiles.</p>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
+              { name: 'Liliana H.', rating: 5, date: '16/02/2026', location: 'Skiing, Val d\'Isère', hours: 3, text: "Myriam is an excellent ski instructor. Despite challenging weather conditions and the lesson having to be cut short due to lift closures, Myriam made every minute count and provided excellent tips to improve my skiing. She was encouraging and fully present throughout and managed to turn difficult weather situation into a genuinely positive and motivating experience. Thank you Myriam!" },
+              { name: 'Géraldine G.', rating: 5, date: '16/02/2026', location: 'Skiing, Val d\'Isère', hours: 3, text: "Myriam est très agréable et très professionnelle Ma fille a beaucoup apprécié sa première leçon de ski en sa compagnie Merci" },
+              { name: 'Samantha A.', rating: 5, date: '09/02/2026', location: 'Skiing, Val d\'Isère', hours: 12, text: "I wanted to build my confidence and Myriam provided excellent pre lesson motivation and demonstrated a good understanding of what I was trying to achieve. The lessons were informative and focussed on improving my technique to build confidence. A minor issues was sometimes the language barrier prevented more detailed technical discussions but this did not prevent me meeting my goals. A big advantage was Myriams knowledge of the best areas in the mountain and the snow conditions." },
+              { name: 'Denise E.', rating: 5, date: '04/02/2026', location: 'Skiing, Les Arcs 1800', hours: 8, text: "Very good! Lots of experience and a very good tutor for a intermediate skier." },
+              { name: 'Naz Y.', rating: 5, date: '02/02/2026', location: 'Skiing, Val d\'Isère', hours: 25, text: "Our two kids loved to ski with Myriam for the whole week. She is a great instructor and very good with kids." },
+              { name: 'Harry L.', rating: 5, date: '12/04/2025', location: 'Skiing, Val d\'Isère', hours: 4, text: "Hi Myriam. I just wanted to thank you so much for looking after the children, Arthur yesterday and both Florence and Arthur today. They had the best time and you were so great with Florence, especially after her big accident on the slopes yesterday. She needed a big confidence boost and you gave it to her so THANK YOU!" },
+              { name: 'Ben H.', rating: 5, date: '21/03/2025', location: 'Skiing, Tignes', hours: 3, text: "Myriam was super! She listened, pushed me when right and was kind, and understanding of my nerves. Lots of local information made my experience with her 10/10." },
+              { name: 'Rachel B.', rating: 5, date: '18/03/2025', location: 'Skiing, Tignes', hours: 3, text: "Myriam was a great instructor. She was really patient and explained everything really well. Highly recommend!" },
+              { name: 'Stephanie M.', rating: 5, date: '07/03/2025', location: 'Skiing, Val d\'Isère', hours: 2, text: "Une super prof, très pédagogue et attentionnée, encore merci et à l'année prochaine !" },
+              { name: 'Faris A.', rating: 5, date: '05/03/2025', location: 'Skiing, Val d\'Isère', hours: 4, text: "Amazing Ski Instructor – Thank You, Myriam! I had the best experience learning from Myriam in Val d'Isère! She's not just an incredible ski instructor—she's warm, patient, and truly knows how to bring out the best in you on the slopes. Before my lessons with her, black slopes felt intimidating, but thanks to her clear guidance and expert coaching, I was able to tackle them with confidence and ease. She breaks everything down in a way that just clicks, making even the toughest techniques feel doable. She's also great at pushing you just enough to improve without ever making you feel overwhelmed. Beyond the technical skills, Myriam made every lesson fun and engaging. She knows the best spots on the mountain and made sure I experienced some amazing runs. Her energy and encouragement made such a difference, and I can honestly say my skiing has improved exponentially because of her. If you're looking for an instructor who is not only skilled but also makes learning enjoyable, Myriam is the one! I can't thank her enough for such an incredible experience." },
+              { name: 'David Y.', rating: 5, date: '04/03/2025', location: 'Off-piste Skiing, Val d\'Isère', hours: 8, text: "We scheduled Myriam for two half day off piste sessions in February. She was fantastic in navigating different skiing abilities in our family and extremely knowledgeable. Myriam is patient and friendly while offering excellent technical instruction. We sent four teenagers with her on the second day and they each enjoyed one of their best ski days ever because of Myriam's guidance. Whether you are an expert or intermediate skier, I can strongly recommend Myriam and booking with Maison Sport - a flawless process!" },
+              { name: 'Serra K.', rating: 5, date: '03/03/2025', location: 'Skiing, Val d\'Isère', hours: 2, text: "Hi, Myriam was a really nice instructor, to whom we told our needs in advance and she adapted the session to our needs very very well." },
+              { name: 'Stephanie M.', rating: 5, date: '02/03/2025', location: 'Skiing, Val d\'Isère', hours: 3, text: "Merci Myriam M" },
+              { name: 'Carwyn D.', rating: 5, date: '28/02/2025', location: 'Skiing, Val d\'Isère', hours: 4, text: "Myriam was great at making sure I was technically correct with my turns, first day skiing in 20 years and on our second day I was onto the black runs." },
+              { name: 'Neil H.', rating: 5, date: '23/02/2025', location: 'Off-piste Skiing, Val d\'Isère', hours: 12, text: "Myriam is an extremely friendly and very nice person, who was flexible in approach, and was very insightful in terms of technical tips on skiing skills, in our case, in guided off-piste sessions. I would certainly recommend her." },
+              { name: 'Jennifer T.', rating: 5, date: '17/02/2025', location: 'Skiing, Val d\'Isère', hours: 4, text: "Myriam gave my kids and I a great lesson for an afternoon. She was able to provide specific feedback to each of us and technical instruction to help us improve depending on what we needed to practice. We have hired instructors in past years and my kids and I think she is the best one." },
+              { name: 'Sophie W.', rating: 5, date: '17/02/2025', location: 'Skiing, Val d\'Isère', hours: 4, text: "Myriam was a fantastic instructor who tailored the technical instruction perfectly for the different skill levels of our lesson. Myriam really understood our strengths and development areas and paced the session perfectly throughout. We both improved significantly over the session. We would definitely book Myriam again in the future and really enjoyed our lesson. Thank you!" },
+              { name: 'Olivia H.', rating: 5, date: '08/02/2025', location: 'Skiing, Val d\'Isère', hours: 6, text: "Myriam was fantastic! she knows the area very well and took us to places that were less crowded and challenged me when I needed an extra push. highly recommend." },
+              { name: 'Naomi H.', rating: 5, date: '08/02/2025', location: 'Skiing, Val d\'Isère', hours: 4, text: "Myriam was great! Made first day in Val d'Isère easy. Couldn't have done it without her. She made it fun for the kids; gave good pointers along the way; covered a lot of territory and didn't mind we didn't want to have many breaks! She was patient and kind; - absolutely lovely person. An amazing skier! I'd definitely recommend her." },
+              { name: 'Adam W.', rating: 5, date: '07/02/2025', location: 'Skiing, Val d\'Isère', hours: 4, text: "Myriam was very flexible with timings of lesson which ended up being very important with cancelled flights. She is very friendly and recommended great slopes for my ability. She was very good at putting things simply for me to understand and left me with things to work on for the rest of my ski holiday. Thanks Myriam!" },
+              { name: 'Aidan O.', rating: 5, date: '07/02/2025', location: 'Skiing, Val d\'Isère', hours: 3, text: "Excellent lesson and brought me around me to several areas of resort to experience different challanges" },
+              { name: 'Reuben H.', rating: 5, date: '07/02/2025', location: 'Skiing, Tignes', hours: 3, text: "Myriam was friendly and noticed straight away what i required for improvement. Also very informative on the surrounding ski and mountain areas. A great lesson." },
+              { name: 'Fi B.', rating: 5, date: '06/02/2025', location: 'Skiing, Val d\'Isère', hours: 3, text: "I really enjoyed my lesson with Myriam! She was able to instil a confidence in my skiing which I am very thankful for! After my lesson, my husband changed my skis (25 years old) to enhance my new skiing abilities! When I come back to Val D'Isere I will definitely book you again (if you'll have me). Thank you Myriam." },
+              { name: 'Sophie B.', rating: 5, date: '04/02/2025', location: 'Skiing, Val d\'Isère', hours: 3, text: "Myriam was friendly and really put me at ease in my lesson. She was easy to follow and helped build my confidence and set me up for a great week of skiing! I really recommend her" },
+              { name: 'Lee P.', rating: 5, date: '05/01/2025', location: 'Skiing, Val d\'Isère', hours: 8, text: "Myriam has great technical knowledge and experience. Definitely improved my skiing technique at my pace." },
               { name: 'Louis B.', rating: 5, date: '26/01/2026', location: 'Ski, Tignes', hours: 4, text: "Après un seul après midi ma copine qui a été accompagnée de Myriam n'avait que des bonnes choses a dire à propos de Myriam, et pouvait descendre des pistes bleues. Je recommande vivement les services de Myriam." },
               { name: 'Benny A.', rating: 5, date: '26/01/2026', location: 'Snowboard, Les Arcs', hours: 4, text: "I highly recommend taking Myriam as an instructor. She proved to be very patient and was very helpful in creating confidence on the slopes." },
               { name: 'Gilly W.', rating: 5, date: '21/01/2026', location: 'Ski, Les Arcs 1600', hours: 6, text: "Highly recommend Myriam! Excellent in every way. She gave me plenty of simple, useful tips to improve my technique. I really appreciated that she showed me plenty of different slopes and lifts, so that we would have a fantastic holiday. Such a nice person, too - I felt really comfortable with her. Only positive things to say and I would absolutely book another session with Myriam, if I return to Les Arcs." },
@@ -1416,7 +1458,31 @@ function App() {
                   )}
                 </CardHeader>
                 <CardContent>
-                  <p className="text-gray-700 leading-relaxed max-h-48 overflow-hidden">{review.text}</p>
+                  <div className="relative">
+                    <p className={`text-gray-700 leading-relaxed ${isLongReview(review.text) && !expandedReviews[idx] ? 'max-h-32 overflow-hidden' : ''}`}>
+                      {review.text}
+                    </p>
+                    {isLongReview(review.text) && (
+                      <button
+                        onClick={() => toggleReviewExpansion(idx)}
+                        className="mt-3 text-blue-600 hover:text-blue-800 font-medium text-sm flex items-center gap-1 transition-colors duration-200"
+                        aria-expanded={expandedReviews[idx]}
+                        aria-label={expandedReviews[idx] ? "Lire moins" : "Lire plus"}
+                      >
+                        {expandedReviews[idx] ? (
+                          <>
+                            <ChevronUp className="h-4 w-4" />
+                            Lire moins
+                          </>
+                        ) : (
+                          <>
+                            <ChevronDown className="h-4 w-4" />
+                            Lire plus
+                          </>
+                        )}
+                      </button>
+                    )}
+                  </div>
                 </CardContent>
               </Card>
             ))}
@@ -2283,6 +2349,8 @@ function App() {
                       </h3>
                       <p className="text-xl text-white/90 mb-4">
                         Une sélection de bars branchés et animés — parfaits pour l'après-ski, boire un verre entre amis ou faire la fête !
+                        <br />
+                        <span className="text-yellow-300 font-semibold">*(Ambiance plus authentique et locale que Val d'Isère)*</span>
                       </p>
                     </div>
                   </div>
@@ -2295,32 +2363,62 @@ function App() {
                         Bars & Apéro animés
                       </h4>
                       <p className="text-white/80 text-sm mb-4">Bars parfaits pour l'après-ski ou soirée chill :</p>
-                      <ul className="space-y-2 text-white/90 text-sm">
-                        <li className="flex items-start gap-2">
-                          <span className="text-white mt-1">•</span>
-                          <span><strong>Le Studio</strong> – Bar très bien noté avec ambiance festive en soirée</span>
-                        </li>
-                        <li className="flex items-start gap-2">
-                          <span className="text-white mt-1">•</span>
-                          <span><strong>Inside bar</strong> – Ambiance conviviale, bon choix de boissons et après-ski animé</span>
-                        </li>
-                        <li className="flex items-start gap-2">
-                          <span className="text-white mt-1">•</span>
-                          <span><strong>Ranga's Bar</strong> – Bar très apprécié avec happy hour, sport à l'écran et bonne vibe</span>
-                        </li>
-                        <li className="flex items-start gap-2">
-                          <span className="text-white mt-1">•</span>
-                          <span><strong>Arobaze</strong> – Ambiance détendue et cocktails dans Val Claret</span>
-                        </li>
-                        <li className="flex items-start gap-2">
-                          <span className="text-white mt-1">•</span>
-                          <span><strong>Granite-bar</strong> – Bar cocktail cosy et branché (souvent apprécié pour apéro)</span>
-                        </li>
-                        <li className="flex items-start gap-2">
-                          <span className="text-white mt-1">•</span>
-                          <span><strong>Le Caveau</strong> – Petit bar sympa avec bonne sélection de boissons</span>
-                        </li>
-                      </ul>
+                      <div className="space-y-3">
+                        <div className="bg-white/10 rounded-lg p-3">
+                          <div className="flex items-start gap-2">
+                            <span className="text-yellow-300 mt-1">⭐</span>
+                            <div>
+                              <strong className="text-white">Le Studio</strong>
+                              <p className="text-white/80 text-xs">Bar très bien noté • Ambiance festive • DJ weekends</p>
+                            </div>
+                          </div>
+                        </div>
+                        <div className="bg-white/10 rounded-lg p-3">
+                          <div className="flex items-start gap-2">
+                            <span className="text-green-300 mt-1">🍺</span>
+                            <div>
+                              <strong className="text-white">Inside bar</strong>
+                              <p className="text-white/80 text-xs">Ambiance conviviale • Bon choix de boissons • Après-ski animé</p>
+                            </div>
+                          </div>
+                        </div>
+                        <div className="bg-white/10 rounded-lg p-3">
+                          <div className="flex items-start gap-2">
+                            <span className="text-blue-300 mt-1">🎯</span>
+                            <div>
+                              <strong className="text-white">Ranga's Bar</strong>
+                              <p className="text-white/80 text-xs">Happy hour • Sport à l'écran • Bonne vibe locale</p>
+                            </div>
+                          </div>
+                        </div>
+                        <div className="bg-white/10 rounded-lg p-3">
+                          <div className="flex items-start gap-2">
+                            <span className="text-purple-300 mt-1">🍹</span>
+                            <div>
+                              <strong className="text-white">Arobaze</strong>
+                              <p className="text-white/80 text-xs">Ambiance détendue • Cocktails • Cœur de Val Claret</p>
+                            </div>
+                          </div>
+                        </div>
+                        <div className="bg-white/10 rounded-lg p-3">
+                          <div className="flex items-start gap-2">
+                            <span className="text-pink-300 mt-1">🥃</span>
+                            <div>
+                              <strong className="text-white">Granite-bar</strong>
+                              <p className="text-white/80 text-xs">Cocktails • Cosy • Branché • Apéro populaire</p>
+                            </div>
+                          </div>
+                        </div>
+                        <div className="bg-white/10 rounded-lg p-3">
+                          <div className="flex items-start gap-2">
+                            <span className="text-amber-300 mt-1">🍷</span>
+                            <div>
+                              <strong className="text-white">Le Caveau</strong>
+                              <p className="text-white/80 text-xs">Petit bar sympa • Bonne sélection • Vins & bières</p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
 
                     {/* Spots après-ski */}
@@ -2329,32 +2427,62 @@ function App() {
                         <span className="text-2xl">🍻</span>
                         Spots après-ski & lieux conviviaux
                       </h4>
-                      <ul className="space-y-2 text-white/90 text-sm">
-                        <li className="flex items-start gap-2">
-                          <span className="text-white mt-1">•</span>
-                          <span><strong>Le Couloir</strong> – Après-ski classique avec bière pression, snacks, musique</span>
-                        </li>
-                        <li className="flex items-start gap-2">
-                          <span className="text-white mt-1">•</span>
-                          <span><strong>Cocorico Après Ski</strong> – Grand concept après-ski avec terrasse dancefloor</span>
-                        </li>
-                        <li className="flex items-start gap-2">
-                          <span className="text-white mt-1">•</span>
-                          <span><strong>Le Whitney Bar</strong> – Bar convivial pour début/fin de soirée</span>
-                        </li>
-                        <li className="flex items-start gap-2">
-                          <span className="text-white mt-1">•</span>
-                          <span><strong>Tom Crean's Pub</strong> – Pub irlandais avec ambiance détendue et bières</span>
-                        </li>
-                        <li className="flex items-start gap-2">
-                          <span className="text-white mt-1">•</span>
-                          <span><strong>L'Embuscade Tignes</strong> – Bar animé avec bonne clientèle locale</span>
-                        </li>
-                        <li className="flex items-start gap-2">
-                          <span className="text-white mt-1">•</span>
-                          <span><strong>Loop Bar & Restaurant</strong> – Bon spot pour boire un verre + manger</span>
-                        </li>
-                      </ul>
+                      <div className="space-y-3">
+                        <div className="bg-white/10 rounded-lg p-3">
+                          <div className="flex items-start gap-2">
+                            <span className="text-orange-300 mt-1">🎿</span>
+                            <div>
+                              <strong className="text-white">Le Couloir</strong>
+                              <p className="text-white/80 text-xs">Après-ski classique • Bière pression • Snacks • Musique</p>
+                            </div>
+                          </div>
+                        </div>
+                        <div className="bg-white/10 rounded-lg p-3">
+                          <div className="flex items-start gap-2">
+                            <span className="text-red-300 mt-1">🎉</span>
+                            <div>
+                              <strong className="text-white">Cocorico Après Ski</strong>
+                              <p className="text-white/80 text-xs">Grand concept • Terrasse • Dancefloor • Ambiance</p>
+                            </div>
+                          </div>
+                        </div>
+                        <div className="bg-white/10 rounded-lg p-3">
+                          <div className="flex items-start gap-2">
+                            <span className="text-cyan-300 mt-1">🍻</span>
+                            <div>
+                              <strong className="text-white">Le Whitney Bar</strong>
+                              <p className="text-white/80 text-xs">Convivial • Début/fin soirée • Bonne atmosphère</p>
+                            </div>
+                          </div>
+                        </div>
+                        <div className="bg-white/10 rounded-lg p-3">
+                          <div className="flex items-start gap-2">
+                            <span className="text-green-300 mt-1">🍀</span>
+                            <div>
+                              <strong className="text-white">Tom Crean's Pub</strong>
+                              <p className="text-white/80 text-xs">Pub irlandais • Ambiance détendue • Bières</p>
+                            </div>
+                          </div>
+                        </div>
+                        <div className="bg-white/10 rounded-lg p-3">
+                          <div className="flex items-start gap-2">
+                            <span className="text-purple-300 mt-1">🌟</span>
+                            <div>
+                              <strong className="text-white">L'Embuscade Tignes</strong>
+                              <p className="text-white/80 text-xs">Bar animé • Bonne clientèle locale • Soirées</p>
+                            </div>
+                          </div>
+                        </div>
+                        <div className="bg-white/10 rounded-lg p-3">
+                          <div className="flex items-start gap-2">
+                            <span className="text-blue-300 mt-1">🍽</span>
+                            <div>
+                              <strong className="text-white">Loop Bar & Restaurant</strong>
+                              <p className="text-white/80 text-xs">Bon spot • Boire un verre + Manger • Cuisine</p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
 
                     {/* Clubs */}
@@ -2363,21 +2491,71 @@ function App() {
                         <span className="text-2xl">🕺</span>
                         Clubs / Soirée tardive
                       </h4>
-                      <ul className="space-y-2 text-white/90 text-sm mb-4">
-                        <li className="flex items-start gap-2">
-                          <span className="text-white mt-1">•</span>
-                          <span><strong>Avant Garde Tignes</strong> – Discothèque pour pousser la soirée tard dans la nuit</span>
-                        </li>
-                        <li className="flex items-start gap-2">
-                          <span className="text-white mt-1">•</span>
-                          <span><strong>Discothèque Le Blue Girl</strong> – Club populaire (souvent tôt matin) pour danser</span>
-                        </li>
-                      </ul>
+                      <div className="space-y-3 mb-4">
+                        <div className="bg-white/10 rounded-lg p-3">
+                          <div className="flex items-start gap-2">
+                            <span className="text-pink-300 mt-1">🎧</span>
+                            <div>
+                              <strong className="text-white">Avant Garde Tignes</strong>
+                              <p className="text-white/80 text-xs">Discothèque • Soirées tardives • Musique variée</p>
+                            </div>
+                          </div>
+                        </div>
+                        <div className="bg-white/10 rounded-lg p-3">
+                          <div className="flex items-start gap-2">
+                            <span className="text-purple-300 mt-1">💃</span>
+                            <div>
+                              <strong className="text-white">Discothèque Le Blue Girl</strong>
+                              <p className="text-white/80 text-xs">Club populaire • Tôt matin • Danser</p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                       <div className="mt-4 pt-4 border-t border-white/20">
                         <p className="text-white/90 text-sm">
                           <strong className="text-white">💡 Tips pour la nuit à Val Claret :</strong> l'ambiance commence souvent avec un après-ski vers 15-17h, puis se transforme en soirée musicale plus tard (bars + clubs), et beaucoup de gens finissent en club après 23h.
                         </p>
                       </div>
+                    </div>
+                  </div>
+
+                  {/* Timeline et badges */}
+                  <div className="mt-6 bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
+                    <h4 className="text-xl font-bold text-white mb-4 text-center">🌙 Timeline Nuit Typique à Val Claret</h4>
+                    <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                      <div className="text-center">
+                        <div className="bg-gradient-to-br from-yellow-400 to-orange-400 rounded-lg p-3 mb-2">
+                          <div className="text-lg font-bold text-white">15h-17h</div>
+                        </div>
+                        <p className="text-white/80 text-xs">Après-ski commence</p>
+                        <p className="text-yellow-300 text-xs font-semibold">Le Couloir • Cocorico</p>
+                      </div>
+                      <div className="text-center">
+                        <div className="bg-gradient-to-br from-blue-400 to-indigo-400 rounded-lg p-3 mb-2">
+                          <div className="text-lg font-bold text-white">18h-20h</div>
+                        </div>
+                        <p className="text-white/80 text-xs">Apéro & dîner</p>
+                        <p className="text-blue-300 text-xs font-semibold">Le Studio • Inside bar</p>
+                      </div>
+                      <div className="text-center">
+                        <div className="bg-gradient-to-br from-purple-400 to-pink-400 rounded-lg p-3 mb-2">
+                          <div className="text-lg font-bold text-white">21h-23h</div>
+                        </div>
+                        <p className="text-white/80 text-xs">Bars animés</p>
+                        <p className="text-purple-300 text-xs font-semibold">Ranga's • Arobaze</p>
+                      </div>
+                      <div className="text-center">
+                        <div className="bg-gradient-to-br from-red-400 to-rose-400 rounded-lg p-3 mb-2">
+                          <div className="text-lg font-bold text-white">23h+</div>
+                        </div>
+                        <p className="text-white/80 text-xs">Club time</p>
+                        <p className="text-red-300 text-xs font-semibold">Avant Garde • Blue Girl</p>
+                      </div>
+                    </div>
+                    <div className="mt-4 text-center">
+                      <span className="bg-green-500 text-white px-3 py-1 rounded-full text-sm font-semibold">
+                        🎯 Ambiance plus locale et authentique que Val d'Isère
+                      </span>
                     </div>
                   </div>
                 </div>
@@ -2386,6 +2564,180 @@ function App() {
           </div>
         </div>
       </section>
+
+      {/* Nightlife & Après-Ski Section - Val d'Isère */}
+      <section className="py-20 px-4 bg-gradient-to-br from-purple-50 to-pink-50">
+        <div className="container mx-auto max-w-6xl">
+          <div className="relative bg-gradient-to-br from-purple-600 via-pink-600 to-rose-600 rounded-3xl shadow-2xl overflow-hidden border-4 border-white/20">
+            {/* Décoration de fond */}
+            <div className="absolute inset-0 opacity-10">
+              <div className="absolute top-0 right-0 w-96 h-96 bg-white rounded-full blur-3xl"></div>
+              <div className="absolute bottom-0 left-0 w-80 h-80 bg-white rounded-full blur-3xl"></div>
+            </div>
+            
+            <div className="relative z-10 p-8 md:p-12">
+              <div className="flex items-start gap-6 mb-8">
+                <div className="flex-shrink-0">
+                  <div className="flex items-center justify-center w-20 h-20 bg-white/20 backdrop-blur-sm rounded-2xl border-2 border-white/30">
+                    <span className="text-4xl">🍸</span>
+                  </div>
+                </div>
+                <div className="flex-1">
+                  <h3 className="text-3xl md:text-4xl font-bold text-white mb-3">
+                    Nightlife & Après-Ski à Val d'Isère 🎿🍸
+                  </h3>
+                  <p className="text-xl text-white/90 mb-4">
+                    Découvrez les meilleurs bars et clubs pour des soirées inoubliables au cœur des Alpes 🎿🍸
+                    <br />
+                    <span className="text-yellow-300 font-semibold">*(Ambiance souvent plus festive et "internationale" qu'à Tignes)*</span>
+                  </p>
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
+                {/* Bars & Apéro animés */}
+                <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
+                  <h4 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
+                    <span className="text-2xl">🍸</span>
+                    Bars & Apéro animés
+                  </h4>
+                  <div className="space-y-3">
+                    <div className="bg-white/10 rounded-lg p-3">
+                      <div className="flex items-start gap-2">
+                        <span className="text-yellow-300 mt-1">⭐</span>
+                        <div>
+                          <strong className="text-white">Cocorico</strong>
+                          <p className="text-white/80 text-xs">Iconique • Terrasse • DJ live • Ambiance festive</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="bg-white/10 rounded-lg p-3">
+                      <div className="flex items-start gap-2">
+                        <span className="text-pink-300 mt-1">🎭</span>
+                        <div>
+                          <strong className="text-white">La Folie Douce</strong>
+                          <p className="text-white/80 text-xs">Légendaire • Shows live • Champagne • Sur pistes</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="bg-white/10 rounded-lg p-3">
+                      <div className="flex items-start gap-2">
+                        <span className="text-indigo-300 mt-1">🍹</span>
+                        <div>
+                          <strong className="text-white">Dick's Tea Bar</strong>
+                          <p className="text-white/80 text-xs">Institution • Bar + club • Très animé</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Spots premium */}
+                <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
+                  <h4 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
+                    <span className="text-2xl">🍻</span>
+                    Spots Premium & Conviviaux
+                  </h4>
+                  <div className="space-y-3">
+                    <div className="bg-white/10 rounded-lg p-3">
+                      <div className="flex items-start gap-2">
+                        <span className="text-amber-300 mt-1">🎸</span>
+                        <div>
+                          <strong className="text-white">Le Petit Danois</strong>
+                          <p className="text-white/80 text-xs">Pub populaire • Live music • International</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="bg-white/10 rounded-lg p-3">
+                      <div className="flex items-start gap-2">
+                        <span className="text-cyan-300 mt-1">🍺</span>
+                        <div>
+                          <strong className="text-white">The Underground Bar</strong>
+                          <p className="text-white/80 text-xs">Détendu • DJ le soir • Ambiance chill</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="bg-white/10 rounded-lg p-3">
+                      <div className="flex items-start gap-2">
+                        <span className="text-blue-300 mt-1">🥃</span>
+                        <div>
+                          <strong className="text-white">The M Bar</strong>
+                          <p className="text-white/80 text-xs">Cocktails • Cadre cosy • Moderne</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Clubs */}
+                <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
+                  <h4 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
+                    <span className="text-2xl">🕺</span>
+                    Clubs / Soirée tardive
+                  </h4>
+                  <div className="space-y-3 mb-4">
+                    <div className="bg-white/10 rounded-lg p-3">
+                      <div className="flex items-start gap-2">
+                        <span className="text-red-300 mt-1">🕺</span>
+                        <div>
+                          <strong className="text-white">Doudoune Club</strong>
+                          <p className="text-white/80 text-xs">Mythique • DJ internationaux • Premium</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="mt-4 pt-4 border-t border-white/20">
+                    <p className="text-white/90 text-sm">
+                      <strong className="text-white">💡 Tips pour la nuit à Val d'Isère :</strong> Ambiance haut de gamme, clientèle internationale, après-ski dès 15h30, bars animés 21h-23h, clubs à partir de 23h30.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Timeline et badges */}
+              <div className="mt-6 bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
+                <h4 className="text-xl font-bold text-white mb-4 text-center">🌙 Timeline Nuit Premium à Val d'Isère</h4>
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                  <div className="text-center">
+                    <div className="bg-gradient-to-br from-yellow-400 to-orange-400 rounded-lg p-3 mb-2">
+                      <div className="text-lg font-bold text-white">15h30-16h00</div>
+                    </div>
+                    <p className="text-white/80 text-xs">Après-ski premium</p>
+                    <p className="text-yellow-300 text-xs font-semibold">Cocorico • Folie Douce</p>
+                  </div>
+                  <div className="text-center">
+                    <div className="bg-gradient-to-br from-pink-400 to-rose-400 rounded-lg p-3 mb-2">
+                      <div className="text-lg font-bold text-white">19h30-21h00</div>
+                    </div>
+                    <p className="text-white/80 text-xs">Dîner chic</p>
+                    <p className="text-pink-300 text-xs font-semibold">Restaurants haut de gamme</p>
+                  </div>
+                  <div className="text-center">
+                    <div className="bg-gradient-to-br from-purple-400 to-indigo-400 rounded-lg p-3 mb-2">
+                      <div className="text-lg font-bold text-white">21h00-23h00</div>
+                    </div>
+                    <p className="text-white/80 text-xs">Bars animés</p>
+                    <p className="text-purple-300 text-xs font-semibold">Dick's • Petit Danois</p>
+                  </div>
+                  <div className="text-center">
+                    <div className="bg-gradient-to-br from-red-400 to-rose-400 rounded-lg p-3 mb-2">
+                      <div className="text-lg font-bold text-white">23h30+</div>
+                    </div>
+                    <p className="text-white/80 text-xs">Club time</p>
+                    <p className="text-red-300 text-xs font-semibold">Doudoune Club</p>
+                  </div>
+                </div>
+                <div className="mt-4 text-center">
+                  <span className="bg-gradient-to-r from-purple-500 to-pink-500 text-white px-4 py-2 rounded-full text-sm font-semibold shadow-lg">
+                    🎯 Ambiance "party haut de gamme" • Clientèle internationale • Plus upscale que Tignes
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section id="weather" className="py-20 bg-gradient-to-br from-sky-50 via-blue-50 to-indigo-50 relative overflow-hidden">
         {/* Background decoration */}
         <div className="absolute inset-0 opacity-10">

@@ -257,6 +257,116 @@ export default function App() {
         </div>
       </section>
 
+      {/* Nightlife & Après-Ski Section */}
+      <section className="py-20 px-4 bg-gradient-to-br from-purple-50 to-pink-50">
+        <div className="container mx-auto max-w-6xl">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">
+              🍸 Nightlife & Après-Ski in Val d'Isère
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Discover the best bars and clubs for unforgettable evenings in the heart of the Alps 🎿🍸
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {/* Cocorico */}
+            <div className="bg-white border border-purple-200 rounded-lg p-6 shadow-lg">
+              <div className="w-16 h-16 bg-purple-600 rounded-full flex items-center justify-center text-white text-2xl font-bold mb-4 mx-auto">
+                🎉
+              </div>
+              <h3 className="text-xl font-semibold text-gray-900 mb-2">Cocorico</h3>
+              <p className="text-gray-600 mb-4">Iconic après-ski spot with south-facing terrace, live DJ, and very festive atmosphere from 4pm. Perfect for dancing in ski boots!</p>
+              <div className="text-sm text-purple-600 font-semibold">⏰ Opens: 4pm | 🎵 Live DJ | 🌞 Sunny terrace</div>
+            </div>
+
+            {/* La Folie Douce */}
+            <div className="bg-white border border-pink-200 rounded-lg p-6 shadow-lg">
+              <div className="w-16 h-16 bg-pink-600 rounded-full flex items-center justify-center text-white text-2xl font-bold mb-4 mx-auto">
+                🎭
+              </div>
+              <h3 className="text-xl font-semibold text-gray-900 mb-2">La Folie Douce</h3>
+              <p className="text-gray-600 mb-4">Legendary après-ski on the slopes with live shows, performers, champagne & outdoor dancefloor. High-energy atmosphere!</p>
+              <div className="text-sm text-pink-600 font-semibold">🏔️ On-slope | 🎪 Live shows | 🥂 Champagne</div>
+            </div>
+
+            {/* Dick's Tea Bar */}
+            <div className="bg-white border border-indigo-200 rounded-lg p-6 shadow-lg">
+              <div className="w-16 h-16 bg-indigo-600 rounded-full flex items-center justify-center text-white text-2xl font-bold mb-4 mx-auto">
+                🍹
+              </div>
+              <h3 className="text-xl font-semibold text-gray-900 mb-2">Dick's Tea Bar</h3>
+              <p className="text-gray-600 mb-4">Val d'Isère institution. Bar + club with very lively atmosphere after 10pm. A must-visit for party lovers!</p>
+              <div className="text-sm text-indigo-600 font-semibold">🌟 Institution | 🕺 Bar + Club | 🌃 Late nights</div>
+            </div>
+
+            {/* Le Petit Danois */}
+            <div className="bg-white border border-amber-200 rounded-lg p-6 shadow-lg">
+              <div className="w-16 h-16 bg-amber-600 rounded-full flex items-center justify-center text-white text-2xl font-bold mb-4 mx-auto">
+                🎸
+              </div>
+              <h3 className="text-xl font-semibold text-gray-900 mb-2">Le Petit Danois</h3>
+              <p className="text-gray-600 mb-4">Very popular pub with live music and international atmosphere. Great option before heading to the clubs.</p>
+              <div className="text-sm text-amber-600 font-semibold">🎵 Live music | 🌍 International | 🍺 Popular pub</div>
+            </div>
+
+            {/* Doudoune Club */}
+            <div className="bg-white border border-red-200 rounded-lg p-6 shadow-lg">
+              <div className="w-16 h-16 bg-red-600 rounded-full flex items-center justify-center text-white text-2xl font-bold mb-4 mx-auto">
+                🕺
+              </div>
+              <h3 className="text-xl font-semibold text-gray-900 mb-2">Doudoune Club</h3>
+              <p className="text-gray-600 mb-4">Mythical club with international DJs and premium atmosphere. House & electronic music for late-night dancing.</p>
+              <div className="text-sm text-red-600 font-semibold">🎧 International DJs | 💎 Premium | 🎵 House/Techno</div>
+            </div>
+
+            {/* Other Spots */}
+            <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-lg">
+              <div className="w-16 h-16 bg-gray-600 rounded-full flex items-center justify-center text-white text-2xl font-bold mb-4 mx-auto">
+                🍻
+              </div>
+              <h3 className="text-xl font-semibold text-gray-900 mb-2">More Great Spots</h3>
+              <p className="text-gray-600 mb-4">
+                <strong>The Underground Bar</strong> - Relaxed vibe, evening DJ<br/>
+                <strong>The M Bar</strong> - Cocktails & cozy setting<br/>
+                <strong>The Fall Line</strong> - Modern sports bar<br/>
+                <strong>Cafe Face</strong> - Central, perfect start to evening
+              </p>
+            </div>
+          </div>
+
+          {/* Tips Section */}
+          <div className="mt-16 bg-gradient-to-r from-purple-100 to-pink-100 rounded-lg p-8">
+            <h3 className="text-2xl font-bold text-gray-900 mb-6 text-center">💡 Perfect Evening Timeline</h3>
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-6 text-center">
+              <div className="bg-white rounded-lg p-4">
+                <div className="text-2xl font-bold text-purple-600 mb-2">15:30-16:00</div>
+                <div className="text-gray-700">Après-ski starts</div>
+                <div className="text-sm text-gray-600">Cocorico / Folie Douce</div>
+              </div>
+              <div className="bg-white rounded-lg p-4">
+                <div className="text-2xl font-bold text-pink-600 mb-2">19:30-21:00</div>
+                <div className="text-gray-700">Dinner break</div>
+                <div className="text-sm text-gray-600">Restaurant time</div>
+              </div>
+              <div className="bg-white rounded-lg p-4">
+                <div className="text-2xl font-bold text-indigo-600 mb-2">21:00-23:00</div>
+                <div className="text-gray-700">Bar hopping</div>
+                <div className="text-sm text-gray-600">Dick's / Petit Danois</div>
+              </div>
+              <div className="bg-white rounded-lg p-4">
+                <div className="text-2xl font-bold text-red-600 mb-2">23:30+</div>
+                <div className="text-gray-700">Club time</div>
+                <div className="text-sm text-gray-600">Doudoune Club</div>
+              </div>
+            </div>
+            <p className="text-center mt-6 text-gray-700 font-semibold">
+              🎯 Val d'Isère offers "high-end party" atmosphere with strong international clientele - more upscale than Tignes!
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* Contact Section */}
       <section className="py-20 px-4 bg-gray-50">
         <div className="container mx-auto max-w-6xl">
