@@ -2633,6 +2633,227 @@ function App() {
               </div>
             </div>
 
+            {/* Encart Sports Complex Val-d'Isère */}
+            <div className="mt-12">
+              <div className="relative bg-gradient-to-br from-emerald-600 via-teal-600 to-cyan-600 rounded-3xl shadow-2xl overflow-hidden border-4 border-white/20">
+                {/* Décoration de fond */}
+                <div className="absolute inset-0 opacity-10">
+                  <div className="absolute top-0 right-0 w-96 h-96 bg-white rounded-full blur-3xl"></div>
+                  <div className="absolute bottom-0 left-0 w-80 h-80 bg-white rounded-full blur-3xl"></div>
+                </div>
+                
+                <div className="relative z-10 p-8 md:p-12">
+                  <div className="flex items-start gap-6 mb-8">
+                    <div className="flex-shrink-0">
+                      <div className="flex items-center justify-center w-20 h-20 bg-white/20 backdrop-blur-sm rounded-2xl border-2 border-white/30">
+                        <span className="text-4xl">🏊‍♂️</span>
+                      </div>
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="text-3xl md:text-4xl font-bold text-white mb-3">
+                        📍 Sports Complex Val-d'Isère — Centre Aqua-Sportif & Bien-être 🏋️‍♀️
+                      </h3>
+                      <p className="text-xl text-white/90 mb-4">
+                        Un grand complexe aquatique, sportif et bien-être idéal après les pistes !
+                        <br />
+                        <span className="text-yellow-300 font-semibold">*(370 rue de la Face, Val-d'Isère - Alpes, France)*</span>
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                    {/* Horaires */}
+                    <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
+                      <h4 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
+                        <span className="text-2xl">🕒</span>
+                        Horaires hiver (1er janvier → 3 mai 2026)
+                      </h4>
+                      <div className="space-y-3 text-white/90">
+                        <div className="bg-white/10 rounded-lg p-3">
+                          <p className="font-semibold text-white mb-2">✔️ Ouverture quotidienne :</p>
+                          <div className="space-y-2 text-sm">
+                            <div className="flex items-center gap-2">
+                              <span className="text-green-300">•</span>
+                              <span><strong>Lundi :</strong> 10h00 → 21h00</span>
+                            </div>
+                            <div className="flex items-center gap-2">
+                              <span className="text-green-300">•</span>
+                              <span><strong>Mardi :</strong> 07h30 → 21h00</span>
+                            </div>
+                            <div className="flex items-center gap-2">
+                              <span className="text-green-300">•</span>
+                              <span><strong>Mercredi :</strong> 10h00 → 22h00 (nocturne)</span>
+                            </div>
+                            <div className="flex items-center gap-2">
+                              <span className="text-green-300">•</span>
+                              <span><strong>Jeudi :</strong> 10h00 → 21h00</span>
+                            </div>
+                            <div className="flex items-center gap-2">
+                              <span className="text-green-300">•</span>
+                              <span><strong>Vendredi :</strong> 10h00 → 21h00</span>
+                            </div>
+                            <div className="flex items-center gap-2">
+                              <span className="text-green-300">•</span>
+                              <span><strong>Samedi :</strong> 10h00 → 21h00</span>
+                            </div>
+                            <div className="flex items-center gap-2">
+                              <span className="text-green-300">•</span>
+                              <span><strong>Dimanche :</strong> 07h30 → 21h00</span>
+                            </div>
+                          </div>
+                        </div>
+                        <div className="bg-white/10 rounded-lg p-3">
+                          <div className="space-y-2 text-sm">
+                            <div className="flex items-center gap-2">
+                              <span className="text-orange-300">⚠️</span>
+                              <span><strong>Évacuation de l'eau :</strong> 30 min avant fermeture</span>
+                            </div>
+                            <div className="flex items-center gap-2">
+                              <span className="text-orange-300">⚠️</span>
+                              <span><strong>Caisses ferment :</strong> 1h avant fermeture</span>
+                            </div>
+                            <div className="flex items-center gap-2">
+                              <span className="text-blue-300">💪</span>
+                              <span><strong>Bassin sportif & fitness :</strong> dès 7h30 (mar & dim)</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Activités proposées */}
+                    <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
+                      <h4 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
+                        <span className="text-2xl">🏊‍♂️</span>
+                        Activités proposées
+                      </h4>
+                      <div className="space-y-3 text-white/90">
+                        <div className="bg-white/10 rounded-lg p-3">
+                          <p className="font-semibold text-white mb-2">🎽 Espace aquatique</p>
+                          <div className="space-y-2 text-sm">
+                            <div className="flex items-center gap-2">
+                              <span className="text-blue-300">🏊</span>
+                              <span><strong>Piscine sportive 25m</strong> : natation et entraînement</span>
+                            </div>
+                            <div className="flex items-center gap-2">
+                              <span className="text-green-300">🌊</span>
+                              <span><strong>Grand bassin ludique (~416m²)</strong> : jets massants, rivière à contre-courant</span>
+                            </div>
+                            <div className="flex items-center gap-2">
+                              <span className="text-yellow-300">👶</span>
+                              <span><strong>Pataugeoire & banquettes bulles</strong> : espace familial</span>
+                            </div>
+                          </div>
+                        </div>
+                        <div className="bg-white/10 rounded-lg p-3">
+                          <p className="font-semibold text-white mb-2">🧖‍♀️ Bien-être / relaxation</p>
+                          <div className="space-y-2 text-sm">
+                            <div className="flex items-center gap-2">
+                              <span className="text-orange-300">🔥</span>
+                              <span><strong>Sauna</strong> et <strong>Hammam</strong></span>
+                            </div>
+                            <div className="flex items-center gap-2">
+                              <span className="text-purple-300">💆</span>
+                              <span><strong>Jacuzzi et zones détente</strong> : récupération musculaire</span>
+                            </div>
+                          </div>
+                        </div>
+                        <div className="bg-white/10 rounded-lg p-3">
+                          <p className="font-semibold text-white mb-2">🏋️ Fitness & sport</p>
+                          <div className="space-y-2 text-sm">
+                            <div className="flex items-center gap-2">
+                              <span className="text-red-300">💪</span>
+                              <span><strong>Salle cardio & musculation</strong> : équipement complet</span>
+                            </div>
+                            <div className="flex items-center gap-2">
+                              <span className="text-pink-300">🏃</span>
+                              <span><strong>Cours collectifs</strong> : selon saison</span>
+                            </div>
+                            <div className="flex items-center gap-2">
+                              <span className="text-cyan-300">🎾</span>
+                              <span><strong>Sports indoor</strong> : badminton, squash, escalade...</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Pourquoi les skieurs y vont */}
+                  <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20 mb-6">
+                    <h4 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
+                      <span className="text-2xl">🎿</span>
+                      Pourquoi y aller à Val d'Isère ?
+                    </h4>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-white/90">
+                      <div>
+                        <p className="font-semibold text-white mb-2">Souvent choisi par les skieurs pour :</p>
+                        <ul className="space-y-2 text-sm">
+                          <li className="flex items-start gap-2">
+                            <span className="text-green-300 mt-1">✓</span>
+                            <span><strong>Détente musculaire</strong> après les pistes</span>
+                          </li>
+                          <li className="flex items-start gap-2">
+                            <span className="text-blue-300 mt-1">✓</span>
+                            <span><strong>Natation / récupération cardio</strong> hors altitude</span>
+                          </li>
+                          <li className="flex items-start gap-2">
+                            <span className="text-yellow-300 mt-1">✓</span>
+                            <span><strong>Activités indoor</strong> quand il fait mauvais</span>
+                          </li>
+                          <li className="flex items-start gap-2">
+                            <span className="text-purple-300 mt-1">✓</span>
+                            <span><strong>Espace bien-être complet</strong> (sauna, hammam...)</span>
+                          </li>
+                        </ul>
+                      </div>
+                      <div>
+                        <p className="font-semibold text-white mb-2">🏆 L'équivalent du Lagon Tignes :</p>
+                        <div className="bg-white/20 rounded-lg p-3 text-center">
+                          <p className="text-lg font-bold text-yellow-300 mb-2">
+                            Plus grand et plus complet !
+                          </p>
+                          <p className="text-white/80 text-sm">
+                            Piscine + fitness + bien-être après le ski<br/>
+                            Le combo parfait pour la récupération à Val d'Isère !
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Espace enfants */}
+                  <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
+                    <h4 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
+                      <span className="text-2xl">👶</span>
+                      Espace enfants et animations
+                    </h4>
+                    <div className="text-white/90">
+                      <div className="bg-white/10 rounded-lg p-3">
+                        <p className="text-sm">
+                          <strong>🎈 Espace enfants avec activités adaptées</strong> et animations ponctuelles pour toute la famille !
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Lien utile */}
+                  <div className="mt-6 text-center">
+                    <a 
+                      href="https://www.valdisere.com/bien-etre/centre-aquasportif/" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 px-6 py-3 bg-white/20 backdrop-blur-sm rounded-full text-white font-semibold border border-white/30 hover:bg-white/30 transition-all duration-300"
+                    >
+                      <span className="text-lg">🏊‍♂️</span>
+                      <span>Voir le site officiel du Sports Complex</span>
+                      <span className="text-sm">→</span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
             {/* Encart Bars & Vie nocturne Tignes */}
             <div className="mt-12">
               <div className="relative bg-gradient-to-br from-purple-600 via-pink-600 to-rose-600 rounded-3xl shadow-2xl overflow-hidden border-4 border-white/20">
@@ -2661,7 +2882,7 @@ function App() {
                     </div>
                   </div>
 
-                  <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-6">
                     {/* Bars & Apéro animés */}
                     <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
                       <h4 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
@@ -2899,7 +3120,7 @@ function App() {
                 </div>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-6">
                 {/* Bars & Apéro animés */}
                 <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
                   <h4 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
@@ -3000,40 +3221,40 @@ function App() {
               </div>
 
               {/* Timeline et badges */}
-              <div className="mt-6 bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
-                <h4 className="text-xl font-bold text-white mb-4 text-center">🌙 Timeline Nuit Premium à Val d'Isère</h4>
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+              <div className="mt-6 bg-white/10 backdrop-blur-sm rounded-2xl p-4 md:p-6 border border-white/20">
+                <h4 className="text-lg md:text-xl font-bold text-white mb-3 md:mb-4 text-center">🌙 Timeline Nuit Premium à Val d'Isère</h4>
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
                   <div className="text-center">
-                    <div className="bg-gradient-to-br from-yellow-400 to-orange-400 rounded-lg p-3 mb-2">
-                      <div className="text-lg font-bold text-white">15h30-16h00</div>
+                    <div className="bg-gradient-to-br from-yellow-400 to-orange-400 rounded-lg p-2 md:p-3 mb-1 md:mb-2">
+                      <div className="text-sm md:text-lg font-bold text-white">15h30-16h00</div>
                     </div>
                     <p className="text-white/80 text-xs">Après-ski premium</p>
                     <p className="text-yellow-300 text-xs font-semibold">Cocorico • Folie Douce</p>
                   </div>
                   <div className="text-center">
-                    <div className="bg-gradient-to-br from-pink-400 to-rose-400 rounded-lg p-3 mb-2">
-                      <div className="text-lg font-bold text-white">19h30-21h00</div>
+                    <div className="bg-gradient-to-br from-pink-400 to-rose-400 rounded-lg p-2 md:p-3 mb-1 md:mb-2">
+                      <div className="text-sm md:text-lg font-bold text-white">19h30-21h00</div>
                     </div>
                     <p className="text-white/80 text-xs">Dîner chic</p>
                     <p className="text-pink-300 text-xs font-semibold">Restaurants haut de gamme</p>
                   </div>
                   <div className="text-center">
-                    <div className="bg-gradient-to-br from-purple-400 to-indigo-400 rounded-lg p-3 mb-2">
-                      <div className="text-lg font-bold text-white">21h00-23h00</div>
+                    <div className="bg-gradient-to-br from-purple-400 to-indigo-400 rounded-lg p-2 md:p-3 mb-1 md:mb-2">
+                      <div className="text-sm md:text-lg font-bold text-white">21h00-23h00</div>
                     </div>
                     <p className="text-white/80 text-xs">Bars animés</p>
                     <p className="text-purple-300 text-xs font-semibold">Dick's • Petit Danois</p>
                   </div>
                   <div className="text-center">
-                    <div className="bg-gradient-to-br from-red-400 to-rose-400 rounded-lg p-3 mb-2">
-                      <div className="text-lg font-bold text-white">23h30+</div>
+                    <div className="bg-gradient-to-br from-red-400 to-rose-400 rounded-lg p-2 md:p-3 mb-1 md:mb-2">
+                      <div className="text-sm md:text-lg font-bold text-white">23h30+</div>
                     </div>
                     <p className="text-white/80 text-xs">Club time</p>
                     <p className="text-red-300 text-xs font-semibold">Doudoune Club</p>
                   </div>
                 </div>
-                <div className="mt-4 text-center">
-                  <span className="bg-gradient-to-r from-purple-500 to-pink-500 text-white px-4 py-2 rounded-full text-sm font-semibold shadow-lg">
+                <div className="mt-3 md:mt-4 text-center">
+                  <span className="bg-gradient-to-r from-purple-500 to-pink-500 text-white px-2 py-1 md:px-3 md:py-1 rounded-full text-xs md:text-sm font-semibold">
                     🎯 Ambiance "party haut de gamme" • Clientèle internationale • Plus upscale que Tignes
                   </span>
                 </div>
