@@ -3461,6 +3461,213 @@ function App() {
         </div>
       </section>
 
+      {/* Nightlife & Après-Ski Section - Les Arcs */}
+      <section className="py-20 px-4 bg-gradient-to-br from-purple-50 to-pink-50">
+        <div className="container mx-auto max-w-6xl">
+          <div className="group relative bg-gradient-to-br from-purple-600 via-pink-600 to-rose-600 rounded-3xl shadow-2xl overflow-hidden border-4 border-white/20 hover:shadow-3xl transition-all duration-500 transform hover:-translate-y-2">
+            {/* Décoration de fond */}
+            <div className="absolute inset-0 opacity-10">
+              <div className="absolute top-0 right-0 w-96 h-96 bg-white rounded-full blur-3xl group-hover:opacity-20 transition-opacity duration-300"></div>
+              <div className="absolute bottom-0 left-0 w-80 h-80 bg-white rounded-full blur-3xl group-hover:opacity-20 transition-opacity duration-300"></div>
+            </div>
+            
+            <div className="relative z-10 p-8 md:p-12">
+              <div className="flex items-start gap-6 mb-8">
+                <div className="flex-shrink-0">
+                  <div className="flex items-center justify-center w-20 h-20 bg-white/20 backdrop-blur-sm rounded-2xl border-2 border-white/30 transform group-hover:rotate-12 transition-all duration-300">
+                    <span className="text-4xl">🎿</span>
+                  </div>
+                </div>
+                <div className="flex-1">
+                  <h3 className="text-3xl md:text-4xl font-bold text-white mb-3">
+                    Nightlife & Après-Ski aux Arcs 🎿🍹
+                  </h3>
+                  <p className="text-xl text-white/90 mb-4">
+                    Une sélection de bars branchés et animés aux Arcs (Savoie) — parfaits pour l'après-ski, boire un verre entre amis ou faire la fête ?￰ﾟﾍﾹ
+                    <br />
+                    <span className="text-yellow-300 font-semibold">(L'ambiance varie selon les villages : Arc 1800 = le plus festif, Arc 1950 = chic & cosy, Arc 2000 = plus sportif, Arc 1600 = plus calme)</span>
+                  </p>
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-6">
+                {/* Bars & Apéro animés */}
+                <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20 transform hover:scale-105 transition-all duration-200">
+                  <h4 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
+                    <span className="text-2xl">🍸</span>
+                    Bars & Apéro animés
+                  </h4>
+                  <div className="space-y-3">
+                    <div className="bg-white/10 rounded-lg p-3 transform hover:translate-x-1 transition-all duration-200">
+                      <div className="flex items-start gap-2">
+                        <span className="text-yellow-300 mt-1">⭐</span>
+                        <div>
+                          <strong className="text-white">Red Hot Saloon</strong>
+                          <p className="text-white/80 text-xs">Institution de l'après-ski aux Arcs 1800. Terrasse plein soleil, DJ, ambiance festive dès 16h.</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="bg-white/10 rounded-lg p-3 transform hover:translate-x-1 transition-all duration-200">
+                      <div className="flex items-start gap-2">
+                        <span className="text-pink-300 mt-1">🎭</span>
+                        <div>
+                          <strong className="text-white">Chez Boubou</strong>
+                          <p className="text-white/80 text-xs">Bar très animé, cocktails, bonne musique et public international.</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="bg-white/10 rounded-lg p-3 transform hover:translate-x-1 transition-all duration-200">
+                      <div className="flex items-start gap-2">
+                        <span className="text-indigo-300 mt-1">🍹</span>
+                        <div>
+                          <strong className="text-white">The George</strong>
+                          <p className="text-white/80 text-xs">Pub élégant et convivial, parfait pour début de soirée dans une ambiance chic.</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="bg-white/10 rounded-lg p-3 transform hover:translate-x-1 transition-all duration-200">
+                      <div className="flex items-start gap-2">
+                        <span className="text-cyan-300 mt-1">🍺</span>
+                        <div>
+                          <strong className="text-white">O'Chaud</strong>
+                          <p className="text-white/80 text-xs">Ambiance cosy, idéal pour un apéro plus détendu avant de sortir.</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="bg-white/10 rounded-lg p-3 transform hover:translate-x-1 transition-all duration-200">
+                      <div className="flex items-start gap-2">
+                        <span className="text-blue-300 mt-1">🍹</span>
+                        <div>
+                          <strong className="text-white">L'Aiguille Grive Bar</strong>
+                          <p className="text-white/80 text-xs">Terrasse agréable et ambiance chaleureuse, bon spot sunset.</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Spots après-ski & lieux conviviaux */}
+                <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20 transform hover:scale-105 transition-all duration-200">
+                  <h4 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
+                    <span className="text-2xl">🍻</span>
+                    Spots après-ski & lieux conviviaux
+                  </h4>
+                  <div className="space-y-3">
+                    <div className="bg-white/10 rounded-lg p-3 transform hover:translate-x-1 transition-all duration-200">
+                      <div className="flex items-start gap-2">
+                        <span className="text-green-300 mt-1">🌴</span>
+                        <div>
+                          <strong className="text-white">Jungle Café</strong>
+                          <p className="text-white/80 text-xs">Ambiance festive avec DJ, piste de danse, très populaire en saison.</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="bg-white/10 rounded-lg p-3 transform hover:translate-x-1 transition-all duration-200">
+                      <div className="flex items-start gap-2">
+                        <span className="text-purple-300 mt-1">🐑</span>
+                        <div>
+                          <strong className="text-white">Black Sheep Pub</strong>
+                          <p className="text-white/80 text-xs">Pub animé avec sport à l'écran, bières pression et bonne ambiance internationale.</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="bg-white/10 rounded-lg p-3 transform hover:translate-x-1 transition-all duration-200">
+                      <div className="flex items-start gap-2">
+                        <span className="text-amber-300 mt-1">🏔</span>
+                        <div>
+                          <strong className="text-white">La Cabane des Neiges</strong>
+                          <p className="text-white/80 text-xs">Spot convivial proche des pistes, parfait après une grosse journée ski.</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="bg-white/10 rounded-lg p-3 transform hover:translate-x-1 transition-all duration-200">
+                      <div className="flex items-start gap-2">
+                        <span className="text-orange-300 mt-1">🍺</span>
+                        <div>
+                          <strong className="text-white">Les Belles Pintes</strong>
+                          <p className="text-white/80 text-xs">Bar à bières convivial, ambiance détendue mais animée en soirée.</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Clubs / Soirée tardive */}
+                <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20 transform hover:scale-105 transition-all duration-200">
+                  <h4 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
+                    <span className="text-2xl">🕺</span>
+                    Clubs / Soirée tardive
+                  </h4>
+                  <div className="space-y-3 mb-4">
+                    <div className="bg-white/10 rounded-lg p-3 transform hover:translate-x-1 transition-all duration-200">
+                      <div className="flex items-start gap-2">
+                        <span className="text-red-300 mt-1">🎪</span>
+                        <div>
+                          <strong className="text-white">Le Carré</strong>
+                          <p className="text-white/80 text-xs">Club principal des Arcs 1800 pour danser tard.</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="mt-4 pt-4 border-t border-white/20">
+                    <p className="text-white/90 text-sm">
+                      <strong className="text-white">💡 Tips pour la nuit aux Arcs :</strong> L'après-ski commence vers 15h30–16h (terrasses plein soleil). Ambiance DJ vers 17h–19h. Dîner puis bars animés vers 21h–23h. Club après 23h30/minuit en saison.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Timeline et badges */}
+              <div className="mt-6 bg-white/10 backdrop-blur-sm rounded-2xl p-4 md:p-6 border border-white/20 transform hover:scale-105 transition-all duration-200">
+                <h4 className="text-lg md:text-xl font-bold text-white mb-3 md:mb-4 text-center">🌙 Timeline Nuit Typique aux Arcs</h4>
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
+                  <div className="text-center">
+                    <div className="bg-gradient-to-br from-green-400 to-emerald-400 rounded-lg p-2 md:p-3 mb-1 md:mb-2">
+                      <div className="text-sm md:text-lg font-bold text-white">15h30-16h00</div>
+                    </div>
+                    <p className="text-white/80 text-xs">Après-ski animé</p>
+                    <p className="text-green-300 text-xs font-semibold">Red Hot Saloon • Jungle Café</p>
+                  </div>
+                  <div className="text-center">
+                    <div className="bg-gradient-to-br from-blue-400 to-cyan-400 rounded-lg p-2 md:p-3 mb-1 md:mb-2">
+                      <div className="text-sm md:text-lg font-bold text-white">17h00-19h00</div>
+                    </div>
+                    <p className="text-white/80 text-xs">Dîner chic</p>
+                    <p className="text-blue-300 text-xs font-semibold">The George • Chez Boubou</p>
+                  </div>
+                  <div className="text-center">
+                    <div className="bg-gradient-to-br from-purple-400 to-indigo-400 rounded-lg p-2 md:p-3 mb-1 md:mb-2">
+                      <div className="text-sm md:text-lg font-bold text-white">19h00-21h00</div>
+                    </div>
+                    <p className="text-white/80 text-xs">Bars animés</p>
+                    <p className="text-purple-300 text-xs font-semibold">Black Sheep Pub • Les Belles Pintes</p>
+                  </div>
+                  <div className="text-center">
+                    <div className="bg-gradient-to-br from-red-400 to-rose-400 rounded-lg p-2 md:p-3 mb-1 md:mb-2">
+                      <div className="text-sm md:text-lg font-bold text-white">21h00-23h00</div>
+                    </div>
+                    <p className="text-white/80 text-xs">Club time</p>
+                    <p className="text-red-300 text-xs font-semibold">Le Carré</p>
+                  </div>
+                  <div className="text-center">
+                    <div className="bg-gradient-to-br from-orange-400 to-yellow-400 rounded-lg p-2 md:p-3 mb-1 md:mb-2">
+                      <div className="text-sm md:text-lg font-bold text-white">23h30+</div>
+                    </div>
+                    <p className="text-white/80 text-xs">Club tardif</p>
+                    <p className="text-orange-300 text-xs font-semibold">La Folie Douce</p>
+                  </div>
+                </div>
+                <div className="mt-3 md:mt-4 text-center">
+                  <span className="bg-gradient-to-r from-purple-500 to-pink-500 text-white px-2 py-1 md:px-3 md:py-1 rounded-full text-xs md:text-sm font-semibold">
+                    🎯 Ambiance festive • Mix international • Plus accessible que Val d'Isère
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section id="weather" className="py-20 bg-gradient-to-br from-sky-50 via-blue-50 to-indigo-50 relative overflow-hidden">
         {/* Background decoration */}
         <div className="absolute inset-0 opacity-10">
