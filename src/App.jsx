@@ -3288,9 +3288,9 @@ function App() {
           </div>
           
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            <div className="bg-gradient-to-br from-white/90 to-white/70 backdrop-blur-sm rounded-2xl p-8 shadow-xl border border-white/20 hover:shadow-2xl transition-all duration-300 hover:scale-[1.02]">
+            <div className="group bg-gradient-to-br from-white/90 to-white/70 backdrop-blur-sm rounded-2xl p-8 shadow-xl border border-white/20 hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 hover:scale-[1.02]">
               <div className="flex items-center gap-3 mb-6">
-                <div className="w-12 h-12 bg-gradient-to-br from-sky-500 to-blue-600 rounded-xl flex items-center justify-center shadow-lg">
+                <div className="w-12 h-12 bg-gradient-to-br from-sky-500 to-blue-600 rounded-xl flex items-center justify-center shadow-lg transform group-hover:rotate-12 transition-all duration-300">
                   <Mountain className="h-6 w-6 text-white" />
                 </div>
                 <div>
@@ -3298,7 +3298,7 @@ function App() {
                   <p className="text-sm text-gray-600">Station de haute altitude</p>
                 </div>
               </div>
-              <div className="bg-gradient-to-r from-sky-50 to-blue-50 rounded-xl p-4 mb-6">
+              <div className="bg-gradient-to-r from-sky-50 to-blue-50 rounded-xl p-4 mb-6 transform hover:scale-105 transition-all duration-200">
                 <div className="flex items-center justify-between">
                   <span className="text-lg font-semibold text-gray-700">Température actuelle</span>
                   <span className="text-3xl font-bold bg-gradient-to-r from-sky-600 to-blue-600 bg-clip-text text-transparent">
@@ -3309,9 +3309,9 @@ function App() {
               {renderForecast(weather.tignes, 'tignes')}
             </div>
             
-            <div className="bg-gradient-to-br from-white/90 to-white/70 backdrop-blur-sm rounded-2xl p-8 shadow-xl border border-white/20 hover:shadow-2xl transition-all duration-300 hover:scale-[1.02]">
+            <div className="group bg-gradient-to-br from-white/90 to-white/70 backdrop-blur-sm rounded-2xl p-8 shadow-xl border border-white/20 hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 hover:scale-[1.02]">
               <div className="flex items-center gap-3 mb-6">
-                <div className="w-12 h-12 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-xl flex items-center justify-center shadow-lg">
+                <div className="w-12 h-12 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-xl flex items-center justify-center shadow-lg transform group-hover:rotate-12 transition-all duration-300">
                   <Compass className="h-6 w-6 text-white" />
                 </div>
                 <div>
@@ -3319,7 +3319,7 @@ function App() {
                   <p className="text-sm text-gray-600">Station historique</p>
                 </div>
               </div>
-              <div className="bg-gradient-to-r from-indigo-50 to-purple-50 rounded-xl p-4 mb-6">
+              <div className="bg-gradient-to-r from-indigo-50 to-purple-50 rounded-xl p-4 mb-6 transform hover:scale-105 transition-all duration-200">
                 <div className="flex items-center justify-between">
                   <span className="text-lg font-semibold text-gray-700">Température actuelle</span>
                   <span className="text-3xl font-bold bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
@@ -3363,9 +3363,9 @@ function App() {
           </div>
           
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
-            <div className="bg-gradient-to-br from-white/90 to-white/70 backdrop-blur-sm rounded-2xl p-8 shadow-xl border border-white/20 hover:shadow-2xl transition-all duration-300 hover:scale-[1.02]">
+            <div className="group bg-gradient-to-br from-white/90 to-white/70 backdrop-blur-sm rounded-2xl p-8 shadow-xl border border-white/20 hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 hover:scale-[1.02]">
               <div className="flex items-center gap-3 mb-6">
-                <div className="w-12 h-12 bg-gradient-to-br from-orange-500 to-red-600 rounded-xl flex items-center justify-center shadow-lg">
+                <div className="w-12 h-12 bg-gradient-to-br from-orange-500 to-red-600 rounded-xl flex items-center justify-center shadow-lg transform group-hover:rotate-12 transition-all duration-300">
                   <AlertTriangle className="h-6 w-6 text-white" />
                 </div>
                 <div>
@@ -3381,7 +3381,7 @@ function App() {
                   { href: "https://www.avalanches.org/", title: "European Avalanche Services", desc: "Alps" }
                 ].map((link, i) => (
                   <a key={i} href={link.href} target="_blank" rel="noreferrer" 
-                     className="flex items-center justify-between p-4 bg-gradient-to-r from-orange-50 to-amber-50 rounded-xl hover:from-orange-100 hover:to-amber-100 transition-all duration-300 group">
+                     className="flex items-center justify-between p-4 bg-gradient-to-r from-orange-50 to-amber-50 rounded-xl hover:from-orange-100 hover:to-amber-100 transition-all duration-300 group transform hover:scale-105 hover:translate-x-1">
                     <div>
                       <div className="font-semibold text-gray-900 group-hover:text-orange-600">{link.title}</div>
                       <div className="text-sm text-gray-600">{link.desc}</div>
@@ -3392,9 +3392,9 @@ function App() {
               </div>
             </div>
             
-            <div className="bg-gradient-to-br from-white/90 to-white/70 backdrop-blur-sm rounded-2xl p-8 shadow-xl border border-white/20 hover:shadow-2xl transition-all duration-300 hover:scale-[1.02]">
+            <div className="group bg-gradient-to-br from-white/90 to-white/70 backdrop-blur-sm rounded-2xl p-8 shadow-xl border border-white/20 hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 hover:scale-[1.02]">
               <div className="flex items-center gap-3 mb-6">
-                <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-cyan-600 rounded-xl flex items-center justify-center shadow-lg">
+                <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-cyan-600 rounded-xl flex items-center justify-center shadow-lg transform group-hover:rotate-12 transition-all duration-300">
                   <CloudSnow className="h-6 w-6 text-white" />
                 </div>
                 <div>
@@ -3415,7 +3415,7 @@ function App() {
                       { href: "https://valdisere.roundshot.com/", title: "Webcams en direct" }
                     ].map((link, i) => (
                       <a key={i} href={link.href} target="_blank" rel="noreferrer"
-                         className="flex items-center justify-between p-3 bg-gradient-to-r from-blue-50 to-cyan-50 rounded-lg hover:from-blue-100 hover:to-cyan-100 transition-all duration-300 group">
+                         className="flex items-center justify-between p-3 bg-gradient-to-r from-blue-50 to-cyan-50 rounded-lg hover:from-blue-100 hover:to-cyan-100 transition-all duration-300 group transform hover:scale-105 hover:translate-x-1">
                         <span className="text-gray-700 group-hover:text-blue-600">{link.title}</span>
                         <ChevronDown className="h-4 w-4 text-gray-400 rotate-270 group-hover:translate-x-1 transition-transform" />
                       </a>
@@ -3428,7 +3428,7 @@ function App() {
                     Tignes
                   </h4>
                   <a href="https://www.snowtrex.fr/france/val_disere/meteo.html" target="_blank" rel="noreferrer"
-                     className="flex items-center justify-between p-3 bg-gradient-to-r from-orange-50 to-amber-50 rounded-lg hover:from-orange-100 hover:to-amber-100 transition-all duration-300 group">
+                     className="flex items-center justify-between p-3 bg-gradient-to-r from-orange-50 to-amber-50 rounded-lg hover:from-orange-100 hover:to-amber-100 transition-all duration-300 group transform hover:scale-105 hover:translate-x-1">
                     <span className="text-gray-700 group-hover:text-orange-600">Météo et prévisions neige</span>
                     <ChevronDown className="h-4 w-4 text-gray-400 rotate-270 group-hover:translate-x-1 transition-transform" />
                   </a>
@@ -3438,9 +3438,9 @@ function App() {
           </div>
           
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            <div className="bg-gradient-to-br from-white/90 to-white/70 backdrop-blur-sm rounded-2xl p-8 shadow-xl border border-white/20 hover:shadow-2xl transition-all duration-300 hover:scale-[1.02]">
+            <div className="group bg-gradient-to-br from-white/90 to-white/70 backdrop-blur-sm rounded-2xl p-8 shadow-xl border border-white/20 hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 hover:scale-[1.02]">
               <div className="flex items-center gap-3 mb-6">
-                <div className="w-12 h-12 bg-gradient-to-br from-green-500 to-emerald-600 rounded-xl flex items-center justify-center shadow-lg">
+                <div className="w-12 h-12 bg-gradient-to-br from-green-500 to-emerald-600 rounded-xl flex items-center justify-center shadow-lg transform group-hover:rotate-12 transition-all duration-300">
                   <Shield className="h-6 w-6 text-white" />
                 </div>
                 <div>
@@ -3449,44 +3449,44 @@ function App() {
                 </div>
               </div>
               <div className="space-y-6">
-                <div className="bg-gradient-to-r from-red-50 to-orange-50 rounded-xl p-6 border-l-4 border-red-500">
+                <div className="bg-gradient-to-r from-red-50 to-orange-50 rounded-xl p-6 border-l-4 border-red-500 transform hover:scale-105 transition-all duration-200">
                   <h4 className="font-bold text-red-700 mb-3 flex items-center gap-2">
                     <AlertTriangle className="h-5 w-5" />
                     Équipement obligatoire hors-piste
                   </h4>
                   <div className="grid grid-cols-1 gap-3">
                     {["Détecteur de Victimes d'Avalanches (DVA)", "Pelle", "Sonde"].map((item, i) => (
-                      <div key={i} className="flex items-center gap-3">
+                      <div key={i} className="flex items-center gap-3 transform hover:translate-x-1 transition-all duration-200">
                         <div className="w-2 h-2 bg-red-500 rounded-full"></div>
                         <span className="text-gray-700 font-medium">{item}</span>
                       </div>
                     ))}
                   </div>
                 </div>
-                <div className="bg-gradient-to-r from-green-50 to-emerald-50 rounded-xl p-6">
+                <div className="bg-gradient-to-r from-green-50 to-emerald-50 rounded-xl p-6 transform hover:scale-105 transition-all duration-200">
                   <h4 className="font-bold text-green-700 mb-3 flex items-center gap-2">
                     <CheckCircle className="h-5 w-5" />
                     Équipement recommandé
                   </h4>
                   <div className="grid grid-cols-1 gap-3">
                     {["Sac airbag", "Casque", "Gilet airbag", "Kit de premiers secours", "Téléphone portable chargé"].map((item, i) => (
-                      <div key={i} className="flex items-center gap-3">
+                      <div key={i} className="flex items-center gap-3 transform hover:translate-x-1 transition-all duration-200">
                         <div className="w-2 h-2 bg-green-500 rounded-full"></div>
                         <span className="text-gray-700">{item}</span>
                       </div>
                     ))}
                   </div>
                 </div>
-                <div className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl p-4 text-center">
+                <div className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl p-4 text-center transform hover:scale-105 transition-all duration-200">
                   <Sparkles className="h-6 w-6 text-blue-600 mx-auto mb-2" />
                   <p className="text-gray-700 font-medium">Initiation à la recherche de victimes d'avalanche disponible avec votre monitrice</p>
                 </div>
               </div>
             </div>
             
-            <div className="bg-gradient-to-br from-white/90 to-white/70 backdrop-blur-sm rounded-2xl p-8 shadow-xl border border-white/20 hover:shadow-2xl transition-all duration-300 hover:scale-[1.02]">
+            <div className="group bg-gradient-to-br from-white/90 to-white/70 backdrop-blur-sm rounded-2xl p-8 shadow-xl border border-white/20 hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 hover:scale-[1.02]">
               <div className="flex items-center gap-3 mb-6">
-                <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-indigo-600 rounded-xl flex items-center justify-center shadow-lg">
+                <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-indigo-600 rounded-xl flex items-center justify-center shadow-lg transform group-hover:rotate-12 transition-all duration-300">
                   <Info className="h-6 w-6 text-white" />
                 </div>
                 <div>
@@ -3503,7 +3503,7 @@ function App() {
                   "Adaptez votre itinéraire en fonction des conditions météorologiques",
                   "En cas d'accident, composez le 112 (numéro d'urgence européen)"
                 ].map((conseil, i) => (
-                  <div key={i} className="flex items-start gap-3 p-3 bg-gradient-to-r from-purple-50 to-indigo-50 rounded-lg">
+                  <div key={i} className="flex items-start gap-3 p-3 bg-gradient-to-r from-purple-50 to-indigo-50 rounded-lg transform hover:scale-105 hover:translate-x-1 transition-all duration-200">
                     <div className="w-6 h-6 bg-purple-600 text-white rounded-full flex items-center justify-center flex-shrink-0 text-sm font-bold">
                       {i + 1}
                     </div>
@@ -3511,7 +3511,7 @@ function App() {
                   </div>
                 ))}
               </div>
-              <div className="mt-6 p-4 bg-gradient-to-r from-yellow-50 to-orange-50 rounded-xl border-l-4 border-yellow-500 shadow-lg">
+              <div className="mt-6 p-4 bg-gradient-to-r from-yellow-50 to-orange-50 rounded-xl border-l-4 border-yellow-500 shadow-lg transform hover:scale-105 transition-all duration-200">
                 <div className="flex items-center gap-3">
                   <AlertTriangle className="h-6 w-6 text-yellow-600" />
                   <p className="text-yellow-800 font-medium">
