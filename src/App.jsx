@@ -52,7 +52,7 @@ import './App.css'
 function App() {
   const [currentLang, setCurrentLang] = useState('fr')
   const [isMenuOpen, setIsMenuOpen] = useState(false)
-  const [weather, setWeather] = useState({ tignes: null, val: null })
+  const [weather, setWeather] = useState({ tignes: null, val: null, arcs: null })
   const [currentSlide, setCurrentSlide] = useState(0)
   const [isRAGOpen, setIsRAGOpen] = useState(false)
   const [currentHash, setCurrentHash] = useState(
@@ -159,7 +159,7 @@ function App() {
 
   const translations = {
     fr: {
-      title: "Myriam Val d'Isère - Tignes",
+      title: "Myriam Val d'Isère - Tignes - Les Arcs",
       subtitle: 'Votre solution professionnelle pour des vacances de rêves',
       nav: {
         home: 'Accueil',
@@ -174,8 +174,8 @@ function App() {
         
       },
       hero: {
-        title: 'Cours de ski et snowboard personnalisés à Tignes Le Lac et Val Claret ❄️',
-        description: 'Monitrice diplômée et expérimentée, je propose des cours privés de ski et snowboard à Tignes Le Lac et Val Claret, adaptés à tous les niveaux.',
+        title: 'Cours de ski et snowboard personnalisés à Tignes, Val d\'Isère & Les Arcs ❄️',
+        description: 'Monitrice diplômée et expérimentée, je propose des cours privés de ski et snowboard à Tignes, Val d\'Isère et Les Arcs, adaptés à tous les niveaux.',
         cta: 'Réserver vos cours'
       },
       about: {
@@ -209,7 +209,7 @@ function App() {
       }
     },
     en: {
-      title: "Myriam Val d'Isère - Tignes",
+      title: "Myriam Val d'Isère - Tignes - Les Arcs",
       subtitle: 'Your professional solution for dream holidays',
       nav: {
         home: 'Home',
@@ -287,6 +287,10 @@ function App() {
           {
             key: 'val',
             url: 'https://api.open-meteo.com/v1/forecast?latitude=45.448&longitude=6.980&current=temperature_2m,weather_code&daily=temperature_2m_max,temperature_2m_min,precipitation_sum,snowfall_sum,weather_code&timezone=auto&forecast_days=7'
+          },
+          {
+            key: 'arcs',
+            url: 'https://api.open-meteo.com/v1/forecast?latitude=45.562&longitude=6.775&current=temperature_2m,weather_code&daily=temperature_2m_max,temperature_2m_min,precipitation_sum,snowfall_sum,weather_code&timezone=auto&forecast_days=7'
           }
         ];
         
@@ -407,10 +411,12 @@ function App() {
         <h3 className="text-xl font-semibold text-gray-800 mb-4 flex items-center">
           {location === 'tignes' ? (
             <Mountain className="h-5 w-5 mr-2 text-blue-600" />
+          ) : location === 'val' ? (
+            <Compass className="h-5 w-5 mr-2 text-indigo-600" />
           ) : (
-            <Compass className="h-5 w-5 mr-2 text-blue-600" />
+            <MapPin className="h-5 w-5 mr-2 text-purple-600" />
           )}
-          {location === 'tignes' ? 'Tignes' : "Val d'Isère"}
+          {location === 'tignes' ? 'Tignes' : location === 'val' ? "Val d'Isère" : "Les Arcs"}
         </h3>
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-7 gap-4">
           {days.map((d, i) => {
@@ -469,7 +475,7 @@ function App() {
                 <img src={Logo} alt="Tignes logo" className="h-16 w-16 object-contain" decoding="async" fetchpriority="high" loading="eager" />
                 <span className="ml-3 text-xl font-bold text-gray-900 whitespace-nowrap">
                   <span className="block text-sm font-normal text-gray-500 leading-none">Myriam</span>
-                  <span>Val d'Isère - Tignes</span>
+                  <span>Val d'Isère - Tignes - Les Arcs</span>
                 </span>
               </div>
             </div>
@@ -694,12 +700,12 @@ function App() {
               <CardHeader>
                 <CardTitle className="text-2xl flex items-center gap-2">
                   <Mountain className="h-6 w-6 text-blue-600" />
-                  Cours particuliers de ski et snowboard à Val d'Isère 🏔️
+                  Cours particuliers dans l'Espace Killy 🏔️
                 </CardTitle>
               </CardHeader>
               <CardContent>
                 <CardDescription className="text-base text-gray-700">
-                  Profitez de cours particuliers à Val d'Isère, au cœur de l'un des plus beaux domaines skiables des Alpes. Que vous souhaitiez apprendre les bases, perfectionner votre technique ou explorer de nouvelles sensations, je vous accompagne sur les pistes mythiques de l'Espace Killy avec un suivi personnalisé et bienveillant ❄️✨.
+                  Profitez de cours particuliers dans l'Espace Killy, le plus beau domaine skiable du monde ! Que vous souhaitiez apprendre les bases à Tignes, perfectionner votre technique à Val d'Isère, ou explorer de nouvelles sensations, je vous accompagne sur les pistes mythiques de Tignes et Val d'Isère avec un suivi personnalisé et bienveillant ❄️✨.
                 </CardDescription>
               </CardContent>
             </Card>
@@ -708,12 +714,12 @@ function App() {
               <CardHeader>
                 <CardTitle className="text-2xl flex items-center gap-2">
                   <Snowflake className="h-6 w-6 text-emerald-600" />
-                  Cours de ski et snowboard pour tous les niveaux 🎯
+                  Cours de ski et snowboard dans Paradiski ⛷️
                 </CardTitle>
               </CardHeader>
               <CardContent>
                 <CardDescription className="text-base text-gray-700">
-                  Mes cours de ski et snowboard à Tignes – Val d'Isère s'adressent aussi bien aux débutants qu'aux skieurs confirmés et riders en quête de performance 🏂🔥. L'objectif : progresser efficacement, gagner en confiance et surtout prendre du plaisir sur la neige 😄.
+                  Découvrez mes cours de ski et snowboard dans le domaine Paradiski ! Que vous soyez débutant ou expert, mes cours aux Arcs et La Plagne vous permettent de progresser efficacement. L'objectif : gagner en confiance, maîtriser les pistes et surtout prendre du plaisir sur la neige dans ce domaine exceptionnel 😄.
                 </CardDescription>
               </CardContent>
             </Card>
@@ -724,7 +730,7 @@ function App() {
               <CardHeader>
                 <CardTitle className="text-2xl flex items-center gap-2 justify-center">
                   <Star className="h-6 w-6 text-amber-600" />
-                  Pourquoi choisir un cours privé à Tignes – Val d'Isère ? ⭐
+                  Pourquoi choisir un cours privé à Tignes – Val d'Isère – Les Arcs ? ⭐
                 </CardTitle>
               </CardHeader>
               <CardContent>
@@ -750,7 +756,7 @@ function App() {
                   <div className="flex items-start gap-3">
                     <CheckCircle className="h-5 w-5 text-amber-600 mt-1 flex-shrink-0" />
                     <div>
-                      <div className="font-semibold text-gray-900">Découverte des plus beaux secteurs de Tignes Le Lac, Val Claret et Val d'Isère</div>
+                      <div className="font-semibold text-gray-900">Découverte des plus beaux secteurs de Tignes Le Lac, Val Claret, Val d'Isère et Les Arcs</div>
                     </div>
                   </div>
                   <div className="flex items-start gap-3 md:col-span-2">
@@ -1928,7 +1934,7 @@ function App() {
               Blog
             </h2>
             <p className="text-2xl text-gray-700 max-w-3xl mx-auto font-medium">
-              Actus, conseils et bons plans Tignes & Val d'Isère
+              Actus, conseils et bons plans Tignes, Val d'Isère & Les Arcs
             </p>
             <div className="mt-6 flex justify-center gap-4">
               <span className="px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-medium border border-blue-200">
@@ -1939,6 +1945,9 @@ function App() {
               </span>
               <span className="px-4 py-2 bg-purple-100 text-purple-700 rounded-full text-sm font-medium border border-purple-200">
                 🏔️ Guide complet
+              </span>
+              <span className="px-4 py-2 bg-teal-100 text-teal-700 rounded-full text-sm font-medium border border-teal-200">
+                ⛷️ Paradiski
               </span>
             </div>
           </div>
@@ -3469,11 +3478,11 @@ function App() {
               Météo (J+7)
             </h2>
             <p className="text-xl text-gray-700 max-w-3xl mx-auto">
-              Temps réel et prévisions détaillées pour Tignes et Val d'Isère
+              Temps réel et prévisions détaillées pour Tignes, Val d'Isère et Les Arcs
             </p>
           </div>
           
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             <div className="group bg-gradient-to-br from-white/90 to-white/70 backdrop-blur-sm rounded-2xl p-8 shadow-xl border border-white/20 hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 hover:scale-[1.02]">
               <div className="flex items-center gap-3 mb-6">
                 <div className="w-12 h-12 bg-gradient-to-br from-sky-500 to-blue-600 rounded-xl flex items-center justify-center shadow-lg transform group-hover:rotate-12 transition-all duration-300">
@@ -3514,6 +3523,27 @@ function App() {
                 </div>
               </div>
               {renderForecast(weather.val, 'val')}
+            </div>
+
+            <div className="group bg-gradient-to-br from-white/90 to-white/70 backdrop-blur-sm rounded-2xl p-8 shadow-xl border border-white/20 hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 hover:scale-[1.02]">
+              <div className="flex items-center gap-3 mb-6">
+                <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-pink-600 rounded-xl flex items-center justify-center shadow-lg transform group-hover:rotate-12 transition-all duration-300">
+                  <MapPin className="h-6 w-6 text-white" />
+                </div>
+                <div>
+                  <h3 className="text-2xl font-bold text-gray-900">Les Arcs</h3>
+                  <p className="text-sm text-gray-600">Domaine Paradiski</p>
+                </div>
+              </div>
+              <div className="bg-gradient-to-r from-purple-50 to-pink-50 rounded-xl p-4 mb-6 transform hover:scale-105 transition-all duration-200">
+                <div className="flex items-center justify-between">
+                  <span className="text-lg font-semibold text-gray-700">Température actuelle</span>
+                  <span className="text-3xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
+                    {weather.arcs?.current?.temperature_2m ?? '--'}°C
+                  </span>
+                </div>
+              </div>
+              {renderForecast(weather.arcs, 'arcs')}
             </div>
           </div>
           
@@ -3618,6 +3648,25 @@ function App() {
                     <span className="text-gray-700 group-hover:text-orange-600">Météo et prévisions neige</span>
                     <ChevronDown className="h-4 w-4 text-gray-400 rotate-270 group-hover:translate-x-1 transition-transform" />
                   </a>
+                </div>
+                <div>
+                  <h4 className="font-semibold text-gray-900 mb-3 flex items-center gap-2">
+                    <MapPin className="h-4 w-4 text-purple-500" />
+                    Les Arcs
+                  </h4>
+                  <div className="space-y-2">
+                    {[
+                      { href: "https://www.lesarcs.com/lenneigement", title: "État des pistes et enneigement en direct" },
+                      { href: "https://www.lesarcs.com/ouverture-des-pistes-et-remontees", title: "Ouverture des pistes et remontées" },
+                      { href: "https://www.lesarcs.com/infos-live/meteo", title: "Météo en direct" }
+                    ].map((link, i) => (
+                      <a key={i} href={link.href} target="_blank" rel="noreferrer"
+                         className="flex items-center justify-between p-3 bg-gradient-to-r from-purple-50 to-pink-50 rounded-lg hover:from-purple-100 hover:to-pink-100 transition-all duration-300 group transform hover:scale-105 hover:translate-x-1">
+                        <span className="text-gray-700 group-hover:text-purple-600">{link.title}</span>
+                        <ChevronDown className="h-4 w-4 text-gray-400 rotate-270 group-hover:translate-x-1 transition-transform" />
+                      </a>
+                    ))}
+                  </div>
                 </div>
               </div>
             </div>
