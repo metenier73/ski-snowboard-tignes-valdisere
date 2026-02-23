@@ -6,46 +6,45 @@ import { Button } from '@/components/ui/button.jsx'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card.jsx'
 import { galleryAltTexts, getGalleryImage, totalImages } from '@/data/galleryImages'
 import {
-  AlertTriangle,
-  Award,
-  BarChart3,
-  BookOpen,
-  Bot,
-  Calendar,
-  CheckCircle,
-  ChevronDown,
-  ChevronUp,
-  Clock,
-  Cloud,
-  CloudFog,
-  CloudHail,
-  CloudLightning,
-  CloudRain,
-  CloudSnow,
-  CloudSun,
-  Cloudy,
-  Compass,
-  Image,
-  ImagePlus,
-  Info,
-  Mail,
-  MapPin,
-  Menu,
-  MessageCircle,
-  Mountain,
-  Phone,
-  Settings,
-  Shield,
-  ShieldAlert,
-  Smartphone,
-  Snowflake,
-  Sparkles,
-  Star,
-  Sun,
-  Target,
-  TrendingUp,
-  X,
-  Zap
+    AlertTriangle,
+    Award,
+    BarChart3,
+    BookOpen,
+    Bot,
+    Calendar,
+    CheckCircle,
+    ChevronDown,
+    ChevronUp,
+    Clock,
+    Cloud,
+    CloudFog,
+    CloudHail,
+    CloudLightning,
+    CloudRain,
+    CloudSnow,
+    CloudSun,
+    Cloudy,
+    Compass,
+    Image,
+    ImagePlus,
+    Info,
+    Mail,
+    MapPin,
+    Menu,
+    MessageCircle,
+    Mountain,
+    Phone,
+    Settings,
+    Shield,
+    ShieldAlert,
+    Smartphone,
+    Snowflake,
+    Sparkles,
+    Star,
+    Sun,
+    Target,
+    TrendingUp,
+    X
 } from 'lucide-react'
 import { useEffect, useState } from 'react'
 import './App.css'
@@ -2353,44 +2352,321 @@ function App() {
               </div>
             </div>
 
+            {/* Encart 10 Règles Essentielles de Sécurité */}
             <div className="group relative bg-white rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-3 overflow-hidden border border-gray-100">
-              <div className="absolute top-0 right-0 w-40 h-40 bg-gradient-to-br from-purple-100 to-indigo-100 rounded-full -mr-20 -mt-20 opacity-50"></div>
+              <div className="absolute top-0 right-0 w-40 h-40 bg-gradient-to-br from-red-100 to-orange-100 rounded-full -mr-20 -mt-20 opacity-50"></div>
               <div className="p-8 relative z-10">
                 <div className="flex items-center mb-6">
-                  <div className="flex items-center justify-center w-12 h-12 bg-gradient-to-br from-purple-500 to-indigo-600 rounded-xl mr-4">
-                    <Zap className="h-6 w-6 text-white" />
+                  <div className="flex items-center justify-center w-12 h-12 bg-gradient-to-br from-red-500 to-orange-600 rounded-xl mr-4">
+                    <ShieldAlert className="h-6 w-6 text-white" />
                   </div>
                   <div>
-                    <h3 className="text-2xl font-bold text-gray-900 mb-1">Technique ski & snowboard</h3>
-                    <p className="text-gray-600">Progression optimale</p>
+                    <h3 className="text-2xl font-bold text-gray-900 mb-1">Les 10 Règles Essentielles de Sécurité</h3>
+                    <p className="text-gray-600">Le code de conduite sur les pistes</p>
                   </div>
                 </div>
                 <div className="space-y-4">
-                  <div className="bg-gradient-to-r from-purple-50 to-indigo-50 rounded-xl p-4">
-                    <p className="text-gray-700 mb-3">Points clés techniques :</p>
+                  <div className="bg-gradient-to-r from-red-50 to-orange-50 rounded-xl p-4">
+                    <p className="text-gray-700 mb-3 font-semibold">Les règles fondamentales à respecter absolument :</p>
                     <div className="space-y-3">
-                      <div className="flex items-center gap-3">
-                        <span className="text-2xl">🎿</span>
+                      <div className="flex items-start gap-3">
+                        <div className="flex-shrink-0 w-8 h-8 bg-red-500 text-white rounded-full flex items-center justify-center font-bold text-sm">1</div>
                         <div>
-                          <span className="text-gray-700 font-medium">Ski</span>
-                          <p className="text-gray-600 text-sm">Appuis progressifs, regard loin, rythme</p>
+                          <span className="font-semibold text-gray-900">Respect d'autrui</span>
+                          <p className="text-gray-600 text-sm">Ne pas mettre les autres en danger par son comportement ou son matériel</p>
                         </div>
                       </div>
-                      <div className="flex items-center gap-3">
-                        <span className="text-2xl">🏂</span>
+                      <div className="flex items-start gap-3">
+                        <div className="flex-shrink-0 w-8 h-8 bg-orange-500 text-white rounded-full flex items-center justify-center font-bold text-sm">2</div>
                         <div>
-                          <span className="text-gray-700 font-medium">Snowboard</span>
-                          <p className="text-gray-600 text-sm">Posture centrée, dissociation épaules/bassin</p>
+                          <span className="font-semibold text-gray-900">Maîtrise vitesse & comportement</span>
+                          <p className="text-gray-600 text-sm">Adapter son comportement à ses capacités, terrain, météo, neige et trafic</p>
+                        </div>
+                      </div>
+                      <div className="flex items-start gap-3">
+                        <div className="flex-shrink-0 w-8 h-8 bg-yellow-500 text-white rounded-full flex items-center justify-center font-bold text-sm">3</div>
+                        <div>
+                          <span className="font-semibold text-gray-900">Direction par l'amont</span>
+                          <p className="text-gray-600 text-sm">Choisir sa trajectoire pour préserver la sécurité des personnes en aval</p>
+                        </div>
+                      </div>
+                      <div className="flex items-start gap-3">
+                        <div className="flex-shrink-0 w-8 h-8 bg-green-500 text-white rounded-full flex items-center justify-center font-bold text-sm">4</div>
+                        <div>
+                          <span className="font-semibold text-gray-900">Dépassement</span>
+                          <p className="text-gray-600 text-sm">Dépasser largement par l'amont/aval, droite/gauche, en anticipant les évolutions</p>
+                        </div>
+                      </div>
+                      <div className="flex items-start gap-3">
+                        <div className="flex-shrink-0 w-8 h-8 bg-blue-500 text-white rounded-full flex items-center justify-center font-bold text-sm">5</div>
+                        <div>
+                          <span className="font-semibold text-gray-900">Croisement & départ</span>
+                          <p className="text-gray-600 text-sm">Vérifier amont et aval avant de s'engager sur une piste</p>
+                        </div>
+                      </div>
+                      <div className="flex items-start gap-3">
+                        <div className="flex-shrink-0 w-8 h-8 bg-indigo-500 text-white rounded-full flex items-center justify-center font-bold text-sm">6</div>
+                        <div>
+                          <span className="font-semibold text-gray-900">Stationnement</span>
+                          <p className="text-gray-600 text-sm">Éviter passages étroits/sans visibilité, libérer la piste rapidement après chute</p>
+                        </div>
+                      </div>
+                      <div className="flex items-start gap-3">
+                        <div className="flex-shrink-0 w-8 h-8 bg-purple-500 text-white rounded-full flex items-center justify-center font-bold text-sm">7</div>
+                        <div>
+                          <span className="font-semibold text-gray-900">Montée/descente à pied</span>
+                          <p className="text-gray-600 text-sm">Utiliser le bord de la piste, veiller à ne pas être un danger pour autrui</p>
+                        </div>
+                      </div>
+                      <div className="flex items-start gap-3">
+                        <div className="flex-shrink-0 w-8 h-8 bg-pink-500 text-white rounded-full flex items-center justify-center font-bold text-sm">8</div>
+                        <div>
+                          <span className="font-semibold text-gray-900">Respect balisage & signalisation</span>
+                          <p className="text-gray-600 text-sm">Tenir compte météo, état pistes/neige, respecter balisage et signalisation</p>
+                        </div>
+                      </div>
+                      <div className="flex items-start gap-3">
+                        <div className="flex-shrink-0 w-8 h-8 bg-red-600 text-white rounded-full flex items-center justify-center font-bold text-sm">9</div>
+                        <div>
+                          <span className="font-semibold text-gray-900">Assistance</span>
+                          <p className="text-gray-600 text-sm">Prêter assistance en cas d'accident, donner l'alerte, se mettre à disposition des secours</p>
+                        </div>
+                      </div>
+                      <div className="flex items-start gap-3">
+                        <div className="flex-shrink-0 w-8 h-8 bg-orange-600 text-white rounded-full flex items-center justify-center font-bold text-sm">10</div>
+                        <div>
+                          <span className="font-semibold text-gray-900">Identification</span>
+                          <p className="text-gray-600 text-sm">Faire connaître son identité auprès des secours et/ou des tiers en cas d'accident</p>
                         </div>
                       </div>
                     </div>
-                    <div className="mt-4 pt-4 border-t border-purple-100">
-                      <p className="text-gray-700 mb-2">🎯 <strong>Objectif progression :</strong></p>
+                    <div className="mt-4 pt-4 border-t border-red-100">
+                      <p className="text-gray-700 mb-2">⚠️ <strong>Conseil du moniteur :</strong></p>
                       <div className="flex items-center gap-2">
-                        <CheckCircle className="h-4 w-4 text-green-600" />
-                        <span className="text-gray-700">Maîtrise des techniques avancées</span>
+                        <ShieldAlert className="h-4 w-4 text-red-600" />
+                        <span className="text-gray-700">Ces règles assurent la sécurité de tous sur les pistes. Respectez-les et profitez pleinement de votre ski !</span>
                       </div>
                     </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Encart Le Lagon - Centre Aqua-Sportif */}
+            <div className="mt-12">
+              <div className="relative bg-gradient-to-br from-cyan-600 via-blue-600 to-indigo-600 rounded-3xl shadow-2xl overflow-hidden border-4 border-white/20">
+                {/* Décoration de fond */}
+                <div className="absolute inset-0 opacity-10">
+                  <div className="absolute top-0 right-0 w-96 h-96 bg-white rounded-full blur-3xl"></div>
+                  <div className="absolute bottom-0 left-0 w-80 h-80 bg-white rounded-full blur-3xl"></div>
+                </div>
+                
+                <div className="relative z-10 p-8 md:p-12">
+                  <div className="flex items-start gap-6 mb-8">
+                    <div className="flex-shrink-0">
+                      <div className="flex items-center justify-center w-20 h-20 bg-white/20 backdrop-blur-sm rounded-2xl border-2 border-white/30">
+                        <span className="text-4xl">🏊</span>
+                      </div>
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="text-3xl md:text-4xl font-bold text-white mb-3">
+                        📍 Le Lagon Tignes — Centre Aqua-Sportif & Bien-être 🏊‍♂️
+                      </h3>
+                      <p className="text-xl text-white/90 mb-4">
+                        Le centre aquatique complet de Tignes Le Lac : bien-être, fitness et récupération après-ski !
+                        <br />
+                        <span className="text-yellow-300 font-semibold">*(Face à la Maison de Tignes - accessible à tous)*</span>
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                    {/* Horaires */}
+                    <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
+                      <h4 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
+                        <span className="text-2xl">🕒</span>
+                        Horaires (Saison hiver 2025-2026)
+                      </h4>
+                      <div className="space-y-3 text-white/90">
+                        <div className="bg-white/10 rounded-lg p-3">
+                          <p className="font-semibold text-white mb-2">📅 Période : 22 novembre 2025 → 3 mai 2026</p>
+                          <div className="space-y-2 text-sm">
+                            <div className="flex items-center gap-2">
+                              <span className="text-green-300">✓</span>
+                              <span><strong>Ouvert tous les jours :</strong> 11h00 → 20h30</span>
+                            </div>
+                            <div className="flex items-center gap-2">
+                              <span className="text-orange-300">⚠️</span>
+                              <span><strong>Dernière entrée :</strong> 1 heure avant fermeture</span>
+                            </div>
+                            <div className="flex items-center gap-2">
+                              <span className="text-orange-300">⚠️</span>
+                              <span><strong>Évacuation bassins :</strong> 30 min avant fermeture</span>
+                            </div>
+                            <div className="flex items-center gap-2">
+                              <span className="text-blue-300">💪</span>
+                              <span><strong>Espace fitness :</strong> accessible dès 09h00</span>
+                            </div>
+                          </div>
+                        </div>
+                        <div className="bg-white/10 rounded-lg p-3">
+                          <p className="text-white/80 text-sm">
+                            <strong>📍 Situé à Tignes Le Lac, face à la Maison de Tignes</strong>
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Activités proposées */}
+                    <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
+                      <h4 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
+                        <span className="text-2xl">🏊</span>
+                        Activités proposées
+                      </h4>
+                      <div className="space-y-3 text-white/90">
+                        <div className="bg-white/10 rounded-lg p-3">
+                          <p className="font-semibold text-white mb-2">1️⃣ Espace aquatique</p>
+                          <div className="space-y-2 text-sm">
+                            <div className="flex items-center gap-2">
+                              <span className="text-blue-300">🏊</span>
+                              <span><strong>Bassin sportif 25m</strong> : nage, entraînement, récupération</span>
+                            </div>
+                            <div className="flex items-center gap-2">
+                              <span className="text-green-300">🎢</span>
+                              <span><strong>Bassin ludique</strong> : toboggan 3 pistes, cascade, lits à bulles</span>
+                            </div>
+                            <div className="flex items-center gap-2">
+                              <span className="text-yellow-300">👶</span>
+                              <span><strong>Pataugeoire enfants</strong> : zone peu profonde sécurisée</span>
+                            </div>
+                          </div>
+                        </div>
+                        <div className="bg-white/10 rounded-lg p-3">
+                          <p className="font-semibold text-white mb-2">2️⃣ Espace bien-être</p>
+                          <div className="space-y-2 text-sm">
+                            <div className="flex items-center gap-2">
+                              <span className="text-orange-300">🔥</span>
+                              <span><strong>Sauna</strong> et <strong>Hammam</strong> (selon billet)</span>
+                            </div>
+                            <div className="flex items-center gap-2">
+                              <span className="text-purple-300">💆</span>
+                              <span><strong>Zones détente</strong> : relaxation musculaire après-ski</span>
+                            </div>
+                          </div>
+                        </div>
+                        <div className="bg-white/10 rounded-lg p-3">
+                          <p className="font-semibold text-white mb-2">3️⃣ Fitness & musculation</p>
+                          <div className="space-y-2 text-sm">
+                            <div className="flex items-center gap-2">
+                              <span className="text-red-300">💪</span>
+                              <span><strong>Salle cardio</strong> et renforcement musculaire</span>
+                            </div>
+                            <div className="flex items-center gap-2">
+                              <span className="text-pink-300">🏃</span>
+                              <span><strong>Cours collectifs</strong> : HIIT, Bike, Stretching, CAF</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Pourquoi les skieurs y vont */}
+                  <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20 mb-6">
+                    <h4 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
+                      <span className="text-2xl">🎿</span>
+                      Pourquoi beaucoup de skieurs y vont ?
+                    </h4>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-white/90">
+                      <div>
+                        <p className="font-semibold text-white mb-2">Cas typique à Tignes :</p>
+                        <ul className="space-y-2 text-sm">
+                          <li className="flex items-start gap-2">
+                            <span className="text-green-300 mt-1">✓</span>
+                            <span><strong>Récupération musculaire</strong> après ski intense</span>
+                          </li>
+                          <li className="flex items-start gap-2">
+                            <span className="text-blue-300 mt-1">✓</span>
+                            <span><strong>Travail cardio</strong> hors altitude (bénéfique)</span>
+                          </li>
+                          <li className="flex items-start gap-2">
+                            <span className="text-yellow-300 mt-1">✓</span>
+                            <span><strong>Alternative mauvais temps</strong> quand pistes fermées</span>
+                          </li>
+                          <li className="flex items-start gap-2">
+                            <span className="text-purple-300 mt-1">✓</span>
+                            <span><strong>Sortie famille</strong> après journée sur les pistes</span>
+                          </li>
+                        </ul>
+                      </div>
+                      <div>
+                        <p className="font-semibold text-white mb-2">🔥 Le combo gagnant :</p>
+                        <div className="bg-white/20 rounded-lg p-3 text-center">
+                          <p className="text-lg font-bold text-yellow-300 mb-2">
+                            Ski → Sauna → Bassin chaud
+                          </p>
+                          <p className="text-white/80 text-sm">
+                            Presque un protocole officieux de survie alpine !<br/>
+                            Récupération, décontraction et bien-être garanti.
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Conseils pratiques */}
+                  <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
+                    <h4 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
+                      <span className="text-2xl">💡</span>
+                      Conseils pratiques
+                    </h4>
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-white/90">
+                      <div className="bg-white/10 rounded-lg p-3">
+                        <div className="flex items-center gap-2 mb-2">
+                          <span className="text-orange-300">⏰</span>
+                          <span className="font-semibold text-white">Pic d'affluence</span>
+                        </div>
+                        <p className="text-sm text-white/80">
+                          <strong>16h30–18h30</strong> (retour des pistes)<br/>
+                          Éviter si possible pour plus de confort
+                        </p>
+                      </div>
+                      <div className="bg-white/10 rounded-lg p-3">
+                        <div className="flex items-center gap-2 mb-2">
+                          <span className="text-green-300">✨</span>
+                          <span className="font-semibold text-white">Meilleur créneau</span>
+                        </div>
+                        <p className="text-sm text-white/80">
+                          <strong>11h–14h</strong> : plus calme,<br/>
+                          bassins disponibles, ambiance détendue
+                        </p>
+                      </div>
+                      <div className="bg-white/10 rounded-lg p-3">
+                        <div className="flex items-center gap-2 mb-2">
+                          <span className="text-blue-300">🎒</span>
+                          <span className="font-semibold text-white">Équipement requis</span>
+                        </div>
+                        <p className="text-sm text-white/80">
+                          <strong>Bonnet + claquettes</strong> :<br/>
+                          obligatoires selon périodes<br/>
+                          (prévoir serviette aussi)
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Lien utile */}
+                  <div className="mt-6 text-center">
+                    <a 
+                      href="https://www.tignes.net/activites/ete/lagon" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 px-6 py-3 bg-white/20 backdrop-blur-sm rounded-full text-white font-semibold border border-white/30 hover:bg-white/30 transition-all duration-300"
+                    >
+                      <span className="text-lg">🏊</span>
+                      <span>Voir le site officiel du Lagon</span>
+                      <span className="text-sm">→</span>
+                    </a>
                   </div>
                 </div>
               </div>
