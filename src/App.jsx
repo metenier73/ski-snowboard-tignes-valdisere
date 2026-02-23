@@ -3069,13 +3069,35 @@ function App() {
                     </div>
                     <div className="flex-1">
                       <h3 className="text-3xl md:text-4xl font-bold text-white mb-3">
-                        Bars & Vie nocturne à Tignes Val Claret 🎿🍹
+                        Bars & Vie nocturne à Tignes 🎿🍹
                       </h3>
                       <p className="text-xl text-white/90 mb-4">
                         Une sélection de bars branchés et animés — parfaits pour l'après-ski, boire un verre entre amis ou faire la fête !
                         <br />
                         <span className="text-yellow-300 font-semibold">*(Ambiance plus authentique et locale que Val d'Isère)*</span>
                       </p>
+                      <div className="mt-6 bg-gray-800 backdrop-blur-sm rounded-2xl p-6 border border-gray-700">
+                      <h4 className="text-lg font-bold text-white mb-4 text-center bg-gray-700 inline-block px-4 py-2 rounded-lg">🌙 Timeline Nuit Typique à Val Claret</h4>
+                      <p className="text-white text-sm font-semibold mb-3">📍 Villages & Ambiances :</p>
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-2 text-xs">
+                          <div className="flex items-center gap-2">
+                            <span className="text-red-400">🔥</span>
+                            <span className="text-white/90"><strong>Val Claret</strong> - Le plus festif, après-ski dès 15h</span>
+                          </div>
+                          <div className="flex items-center gap-2">
+                            <span className="text-blue-400">🍻</span>
+                            <span className="text-white/90"><strong>Le Lac</strong> - Central, ambiance mixte</span>
+                          </div>
+                          <div className="flex items-center gap-2">
+                            <span className="text-green-400">😌</span>
+                            <span className="text-white/90"><strong>Lavachet</strong> - Local & détendu</span>
+                          </div>
+                          <div className="flex items-center gap-2">
+                            <span className="text-purple-400">🏔️</span>
+                            <span className="text-white/90"><strong>Les Brévières</strong> - Authentique, plus cosy</span>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
 
@@ -3084,7 +3106,7 @@ function App() {
                     <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20 transform hover:scale-105 transition-all duration-200">
                       <h4 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
                         <span className="text-2xl">🍸</span>
-                        Bars & Apéro animés
+                        Val Claret - Bars & Apéro animés 🔥
                       </h4>
                       <div className="space-y-3">
                         <div className="bg-white/10 rounded-lg p-3 transform hover:translate-x-1 transition-all duration-200">
@@ -3092,7 +3114,7 @@ function App() {
                             <span className="text-yellow-300 mt-1">⭐</span>
                             <div>
                               <strong className="text-white">Le Studio</strong>
-                              <p className="text-white/80 text-xs">Bar très bien noté • Ambiance festive • DJ weekends</p>
+                              <p className="text-white/80 text-xs">Bar très bien noté • Ambiance festive en soirée • 4.7/5</p>
                             </div>
                           </div>
                         </div>
@@ -3101,7 +3123,7 @@ function App() {
                             <span className="text-green-300 mt-1">🍺</span>
                             <div>
                               <strong className="text-white">Inside bar</strong>
-                              <p className="text-white/80 text-xs">Ambiance conviviale • Bon choix de boissons • Après-ski animé</p>
+                              <p className="text-white/80 text-xs">Ambiance conviviale • Bon choix de boissons • Après-ski animé • 4.6/5</p>
                             </div>
                           </div>
                         </div>
@@ -3110,7 +3132,7 @@ function App() {
                             <span className="text-blue-300 mt-1">🎯</span>
                             <div>
                               <strong className="text-white">Ranga's Bar</strong>
-                              <p className="text-white/80 text-xs">Happy hour • Sport à l'écran • Bonne vibe locale</p>
+                              <p className="text-white/80 text-xs">Bar très apprécié • Happy hour • Sport à l'écran • Bonne vibe • 4.9/5</p>
                             </div>
                           </div>
                         </div>
@@ -3119,7 +3141,7 @@ function App() {
                             <span className="text-purple-300 mt-1">🍹</span>
                             <div>
                               <strong className="text-white">Arobaze</strong>
-                              <p className="text-white/80 text-xs">Ambiance détendue • Cocktails • Cœur de Val Claret</p>
+                              <p className="text-white/80 text-xs">Ambiance détendue • Cocktails • Cœur de Val Claret • 4.4/5</p>
                             </div>
                           </div>
                         </div>
@@ -3128,7 +3150,7 @@ function App() {
                             <span className="text-pink-300 mt-1">🥃</span>
                             <div>
                               <strong className="text-white">Granite-bar</strong>
-                              <p className="text-white/80 text-xs">Cocktails • Cosy • Branché • Apéro populaire</p>
+                              <p className="text-white/80 text-xs">Bar cocktail cosy • Branché • Apéro populaire • 4.5/5</p>
                             </div>
                           </div>
                         </div>
@@ -3137,7 +3159,7 @@ function App() {
                             <span className="text-amber-300 mt-1">🍷</span>
                             <div>
                               <strong className="text-white">Le Caveau</strong>
-                              <p className="text-white/80 text-xs">Petit bar sympa • Bonne sélection • Vins & bières</p>
+                              <p className="text-white/80 text-xs">Petit bar sympa • Bonne sélection de boissons • 4.6/5</p>
                             </div>
                           </div>
                         </div>
@@ -3148,15 +3170,15 @@ function App() {
                     <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20 transform hover:scale-105 transition-all duration-200">
                       <h4 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
                         <span className="text-2xl">🍻</span>
-                        Spots après-ski & conviviaux
+                        Val Claret - Après-ski & bars musicaux 🔥
                       </h4>
                       <div className="space-y-3">
                         <div className="bg-white/10 rounded-lg p-3 transform hover:translate-x-1 transition-all duration-200">
                           <div className="flex items-start gap-2">
                             <span className="text-orange-300 mt-1">🎿</span>
                             <div>
-                              <strong className="text-white">Le Couloir</strong>
-                              <p className="text-white/80 text-xs">Après-ski classique • Bière pression • Snacks • Musique</p>
+                              <strong className="text-white">Le Couloir | Bar & Restaurant</strong>
+                              <p className="text-white/80 text-xs">Après-ski classique • Bière pression • Snacks • Musique • 4.7/5</p>
                             </div>
                           </div>
                         </div>
@@ -3165,7 +3187,7 @@ function App() {
                             <span className="text-red-300 mt-1">🎉</span>
                             <div>
                               <strong className="text-white">Cocorico Après Ski</strong>
-                              <p className="text-white/80 text-xs">Grand concept • Terrasse • Dancefloor • Ambiance</p>
+                              <p className="text-white/80 text-xs">Grand concept après-ski • Terrasse • Dancefloor • 4.1/5</p>
                             </div>
                           </div>
                         </div>
@@ -3174,7 +3196,7 @@ function App() {
                             <span className="text-cyan-300 mt-1">🍻</span>
                             <div>
                               <strong className="text-white">Le Whitney Bar</strong>
-                              <p className="text-white/80 text-xs">Convivial • Début/fin soirée • Bonne atmosphère</p>
+                              <p className="text-white/80 text-xs">Bar convivial • Début/fin soirée • Bonne atmosphère • 4.5/5</p>
                             </div>
                           </div>
                         </div>
@@ -3183,7 +3205,7 @@ function App() {
                             <span className="text-green-300 mt-1">🍀</span>
                             <div>
                               <strong className="text-white">Tom Crean's Pub</strong>
-                              <p className="text-white/80 text-xs">Pub irlandais • Ambiance détendue • Bières</p>
+                              <p className="text-white/80 text-xs">Pub irlandais • Ambiance détendue • Bières • 4.1/5</p>
                             </div>
                           </div>
                         </div>
@@ -3192,7 +3214,7 @@ function App() {
                             <span className="text-blue-300 mt-1">🌟</span>
                             <div>
                               <strong className="text-white">L'Embuscade Tignes</strong>
-                              <p className="text-white/80 text-xs">Bar animé • Bonne clientèle locale • Soirées</p>
+                              <p className="text-white/80 text-xs">Bar animé • Bonne clientèle locale • Soirées • 4.5/5</p>
                             </div>
                           </div>
                         </div>
@@ -3201,7 +3223,16 @@ function App() {
                             <span className="text-cyan-300 mt-1">🍽</span>
                             <div>
                               <strong className="text-white">Loop Bar & Restaurant</strong>
-                              <p className="text-white/80 text-xs">Bon spot • Boire un verre + Manger • Cuisine</p>
+                              <p className="text-white/80 text-xs">Bon spot • Boire un verre + Manger • 4.2/5</p>
+                            </div>
+                          </div>
+                        </div>
+                        <div className="bg-white/10 rounded-lg p-3 transform hover:translate-x-1 transition-all duration-200">
+                          <div className="flex items-start gap-2">
+                            <span className="text-indigo-300 mt-1">🎶</span>
+                            <div>
+                              <strong className="text-white">247 Bar – Le Twenty Four Seven</strong>
+                              <p className="text-white/80 text-xs">Bar dansant avec DJ en soirée • Ambiance nocturne</p>
                             </div>
                           </div>
                         </div>
@@ -3212,7 +3243,7 @@ function App() {
                     <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20 transform hover:scale-105 transition-all duration-200">
                       <h4 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
                         <span className="text-2xl">🕺</span>
-                        Clubs / Soirée tardive
+                        Val Claret - Clubs 🔥
                       </h4>
                       <div className="space-y-3 mb-4">
                         <div className="bg-white/10 rounded-lg p-3 transform hover:translate-x-1 transition-all duration-200">
@@ -3220,7 +3251,7 @@ function App() {
                             <span className="text-pink-300 mt-1">🎧</span>
                             <div>
                               <strong className="text-white">Avant Garde Tignes</strong>
-                              <p className="text-white/80 text-xs">Discothèque • Soirées tardives • Musique variée</p>
+                              <p className="text-white/80 text-xs">Discothèque • Soirées tardives • Musique variée • 3.8/5</p>
                             </div>
                           </div>
                         </div>
@@ -3229,12 +3260,12 @@ function App() {
                             <span className="text-purple-300 mt-1">💃</span>
                             <div>
                               <strong className="text-white">Discothèque Le Blue Girl</strong>
-                              <p className="text-white/80 text-xs">Club populaire • Tôt matin • Danser</p>
+                              <p className="text-white/80 text-xs">Club populaire • Tôt matin • Danser • 3.3/5</p>
                             </div>
                           </div>
                         </div>
                       </div>
-                      <div className="mt-4 pt-4 border-t border-white/20">
+                      <div className="mt-4 pt-4 border-t border-gray-600">
                         <p className="text-white/90 text-sm">
                           <strong className="text-white">💡 Tips pour la nuit à Val Claret :</strong> l'ambiance commence souvent avec un après-ski vers 15-17h, puis se transforme en soirée musicale plus tard (bars + clubs), et beaucoup de gens finissent en club après 23h.
                         </p>
@@ -3247,28 +3278,28 @@ function App() {
                     <h4 className="text-lg md:text-xl font-bold text-white mb-3 md:mb-4 text-center">🌙 Timeline Nuit Typique à Val Claret</h4>
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
                       <div className="text-center">
-                        <div className="bg-gradient-to-br from-yellow-400 to-orange-400 rounded-lg p-2 md:p-3 mb-1 md:mb-2">
+                        <div className="bg-gray-700 rounded-lg p-2 md:p-3 mb-1 md:mb-2">
                           <div className="text-sm md:text-lg font-bold text-white">15h-17h</div>
                         </div>
                         <p className="text-white/80 text-xs">Après-ski commence</p>
                         <p className="text-yellow-300 text-xs font-semibold">Le Couloir • Cocorico</p>
                       </div>
                       <div className="text-center">
-                        <div className="bg-gradient-to-br from-blue-400 to-indigo-400 rounded-lg p-2 md:p-3 mb-1 md:mb-2">
+                        <div className="bg-gray-700 rounded-lg p-2 md:p-3 mb-1 md:mb-2">
                           <div className="text-sm md:text-lg font-bold text-white">18h-20h</div>
                         </div>
                         <p className="text-white/80 text-xs">Apéro & dîner</p>
                         <p className="text-blue-300 text-xs font-semibold">Le Studio • Inside bar</p>
                       </div>
                       <div className="text-center">
-                        <div className="bg-gradient-to-br from-purple-400 to-pink-400 rounded-lg p-2 md:p-3 mb-1 md:mb-2">
+                        <div className="bg-gray-700 rounded-lg p-2 md:p-3 mb-1 md:mb-2">
                           <div className="text-sm md:text-lg font-bold text-white">21h-23h</div>
                         </div>
                         <p className="text-white/80 text-xs">Bars animés</p>
                         <p className="text-purple-300 text-xs font-semibold">Ranga's • Arobaze</p>
                       </div>
                       <div className="text-center">
-                        <div className="bg-gradient-to-br from-red-400 to-rose-400 rounded-lg p-2 md:p-3 mb-1 md:mb-2">
+                        <div className="bg-gray-700 rounded-lg p-2 md:p-3 mb-1 md:mb-2">
                           <div className="text-sm md:text-lg font-bold text-white">23h+</div>
                         </div>
                         <p className="text-white/80 text-xs">Club time</p>
@@ -3276,13 +3307,164 @@ function App() {
                       </div>
                     </div>
                     <div className="mt-3 md:mt-4 text-center">
-                      <span className="bg-green-500 text-white px-2 py-1 md:px-3 md:py-1 rounded-full text-xs md:text-sm font-semibold">
+                      <span className="bg-gray-700 text-white px-2 py-1 md:px-3 md:py-1 rounded-full text-xs md:text-sm font-semibold">
                         🎯 Ambiance plus locale et authentique que Val d'Isère
                       </span>
                     </div>
                   </div>
                 </div>
               </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Tignes Other Villages Nightlife */}
+      <section className="py-20 px-4 bg-gradient-to-br from-purple-50 to-pink-50">
+        <div className="container mx-auto max-w-6xl">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            
+            {/* Tignes Le Lac */}
+            <div className="group relative bg-gradient-to-br from-blue-600 via-cyan-600 to-teal-600 rounded-3xl shadow-2xl overflow-hidden border-4 border-white/20 hover:shadow-3xl transition-all duration-500 transform hover:-translate-y-2">
+              <div className="absolute inset-0 opacity-10">
+                <div className="absolute top-0 right-0 w-32 h-32 bg-white rounded-full blur-2xl group-hover:opacity-20 transition-opacity duration-300"></div>
+              </div>
+              <div className="relative z-10 p-6">
+                <h4 className="text-xl font-bold text-white mb-3 flex items-center gap-2">
+                  <span className="text-2xl">🍻</span>
+                  Tignes Le Lac (plus central, ambiance mixte)
+                </h4>
+                <p className="text-white/90 text-sm mb-4">Ambiance animée mais un peu moins "club" que Val Claret</p>
+                <div className="space-y-3">
+                  <div className="bg-white/10 rounded-lg p-3 transform hover:translate-x-1 transition-all duration-200">
+                    <div className="flex items-start gap-2">
+                      <span className="text-blue-300 mt-1">🌟</span>
+                      <div>
+                        <strong className="text-white">L'Embuscade Tignes Le Lac</strong>
+                        <p className="text-white/80 text-xs">Bonne ambiance, populaire</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="bg-white/10 rounded-lg p-3 transform hover:translate-x-1 transition-all duration-200">
+                    <div className="flex items-start gap-2">
+                      <span className="text-green-300 mt-1">🎓</span>
+                      <div>
+                        <strong className="text-white">Jam Bar</strong>
+                        <p className="text-white/80 text-xs">Soirées étudiantes / saisonniers</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="bg-white/10 rounded-lg p-3 transform hover:translate-x-1 transition-all duration-200">
+                    <div className="flex items-start gap-2">
+                      <span className="text-purple-300 mt-1">🎵</span>
+                      <div>
+                        <strong className="text-white">The Marmot Arms</strong>
+                        <p className="text-white/80 text-xs">Pub chaleureux avec musique live selon périodes</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Tignes Lavachet */}
+            <div className="group relative bg-gradient-to-br from-green-600 via-emerald-600 to-teal-600 rounded-3xl shadow-2xl overflow-hidden border-4 border-white/20 hover:shadow-3xl transition-all duration-500 transform hover:-translate-y-2">
+              <div className="absolute inset-0 opacity-10">
+                <div className="absolute top-0 right-0 w-32 h-32 bg-white rounded-full blur-2xl group-hover:opacity-20 transition-opacity duration-300"></div>
+              </div>
+              <div className="relative z-10 p-6">
+                <h4 className="text-xl font-bold text-white mb-3 flex items-center gap-2">
+                  <span className="text-2xl">😌</span>
+                  Tignes Lavachet (plus local & détendu)
+                </h4>
+                <p className="text-white/90 text-sm mb-4">Plus petit, ambiance conviviale</p>
+                <div className="space-y-3">
+                  <div className="bg-white/10 rounded-lg p-3 transform hover:translate-x-1 transition-all duration-200">
+                    <div className="flex items-start gap-2">
+                      <span className="text-orange-300 mt-1">🔥</span>
+                      <div>
+                        <strong className="text-white">Le Brasero</strong>
+                        <p className="text-white/80 text-xs">Bar-restaurant chaleureux</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="bg-white/10 rounded-lg p-3 transform hover:translate-x-1 transition-all duration-200">
+                    <div className="flex items-start gap-2">
+                      <span className="text-cyan-300 mt-1">⭐</span>
+                      <div>
+                        <strong className="text-white">TC's Bar</strong>
+                        <p className="text-white/80 text-xs">Petit bar apprécié des saisonniers</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Tignes Les Brévières */}
+            <div className="group relative bg-gradient-to-br from-purple-600 via-indigo-600 to-violet-600 rounded-3xl shadow-2xl overflow-hidden border-4 border-white/20 hover:shadow-3xl transition-all duration-500 transform hover:-translate-y-2">
+              <div className="absolute inset-0 opacity-10">
+                <div className="absolute top-0 right-0 w-32 h-32 bg-white rounded-full blur-2xl group-hover:opacity-20 transition-opacity duration-300"></div>
+              </div>
+              <div className="relative z-10 p-6">
+                <h4 className="text-xl font-bold text-white mb-3 flex items-center gap-2">
+                  <span className="text-2xl">🏔️</span>
+                  Tignes Les Brévières (village + authentique)
+                </h4>
+                <p className="text-white/90 text-sm mb-4">Ambiance plus cosy, moins clubbing</p>
+                <div className="space-y-3">
+                  <div className="bg-white/10 rounded-lg p-3 transform hover:translate-x-1 transition-all duration-200">
+                    <div className="flex items-start gap-2">
+                      <span className="text-indigo-300 mt-1">🎵</span>
+                      <div>
+                        <strong className="text-white">The Underground Bar</strong>
+                        <p className="text-white/80 text-xs">Bonne ambiance et musique</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="bg-white/10 rounded-lg p-3 transform hover:translate-x-1 transition-all duration-200">
+                    <div className="flex items-start gap-2">
+                      <span className="text-red-300 mt-1">🐂</span>
+                      <div>
+                        <strong className="text-white">Black Bull Pub</strong>
+                        <p className="text-white/80 text-xs">Pub convivial après-ski</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Résumé rapide */}
+          <div className="mt-8 bg-gray-800 backdrop-blur-sm rounded-2xl p-6 border border-gray-700">
+            <h4 className="text-xl font-bold text-pink-300 mb-4 text-center bg-gray-700 inline-block px-4 py-2 rounded-lg">🎉 Résumé rapide</h4>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+              <div className="bg-gray-700 rounded-lg p-4 hover:bg-gray-600 transition-colors duration-200">
+                <span className="text-3xl mb-3 block">🔥</span>
+                <strong className="text-pink-300 text-base">Fête forte</strong>
+                <p className="text-gray-200 text-sm mt-2 font-semibold">→ Val Claret</p>
+              </div>
+              <div className="bg-gray-700 rounded-lg p-4 hover:bg-gray-600 transition-colors duration-200">
+                <span className="text-3xl mb-3 block">🍻</span>
+                <strong className="text-pink-300 text-base">Après-ski terrasse</strong>
+                <p className="text-gray-200 text-sm mt-2 font-semibold">→ Cocorico</p>
+              </div>
+              <div className="bg-gray-700 rounded-lg p-4 hover:bg-gray-600 transition-colors duration-200">
+                <span className="text-3xl mb-3 block">🍸</span>
+                <strong className="text-pink-300 text-base">Bar cocktails</strong>
+                <p className="text-gray-200 text-sm mt-2 font-semibold">→ Granite Bar</p>
+              </div>
+              <div className="bg-gray-700 rounded-lg p-4 hover:bg-gray-600 transition-colors duration-200">
+                <span className="text-3xl mb-3 block">🕺</span>
+                <strong className="text-pink-300 text-base">Club tardif</strong>
+                <p className="text-gray-200 text-sm mt-2 font-semibold">→ Avant Garde</p>
+              </div>
+            </div>
+            <div className="mt-4 text-center">
+              <span className="bg-gradient-to-r from-green-600 to-green-700 text-pink-300 px-4 py-2 rounded-full text-sm font-semibold hover:from-green-500 hover:to-green-600 transition-all duration-200">
+                😌 Ambiance plus détendue et locale → Lavachet ou Les Brévières
+              </span>
             </div>
           </div>
         </div>
