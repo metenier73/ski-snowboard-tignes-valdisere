@@ -2858,17 +2858,17 @@ function App() {
 
             {/* Encart Bars & Vie nocturne Tignes */}
             <div className="mt-12">
-              <div className="relative bg-gradient-to-br from-purple-600 via-pink-600 to-rose-600 rounded-3xl shadow-2xl overflow-hidden border-4 border-white/20">
+              <div className="group relative bg-gradient-to-br from-purple-600 via-pink-600 to-rose-600 rounded-3xl shadow-2xl overflow-hidden border-4 border-white/20 hover:shadow-3xl transition-all duration-500 transform hover:-translate-y-2">
                 {/* Décoration de fond */}
                 <div className="absolute inset-0 opacity-10">
-                  <div className="absolute top-0 right-0 w-96 h-96 bg-white rounded-full blur-3xl"></div>
-                  <div className="absolute bottom-0 left-0 w-80 h-80 bg-white rounded-full blur-3xl"></div>
+                  <div className="absolute top-0 right-0 w-96 h-96 bg-white rounded-full blur-3xl group-hover:opacity-20 transition-opacity duration-300"></div>
+                  <div className="absolute bottom-0 left-0 w-80 h-80 bg-white rounded-full blur-3xl group-hover:opacity-20 transition-opacity duration-300"></div>
                 </div>
                 
                 <div className="relative z-10 p-8 md:p-12">
                   <div className="flex items-start gap-6 mb-8">
                     <div className="flex-shrink-0">
-                      <div className="flex items-center justify-center w-20 h-20 bg-white/20 backdrop-blur-sm rounded-2xl border-2 border-white/30">
+                      <div className="flex items-center justify-center w-20 h-20 bg-white/20 backdrop-blur-sm rounded-2xl border-2 border-white/30 transform group-hover:rotate-12 transition-all duration-300">
                         <span className="text-4xl">🍹</span>
                       </div>
                     </div>
@@ -2886,13 +2886,13 @@ function App() {
 
                   <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-6">
                     {/* Bars & Apéro animés */}
-                    <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
+                    <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20 transform hover:scale-105 transition-all duration-200">
                       <h4 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
                         <span className="text-2xl">🍸</span>
                         Bars & Apéro animés
                       </h4>
                       <div className="space-y-3">
-                        <div className="bg-white/10 rounded-lg p-3">
+                        <div className="bg-white/10 rounded-lg p-3 transform hover:translate-x-1 transition-all duration-200">
                           <div className="flex items-start gap-2">
                             <span className="text-yellow-300 mt-1">⭐</span>
                             <div>
@@ -2901,7 +2901,7 @@ function App() {
                             </div>
                           </div>
                         </div>
-                        <div className="bg-white/10 rounded-lg p-3">
+                        <div className="bg-white/10 rounded-lg p-3 transform hover:translate-x-1 transition-all duration-200">
                           <div className="flex items-start gap-2">
                             <span className="text-green-300 mt-1">🍺</span>
                             <div>
@@ -2910,7 +2910,7 @@ function App() {
                             </div>
                           </div>
                         </div>
-                        <div className="bg-white/10 rounded-lg p-3">
+                        <div className="bg-white/10 rounded-lg p-3 transform hover:translate-x-1 transition-all duration-200">
                           <div className="flex items-start gap-2">
                             <span className="text-blue-300 mt-1">🎯</span>
                             <div>
@@ -2919,7 +2919,7 @@ function App() {
                             </div>
                           </div>
                         </div>
-                        <div className="bg-white/10 rounded-lg p-3">
+                        <div className="bg-white/10 rounded-lg p-3 transform hover:translate-x-1 transition-all duration-200">
                           <div className="flex items-start gap-2">
                             <span className="text-purple-300 mt-1">🍹</span>
                             <div>
@@ -2928,7 +2928,7 @@ function App() {
                             </div>
                           </div>
                         </div>
-                        <div className="bg-white/10 rounded-lg p-3">
+                        <div className="bg-white/10 rounded-lg p-3 transform hover:translate-x-1 transition-all duration-200">
                           <div className="flex items-start gap-2">
                             <span className="text-pink-300 mt-1">🥃</span>
                             <div>
@@ -2937,7 +2937,7 @@ function App() {
                             </div>
                           </div>
                         </div>
-                        <div className="bg-white/10 rounded-lg p-3">
+                        <div className="bg-white/10 rounded-lg p-3 transform hover:translate-x-1 transition-all duration-200">
                           <div className="flex items-start gap-2">
                             <span className="text-amber-300 mt-1">🍷</span>
                             <div>
@@ -2950,13 +2950,13 @@ function App() {
                     </div>
 
                     {/* Spots après-ski */}
-                    <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
+                    <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20 transform hover:scale-105 transition-all duration-200">
                       <h4 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
                         <span className="text-2xl">🍻</span>
                         Spots après-ski & conviviaux
                       </h4>
                       <div className="space-y-3">
-                        <div className="bg-white/10 rounded-lg p-3">
+                        <div className="bg-white/10 rounded-lg p-3 transform hover:translate-x-1 transition-all duration-200">
                           <div className="flex items-start gap-2">
                             <span className="text-orange-300 mt-1">🎿</span>
                             <div>
@@ -2965,7 +2965,7 @@ function App() {
                             </div>
                           </div>
                         </div>
-                        <div className="bg-white/10 rounded-lg p-3">
+                        <div className="bg-white/10 rounded-lg p-3 transform hover:translate-x-1 transition-all duration-200">
                           <div className="flex items-start gap-2">
                             <span className="text-red-300 mt-1">🎉</span>
                             <div>
@@ -2974,7 +2974,7 @@ function App() {
                             </div>
                           </div>
                         </div>
-                        <div className="bg-white/10 rounded-lg p-3">
+                        <div className="bg-white/10 rounded-lg p-3 transform hover:translate-x-1 transition-all duration-200">
                           <div className="flex items-start gap-2">
                             <span className="text-cyan-300 mt-1">🍻</span>
                             <div>
@@ -2983,7 +2983,7 @@ function App() {
                             </div>
                           </div>
                         </div>
-                        <div className="bg-white/10 rounded-lg p-3">
+                        <div className="bg-white/10 rounded-lg p-3 transform hover:translate-x-1 transition-all duration-200">
                           <div className="flex items-start gap-2">
                             <span className="text-green-300 mt-1">🍀</span>
                             <div>
@@ -2992,7 +2992,7 @@ function App() {
                             </div>
                           </div>
                         </div>
-                        <div className="bg-white/10 rounded-lg p-3">
+                        <div className="bg-white/10 rounded-lg p-3 transform hover:translate-x-1 transition-all duration-200">
                           <div className="flex items-start gap-2">
                             <span className="text-blue-300 mt-1">🌟</span>
                             <div>
@@ -3001,7 +3001,7 @@ function App() {
                             </div>
                           </div>
                         </div>
-                        <div className="bg-white/10 rounded-lg p-3">
+                        <div className="bg-white/10 rounded-lg p-3 transform hover:translate-x-1 transition-all duration-200">
                           <div className="flex items-start gap-2">
                             <span className="text-cyan-300 mt-1">🍽</span>
                             <div>
@@ -3014,13 +3014,13 @@ function App() {
                     </div>
 
                     {/* Clubs */}
-                    <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
+                    <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20 transform hover:scale-105 transition-all duration-200">
                       <h4 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
                         <span className="text-2xl">🕺</span>
                         Clubs / Soirée tardive
                       </h4>
                       <div className="space-y-3 mb-4">
-                        <div className="bg-white/10 rounded-lg p-3">
+                        <div className="bg-white/10 rounded-lg p-3 transform hover:translate-x-1 transition-all duration-200">
                           <div className="flex items-start gap-2">
                             <span className="text-pink-300 mt-1">🎧</span>
                             <div>
@@ -3029,7 +3029,7 @@ function App() {
                             </div>
                           </div>
                         </div>
-                        <div className="bg-white/10 rounded-lg p-3">
+                        <div className="bg-white/10 rounded-lg p-3 transform hover:translate-x-1 transition-all duration-200">
                           <div className="flex items-start gap-2">
                             <span className="text-purple-300 mt-1">💃</span>
                             <div>
@@ -3048,7 +3048,7 @@ function App() {
                   </div>
 
                   {/* Timeline et badges */}
-                  <div className="mt-6 bg-white/10 backdrop-blur-sm rounded-2xl p-4 md:p-6 border border-white/20">
+                  <div className="mt-6 bg-white/10 backdrop-blur-sm rounded-2xl p-4 md:p-6 border border-white/20 transform hover:scale-105 transition-all duration-200">
                     <h4 className="text-lg md:text-xl font-bold text-white mb-3 md:mb-4 text-center">🌙 Timeline Nuit Typique à Val Claret</h4>
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
                       <div className="text-center">
@@ -3096,17 +3096,17 @@ function App() {
       {/* Nightlife & Après-Ski Section - Val d'Isère */}
       <section className="py-20 px-4 bg-gradient-to-br from-purple-50 to-pink-50">
         <div className="container mx-auto max-w-6xl">
-          <div className="relative bg-gradient-to-br from-purple-600 via-pink-600 to-rose-600 rounded-3xl shadow-2xl overflow-hidden border-4 border-white/20">
+          <div className="group relative bg-gradient-to-br from-purple-600 via-pink-600 to-rose-600 rounded-3xl shadow-2xl overflow-hidden border-4 border-white/20 hover:shadow-3xl transition-all duration-500 transform hover:-translate-y-2">
             {/* Décoration de fond */}
             <div className="absolute inset-0 opacity-10">
-              <div className="absolute top-0 right-0 w-96 h-96 bg-white rounded-full blur-3xl"></div>
-              <div className="absolute bottom-0 left-0 w-80 h-80 bg-white rounded-full blur-3xl"></div>
+              <div className="absolute top-0 right-0 w-96 h-96 bg-white rounded-full blur-3xl group-hover:opacity-20 transition-opacity duration-300"></div>
+              <div className="absolute bottom-0 left-0 w-80 h-80 bg-white rounded-full blur-3xl group-hover:opacity-20 transition-opacity duration-300"></div>
             </div>
             
             <div className="relative z-10 p-8 md:p-12">
               <div className="flex items-start gap-6 mb-8">
                 <div className="flex-shrink-0">
-                  <div className="flex items-center justify-center w-20 h-20 bg-white/20 backdrop-blur-sm rounded-2xl border-2 border-white/30">
+                  <div className="flex items-center justify-center w-20 h-20 bg-white/20 backdrop-blur-sm rounded-2xl border-2 border-white/30 transform group-hover:rotate-12 transition-all duration-300">
                     <span className="text-4xl">🍸</span>
                   </div>
                 </div>
@@ -3124,13 +3124,13 @@ function App() {
 
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-6">
                 {/* Bars & Apéro animés */}
-                <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
+                <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20 transform hover:scale-105 transition-all duration-200">
                   <h4 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
                     <span className="text-2xl">🍸</span>
                     Bars & Apéro animés
                   </h4>
                   <div className="space-y-3">
-                    <div className="bg-white/10 rounded-lg p-3">
+                    <div className="bg-white/10 rounded-lg p-3 transform hover:translate-x-1 transition-all duration-200">
                       <div className="flex items-start gap-2">
                         <span className="text-yellow-300 mt-1">⭐</span>
                         <div>
@@ -3139,7 +3139,7 @@ function App() {
                         </div>
                       </div>
                     </div>
-                    <div className="bg-white/10 rounded-lg p-3">
+                    <div className="bg-white/10 rounded-lg p-3 transform hover:translate-x-1 transition-all duration-200">
                       <div className="flex items-start gap-2">
                         <span className="text-pink-300 mt-1">🎭</span>
                         <div>
@@ -3148,7 +3148,7 @@ function App() {
                         </div>
                       </div>
                     </div>
-                    <div className="bg-white/10 rounded-lg p-3">
+                    <div className="bg-white/10 rounded-lg p-3 transform hover:translate-x-1 transition-all duration-200">
                       <div className="flex items-start gap-2">
                         <span className="text-indigo-300 mt-1">🍹</span>
                         <div>
@@ -3161,13 +3161,13 @@ function App() {
                 </div>
 
                 {/* Spots premium */}
-                <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
+                <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20 transform hover:scale-105 transition-all duration-200">
                   <h4 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
                     <span className="text-2xl">🍻</span>
                     Spots Premium & Conviviaux
                   </h4>
                   <div className="space-y-3">
-                    <div className="bg-white/10 rounded-lg p-3">
+                    <div className="bg-white/10 rounded-lg p-3 transform hover:translate-x-1 transition-all duration-200">
                       <div className="flex items-start gap-2">
                         <span className="text-amber-300 mt-1">🎸</span>
                         <div>
@@ -3176,7 +3176,7 @@ function App() {
                         </div>
                       </div>
                     </div>
-                    <div className="bg-white/10 rounded-lg p-3">
+                    <div className="bg-white/10 rounded-lg p-3 transform hover:translate-x-1 transition-all duration-200">
                       <div className="flex items-start gap-2">
                         <span className="text-cyan-300 mt-1">🍺</span>
                         <div>
@@ -3185,7 +3185,7 @@ function App() {
                         </div>
                       </div>
                     </div>
-                    <div className="bg-white/10 rounded-lg p-3">
+                    <div className="bg-white/10 rounded-lg p-3 transform hover:translate-x-1 transition-all duration-200">
                       <div className="flex items-start gap-2">
                         <span className="text-blue-300 mt-1">🥃</span>
                         <div>
@@ -3198,13 +3198,13 @@ function App() {
                 </div>
 
                 {/* Clubs */}
-                <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
+                <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20 transform hover:scale-105 transition-all duration-200">
                   <h4 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
                     <span className="text-2xl">🕺</span>
                     Clubs / Soirée tardive
                   </h4>
                   <div className="space-y-3 mb-4">
-                    <div className="bg-white/10 rounded-lg p-3">
+                    <div className="bg-white/10 rounded-lg p-3 transform hover:translate-x-1 transition-all duration-200">
                       <div className="flex items-start gap-2">
                         <span className="text-red-300 mt-1">🕺</span>
                         <div>
@@ -3223,7 +3223,7 @@ function App() {
               </div>
 
               {/* Timeline et badges */}
-              <div className="mt-6 bg-white/10 backdrop-blur-sm rounded-2xl p-4 md:p-6 border border-white/20">
+              <div className="mt-6 bg-white/10 backdrop-blur-sm rounded-2xl p-4 md:p-6 border border-white/20 transform hover:scale-105 transition-all duration-200">
                 <h4 className="text-lg md:text-xl font-bold text-white mb-3 md:mb-4 text-center">🌙 Timeline Nuit Premium à Val d'Isère</h4>
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
                   <div className="text-center">
