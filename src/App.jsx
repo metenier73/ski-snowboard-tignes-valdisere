@@ -6,45 +6,45 @@ import { Button } from '@/components/ui/button.jsx'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card.jsx'
 import { galleryAltTexts, getGalleryImage, totalImages } from '@/data/galleryImages'
 import {
-    AlertTriangle,
-    Award,
-    BarChart3,
-    BookOpen,
-    Bot,
-    Calendar,
-    CheckCircle,
-    ChevronDown,
-    ChevronUp,
-    Clock,
-    Cloud,
-    CloudFog,
-    CloudHail,
-    CloudLightning,
-    CloudRain,
-    CloudSnow,
-    CloudSun,
-    Cloudy,
-    Compass,
-    Image,
-    ImagePlus,
-    Info,
-    Mail,
-    MapPin,
-    Menu,
-    MessageCircle,
-    Mountain,
-    Phone,
-    Settings,
-    Shield,
-    ShieldAlert,
-    Smartphone,
-    Snowflake,
-    Sparkles,
-    Star,
-    Sun,
-    Target,
-    TrendingUp,
-    X
+  AlertTriangle,
+  Award,
+  BarChart3,
+  BookOpen,
+  Bot,
+  Calendar,
+  CheckCircle,
+  ChevronDown,
+  ChevronUp,
+  Clock,
+  Cloud,
+  CloudFog,
+  CloudHail,
+  CloudLightning,
+  CloudRain,
+  CloudSnow,
+  CloudSun,
+  Cloudy,
+  Compass,
+  Image,
+  ImagePlus,
+  Info,
+  Mail,
+  MapPin,
+  Menu,
+  MessageCircle,
+  Mountain,
+  Phone,
+  Settings,
+  Shield,
+  ShieldAlert,
+  Smartphone,
+  Snowflake,
+  Sparkles,
+  Star,
+  Sun,
+  Target,
+  TrendingUp,
+  X
 } from 'lucide-react'
 import { useEffect, useState } from 'react'
 import './App.css'
@@ -1911,56 +1911,70 @@ function App() {
       {/* Blog Section */}
       <section id="blog" className="py-20 bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 relative overflow-hidden">
         {/* Background decoration */}
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-10 left-20 w-72 h-72 bg-blue-400 rounded-full blur-3xl"></div>
-          <div className="absolute top-40 right-20 w-96 h-96 bg-indigo-400 rounded-full blur-3xl"></div>
-          <div className="absolute bottom-20 left-1/2 w-80 h-80 bg-purple-400 rounded-full blur-3xl"></div>
+        <div className="absolute inset-0 opacity-20">
+          <div className="absolute top-10 left-20 w-72 h-72 bg-blue-400 rounded-full blur-3xl animate-pulse"></div>
+          <div className="absolute top-40 right-20 w-96 h-96 bg-indigo-400 rounded-full blur-3xl animate-pulse delay-1000"></div>
+          <div className="absolute bottom-20 left-1/2 w-80 h-80 bg-purple-400 rounded-full blur-3xl animate-pulse delay-2000"></div>
+          <div className="absolute top-1/2 left-10 w-64 h-64 bg-pink-300 rounded-full blur-3xl animate-pulse delay-500"></div>
+          <div className="absolute bottom-40 right-40 w-56 h-56 bg-cyan-300 rounded-full blur-3xl animate-pulse delay-1500"></div>
         </div>
         
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center mb-16">
-            <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-blue-600 to-indigo-600 rounded-2xl mb-6 shadow-2xl">
-              <BookOpen className="h-8 w-8 text-white" />
+            <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-blue-600 via-indigo-600 to-purple-600 rounded-2xl mb-6 shadow-2xl transform hover:scale-110 transition-all duration-300">
+              <BookOpen className="h-10 w-10 text-white" />
             </div>
-            <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 bg-clip-text text-transparent mb-4">
+            <h2 className="text-5xl md:text-6xl font-bold bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 bg-clip-text text-transparent mb-6 animate-gradient">
               Blog
             </h2>
-            <p className="text-xl text-gray-700 max-w-3xl mx-auto">
+            <p className="text-2xl text-gray-700 max-w-3xl mx-auto font-medium">
               Actus, conseils et bons plans Tignes & Val d'Isère
             </p>
+            <div className="mt-6 flex justify-center gap-4">
+              <span className="px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-medium border border-blue-200">
+                📰 Articles exclusifs
+              </span>
+              <span className="px-4 py-2 bg-indigo-100 text-indigo-700 rounded-full text-sm font-medium border border-indigo-200">
+                🎿 Expert ski
+              </span>
+              <span className="px-4 py-2 bg-purple-100 text-purple-700 rounded-full text-sm font-medium border border-purple-200">
+                🏔️ Guide complet
+              </span>
+            </div>
           </div>
           
           {/* Encart Diplôme d'État français */}
           <div className="mb-12">
-            <div className="relative bg-gradient-to-br from-blue-600 via-indigo-600 to-purple-600 rounded-3xl shadow-2xl overflow-hidden border-4 border-white/20">
+            <div className="relative bg-gradient-to-br from-blue-600 via-indigo-600 to-purple-600 rounded-3xl shadow-2xl overflow-hidden border-4 border-white/20 transform hover:scale-[1.02] transition-all duration-500">
               {/* Décoration de fond */}
-              <div className="absolute inset-0 opacity-10">
-                <div className="absolute top-0 right-0 w-96 h-96 bg-white rounded-full blur-3xl"></div>
-                <div className="absolute bottom-0 left-0 w-80 h-80 bg-white rounded-full blur-3xl"></div>
+              <div className="absolute inset-0 opacity-20">
+                <div className="absolute top-0 right-0 w-96 h-96 bg-white rounded-full blur-3xl animate-pulse"></div>
+                <div className="absolute bottom-0 left-0 w-80 h-80 bg-white rounded-full blur-3xl animate-pulse delay-1000"></div>
+                <div className="absolute top-1/2 left-1/2 w-64 h-64 bg-blue-300 rounded-full blur-3xl animate-pulse delay-500"></div>
               </div>
               
               <div className="relative z-10 p-8 md:p-12">
                 <div className="flex items-start gap-6 mb-8">
                   <div className="flex-shrink-0">
-                    <div className="flex items-center justify-center w-20 h-20 bg-white/20 backdrop-blur-sm rounded-2xl border-2 border-white/30">
-                      <span className="text-4xl">🇫🇷</span>
+                    <div className="flex items-center justify-center w-24 h-24 bg-white/20 backdrop-blur-sm rounded-2xl border-2 border-white/30 transform hover:rotate-12 transition-all duration-300">
+                      <span className="text-5xl">🇫🇷</span>
                     </div>
                   </div>
                   <div className="flex-1">
-                    <h3 className="text-3xl md:text-4xl font-bold text-white mb-3">
+                    <h3 className="text-4xl md:text-5xl font-bold text-white mb-4">
                       Diplôme d'État de Ski Alpin 🇫🇷
                     </h3>
-                    <p className="text-xl text-white/90 mb-4">
+                    <p className="text-2xl text-white/90 mb-6">
                       Une formation d'excellence reconnue mondialement
                     </p>
                     <div className="flex flex-wrap gap-3">
-                      <span className="px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full text-white text-sm font-medium border border-white/30">
+                      <span className="px-6 py-3 bg-white/20 backdrop-blur-sm rounded-full text-white text-sm font-medium border border-white/30 transform hover:scale-105 transition-all duration-200">
                         ⭐ Référence mondiale
                       </span>
-                      <span className="px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full text-white text-sm font-medium border border-white/30">
+                      <span className="px-6 py-3 bg-white/20 backdrop-blur-sm rounded-full text-white text-sm font-medium border border-white/30 transform hover:scale-105 transition-all duration-200">
                         🏆 Niveau technique exceptionnel
                       </span>
-                      <span className="px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full text-white text-sm font-medium border border-white/30">
+                      <span className="px-6 py-3 bg-white/20 backdrop-blur-sm rounded-full text-white text-sm font-medium border border-white/30 transform hover:scale-105 transition-all duration-200">
                         📚 Formation complète
                       </span>
                     </div>
@@ -1968,54 +1982,58 @@ function App() {
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-                  <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
+                  <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20 transform hover:scale-[1.02] hover:bg-white/15 transition-all duration-300">
                     <h4 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
-                      <CheckCircle className="h-6 w-6" />
+                      <div className="p-2 bg-green-500 rounded-lg">
+                        <CheckCircle className="h-5 w-5 text-white" />
+                      </div>
                       Structure du diplôme
                     </h4>
                     <ul className="space-y-3 text-white/90">
-                      <li className="flex items-start gap-2">
+                      <li className="flex items-start gap-2 transform hover:translate-x-1 transition-all duration-200">
                         <span className="text-white mt-1">✓</span>
                         <span><strong>Autorité :</strong> École Nationale des Sports de Montagne + Ministère des Sports</span>
                       </li>
-                      <li className="flex items-start gap-2">
+                      <li className="flex items-start gap-2 transform hover:translate-x-1 transition-all duration-200">
                         <span className="text-white mt-1">✓</span>
                         <span><strong>Statut :</strong> Diplôme d'État national</span>
                       </li>
-                      <li className="flex items-start gap-2">
+                      <li className="flex items-start gap-2 transform hover:translate-x-1 transition-all duration-200">
                         <span className="text-white mt-1">✓</span>
                         <span><strong>Durée :</strong> 4 à 6 ans de formation</span>
                       </li>
-                      <li className="flex items-start gap-2">
+                      <li className="flex items-start gap-2 transform hover:translate-x-1 transition-all duration-200">
                         <span className="text-white mt-1">✓</span>
                         <span><strong>Reconnaissance :</strong> Carte ISIA, travail en Europe</span>
                       </li>
                     </ul>
                   </div>
 
-                  <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
+                  <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20 transform hover:scale-[1.02] hover:bg-white/15 transition-all duration-300">
                     <h4 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
-                      <Star className="h-6 w-6" />
+                      <div className="p-2 bg-yellow-500 rounded-lg">
+                        <Star className="h-5 w-5 text-white" />
+                      </div>
                       Parcours de formation
                     </h4>
                     <div className="space-y-3 text-white/90 mb-4">
-                      <div className="flex items-start gap-2">
+                      <div className="flex items-start gap-2 transform hover:translate-x-1 transition-all duration-200">
                         <span className="text-white font-bold">1.</span>
                         <span>Test technique (slalom géant chronométré)</span>
                       </div>
-                      <div className="flex items-start gap-2">
+                      <div className="flex items-start gap-2 transform hover:translate-x-1 transition-all duration-200">
                         <span className="text-white font-bold">2.</span>
                         <span>Cycle préparatoire</span>
                       </div>
-                      <div className="flex items-start gap-2">
+                      <div className="flex items-start gap-2 transform hover:translate-x-1 transition-all duration-200">
                         <span className="text-white font-bold">3.</span>
                         <span>Eurotest</span>
                       </div>
-                      <div className="flex items-start gap-2">
+                      <div className="flex items-start gap-2 transform hover:translate-x-1 transition-all duration-200">
                         <span className="text-white font-bold">4.</span>
                         <span>Stages pédagogiques et techniques</span>
                       </div>
-                      <div className="flex items-start gap-2">
+                      <div className="flex items-start gap-2 transform hover:translate-x-1 transition-all duration-200">
                         <span className="text-white font-bold">5.</span>
                         <span><strong>Diplôme d'État Ski Alpin</strong></span>
                       </div>
@@ -2025,7 +2043,7 @@ function App() {
                         href="https://www.ensm.sports.gouv.fr/formation-de-moniteur-de-ski-alpin/" 
                         target="_blank" 
                         rel="noopener noreferrer"
-                        className="flex items-center gap-2 text-white hover:text-blue-200 transition-colors underline decoration-white/50 hover:decoration-white"
+                        className="flex items-center gap-2 text-white hover:text-blue-200 transition-all duration-200 underline decoration-white/50 hover:decoration-white transform hover:translate-x-1"
                       >
                         <BookOpen className="h-4 w-4" />
                         <span className="text-sm">En savoir plus sur la formation ENSM</span>
@@ -2034,7 +2052,7 @@ function App() {
                         href="https://www.ensm.sports.gouv.fr/wp-content/uploads/2024/12/D.E-SKI-ALPIN.pdf" 
                         target="_blank" 
                         rel="noopener noreferrer"
-                        className="flex items-center gap-2 text-white hover:text-blue-200 transition-colors underline decoration-white/50 hover:decoration-white"
+                        className="flex items-center gap-2 text-white hover:text-blue-200 transition-all duration-200 underline decoration-white/50 hover:decoration-white transform hover:translate-x-1"
                       >
                         <BookOpen className="h-4 w-4" />
                         <span className="text-sm">Télécharger le cursus complet (PDF)</span>
@@ -2043,19 +2061,21 @@ function App() {
                   </div>
                 </div>
 
-                <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20 mb-6">
+                <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20 mb-6 transform hover:scale-[1.02] hover:bg-white/15 transition-all duration-300">
                   <h4 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
-                    <Target className="h-6 w-6" />
+                    <div className="p-2 bg-red-500 rounded-lg">
+                      <Target className="h-5 w-5 text-white" />
+                    </div>
                     Philosophie pédagogique française
                   </h4>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-white/90">
                     <div>
                       <p className="font-semibold text-white mb-2">Caractéristiques :</p>
                       <ul className="space-y-2 text-sm">
-                        <li>• Sélection initiale très compétitive (Eurotest)</li>
-                        <li>• Forte dominance du ski de géant</li>
-                        <li>• Progression longue avec alternance stages–enseignements</li>
-                        <li>• Accent sur précision technique et démonstration parfaite</li>
+                        <li className="transform hover:translate-x-1 transition-all duration-200">• Sélection initiale très compétitive (Eurotest)</li>
+                        <li className="transform hover:translate-x-1 transition-all duration-200">• Forte dominance du ski de géant</li>
+                        <li className="transform hover:translate-x-1 transition-all duration-200">• Progression longue avec alternance stages–enseignements</li>
+                        <li className="transform hover:translate-x-1 transition-all duration-200">• Accent sur précision technique et démonstration parfaite</li>
                       </ul>
                     </div>
                     <div>
@@ -2068,18 +2088,18 @@ function App() {
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                  <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20 text-center">
-                    <div className="text-3xl font-bold text-white mb-1">⭐</div>
+                  <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20 text-center transform hover:scale-105 hover:bg-white/15 transition-all duration-300">
+                    <div className="text-4xl font-bold text-white mb-2">⭐</div>
                     <div className="text-white font-semibold">Référence mondiale</div>
                     <div className="text-white/80 text-sm mt-1">Diplôme le plus sélectif techniquement</div>
                   </div>
-                  <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20 text-center">
-                    <div className="text-3xl font-bold text-white mb-1">🏆</div>
+                  <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20 text-center transform hover:scale-105 hover:bg-white/15 transition-all duration-300">
+                    <div className="text-4xl font-bold text-white mb-2">🏆</div>
                     <div className="text-white font-semibold">Excellence technique</div>
                     <div className="text-white/80 text-sm mt-1">Niveau technique exceptionnel</div>
                   </div>
-                  <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20 text-center">
-                    <div className="text-3xl font-bold text-white mb-1">📚</div>
+                  <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20 text-center transform hover:scale-105 hover:bg-white/15 transition-all duration-300">
+                    <div className="text-4xl font-bold text-white mb-2">📚</div>
                     <div className="text-white font-semibold">Formation complète</div>
                     <div className="text-white/80 text-sm mt-1">Pédagogie structurée nationale</div>
                   </div>
@@ -2090,10 +2110,11 @@ function App() {
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             <div className="group relative bg-white rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-3 overflow-hidden border border-gray-100">
-              <div className="absolute top-0 right-0 w-40 h-40 bg-gradient-to-br from-blue-100 to-indigo-100 rounded-full -mr-20 -mt-20 opacity-50"></div>
+              <div className="absolute top-0 right-0 w-40 h-40 bg-gradient-to-br from-blue-100 to-indigo-100 rounded-full -mr-20 -mt-20 opacity-50 group-hover:opacity-70 transition-opacity duration-300"></div>
+              <div className="absolute bottom-0 left-0 w-32 h-32 bg-gradient-to-br from-purple-100 to-pink-100 rounded-full -ml-16 -mb-16 opacity-30 group-hover:opacity-50 transition-opacity duration-300"></div>
               <div className="p-8 relative z-10">
                 <div className="flex items-center mb-6">
-                  <div className="flex items-center justify-center w-12 h-12 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-xl mr-4">
+                  <div className="flex items-center justify-center w-12 h-12 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-xl mr-4 transform group-hover:rotate-12 transition-all duration-300">
                     <Calendar className="h-6 w-6 text-white" />
                   </div>
                   <div>
@@ -2102,14 +2123,14 @@ function App() {
                   </div>
                 </div>
                 <div className="space-y-4">
-                  <div className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl p-4">
+                  <div className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl p-4 transform hover:scale-105 transition-all duration-200">
                     <div className="flex items-center gap-3 mb-2">
                       <Mountain className="h-5 w-5 text-blue-600" />
                       <span className="font-semibold text-gray-900">Tignes</span>
                     </div>
                     <p className="text-gray-700">Fin novembre → début mai</p>
                   </div>
-                  <div className="bg-gradient-to-r from-purple-50 to-pink-50 rounded-xl p-4">
+                  <div className="bg-gradient-to-r from-purple-50 to-pink-50 rounded-xl p-4 transform hover:scale-105 transition-all duration-200">
                     <div className="flex items-center gap-3 mb-2">
                       <Compass className="h-5 w-5 text-purple-600" />
                       <span className="font-semibold text-gray-900">Val d'Isère</span>
@@ -2117,11 +2138,11 @@ function App() {
                     <p className="text-gray-700">Début décembre → début mai</p>
                   </div>
                   <div className="flex gap-4 pt-4">
-                    <a href="https://www.tignes.net" target="_blank" rel="noreferrer" className="flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
+                    <a href="https://www.tignes.net" target="_blank" rel="noreferrer" className="flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transform hover:scale-105 transition-all duration-200">
                       <span>🏔️</span>
                       <span>Site Tignes</span>
                     </a>
-                    <a href="https://www.valdisere.com" target="_blank" rel="noreferrer" className="flex items-center gap-2 px-4 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors">
+                    <a href="https://www.valdisere.com" target="_blank" rel="noreferrer" className="flex items-center gap-2 px-4 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transform hover:scale-105 transition-all duration-200">
                       <span>🎿</span>
                       <span>Site Val d'Isère</span>
                     </a>
@@ -2131,78 +2152,16 @@ function App() {
             </div>
 
             <div className="group relative bg-white rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-3 overflow-hidden border border-gray-100">
-              <div className="absolute top-0 right-0 w-40 h-40 bg-gradient-to-br from-emerald-100 to-teal-100 rounded-full -mr-20 -mt-20 opacity-50"></div>
+              <div className="absolute top-0 right-0 w-40 h-40 bg-gradient-to-br from-emerald-100 to-teal-100 rounded-full -mr-20 -mt-20 opacity-50 group-hover:opacity-70 transition-opacity duration-300"></div>
+              <div className="absolute bottom-0 left-0 w-32 h-32 bg-gradient-to-br from-green-100 to-cyan-100 rounded-full -ml-16 -mb-16 opacity-30 group-hover:opacity-50 transition-opacity duration-300"></div>
               <div className="p-8 relative z-10">
                 <div className="flex items-center mb-6">
-                  <div className="flex items-center justify-center w-12 h-12 bg-gradient-to-br from-emerald-500 to-teal-600 rounded-xl mr-4">
+                  <div className="flex items-center justify-center w-12 h-12 bg-gradient-to-br from-emerald-500 to-teal-600 rounded-xl mr-4 transform group-hover:rotate-12 transition-all duration-300">
                     <Star className="h-6 w-6 text-white" />
                   </div>
                   <div>
                     <h3 className="text-2xl font-bold text-gray-900 mb-1">Programme d'animations</h3>
                     <p className="text-gray-600">Agenda des événements</p>
-                  </div>
-                </div>
-                <div className="space-y-4">
-                  <div className="bg-gradient-to-r from-emerald-50 to-teal-50 rounded-xl p-4">
-                    <p className="text-gray-700 mb-3">Découvrez tous les événements et animations proposés dans les stations :</p>
-                    <div className="space-y-3">
-                      <div className="flex items-center gap-3">
-                        <div className="w-2 h-2 bg-emerald-500 rounded-full"></div>
-                        <span className="text-gray-700">Concerts et festivals</span>
-                      </div>
-                      <div className="flex items-center gap-3">
-                        <div className="w-2 h-2 bg-emerald-500 rounded-full"></div>
-                        <span className="text-gray-700">Compétitions sportives</span>
-                      </div>
-                      <div className="flex items-center gap-3">
-                        <div className="w-2 h-2 bg-emerald-500 rounded-full"></div>
-                        <span className="text-gray-700">Animations familiales</span>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="flex gap-4 pt-4">
-                    <a href="https://www.tignes.net/que-faire-a-tignes/agenda" target="_blank" rel="noreferrer" className="flex items-center gap-2 px-4 py-2 bg-emerald-600 text-white rounded-lg hover:bg-emerald-700 transition-colors">
-                      <span>📅</span>
-                      <span>Agenda Tignes</span>
-                    </a>
-                    <a href="https://www.valdisere.com/agenda/" target="_blank" rel="noreferrer" className="flex items-center gap-2 px-4 py-2 bg-teal-600 text-white rounded-lg hover:bg-teal-700 transition-colors">
-                      <span>🎭</span>
-                      <span>Agenda Val d'Isère</span>
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div className="group relative bg-white rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-3 overflow-hidden border border-gray-100">
-              <div className="absolute top-0 right-0 w-40 h-40 bg-gradient-to-br from-amber-100 to-orange-100 rounded-full -mr-20 -mt-20 opacity-50"></div>
-              <div className="p-8 relative z-10">
-                <div className="flex items-center mb-6">
-                  <div className="flex items-center justify-center w-12 h-12 bg-gradient-to-br from-amber-500 to-orange-600 rounded-xl mr-4">
-                    <Smartphone className="h-6 w-6 text-white" />
-                  </div>
-                  <div>
-                    <h3 className="text-2xl font-bold text-gray-900 mb-1">Applications officielles</h3>
-                    <p className="text-gray-600">Restez connectés</p>
-                  </div>
-                </div>
-                <div className="space-y-4">
-                  <div className="bg-gradient-to-r from-amber-50 to-orange-50 rounded-xl p-4">
-                    <p className="text-gray-700 mb-3">Téléchargez les applications mobiles pour :</p>
-                    <div className="space-y-3">
-                      <div className="flex items-center gap-3">
-                        <div className="w-2 h-2 bg-amber-500 rounded-full"></div>
-                        <span className="text-gray-700">Forfaits et remontées</span>
-                      </div>
-                      <div className="flex items-center gap-3">
-                        <div className="w-2 h-2 bg-amber-500 rounded-full"></div>
-                        <span className="text-gray-700">Météo en temps réel</span>
-                      </div>
-                      <div className="flex items-center gap-3">
-                        <div className="w-2 h-2 bg-amber-500 rounded-full"></div>
-                        <span className="text-gray-700">Plan des pistes interactif</span>
-                      </div>
-                    </div>
                   </div>
                   <div className="flex gap-4 pt-4">
                     <a href="https://play.google.com/store/search?q=tignes&c=apps" target="_blank" rel="noreferrer" className="flex items-center gap-2 px-4 py-2 bg-amber-600 text-white rounded-lg hover:bg-amber-700 transition-colors">
@@ -2267,10 +2226,11 @@ function App() {
             </div>
 
             <div className="group relative bg-white rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-3 overflow-hidden border border-gray-100">
-              <div className="absolute top-0 right-0 w-40 h-40 bg-gradient-to-br from-red-100 to-pink-100 rounded-full -mr-20 -mt-20 opacity-50"></div>
+              <div className="absolute top-0 right-0 w-40 h-40 bg-gradient-to-br from-red-100 to-pink-100 rounded-full -mr-20 -mt-20 opacity-50 group-hover:opacity-70 transition-opacity duration-300"></div>
+              <div className="absolute bottom-0 left-0 w-32 h-32 bg-gradient-to-br from-rose-100 to-red-100 rounded-full -ml-16 -mb-16 opacity-30 group-hover:opacity-50 transition-opacity duration-300"></div>
               <div className="p-8 relative z-10">
                 <div className="flex items-center mb-6">
-                  <div className="flex items-center justify-center w-12 h-12 bg-gradient-to-br from-red-500 to-pink-600 rounded-xl mr-4">
+                  <div className="flex items-center justify-center w-12 h-12 bg-gradient-to-br from-red-500 to-pink-600 rounded-xl mr-4 transform group-hover:rotate-12 transition-all duration-300">
                     <Shield className="h-6 w-6 text-white" />
                   </div>
                   <div>
@@ -2279,18 +2239,18 @@ function App() {
                   </div>
                 </div>
                 <div className="space-y-4">
-                  <div className="bg-gradient-to-r from-red-50 to-pink-50 rounded-xl p-4">
+                  <div className="bg-gradient-to-r from-red-50 to-pink-50 rounded-xl p-4 transform hover:scale-105 transition-all duration-200">
                     <p className="text-gray-700 mb-3">Équipement obligatoire en hors-piste :</p>
                     <div className="space-y-3">
-                      <div className="flex items-center gap-3">
+                      <div className="flex items-center gap-3 transform hover:translate-x-1 transition-all duration-200">
                         <ShieldAlert className="h-4 w-4 text-red-600" />
                         <span className="text-gray-700 font-medium">DVA (Détecteur de Victimes d'Avalanche)</span>
                       </div>
-                      <div className="flex items-center gap-3">
+                      <div className="flex items-center gap-3 transform hover:translate-x-1 transition-all duration-200">
                         <div className="w-2 h-2 bg-red-500 rounded-full"></div>
                         <span className="text-gray-700">Pelle et sonde</span>
                       </div>
-                      <div className="flex items-center gap-3">
+                      <div className="flex items-center gap-3 transform hover:translate-x-1 transition-all duration-200">
                         <div className="w-2 h-2 bg-red-500 rounded-full"></div>
                         <span className="text-gray-700">Casque et dorsale</span>
                       </div>
@@ -2298,11 +2258,11 @@ function App() {
                     <div className="mt-4 pt-4 border-t border-red-100">
                       <p className="text-gray-700 mb-2">💡 <strong>Conseils pro :</strong></p>
                       <div className="space-y-2">
-                        <div className="flex items-center gap-2">
+                        <div className="flex items-center gap-2 transform hover:translate-x-1 transition-all duration-200">
                           <div className="w-2 h-2 bg-pink-500 rounded-full"></div>
                           <span className="text-gray-700">Location près des pistes</span>
                         </div>
-                        <div className="flex items-center gap-2">
+                        <div className="flex items-center gap-2 transform hover:translate-x-1 transition-all duration-200">
                           <div className="w-2 h-2 bg-pink-500 rounded-full"></div>
                           <span className="text-gray-700">Bootfitting pour le confort</span>
                         </div>
@@ -2314,10 +2274,11 @@ function App() {
             </div>
 
             <div className="group relative bg-white rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-3 overflow-hidden border border-gray-100">
-              <div className="absolute top-0 right-0 w-40 h-40 bg-gradient-to-br from-indigo-100 to-blue-100 rounded-full -mr-20 -mt-20 opacity-50"></div>
+              <div className="absolute top-0 right-0 w-40 h-40 bg-gradient-to-br from-indigo-100 to-blue-100 rounded-full -mr-20 -mt-20 opacity-50 group-hover:opacity-70 transition-opacity duration-300"></div>
+              <div className="absolute bottom-0 left-0 w-32 h-32 bg-gradient-to-br from-blue-100 to-indigo-100 rounded-full -ml-16 -mb-16 opacity-30 group-hover:opacity-50 transition-opacity duration-300"></div>
               <div className="p-8 relative z-10">
                 <div className="flex items-center mb-6">
-                  <div className="flex items-center justify-center w-12 h-12 bg-gradient-to-br from-indigo-500 to-blue-600 rounded-xl mr-4">
+                  <div className="flex items-center justify-center w-12 h-12 bg-gradient-to-br from-indigo-500 to-blue-600 rounded-xl mr-4 transform group-hover:rotate-12 transition-all duration-300">
                     <MapPin className="h-6 w-6 text-white" />
                   </div>
                   <div>
@@ -2326,15 +2287,15 @@ function App() {
                   </div>
                 </div>
                 <div className="space-y-4">
-                  <div className="bg-gradient-to-r from-indigo-50 to-blue-50 rounded-xl p-4">
+                  <div className="bg-gradient-to-r from-indigo-50 to-blue-50 rounded-xl p-4 transform hover:scale-105 transition-all duration-200">
                     <p className="text-gray-700 mb-3">Stratégies selon l'heure :</p>
                     <div className="space-y-3">
-                      <div className="flex items-center gap-3">
+                      <div className="flex items-center gap-3 transform hover:translate-x-1 transition-all duration-200">
                         <Sun className="h-4 w-4 text-indigo-600" />
                         <span className="text-gray-700 font-medium">🌅 Matin</span>
                         <span className="text-gray-600">Pentes ensoleillées, neige dure</span>
                       </div>
-                      <div className="flex items-center gap-3">
+                      <div className="flex items-center gap-3 transform hover:translate-x-1 transition-all duration-200">
                         <Cloud className="h-4 w-4 text-blue-600" />
                         <span className="text-gray-700 font-medium">🌤️ Après-midi</span>
                         <span className="text-gray-600">Neiges plus souples, ombragées</span>
@@ -2342,7 +2303,7 @@ function App() {
                     </div>
                     <div className="mt-4 pt-4 border-t border-indigo-100">
                       <p className="text-gray-700 mb-2">⚠️ <strong>Avant hors-piste :</strong></p>
-                      <div className="flex items-center gap-2">
+                      <div className="flex items-center gap-2 transform hover:translate-x-1 transition-all duration-200">
                         <ShieldAlert className="h-4 w-4 text-orange-600" />
                         <span className="text-gray-700">Consulter le bulletin d'avalanche</span>
                       </div>

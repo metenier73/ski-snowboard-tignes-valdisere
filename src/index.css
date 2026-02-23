@@ -1,0 +1,91 @@
+/* Animations personnalisées pour le blog */
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animate-gradient {
+  background-size: 200% 200%;
+  animation: gradient 3s ease infinite;
+}
+
+/* Delays pour les animations d'arrière-plan */
+.delay-500 {
+  animation-delay: 500ms;
+}
+
+.delay-1000 {
+  animation-delay: 1000ms;
+}
+
+.delay-1500 {
+  animation-delay: 1500ms;
+}
+
+.delay-2000 {
+  animation-delay: 2000ms;
+}
+
+/* Amélioration des transitions */
+.transition-all {
+  transition: all 0.3s ease;
+}
+
+/* Effets de survol améliorés */
+.group:hover .group-hover\:scale-105 {
+  transform: scale(1.05);
+}
+
+.group:hover .group-hover\:scale-110 {
+  transform: scale(1.1);
+}
+
+.group:hover .group-hover\:rotate-12 {
+  transform: rotate(12deg);
+}
+
+.group:hover .group-hover\:opacity-70 {
+  opacity: 0.7;
+}
+
+.group:hover .group-hover\:opacity-50 {
+  opacity: 0.5;
+}
+
+/* Amélioration de l'accessibilité */
+@media (prefers-reduced-motion: reduce) {
+  .animate-gradient,
+  .animate-pulse {
+    animation: none;
+  }
+  
+  .transition-all {
+    transition: none;
+  }
+}
+
+/* Scrollbar personnalisée */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
