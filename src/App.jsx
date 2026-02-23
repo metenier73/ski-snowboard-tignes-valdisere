@@ -2178,10 +2178,11 @@ function App() {
             </div>
 
             <div className="group relative bg-white rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-3 overflow-hidden border border-gray-100">
-              <div className="absolute top-0 right-0 w-40 h-40 bg-gradient-to-br from-green-100 to-emerald-100 rounded-full -mr-20 -mt-20 opacity-50"></div>
+              <div className="absolute top-0 right-0 w-40 h-40 bg-gradient-to-br from-green-100 to-emerald-100 rounded-full -mr-20 -mt-20 opacity-50 group-hover:opacity-70 transition-opacity duration-300"></div>
+              <div className="absolute bottom-0 left-0 w-32 h-32 bg-gradient-to-br from-emerald-100 to-green-100 rounded-full -ml-16 -mb-16 opacity-30 group-hover:opacity-50 transition-opacity duration-300"></div>
               <div className="p-8 relative z-10">
                 <div className="flex items-center mb-6">
-                  <div className="flex items-center justify-center w-12 h-12 bg-gradient-to-br from-green-500 to-emerald-600 rounded-xl mr-4">
+                  <div className="flex items-center justify-center w-12 h-12 bg-gradient-to-br from-green-500 to-emerald-600 rounded-xl mr-4 transform group-hover:rotate-12 transition-all duration-300">
                     <Info className="h-6 w-6 text-white" />
                   </div>
                   <div>
@@ -2190,33 +2191,33 @@ function App() {
                   </div>
                 </div>
                 <div className="space-y-4">
-                  <div className="bg-gradient-to-r from-green-50 to-emerald-50 rounded-xl p-4">
+                  <div className="bg-gradient-to-r from-green-50 to-emerald-50 rounded-xl p-4 transform hover:scale-105 transition-all duration-200">
                     <p className="text-gray-700 mb-3">Accédez aux services essentiels :</p>
                     <div className="space-y-3">
-                      <div className="flex items-center gap-3">
+                      <div className="flex items-center gap-3 transform hover:translate-x-1 transition-all duration-200">
                         <div className="w-2 h-2 bg-green-500 rounded-full"></div>
                         <span className="text-gray-700">Offices de tourisme</span>
                       </div>
-                      <div className="flex items-center gap-3">
+                      <div className="flex items-center gap-3 transform hover:translate-x-1 transition-all duration-200">
                         <div className="w-2 h-2 bg-green-500 rounded-full"></div>
                         <span className="text-gray-700">Achat de forfaits en ligne</span>
                       </div>
-                      <div className="flex items-center gap-3">
+                      <div className="flex items-center gap-3 transform hover:translate-x-1 transition-all duration-200">
                         <div className="w-2 h-2 bg-green-500 rounded-full"></div>
                         <span className="text-gray-700">Informations remontées</span>
                       </div>
                     </div>
                   </div>
                   <div className="flex gap-4 pt-4">
-                    <a href="https://www.tignes.net" target="_blank" rel="noreferrer" className="flex items-center gap-2 px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors">
+                    <a href="https://www.tignes.net" target="_blank" rel="noreferrer" className="flex items-center gap-2 px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-all duration-200 transform hover:scale-105">
                       <span>🏢</span>
                       <span>Office Tignes</span>
                     </a>
-                    <a href="https://www.compagniedesalpes.com/" target="_blank" rel="noreferrer" className="flex items-center gap-2 px-4 py-2 bg-emerald-600 text-white rounded-lg hover:bg-emerald-700 transition-colors">
+                    <a href="https://www.compagniedesalpes.com/" target="_blank" rel="noreferrer" className="flex items-center gap-2 px-4 py-2 bg-emerald-600 text-white rounded-lg hover:bg-emerald-700 transition-all duration-200 transform hover:scale-105">
                       <span>🚡</span>
                       <span>Remontées</span>
                     </a>
-                    <a href="https://www.valdisere.com" target="_blank" rel="noreferrer" className="flex items-center gap-2 px-4 py-2 bg-teal-600 text-white rounded-lg hover:bg-teal-700 transition-colors">
+                    <a href="https://www.valdisere.com" target="_blank" rel="noreferrer" className="flex items-center gap-2 px-4 py-2 bg-teal-600 text-white rounded-lg hover:bg-teal-700 transition-all duration-200 transform hover:scale-105">
                       <span>🏔️</span>
                       <span>Office Val d'Isère</span>
                     </a>
@@ -2315,10 +2316,11 @@ function App() {
 
             {/* Encart 10 Règles Essentielles de Sécurité */}
             <div className="group relative bg-white rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-3 overflow-hidden border border-gray-100">
-              <div className="absolute top-0 right-0 w-40 h-40 bg-gradient-to-br from-red-100 to-orange-100 rounded-full -mr-20 -mt-20 opacity-50"></div>
+              <div className="absolute top-0 right-0 w-40 h-40 bg-gradient-to-br from-red-100 to-orange-100 rounded-full -mr-20 -mt-20 opacity-50 group-hover:opacity-70 transition-opacity duration-300"></div>
+              <div className="absolute bottom-0 left-0 w-32 h-32 bg-gradient-to-br from-orange-100 to-red-100 rounded-full -ml-16 -mb-16 opacity-30 group-hover:opacity-50 transition-opacity duration-300"></div>
               <div className="p-8 relative z-10">
                 <div className="flex items-center mb-6">
-                  <div className="flex items-center justify-center w-12 h-12 bg-gradient-to-br from-red-500 to-orange-600 rounded-xl mr-4">
+                  <div className="flex items-center justify-center w-12 h-12 bg-gradient-to-br from-red-500 to-orange-600 rounded-xl mr-4 transform group-hover:rotate-12 transition-all duration-300">
                     <ShieldAlert className="h-6 w-6 text-white" />
                   </div>
                   <div>
@@ -2327,73 +2329,73 @@ function App() {
                   </div>
                 </div>
                 <div className="space-y-4">
-                  <div className="bg-gradient-to-r from-red-50 to-orange-50 rounded-xl p-4">
+                  <div className="bg-gradient-to-r from-red-50 to-orange-50 rounded-xl p-4 transform hover:scale-105 transition-all duration-200">
                     <p className="text-gray-700 mb-3 font-semibold">Les règles fondamentales à respecter absolument :</p>
                     <div className="space-y-3">
-                      <div className="flex items-start gap-3">
+                      <div className="flex items-start gap-3 transform hover:translate-x-1 transition-all duration-200">
                         <div className="flex-shrink-0 w-8 h-8 bg-red-500 text-white rounded-full flex items-center justify-center font-bold text-sm">1</div>
                         <div>
                           <span className="font-semibold text-gray-900">Respect d'autrui</span>
                           <p className="text-gray-600 text-sm">Ne pas mettre les autres en danger par son comportement ou son matériel</p>
                         </div>
                       </div>
-                      <div className="flex items-start gap-3">
+                      <div className="flex items-start gap-3 transform hover:translate-x-1 transition-all duration-200">
                         <div className="flex-shrink-0 w-8 h-8 bg-orange-500 text-white rounded-full flex items-center justify-center font-bold text-sm">2</div>
                         <div>
                           <span className="font-semibold text-gray-900">Maîtrise vitesse & comportement</span>
                           <p className="text-gray-600 text-sm">Adapter son comportement à ses capacités, terrain, météo, neige et trafic</p>
                         </div>
                       </div>
-                      <div className="flex items-start gap-3">
+                      <div className="flex items-start gap-3 transform hover:translate-x-1 transition-all duration-200">
                         <div className="flex-shrink-0 w-8 h-8 bg-yellow-500 text-white rounded-full flex items-center justify-center font-bold text-sm">3</div>
                         <div>
                           <span className="font-semibold text-gray-900">Direction par l'amont</span>
                           <p className="text-gray-600 text-sm">Choisir sa trajectoire pour préserver la sécurité des personnes en aval</p>
                         </div>
                       </div>
-                      <div className="flex items-start gap-3">
+                      <div className="flex items-start gap-3 transform hover:translate-x-1 transition-all duration-200">
                         <div className="flex-shrink-0 w-8 h-8 bg-green-500 text-white rounded-full flex items-center justify-center font-bold text-sm">4</div>
                         <div>
                           <span className="font-semibold text-gray-900">Dépassement</span>
                           <p className="text-gray-600 text-sm">Dépasser largement par l'amont/aval, droite/gauche, en anticipant les évolutions</p>
                         </div>
                       </div>
-                      <div className="flex items-start gap-3">
+                      <div className="flex items-start gap-3 transform hover:translate-x-1 transition-all duration-200">
                         <div className="flex-shrink-0 w-8 h-8 bg-blue-500 text-white rounded-full flex items-center justify-center font-bold text-sm">5</div>
                         <div>
                           <span className="font-semibold text-gray-900">Croisement & départ</span>
                           <p className="text-gray-600 text-sm">Vérifier amont et aval avant de s'engager sur une piste</p>
                         </div>
                       </div>
-                      <div className="flex items-start gap-3">
+                      <div className="flex items-start gap-3 transform hover:translate-x-1 transition-all duration-200">
                         <div className="flex-shrink-0 w-8 h-8 bg-indigo-500 text-white rounded-full flex items-center justify-center font-bold text-sm">6</div>
                         <div>
                           <span className="font-semibold text-gray-900">Stationnement</span>
                           <p className="text-gray-600 text-sm">Éviter passages étroits/sans visibilité, libérer la piste rapidement après chute</p>
                         </div>
                       </div>
-                      <div className="flex items-start gap-3">
+                      <div className="flex items-start gap-3 transform hover:translate-x-1 transition-all duration-200">
                         <div className="flex-shrink-0 w-8 h-8 bg-purple-500 text-white rounded-full flex items-center justify-center font-bold text-sm">7</div>
                         <div>
                           <span className="font-semibold text-gray-900">Montée/descente à pied</span>
                           <p className="text-gray-600 text-sm">Utiliser le bord de la piste, veiller à ne pas être un danger pour autrui</p>
                         </div>
                       </div>
-                      <div className="flex items-start gap-3">
+                      <div className="flex items-start gap-3 transform hover:translate-x-1 transition-all duration-200">
                         <div className="flex-shrink-0 w-8 h-8 bg-pink-500 text-white rounded-full flex items-center justify-center font-bold text-sm">8</div>
                         <div>
                           <span className="font-semibold text-gray-900">Respect balisage & signalisation</span>
                           <p className="text-gray-600 text-sm">Tenir compte météo, état pistes/neige, respecter balisage et signalisation</p>
                         </div>
                       </div>
-                      <div className="flex items-start gap-3">
+                      <div className="flex items-start gap-3 transform hover:translate-x-1 transition-all duration-200">
                         <div className="flex-shrink-0 w-8 h-8 bg-red-600 text-white rounded-full flex items-center justify-center font-bold text-sm">9</div>
                         <div>
                           <span className="font-semibold text-gray-900">Assistance</span>
                           <p className="text-gray-600 text-sm">Prêter assistance en cas d'accident, donner l'alerte, se mettre à disposition des secours</p>
                         </div>
                       </div>
-                      <div className="flex items-start gap-3">
+                      <div className="flex items-start gap-3 transform hover:translate-x-1 transition-all duration-200">
                         <div className="flex-shrink-0 w-8 h-8 bg-orange-600 text-white rounded-full flex items-center justify-center font-bold text-sm">10</div>
                         <div>
                           <span className="font-semibold text-gray-900">Identification</span>
@@ -2403,7 +2405,7 @@ function App() {
                     </div>
                     <div className="mt-4 pt-4 border-t border-red-100">
                       <p className="text-gray-700 mb-2">⚠️ <strong>Conseil du moniteur :</strong></p>
-                      <div className="flex items-center gap-2">
+                      <div className="flex items-center gap-2 transform hover:translate-x-1 transition-all duration-200">
                         <ShieldAlert className="h-4 w-4 text-red-600" />
                         <span className="text-gray-700">Ces règles assurent la sécurité de tous sur les pistes. Respectez-les et profitez pleinement de votre ski !</span>
                       </div>
@@ -2415,17 +2417,17 @@ function App() {
 
             {/* Encart Le Lagon - Centre Aqua-Sportif */}
             <div className="mt-12">
-              <div className="relative bg-gradient-to-br from-cyan-600 via-blue-600 to-indigo-600 rounded-3xl shadow-2xl overflow-hidden border-4 border-white/20">
+              <div className="group relative bg-gradient-to-br from-cyan-600 via-blue-600 to-indigo-600 rounded-3xl shadow-2xl overflow-hidden border-4 border-white/20 hover:shadow-3xl transition-all duration-500 transform hover:-translate-y-2">
                 {/* Décoration de fond */}
                 <div className="absolute inset-0 opacity-10">
-                  <div className="absolute top-0 right-0 w-96 h-96 bg-white rounded-full blur-3xl"></div>
-                  <div className="absolute bottom-0 left-0 w-80 h-80 bg-white rounded-full blur-3xl"></div>
+                  <div className="absolute top-0 right-0 w-96 h-96 bg-white rounded-full blur-3xl group-hover:opacity-20 transition-opacity duration-300"></div>
+                  <div className="absolute bottom-0 left-0 w-80 h-80 bg-white rounded-full blur-3xl group-hover:opacity-20 transition-opacity duration-300"></div>
                 </div>
                 
                 <div className="relative z-10 p-8 md:p-12">
                   <div className="flex items-start gap-6 mb-8">
                     <div className="flex-shrink-0">
-                      <div className="flex items-center justify-center w-20 h-20 bg-white/20 backdrop-blur-sm rounded-2xl border-2 border-white/30">
+                      <div className="flex items-center justify-center w-20 h-20 bg-white/20 backdrop-blur-sm rounded-2xl border-2 border-white/30 transform group-hover:rotate-12 transition-all duration-300">
                         <span className="text-4xl">🏊</span>
                       </div>
                     </div>
@@ -2443,7 +2445,7 @@ function App() {
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                     {/* Horaires */}
-                    <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
+                    <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20 transform hover:scale-105 transition-all duration-200">
                       <h4 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
                         <span className="text-2xl">🕒</span>
                         Horaires (Saison hiver 2025-2026)
@@ -2452,19 +2454,19 @@ function App() {
                         <div className="bg-white/10 rounded-lg p-3">
                           <p className="font-semibold text-white mb-2">📅 Période : 22 novembre 2025 → 3 mai 2026</p>
                           <div className="space-y-2 text-sm">
-                            <div className="flex items-center gap-2">
+                            <div className="flex items-center gap-2 transform hover:translate-x-1 transition-all duration-200">
                               <span className="text-green-300">✓</span>
                               <span><strong>Ouvert tous les jours :</strong> 11h00 → 20h30</span>
                             </div>
-                            <div className="flex items-center gap-2">
+                            <div className="flex items-center gap-2 transform hover:translate-x-1 transition-all duration-200">
                               <span className="text-orange-300">⚠️</span>
                               <span><strong>Dernière entrée :</strong> 1 heure avant fermeture</span>
                             </div>
-                            <div className="flex items-center gap-2">
+                            <div className="flex items-center gap-2 transform hover:translate-x-1 transition-all duration-200">
                               <span className="text-orange-300">⚠️</span>
                               <span><strong>Évacuation bassins :</strong> 30 min avant fermeture</span>
                             </div>
-                            <div className="flex items-center gap-2">
+                            <div className="flex items-center gap-2 transform hover:translate-x-1 transition-all duration-200">
                               <span className="text-blue-300">💪</span>
                               <span><strong>Espace fitness :</strong> accessible dès 09h00</span>
                             </div>
@@ -2479,7 +2481,7 @@ function App() {
                     </div>
 
                     {/* Activités proposées */}
-                    <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
+                    <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20 transform hover:scale-105 transition-all duration-200">
                       <h4 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
                         <span className="text-2xl">🏊</span>
                         Activités proposées
@@ -2488,15 +2490,15 @@ function App() {
                         <div className="bg-white/10 rounded-lg p-3">
                           <p className="font-semibold text-white mb-2">1️⃣ Espace aquatique</p>
                           <div className="space-y-2 text-sm">
-                            <div className="flex items-center gap-2">
+                            <div className="flex items-center gap-2 transform hover:translate-x-1 transition-all duration-200">
                               <span className="text-blue-300">🏊</span>
                               <span><strong>Bassin sportif 25m</strong> : nage, entraînement, récupération</span>
                             </div>
-                            <div className="flex items-center gap-2">
+                            <div className="flex items-center gap-2 transform hover:translate-x-1 transition-all duration-200">
                               <span className="text-green-300">🎢</span>
                               <span><strong>Bassin ludique</strong> : toboggan 3 pistes, cascade, lits à bulles</span>
                             </div>
-                            <div className="flex items-center gap-2">
+                            <div className="flex items-center gap-2 transform hover:translate-x-1 transition-all duration-200">
                               <span className="text-yellow-300">👶</span>
                               <span><strong>Pataugeoire enfants</strong> : zone peu profonde sécurisée</span>
                             </div>
@@ -2505,11 +2507,11 @@ function App() {
                         <div className="bg-white/10 rounded-lg p-3">
                           <p className="font-semibold text-white mb-2">2️⃣ Espace bien-être</p>
                           <div className="space-y-2 text-sm">
-                            <div className="flex items-center gap-2">
+                            <div className="flex items-center gap-2 transform hover:translate-x-1 transition-all duration-200">
                               <span className="text-orange-300">🔥</span>
                               <span><strong>Sauna</strong> et <strong>Hammam</strong> (selon billet)</span>
                             </div>
-                            <div className="flex items-center gap-2">
+                            <div className="flex items-center gap-2 transform hover:translate-x-1 transition-all duration-200">
                               <span className="text-purple-300">💆</span>
                               <span><strong>Zones détente</strong> : relaxation musculaire après-ski</span>
                             </div>
@@ -2518,11 +2520,11 @@ function App() {
                         <div className="bg-white/10 rounded-lg p-3">
                           <p className="font-semibold text-white mb-2">3️⃣ Fitness & musculation</p>
                           <div className="space-y-2 text-sm">
-                            <div className="flex items-center gap-2">
+                            <div className="flex items-center gap-2 transform hover:translate-x-1 transition-all duration-200">
                               <span className="text-red-300">💪</span>
                               <span><strong>Salle cardio</strong> et renforcement musculaire</span>
                             </div>
-                            <div className="flex items-center gap-2">
+                            <div className="flex items-center gap-2 transform hover:translate-x-1 transition-all duration-200">
                               <span className="text-pink-300">🏃</span>
                               <span><strong>Cours collectifs</strong> : HIIT, Bike, Stretching, CAF</span>
                             </div>
@@ -2533,7 +2535,7 @@ function App() {
                   </div>
 
                   {/* Pourquoi les skieurs y vont */}
-                  <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20 mb-6">
+                  <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20 mb-6 transform hover:scale-105 transition-all duration-200">
                     <h4 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
                       <span className="text-2xl">🎿</span>
                       Pourquoi beaucoup de skieurs y vont ?
@@ -2542,19 +2544,19 @@ function App() {
                       <div>
                         <p className="font-semibold text-white mb-2">Cas typique à Tignes :</p>
                         <ul className="space-y-2 text-sm">
-                          <li className="flex items-start gap-2">
+                          <li className="flex items-start gap-2 transform hover:translate-x-1 transition-all duration-200">
                             <span className="text-green-300 mt-1">✓</span>
                             <span><strong>Récupération musculaire</strong> après ski intense</span>
                           </li>
-                          <li className="flex items-start gap-2">
+                          <li className="flex items-start gap-2 transform hover:translate-x-1 transition-all duration-200">
                             <span className="text-blue-300 mt-1">✓</span>
                             <span><strong>Travail cardio</strong> hors altitude (bénéfique)</span>
                           </li>
-                          <li className="flex items-start gap-2">
+                          <li className="flex items-start gap-2 transform hover:translate-x-1 transition-all duration-200">
                             <span className="text-yellow-300 mt-1">✓</span>
                             <span><strong>Alternative mauvais temps</strong> quand pistes fermées</span>
                           </li>
-                          <li className="flex items-start gap-2">
+                          <li className="flex items-start gap-2 transform hover:translate-x-1 transition-all duration-200">
                             <span className="text-purple-300 mt-1">✓</span>
                             <span><strong>Sortie famille</strong> après journée sur les pistes</span>
                           </li>
@@ -2562,7 +2564,7 @@ function App() {
                       </div>
                       <div>
                         <p className="font-semibold text-white mb-2">🔥 Le combo gagnant :</p>
-                        <div className="bg-white/20 rounded-lg p-3 text-center">
+                        <div className="bg-white/20 rounded-lg p-3 text-center transform hover:scale-105 transition-all duration-200">
                           <p className="text-lg font-bold text-yellow-300 mb-2">
                             Ski → Sauna → Bassin chaud
                           </p>
@@ -2576,13 +2578,13 @@ function App() {
                   </div>
 
                   {/* Conseils pratiques */}
-                  <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
+                  <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20 transform hover:scale-105 transition-all duration-200">
                     <h4 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
                       <span className="text-2xl">💡</span>
                       Conseils pratiques
                     </h4>
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-white/90">
-                      <div className="bg-white/10 rounded-lg p-3">
+                      <div className="bg-white/10 rounded-lg p-3 transform hover:translate-x-1 transition-all duration-200">
                         <div className="flex items-center gap-2 mb-2">
                           <span className="text-orange-300">⏰</span>
                           <span className="font-semibold text-white">Pic d'affluence</span>
@@ -2592,7 +2594,7 @@ function App() {
                           Éviter si possible pour plus de confort
                         </p>
                       </div>
-                      <div className="bg-white/10 rounded-lg p-3">
+                      <div className="bg-white/10 rounded-lg p-3 transform hover:translate-x-1 transition-all duration-200">
                         <div className="flex items-center gap-2 mb-2">
                           <span className="text-green-300">✨</span>
                           <span className="font-semibold text-white">Meilleur créneau</span>
@@ -2602,7 +2604,7 @@ function App() {
                           bassins disponibles, ambiance détendue
                         </p>
                       </div>
-                      <div className="bg-white/10 rounded-lg p-3">
+                      <div className="bg-white/10 rounded-lg p-3 transform hover:translate-x-1 transition-all duration-200">
                         <div className="flex items-center gap-2 mb-2">
                           <span className="text-blue-300">🎒</span>
                           <span className="font-semibold text-white">Équipement requis</span>
@@ -2622,7 +2624,7 @@ function App() {
                       href="https://www.tignes.net/activites/ete/lagon" 
                       target="_blank" 
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 px-6 py-3 bg-white/20 backdrop-blur-sm rounded-full text-white font-semibold border border-white/30 hover:bg-white/30 transition-all duration-300"
+                      className="inline-flex items-center gap-2 px-6 py-3 bg-white/20 backdrop-blur-sm rounded-full text-white font-semibold border border-white/30 hover:bg-white/30 transition-all duration-300 transform hover:scale-105"
                     >
                       <span className="text-lg">🏊</span>
                       <span>Voir le site officiel du Lagon</span>
@@ -2635,17 +2637,17 @@ function App() {
 
             {/* Encart Sports Complex Val-d'Isère */}
             <div className="mt-12">
-              <div className="relative bg-gradient-to-br from-emerald-600 via-teal-600 to-cyan-600 rounded-3xl shadow-2xl overflow-hidden border-4 border-white/20">
+              <div className="group relative bg-gradient-to-br from-emerald-600 via-teal-600 to-cyan-600 rounded-3xl shadow-2xl overflow-hidden border-4 border-white/20 hover:shadow-3xl transition-all duration-500 transform hover:-translate-y-2">
                 {/* Décoration de fond */}
                 <div className="absolute inset-0 opacity-10">
-                  <div className="absolute top-0 right-0 w-96 h-96 bg-white rounded-full blur-3xl"></div>
-                  <div className="absolute bottom-0 left-0 w-80 h-80 bg-white rounded-full blur-3xl"></div>
+                  <div className="absolute top-0 right-0 w-96 h-96 bg-white rounded-full blur-3xl group-hover:opacity-20 transition-opacity duration-300"></div>
+                  <div className="absolute bottom-0 left-0 w-80 h-80 bg-white rounded-full blur-3xl group-hover:opacity-20 transition-opacity duration-300"></div>
                 </div>
                 
                 <div className="relative z-10 p-8 md:p-12">
                   <div className="flex items-start gap-6 mb-8">
                     <div className="flex-shrink-0">
-                      <div className="flex items-center justify-center w-20 h-20 bg-white/20 backdrop-blur-sm rounded-2xl border-2 border-white/30">
+                      <div className="flex items-center justify-center w-20 h-20 bg-white/20 backdrop-blur-sm rounded-2xl border-2 border-white/30 transform group-hover:rotate-12 transition-all duration-300">
                         <span className="text-4xl">🏊‍♂️</span>
                       </div>
                     </div>
@@ -2663,7 +2665,7 @@ function App() {
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                     {/* Horaires */}
-                    <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
+                    <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20 transform hover:scale-105 transition-all duration-200">
                       <h4 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
                         <span className="text-2xl">🕒</span>
                         Horaires hiver (1er janvier → 3 mai 2026)
@@ -2672,31 +2674,31 @@ function App() {
                         <div className="bg-white/10 rounded-lg p-3">
                           <p className="font-semibold text-white mb-2">✔️ Ouverture quotidienne :</p>
                           <div className="space-y-2 text-sm">
-                            <div className="flex items-center gap-2">
+                            <div className="flex items-center gap-2 transform hover:translate-x-1 transition-all duration-200">
                               <span className="text-green-300">•</span>
                               <span><strong>Lundi :</strong> 10h00 → 21h00</span>
                             </div>
-                            <div className="flex items-center gap-2">
+                            <div className="flex items-center gap-2 transform hover:translate-x-1 transition-all duration-200">
                               <span className="text-green-300">•</span>
                               <span><strong>Mardi :</strong> 07h30 → 21h00</span>
                             </div>
-                            <div className="flex items-center gap-2">
+                            <div className="flex items-center gap-2 transform hover:translate-x-1 transition-all duration-200">
                               <span className="text-green-300">•</span>
                               <span><strong>Mercredi :</strong> 10h00 → 22h00 (nocturne)</span>
                             </div>
-                            <div className="flex items-center gap-2">
+                            <div className="flex items-center gap-2 transform hover:translate-x-1 transition-all duration-200">
                               <span className="text-green-300">•</span>
                               <span><strong>Jeudi :</strong> 10h00 → 21h00</span>
                             </div>
-                            <div className="flex items-center gap-2">
+                            <div className="flex items-center gap-2 transform hover:translate-x-1 transition-all duration-200">
                               <span className="text-green-300">•</span>
                               <span><strong>Vendredi :</strong> 10h00 → 21h00</span>
                             </div>
-                            <div className="flex items-center gap-2">
+                            <div className="flex items-center gap-2 transform hover:translate-x-1 transition-all duration-200">
                               <span className="text-green-300">•</span>
                               <span><strong>Samedi :</strong> 10h00 → 21h00</span>
                             </div>
-                            <div className="flex items-center gap-2">
+                            <div className="flex items-center gap-2 transform hover:translate-x-1 transition-all duration-200">
                               <span className="text-green-300">•</span>
                               <span><strong>Dimanche :</strong> 07h30 → 21h00</span>
                             </div>
@@ -2704,15 +2706,15 @@ function App() {
                         </div>
                         <div className="bg-white/10 rounded-lg p-3">
                           <div className="space-y-2 text-sm">
-                            <div className="flex items-center gap-2">
+                            <div className="flex items-center gap-2 transform hover:translate-x-1 transition-all duration-200">
                               <span className="text-orange-300">⚠️</span>
                               <span><strong>Évacuation de l'eau :</strong> 30 min avant fermeture</span>
                             </div>
-                            <div className="flex items-center gap-2">
+                            <div className="flex items-center gap-2 transform hover:translate-x-1 transition-all duration-200">
                               <span className="text-orange-300">⚠️</span>
                               <span><strong>Caisses ferment :</strong> 1h avant fermeture</span>
                             </div>
-                            <div className="flex items-center gap-2">
+                            <div className="flex items-center gap-2 transform hover:translate-x-1 transition-all duration-200">
                               <span className="text-blue-300">💪</span>
                               <span><strong>Bassin sportif & fitness :</strong> dès 7h30 (mar & dim)</span>
                             </div>
@@ -2722,7 +2724,7 @@ function App() {
                     </div>
 
                     {/* Activités proposées */}
-                    <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
+                    <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20 transform hover:scale-105 transition-all duration-200">
                       <h4 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
                         <span className="text-2xl">🏊‍♂️</span>
                         Activités proposées
@@ -2731,15 +2733,15 @@ function App() {
                         <div className="bg-white/10 rounded-lg p-3">
                           <p className="font-semibold text-white mb-2">🎽 Espace aquatique</p>
                           <div className="space-y-2 text-sm">
-                            <div className="flex items-center gap-2">
+                            <div className="flex items-center gap-2 transform hover:translate-x-1 transition-all duration-200">
                               <span className="text-blue-300">🏊</span>
                               <span><strong>Piscine sportive 25m</strong> : natation et entraînement</span>
                             </div>
-                            <div className="flex items-center gap-2">
+                            <div className="flex items-center gap-2 transform hover:translate-x-1 transition-all duration-200">
                               <span className="text-green-300">🌊</span>
                               <span><strong>Grand bassin ludique (~416m²)</strong> : jets massants, rivière à contre-courant</span>
                             </div>
-                            <div className="flex items-center gap-2">
+                            <div className="flex items-center gap-2 transform hover:translate-x-1 transition-all duration-200">
                               <span className="text-yellow-300">👶</span>
                               <span><strong>Pataugeoire & banquettes bulles</strong> : espace familial</span>
                             </div>
@@ -2748,11 +2750,11 @@ function App() {
                         <div className="bg-white/10 rounded-lg p-3">
                           <p className="font-semibold text-white mb-2">🧖‍♀️ Bien-être / relaxation</p>
                           <div className="space-y-2 text-sm">
-                            <div className="flex items-center gap-2">
+                            <div className="flex items-center gap-2 transform hover:translate-x-1 transition-all duration-200">
                               <span className="text-orange-300">🔥</span>
                               <span><strong>Sauna</strong> et <strong>Hammam</strong></span>
                             </div>
-                            <div className="flex items-center gap-2">
+                            <div className="flex items-center gap-2 transform hover:translate-x-1 transition-all duration-200">
                               <span className="text-purple-300">💆</span>
                               <span><strong>Jacuzzi et zones détente</strong> : récupération musculaire</span>
                             </div>
@@ -2761,15 +2763,15 @@ function App() {
                         <div className="bg-white/10 rounded-lg p-3">
                           <p className="font-semibold text-white mb-2">🏋️ Fitness & sport</p>
                           <div className="space-y-2 text-sm">
-                            <div className="flex items-center gap-2">
+                            <div className="flex items-center gap-2 transform hover:translate-x-1 transition-all duration-200">
                               <span className="text-red-300">💪</span>
                               <span><strong>Salle cardio & musculation</strong> : équipement complet</span>
                             </div>
-                            <div className="flex items-center gap-2">
+                            <div className="flex items-center gap-2 transform hover:translate-x-1 transition-all duration-200">
                               <span className="text-pink-300">🏃</span>
                               <span><strong>Cours collectifs</strong> : selon saison</span>
                             </div>
-                            <div className="flex items-center gap-2">
+                            <div className="flex items-center gap-2 transform hover:translate-x-1 transition-all duration-200">
                               <span className="text-cyan-300">🎾</span>
                               <span><strong>Sports indoor</strong> : badminton, squash, escalade...</span>
                             </div>
@@ -2780,7 +2782,7 @@ function App() {
                   </div>
 
                   {/* Pourquoi les skieurs y vont */}
-                  <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20 mb-6">
+                  <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20 mb-6 transform hover:scale-105 transition-all duration-200">
                     <h4 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
                       <span className="text-2xl">🎿</span>
                       Pourquoi y aller à Val d'Isère ?
@@ -2789,19 +2791,19 @@ function App() {
                       <div>
                         <p className="font-semibold text-white mb-2">Souvent choisi par les skieurs pour :</p>
                         <ul className="space-y-2 text-sm">
-                          <li className="flex items-start gap-2">
+                          <li className="flex items-start gap-2 transform hover:translate-x-1 transition-all duration-200">
                             <span className="text-green-300 mt-1">✓</span>
                             <span><strong>Détente musculaire</strong> après les pistes</span>
                           </li>
-                          <li className="flex items-start gap-2">
+                          <li className="flex items-start gap-2 transform hover:translate-x-1 transition-all duration-200">
                             <span className="text-blue-300 mt-1">✓</span>
                             <span><strong>Natation / récupération cardio</strong> hors altitude</span>
                           </li>
-                          <li className="flex items-start gap-2">
+                          <li className="flex items-start gap-2 transform hover:translate-x-1 transition-all duration-200">
                             <span className="text-yellow-300 mt-1">✓</span>
                             <span><strong>Activités indoor</strong> quand il fait mauvais</span>
                           </li>
-                          <li className="flex items-start gap-2">
+                          <li className="flex items-start gap-2 transform hover:translate-x-1 transition-all duration-200">
                             <span className="text-purple-300 mt-1">✓</span>
                             <span><strong>Espace bien-être complet</strong> (sauna, hammam...)</span>
                           </li>
@@ -2809,7 +2811,7 @@ function App() {
                       </div>
                       <div>
                         <p className="font-semibold text-white mb-2">🏆 L'équivalent du Lagon Tignes :</p>
-                        <div className="bg-white/20 rounded-lg p-3 text-center">
+                        <div className="bg-white/20 rounded-lg p-3 text-center transform hover:scale-105 transition-all duration-200">
                           <p className="text-lg font-bold text-yellow-300 mb-2">
                             Plus grand et plus complet !
                           </p>
@@ -2823,13 +2825,13 @@ function App() {
                   </div>
 
                   {/* Espace enfants */}
-                  <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
+                  <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20 transform hover:scale-105 transition-all duration-200">
                     <h4 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
                       <span className="text-2xl">👶</span>
                       Espace enfants et animations
                     </h4>
                     <div className="text-white/90">
-                      <div className="bg-white/10 rounded-lg p-3">
+                      <div className="bg-white/10 rounded-lg p-3 transform hover:translate-x-1 transition-all duration-200">
                         <p className="text-sm">
                           <strong>🎈 Espace enfants avec activités adaptées</strong> et animations ponctuelles pour toute la famille !
                         </p>
@@ -2843,7 +2845,7 @@ function App() {
                       href="https://www.valdisere.com/bien-etre/centre-aquasportif/" 
                       target="_blank" 
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 px-6 py-3 bg-white/20 backdrop-blur-sm rounded-full text-white font-semibold border border-white/30 hover:bg-white/30 transition-all duration-300"
+                      className="inline-flex items-center gap-2 px-6 py-3 bg-white/20 backdrop-blur-sm rounded-full text-white font-semibold border border-white/30 hover:bg-white/30 transition-all duration-300 transform hover:scale-105"
                     >
                       <span className="text-lg">🏊‍♂️</span>
                       <span>Voir le site officiel du Sports Complex</span>
