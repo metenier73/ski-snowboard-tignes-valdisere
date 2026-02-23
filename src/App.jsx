@@ -2700,66 +2700,65 @@ function App() {
                     </div>
                   </div>
 
-                  <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
+                  <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-6">
                     {/* Bars & Apéro animés */}
-                    <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
-                      <h4 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
-                        <span className="text-2xl">🍸</span>
-                        Bars & Apéro animés
+                    <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-4 md:p-6 border border-white/20">
+                      <h4 className="text-lg md:text-xl font-bold text-white mb-3 md:mb-4 flex items-center gap-2">
+                        <span className="text-xl md:text-2xl">🍸</span>
+                        <span className="text-sm md:text-base">Bars & Apéro animés</span>
                       </h4>
-                      <p className="text-white/80 text-sm mb-4">Bars parfaits pour l'après-ski ou soirée chill :</p>
-                      <div className="space-y-3">
-                        <div className="bg-white/10 rounded-lg p-3">
+                      <div className="space-y-2 md:space-y-3">
+                        <div className="bg-white/10 rounded-lg p-2 md:p-3">
                           <div className="flex items-start gap-2">
-                            <span className="text-yellow-300 mt-1">⭐</span>
-                            <div>
-                              <strong className="text-white">Le Studio</strong>
-                              <p className="text-white/80 text-xs">Bar très bien noté • Ambiance festive • DJ weekends</p>
+                            <span className="text-yellow-300 mt-0.5 md:mt-1 text-sm md:text-base">⭐</span>
+                            <div className="flex-1 min-w-0">
+                              <strong className="text-white text-sm md:text-base block">Le Studio</strong>
+                              <p className="text-white/80 text-xs md:text-xs mt-1">Bar très bien noté • Ambiance festive • DJ weekends</p>
                             </div>
                           </div>
                         </div>
-                        <div className="bg-white/10 rounded-lg p-3">
+                        <div className="bg-white/10 rounded-lg p-2 md:p-3">
                           <div className="flex items-start gap-2">
-                            <span className="text-green-300 mt-1">🍺</span>
-                            <div>
-                              <strong className="text-white">Inside bar</strong>
-                              <p className="text-white/80 text-xs">Ambiance conviviale • Bon choix de boissons • Après-ski animé</p>
+                            <span className="text-green-300 mt-0.5 md:mt-1 text-sm md:text-base">🍺</span>
+                            <div className="flex-1 min-w-0">
+                              <strong className="text-white text-sm md:text-base block">Inside bar</strong>
+                              <p className="text-white/80 text-xs md:text-xs mt-1">Ambiance conviviale • Bon choix de boissons • Après-ski animé</p>
                             </div>
                           </div>
                         </div>
-                        <div className="bg-white/10 rounded-lg p-3">
+                        <div className="bg-white/10 rounded-lg p-2 md:p-3">
                           <div className="flex items-start gap-2">
-                            <span className="text-blue-300 mt-1">🎯</span>
-                            <div>
-                              <strong className="text-white">Ranga's Bar</strong>
-                              <p className="text-white/80 text-xs">Happy hour • Sport à l'écran • Bonne vibe locale</p>
+                            <span className="text-blue-300 mt-0.5 md:mt-1 text-sm md:text-base">🎯</span>
+                            <div className="flex-1 min-w-0">
+                              <strong className="text-white text-sm md:text-base block">Ranga's Bar</strong>
+                              <p className="text-white/80 text-xs md:text-xs mt-1">Happy hour • Sport à l'écran • Bonne vibe locale</p>
                             </div>
                           </div>
                         </div>
-                        <div className="bg-white/10 rounded-lg p-3">
+                        <div className="bg-white/10 rounded-lg p-2 md:p-3">
                           <div className="flex items-start gap-2">
-                            <span className="text-purple-300 mt-1">🍹</span>
-                            <div>
-                              <strong className="text-white">Arobaze</strong>
-                              <p className="text-white/80 text-xs">Ambiance détendue • Cocktails • Cœur de Val Claret</p>
+                            <span className="text-purple-300 mt-0.5 md:mt-1 text-sm md:text-base">🍹</span>
+                            <div className="flex-1 min-w-0">
+                              <strong className="text-white text-sm md:text-base block">Arobaze</strong>
+                              <p className="text-white/80 text-xs md:text-xs mt-1">Ambiance détendue • Cocktails • Cœur de Val Claret</p>
                             </div>
                           </div>
                         </div>
-                        <div className="bg-white/10 rounded-lg p-3">
+                        <div className="bg-white/10 rounded-lg p-2 md:p-3">
                           <div className="flex items-start gap-2">
-                            <span className="text-pink-300 mt-1">🥃</span>
-                            <div>
-                              <strong className="text-white">Granite-bar</strong>
-                              <p className="text-white/80 text-xs">Cocktails • Cosy • Branché • Apéro populaire</p>
+                            <span className="text-pink-300 mt-0.5 md:mt-1 text-sm md:text-base">🥃</span>
+                            <div className="flex-1 min-w-0">
+                              <strong className="text-white text-sm md:text-base block">Granite-bar</strong>
+                              <p className="text-white/80 text-xs md:text-xs mt-1">Cocktails • Cosy • Branché • Apéro populaire</p>
                             </div>
                           </div>
                         </div>
-                        <div className="bg-white/10 rounded-lg p-3">
+                        <div className="bg-white/10 rounded-lg p-2 md:p-3">
                           <div className="flex items-start gap-2">
-                            <span className="text-amber-300 mt-1">🍷</span>
-                            <div>
-                              <strong className="text-white">Le Caveau</strong>
-                              <p className="text-white/80 text-xs">Petit bar sympa • Bonne sélection • Vins & bières</p>
+                            <span className="text-amber-300 mt-0.5 md:mt-1 text-sm md:text-base">🍷</span>
+                            <div className="flex-1 min-w-0">
+                              <strong className="text-white text-sm md:text-base block">Le Caveau</strong>
+                              <p className="text-white/80 text-xs md:text-xs mt-1">Petit bar sympa • Bonne sélection • Vins & bières</p>
                             </div>
                           </div>
                         </div>
@@ -2834,7 +2833,7 @@ function App() {
                     <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
                       <h4 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
                         <span className="text-2xl">🕺</span>
-        ou              Clubs / Soirée tardive
+                        Clubs / Soirée tardive
                       </h4>
                       <div className="space-y-3 mb-4">
                         <div className="bg-white/10 rounded-lg p-3">
