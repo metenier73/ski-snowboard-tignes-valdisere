@@ -2118,24 +2118,67 @@ function App() {
                     <Calendar className="h-6 w-6 text-white" />
                   </div>
                   <div>
-                    <h3 className="text-2xl font-bold text-gray-900 mb-1">Dates d'ouverture & fermeture</h3>
-                    <p className="text-gray-600">Saison hiver 2025-2026</p>
+                    <h3 className="text-2xl font-bold text-gray-900 mb-1">Tignes & Val d'Isère</h3>
+                    <p className="text-gray-600">Saison hiver 2025-2026 - Informations complètes</p>
                   </div>
                 </div>
                 <div className="space-y-4">
                   <div className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl p-4 transform hover:scale-105 transition-all duration-200">
-                    <div className="flex items-center gap-3 mb-2">
+                    <div className="flex items-center gap-3 mb-3">
                       <Mountain className="h-5 w-5 text-blue-600" />
-                      <span className="font-semibold text-gray-900">Tignes</span>
+                      <span className="font-semibold text-gray-900">🏔️ Tignes</span>
                     </div>
-                    <p className="text-gray-700">Fin novembre → début mai</p>
+                    <div className="space-y-2">
+                      <p className="text-gray-700"><strong>📅 Saison :</strong> Fin novembre → début mai</p>
+                      <p className="text-gray-700"><strong>🎿 Domaine :</strong> Espace Killy (300 km de pistes)</p>
+                      <p className="text-gray-700"><strong>⛰️ Altitude :</strong> 1550m - 3450m</p>
+                      <p className="text-gray-700"><strong>🏂 Particularités :</strong> Station moderne, haute altitude, glacier du Grand Motte</p>
+                      <p className="text-gray-700"><strong>🎯 Stations :</strong> Val Claret (1550m), Le Lac (2100m), Le Bouchet (1550m)</p>
+                    </div>
                   </div>
                   <div className="bg-gradient-to-r from-purple-50 to-pink-50 rounded-xl p-4 transform hover:scale-105 transition-all duration-200">
-                    <div className="flex items-center gap-3 mb-2">
+                    <div className="flex items-center gap-3 mb-3">
                       <Compass className="h-5 w-5 text-purple-600" />
-                      <span className="font-semibold text-gray-900">Val d'Isère</span>
+                      <span className="font-semibold text-gray-900">🏰️ Val d'Isère</span>
                     </div>
-                    <p className="text-gray-700">Début décembre → début mai</p>
+                    <div className="space-y-2">
+                      <p className="text-gray-700"><strong>📅 Saison :</strong> Début décembre → début mai</p>
+                      <p className="text-gray-700"><strong>🎿 Domaine :</strong> Espace Killy (300 km de pistes)</p>
+                      <p className="text-gray-700"><strong>⛰️ Altitude :</strong> 1850m - 3450m</p>
+                      <p className="text-gray-700"><strong>🏂 Particularités :</strong> Station historique, village authentique, Face de Bellevarde</p>
+                      <p className="text-gray-700"><strong>🎯 Accès :</strong> Col de l'Iseran (2770m) en été</p>
+                    </div>
+                  </div>
+                  <div className="bg-gradient-to-r from-green-50 to-emerald-50 rounded-xl p-4 transform hover:scale-105 transition-all duration-200">
+                    <div className="flex items-center gap-3 mb-3">
+                      <MapPin className="h-5 w-5 text-green-600" />
+                      <span className="font-semibold text-gray-900">🗺️ Espace Killy - Le plus beau domaine du monde</span>
+                    </div>
+                    <div className="space-y-2">
+                      <p className="text-gray-700"><strong>🎿 Pistes :</strong> 300 km total, 139 pistes (21 vertes, 66 bleues, 40 rouges, 12 noires)</p>
+                      <p className="text-gray-700"><strong>🚡 Remontées :</strong> 88 installations, 2 funiculaires</p>
+                      <p className="text-gray-700"><strong>🏔️ Altitude max :</strong> 3450m (Pointe du Mont Pourri)</p>
+                      <p className="text-gray-700"><strong>❄️ Glaciers :</strong> Grand Motte (Tignes) & Pisaillas (Val d'Isère)</p>
+                      <p className="text-gray-700"><strong>🎯 Forfait unique :</strong> Accès illimité aux deux stations</p>
+                    </div>
+                  </div>
+                  <div className="bg-gradient-to-r from-yellow-50 to-orange-50 rounded-xl p-4 transform hover:scale-105 transition-all duration-200">
+                    <div className="flex items-center gap-3 mb-3">
+                      <Clock className="h-5 w-5 text-orange-600" />
+                      <span className="font-semibold text-gray-900">⏰ Horaires typiques saison 2025-2026</span>
+                    </div>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                      <div>
+                        <p className="text-gray-700"><strong>🎂 Ouverture Tignes :</strong> 28/11/2025</p>
+                        <p className="text-gray-700"><strong>🎂 Ouverture Val d'Isère :</strong> 05/12/2025</p>
+                        <p className="text-gray-700"><strong>🎂 Fermeture estimée :</strong> 03/05/2026</p>
+                      </div>
+                      <div>
+                        <p className="text-gray-700"><strong>🌞 Haute saison :</strong> 20/12 - 06/01 & 08/02 - 08/03</p>
+                        <p className="text-gray-700"><strong>💰 Basse saison :</strong> Début décembre & mars-avril</p>
+                        <p className="text-gray-700"><strong>🎿 Printemps ski :</strong> Avril (neige de printemps)</p>
+                      </div>
+                    </div>
                   </div>
                   <div className="flex gap-4 pt-4">
                     <a href="https://www.tignes.net" target="_blank" rel="noreferrer" className="flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transform hover:scale-105 transition-all duration-200">
@@ -2143,8 +2186,12 @@ function App() {
                       <span>Site Tignes</span>
                     </a>
                     <a href="https://www.valdisere.com" target="_blank" rel="noreferrer" className="flex items-center gap-2 px-4 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transform hover:scale-105 transition-all duration-200">
-                      <span>🎿</span>
+                      <span>🏰️</span>
                       <span>Site Val d'Isère</span>
+                    </a>
+                    <a href="https://www.espacekilly.com" target="_blank" rel="noreferrer" className="flex items-center gap-2 px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transform hover:scale-105 transition-all duration-200">
+                      <span>🗺️</span>
+                      <span>Espace Killy</span>
                     </a>
                   </div>
                 </div>
@@ -2220,6 +2267,145 @@ function App() {
                     <a href="https://www.valdisere.com" target="_blank" rel="noreferrer" className="flex items-center gap-2 px-4 py-2 bg-teal-600 text-white rounded-lg hover:bg-teal-700 transition-all duration-200 transform hover:scale-105">
                       <span>🏔️</span>
                       <span>Office Val d'Isère</span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Les Arcs */}
+            <div className="group relative bg-white rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-3 overflow-hidden border border-gray-100">
+              <div className="absolute top-0 right-0 w-40 h-40 bg-gradient-to-br from-purple-100 to-indigo-100 rounded-full -mr-20 -mt-20 opacity-50 group-hover:opacity-70 transition-opacity duration-300"></div>
+              <div className="absolute bottom-0 left-0 w-32 h-32 bg-gradient-to-br from-indigo-100 to-purple-100 rounded-full -ml-16 -mb-16 opacity-30 group-hover:opacity-50 transition-opacity duration-300"></div>
+              <div className="p-8 relative z-10">
+                <div className="flex items-center mb-6">
+                  <div className="flex items-center justify-center w-12 h-12 bg-gradient-to-br from-purple-500 to-indigo-600 rounded-xl mr-4 transform group-hover:rotate-12 transition-all duration-300">
+                    <Mountain className="h-6 w-6 text-white" />
+                  </div>
+                  <div>
+                    <h3 className="text-2xl font-bold text-gray-900 mb-1">Les Arcs</h3>
+                    <p className="text-gray-600">Domaine skiable Paradiski - 425 km de pistes</p>
+                  </div>
+                </div>
+                <div className="space-y-4">
+                  <div className="bg-gradient-to-r from-purple-50 to-indigo-50 rounded-xl p-4 transform hover:scale-105 transition-all duration-200">
+                    <p className="text-gray-700 mb-3">Les 4 stations des Arcs :</p>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                      <div className="space-y-3">
+                        <div className="flex items-center gap-3 transform hover:translate-x-1 transition-all duration-200">
+                          <div className="w-2 h-2 bg-purple-500 rounded-full"></div>
+                          <div>
+                            <span className="font-semibold text-gray-900">Arc 1600</span>
+                            <p className="text-sm text-gray-600">Station familiale (1600m) • Accès facile</p>
+                          </div>
+                        </div>
+                        <div className="flex items-center gap-3 transform hover:translate-x-1 transition-all duration-200">
+                          <div className="w-2 h-2 bg-indigo-500 rounded-full"></div>
+                          <div>
+                            <span className="font-semibold text-gray-900">Arc 1800</span>
+                            <p className="text-sm text-gray-600">Station dynamique (1800m) • Animée</p>
+                          </div>
+                        </div>
+                      </div>
+                      <div className="space-y-3">
+                        <div className="flex items-center gap-3 transform hover:translate-x-1 transition-all duration-200">
+                          <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
+                          <div>
+                            <span className="font-semibold text-gray-900">Arc 1950</span>
+                            <p className="text-sm text-gray-600">Station chic (1950m) • Vue panoramique</p>
+                          </div>
+                        </div>
+                        <div className="flex items-center gap-3 transform hover:translate-x-1 transition-all duration-200">
+                          <div className="w-2 h-2 bg-cyan-500 rounded-full"></div>
+                          <div>
+                            <span className="font-semibold text-gray-900">Arc 2000</span>
+                            <p className="text-sm text-gray-600">Station moderne (2000m) • Architecture contemporaine</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="bg-gradient-to-r from-blue-50 to-cyan-50 rounded-xl p-4 transform hover:scale-105 transition-all duration-200">
+                    <p className="text-gray-700 mb-3">Caractéristiques du domaine Paradiski :</p>
+                    <div className="space-y-3">
+                      <div className="flex items-center gap-3 transform hover:translate-x-1 transition-all duration-200">
+                        <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
+                        <span className="text-gray-700"><strong>Domaine skiable :</strong> 425 km de pistes (Les Arcs + La Plagne)</span>
+                      </div>
+                      <div className="flex items-center gap-3 transform hover:translate-x-1 transition-all duration-200">
+                        <div className="w-2 h-2 bg-cyan-500 rounded-full"></div>
+                        <span className="text-gray-700"><strong>Altitude max :</strong> 3226m (Aiguille Rouge)</span>
+                      </div>
+                      <div className="flex items-center gap-3 transform hover:translate-x-1 transition-all duration-200">
+                        <div className="w-2 h-2 bg-teal-500 rounded-full"></div>
+                        <span className="text-gray-700"><strong>Saison :</strong> Décembre à avril</span>
+                      </div>
+                      <div className="flex items-center gap-3 transform hover:translate-x-1 transition-all duration-200">
+                        <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+                        <span className="text-gray-700"><strong>Remontées mécaniques :</strong> 130 installations, 2 funiculaires</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="bg-gradient-to-r from-green-50 to-emerald-50 rounded-xl p-4 transform hover:scale-105 transition-all duration-200">
+                    <p className="text-gray-700 mb-3">Points forts des Arcs :</p>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                      <div className="space-y-3">
+                        <div className="flex items-center gap-3 transform hover:translate-x-1 transition-all duration-200">
+                          <span className="text-lg">🏔️</span>
+                          <div>
+                            <span className="font-semibold text-gray-900">Architecture moderne</span>
+                            <p className="text-sm text-gray-600">Stations intégrées, ski-in/ski-out</p>
+                          </div>
+                        </div>
+                        <div className="flex items-center gap-3 transform hover:translate-x-1 transition-all duration-200">
+                          <span className="text-lg">🎿</span>
+                          <div>
+                            <span className="font-semibold text-gray-900">Domaine Paradiski</span>
+                            <p className="text-sm text-gray-600">Liaison avec La Plagne via Vanoise Express</p>
+                          </div>
+                        </div>
+                      </div>
+                      <div className="space-y-3">
+                        <div className="flex items-center gap-3 transform hover:translate-x-1 transition-all duration-200">
+                          <span className="text-lg">🎯</span>
+                          <div>
+                            <span className="font-semibold text-gray-900">Variété de pistes</span>
+                            <p className="text-sm text-gray-600">234 pistes, tous niveaux</p>
+                          </div>
+                        </div>
+                        <div className="flex items-center gap-3 transform hover:translate-x-1 transition-all duration-200">
+                          <span className="text-lg">⚡</span>
+                          <div>
+                            <span className="font-semibold text-gray-900">Accessibilité</span>
+                            <p className="text-sm text-gray-600">TGV direct à Bourg-Saint-Maurice</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="bg-gradient-to-r from-yellow-50 to-orange-50 rounded-xl p-4 transform hover:scale-105 transition-all duration-200">
+                    <p className="text-gray-700 mb-3">Informations pratiques saison 2025-2026 :</p>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                      <div>
+                        <p className="text-gray-700"><strong>🎂 Ouverture :</strong> 13/12/2025</p>
+                        <p className="text-gray-700"><strong>🎂 Fermeture estimée :</strong> 25/04/2026</p>
+                        <p className="text-gray-700"><strong>🎿 Forfait :</strong> Paradiski (Les Arcs + La Plagne)</p>
+                      </div>
+                      <div>
+                        <p className="text-gray-700"><strong>🌞 Haute saison :</strong> Vacances de février</p>
+                        <p className="text-gray-700"><strong>💰 Basse saison :</strong> Décembre & mars-avril</p>
+                        <p className="text-gray-700"><strong>🏂 Printemps ski :</strong> Avril (neige garantie)</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="flex gap-4 pt-4">
+                    <a href="https://www.lesarcs.com" target="_blank" rel="noreferrer" className="flex items-center gap-2 px-4 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-all duration-200 transform hover:scale-105">
+                      <span>⛷️</span>
+                      <span>Site Les Arcs</span>
+                    </a>
+                    <a href="https://www.paradiski.com" target="_blank" rel="noreferrer" className="flex items-center gap-2 px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-all duration-200 transform hover:scale-105">
+                      <span>🗺️</span>
+                      <span>Paradiski</span>
                     </a>
                   </div>
                 </div>
