@@ -5392,12 +5392,12 @@ function App() {
                     </div>
                     <div className="flex-1">
                       <h3 className="text-3xl md:text-4xl font-bold text-white mb-3">
-                        📍 Le Lagon Tignes — Centre Aqua-Sportif & Bien-être 🏊‍♂️
+                        📍 {currentLang === 'fr' ? 'Le Lagon Tignes — Centre Aqua-Sportif & Bien-être' : 'Le Lagon Tignes — Aquatic Sports & Wellness Center'} 🏊‍♂️
                       </h3>
                       <p className="text-xl text-white/90 mb-4">
-                        Le centre aquatique complet de Tignes Le Lac : bien-être, fitness et récupération après-ski !
+                        {currentLang === 'fr' ? 'Le centre aquatique complet de Tignes Le Lac : bien-être, fitness et récupération après-ski !' : 'The complete aquatic center in Tignes Le Lac: wellness, fitness, and après-ski recovery!'}
                         <br />
-                        <span className="text-yellow-300 font-semibold">*(Face à la Maison de Tignes - accessible à tous)*</span>
+                        <span className="text-yellow-300 font-semibold">*({currentLang === 'fr' ? 'Face à la Maison de Tignes - accessible à tous' : 'Opposite the Maison de Tignes - accessible to all'})*</span>
                       </p>
                     </div>
                   </div>
@@ -5407,33 +5407,33 @@ function App() {
                     <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20 transform hover:scale-105 transition-all duration-200">
                       <h4 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
                         <span className="text-2xl">🕒</span>
-                        Horaires (Saison hiver 2025-2026)
+                        {currentLang === 'fr' ? 'Horaires (Saison hiver 2025-2026)' : 'Opening Hours (Winter Season 2025-2026)'}
                       </h4>
                       <div className="space-y-3 text-white/90">
                         <div className="bg-white/10 rounded-lg p-3">
-                          <p className="font-semibold text-white mb-2">📅 Période : 22 novembre 2025 → 3 mai 2026</p>
+                          <p className="font-semibold text-white mb-2">📅 {currentLang === 'fr' ? 'Période : 22 novembre 2025 → 3 mai 2026' : 'Dates: November 22, 2025 → May 3, 2026'}</p>
                           <div className="space-y-2 text-sm">
                             <div className="flex items-center gap-2 transform hover:translate-x-1 transition-all duration-200">
                               <span className="text-green-300">✓</span>
-                              <span><strong>Ouvert tous les jours :</strong> 11h00 → 20h30</span>
+                              <span><strong>{currentLang === 'fr' ? 'Ouvert tous les jours :' : 'Open daily:'}</strong> {currentLang === 'fr' ? '11h00 → 20h30' : '11:00 AM → 8:30 PM'}</span>
                             </div>
                             <div className="flex items-center gap-2 transform hover:translate-x-1 transition-all duration-200">
                               <span className="text-orange-300">⚠️</span>
-                              <span><strong>Dernière entrée :</strong> 1 heure avant fermeture</span>
+                              <span><strong>{currentLang === 'fr' ? 'Dernière entrée :' : 'Last entry:'}</strong> {currentLang === 'fr' ? '1 heure avant fermeture' : '1 hour before closing'}</span>
                             </div>
                             <div className="flex items-center gap-2 transform hover:translate-x-1 transition-all duration-200">
                               <span className="text-orange-300">⚠️</span>
-                              <span><strong>Évacuation bassins :</strong> 30 min avant fermeture</span>
+                              <span><strong>{currentLang === 'fr' ? 'Évacuation bassins :' : 'Pools cleared:'}</strong> {currentLang === 'fr' ? '30 min avant fermeture' : '30 minutes before closing'}</span>
                             </div>
                             <div className="flex items-center gap-2 transform hover:translate-x-1 transition-all duration-200">
                               <span className="text-blue-300">💪</span>
-                              <span><strong>Espace fitness :</strong> accessible dès 09h00</span>
+                              <span><strong>{currentLang === 'fr' ? 'Espace fitness :' : 'Fitness area:'}</strong> {currentLang === 'fr' ? 'accessible dès 09h00' : 'accessible from 9:00 AM'}</span>
                             </div>
                           </div>
                         </div>
                         <div className="bg-white/10 rounded-lg p-3">
                           <p className="text-white/80 text-sm">
-                            <strong>📍 Situé à Tignes Le Lac, face à la Maison de Tignes</strong>
+                            <strong>📍 {currentLang === 'fr' ? 'Situé à Tignes Le Lac, face à la Maison de Tignes' : 'Located in Tignes Le Lac, opposite the Maison de Tignes'}</strong>
                           </p>
                         </div>
                       </div>
@@ -5443,49 +5443,49 @@ function App() {
                     <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20 transform hover:scale-105 transition-all duration-200">
                       <h4 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
                         <span className="text-2xl">🏊</span>
-                        Activités proposées
+                        {currentLang === 'fr' ? 'Activités proposées' : 'Activities offered'}
                       </h4>
                       <div className="space-y-3 text-white/90">
                         <div className="bg-white/10 rounded-lg p-3">
-                          <p className="font-semibold text-white mb-2">1️⃣ Espace aquatique</p>
+                          <p className="font-semibold text-white mb-2">1️⃣ {currentLang === 'fr' ? 'Espace aquatique' : 'Aquatic area'}</p>
                           <div className="space-y-2 text-sm">
                             <div className="flex items-center gap-2 transform hover:translate-x-1 transition-all duration-200">
                               <span className="text-blue-300">🏊</span>
-                              <span><strong>Bassin sportif 25m</strong> : nage, entraînement, récupération</span>
+                              <span><strong>{currentLang === 'fr' ? 'Bassin sportif 25m' : '25m lap pool'}</strong> : {currentLang === 'fr' ? 'nage, entraînement, récupération' : 'swimming, training, relaxation'}</span>
                             </div>
                             <div className="flex items-center gap-2 transform hover:translate-x-1 transition-all duration-200">
                               <span className="text-green-300">🎢</span>
-                              <span><strong>Bassin ludique</strong> : toboggan 3 pistes, cascade, lits à bulles</span>
+                              <span><strong>{currentLang === 'fr' ? 'Bassin ludique' : 'Leisure pool'}</strong> : {currentLang === 'fr' ? 'toboggan 3 pistes, cascade, lits à bulles' : '3-lane water slide, waterfall, bubble beds'}</span>
                             </div>
                             <div className="flex items-center gap-2 transform hover:translate-x-1 transition-all duration-200">
                               <span className="text-yellow-300">👶</span>
-                              <span><strong>Pataugeoire enfants</strong> : zone peu profonde sécurisée</span>
+                              <span><strong>{currentLang === 'fr' ? 'Pataugeoire enfants' : 'Children\'s paddling pool'}</strong> : {currentLang === 'fr' ? 'zone peu profonde sécurisée' : 'shallow area secure pool'}</span>
                             </div>
                           </div>
                         </div>
                         <div className="bg-white/10 rounded-lg p-3">
-                          <p className="font-semibold text-white mb-2">2️⃣ Espace bien-être</p>
+                          <p className="font-semibold text-white mb-2">2️⃣ {currentLang === 'fr' ? 'Espace bien-être' : 'Wellness Area'}</p>
                           <div className="space-y-2 text-sm">
                             <div className="flex items-center gap-2 transform hover:translate-x-1 transition-all duration-200">
                               <span className="text-orange-300">🔥</span>
-                              <span><strong>Sauna</strong> et <strong>Hammam</strong> (selon billet)</span>
+                              <span><strong>{currentLang === 'fr' ? 'Sauna' : 'Sauna'}</strong> et <strong>{currentLang === 'fr' ? 'Hammam' : 'Hammam'}</strong> ({currentLang === 'fr' ? 'selon billet' : 'depending on ticket'})</span>
                             </div>
                             <div className="flex items-center gap-2 transform hover:translate-x-1 transition-all duration-200">
                               <span className="text-purple-300">💆</span>
-                              <span><strong>Zones détente</strong> : relaxation musculaire après-ski</span>
+                              <span><strong>{currentLang === 'fr' ? 'Zones détente' : 'Relaxation areas'}</strong> : {currentLang === 'fr' ? 'relaxation musculaire après-ski' : 'muscle relaxation after skiing'}</span>
                             </div>
                           </div>
                         </div>
                         <div className="bg-white/10 rounded-lg p-3">
-                          <p className="font-semibold text-white mb-2">3️⃣ Fitness & musculation</p>
+                          <p className="font-semibold text-white mb-2">3️⃣ {currentLang === 'fr' ? 'Fitness & musculation' : 'Fitness & Weight Training'}</p>
                           <div className="space-y-2 text-sm">
                             <div className="flex items-center gap-2 transform hover:translate-x-1 transition-all duration-200">
                               <span className="text-red-300">💪</span>
-                              <span><strong>Salle cardio</strong> et renforcement musculaire</span>
+                              <span><strong>{currentLang === 'fr' ? 'Salle cardio' : 'Cardio and strength training room'}</strong> {currentLang === 'fr' ? 'et renforcement musculaire' : ''}</span>
                             </div>
                             <div className="flex items-center gap-2 transform hover:translate-x-1 transition-all duration-200">
                               <span className="text-pink-300">🏃</span>
-                              <span><strong>Cours collectifs</strong> : HIIT, Bike, Stretching, CAF</span>
+                              <span><strong>{currentLang === 'fr' ? 'Cours collectifs' : 'Group classes'}</strong> : {currentLang === 'fr' ? 'HIIT, Bike, Stretching, CAF' : 'HIIT, Cycling, Stretching, Core & Abs'}</span>
                             </div>
                           </div>
                         </div>
@@ -5497,39 +5497,39 @@ function App() {
                   <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20 mb-6 transform hover:scale-105 transition-all duration-200">
                     <h4 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
                       <span className="text-2xl">🎿</span>
-                      Pourquoi beaucoup de skieurs y vont ?
+{currentLang === 'fr' ? 'Pourquoi beaucoup de skieurs y vont ?' : 'Why do so many skiers go here?'}
                     </h4>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-white/90">
                       <div>
-                        <p className="font-semibold text-white mb-2">Cas typique à Tignes :</p>
+<p className="font-semibold text-white mb-2">{currentLang === 'fr' ? 'Cas typique à Tignes :' : 'Typical case in Tignes:'}</p>
                         <ul className="space-y-2 text-sm">
                           <li className="flex items-start gap-2 transform hover:translate-x-1 transition-all duration-200">
                             <span className="text-green-300 mt-1">✓</span>
-                            <span><strong>Récupération musculaire</strong> après ski intense</span>
+<span><strong>{currentLang === 'fr' ? 'Récupération musculaire' : 'Muscle recovery'}</strong> {currentLang === 'fr' ? 'après ski intense' : 'after intense skiing'}</span>
                           </li>
                           <li className="flex items-start gap-2 transform hover:translate-x-1 transition-all duration-200">
                             <span className="text-blue-300 mt-1">✓</span>
-                            <span><strong>Travail cardio</strong> hors altitude (bénéfique)</span>
+<span><strong>{currentLang === 'fr' ? 'Travail cardio' : 'Cardio workout'}</strong> {currentLang === 'fr' ? 'hors altitude (bénéfique)' : 'at lower altitudes (beneficial)'}</span>
                           </li>
                           <li className="flex items-start gap-2 transform hover:translate-x-1 transition-all duration-200">
                             <span className="text-yellow-300 mt-1">✓</span>
-                            <span><strong>Alternative mauvais temps</strong> quand pistes fermées</span>
+<span><strong>{currentLang === 'fr' ? 'Alternative mauvais temps' : 'Alternative for bad weather'}</strong> {currentLang === 'fr' ? 'quand pistes fermées' : 'when the slopes are closed'}</span>
                           </li>
                           <li className="flex items-start gap-2 transform hover:translate-x-1 transition-all duration-200">
                             <span className="text-purple-300 mt-1">✓</span>
-                            <span><strong>Sortie famille</strong> après journée sur les pistes</span>
+<span><strong>{currentLang === 'fr' ? 'Sortie famille' : 'Family outing'}</strong> {currentLang === 'fr' ? 'après journée sur les pistes' : 'after a day on the slopes'}</span>
                           </li>
                         </ul>
                       </div>
                       <div>
-                        <p className="font-semibold text-white mb-2">🔥 Le combo gagnant :</p>
+<p className="font-semibold text-white mb-2">🔥 {currentLang === 'fr' ? 'Le combo gagnant :' : 'The winning combination:'}</p>
                         <div className="bg-white/20 rounded-lg p-3 text-center transform hover:scale-105 transition-all duration-200">
-                          <p className="text-lg font-bold text-yellow-300 mb-2">
-                            Ski → Sauna → Bassin chaud
+<p className="text-lg font-bold text-yellow-300 mb-2">
+                            {currentLang === 'fr' ? 'Ski → Sauna → Bassin chaud' : 'Skiing → Sauna → Hot tub'}
                           </p>
-                          <p className="text-white/80 text-sm">
-                            Presque un protocole officieux de survie alpine !<br/>
-                            Récupération, décontraction et bien-être garanti.
+<p className="text-white/80 text-sm">
+                            {currentLang === 'fr' ? 'Presque un protocole officieux de survie alpine !' : 'Almost an unofficial alpine survival protocol!'}<br/>
+                            {currentLang === 'fr' ? 'Récupération, décontraction et bien-être garanti.' : 'Recovery, relaxation, and well-being guaranteed.'}
                           </p>
                         </div>
                       </div>
@@ -5540,38 +5540,38 @@ function App() {
                   <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20 transform hover:scale-105 transition-all duration-200">
                     <h4 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
                       <span className="text-2xl">💡</span>
-                      Conseils pratiques
+{currentLang === 'fr' ? 'Conseils pratiques' : 'Practical Tips'}
                     </h4>
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-white/90">
                       <div className="bg-white/10 rounded-lg p-3 transform hover:translate-x-1 transition-all duration-200">
                         <div className="flex items-center gap-2 mb-2">
                           <span className="text-orange-300">⏰</span>
-                          <span className="font-semibold text-white">Pic d'affluence</span>
+<span className="font-semibold text-white">{currentLang === 'fr' ? 'Pic d\'affluence' : 'Peak Hours'}</span>
                         </div>
                         <p className="text-sm text-white/80">
-                          <strong>16h30–18h30</strong> (retour des pistes)<br/>
-                          Éviter si possible pour plus de confort
+<strong>{currentLang === 'fr' ? '16h30–18h30' : '4:30 PM–6:30 PM'}</strong> ({currentLang === 'fr' ? 'retour des pistes' : 'when skiers return'})<br/>
+                          {currentLang === 'fr' ? 'Éviter si possible pour plus de confort' : 'Avoid if possible for a more comfortable experience'}
                         </p>
                       </div>
                       <div className="bg-white/10 rounded-lg p-3 transform hover:translate-x-1 transition-all duration-200">
                         <div className="flex items-center gap-2 mb-2">
                           <span className="text-green-300">✨</span>
-                          <span className="font-semibold text-white">Meilleur créneau</span>
+<span className="font-semibold text-white">{currentLang === 'fr' ? 'Meilleur créneau' : 'Best Time'}</span>
                         </div>
                         <p className="text-sm text-white/80">
-                          <strong>11h–14h</strong> : plus calme,<br/>
-                          bassins disponibles, ambiance détendue
+<strong>{currentLang === 'fr' ? '11h–14h' : '11 AM–2 PM'}</strong> : {currentLang === 'fr' ? 'plus calme,' : 'quieter,'}<br/>
+                          {currentLang === 'fr' ? 'bassins disponibles, ambiance détendue' : 'pools available, relaxed atmosphere'}
                         </p>
                       </div>
                       <div className="bg-white/10 rounded-lg p-3 transform hover:translate-x-1 transition-all duration-200">
                         <div className="flex items-center gap-2 mb-2">
                           <span className="text-blue-300">🎒</span>
-                          <span className="font-semibold text-white">Équipement requis</span>
+<span className="font-semibold text-white">{currentLang === 'fr' ? 'Équipement requis' : 'Required Equipment'}</span>
                         </div>
                         <p className="text-sm text-white/80">
-                          <strong>Bonnet + claquettes</strong> :<br/>
-                          obligatoires selon périodes<br/>
-                          (prévoir serviette aussi)
+<strong>{currentLang === 'fr' ? 'Bonnet + claquettes' : 'Swim cap and flip-flops'}</strong> :<br/>
+                          {currentLang === 'fr' ? 'obligatoires selon périodes' : 'required depending on the season'}<br/>
+                          ({currentLang === 'fr' ? 'prévoir serviette aussi' : 'bring a towel too'})
                         </p>
                       </div>
                     </div>
@@ -5586,7 +5586,7 @@ function App() {
                       className="inline-flex items-center gap-2 px-6 py-3 bg-white/20 backdrop-blur-sm rounded-full text-white font-semibold border border-white/30 hover:bg-white/30 transition-all duration-300 transform hover:scale-105"
                     >
                       <span className="text-lg">🏊</span>
-                      <span>Voir le site officiel du Lagon</span>
+                      <span>{currentLang === 'fr' ? 'Voir le site officiel du Lagon' : 'See the official Lagoon website'}</span>
                       <span className="text-sm">→</span>
                     </a>
                   </div>
