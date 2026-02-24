@@ -4312,7 +4312,7 @@ function App() {
                       <Mountain className="h-8 w-8 text-white" />
                     </div>
                     <h4 className="text-xl font-bold text-gray-900 mb-2">Tignes</h4>
-                    <p className="text-gray-600 mb-4">Modern resort, high altitude, glacier</p>
+                    <p className="text-gray-600 mb-4">Station moderne, haute altitude, glacier</p>
                     <div className="space-y-2 text-sm text-gray-600">
                       <p>🎿 Val Claret, Le Lac, Le Bouchet</p>
                       <p>🏔️ Altitude: 1550m - 3450m</p>
@@ -4331,7 +4331,7 @@ function App() {
                       <Compass className="h-8 w-8 text-white" />
                     </div>
                     <h4 className="text-xl font-bold text-gray-900 mb-2">Val d'Isère</h4>
-                    <p className="text-gray-600 mb-4">Historic resort, authentic village</p>
+                    <p className="text-gray-600 mb-4">Station historique, village authentique</p>
                     <div className="space-y-2 text-sm text-gray-600">
                       <p>🎿 Traditional village</p>
                       <p>🏔️ Altitude: 1850m - 3450m</p>
@@ -4350,7 +4350,7 @@ function App() {
                       <MapPin className="h-8 w-8 text-white" />
                     </div>
                     <h4 className="text-xl font-bold text-gray-900 mb-2">Domaine Espace Killy</h4>
-                    <p className="text-gray-600 mb-4">Le plus beau domaine du monde</p>
+                    <p className="text-gray-600 mb-4">The most beautiful ski area in the world</p>
                     <div className="space-y-2 text-sm text-gray-600">
                       <p>🎿 300 km de pistes</p>
                       <p>🏔️ Altitude: 1550m - 3450m</p>
