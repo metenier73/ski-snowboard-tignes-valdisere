@@ -4430,9 +4430,9 @@ function App() {
 
           <div id="expert-ski" className="mb-16">
             <div className="text-center mb-12">
-              <h3 className="text-3xl font-bold text-gray-900 mb-4">🎿 Expert Ski</h3>
+              <h3 className="text-3xl font-bold text-gray-900 mb-4">🎿 {currentLang === 'fr' ? 'Expert Ski' : 'Expert Skiing'}</h3>
               <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-                Techniques avancées et conseils d'experts pour progresser
+                {currentLang === 'fr' ? 'Techniques avancées et conseils d\'experts pour progresser' : 'Advanced techniques and expert tips to improve your skiing'}
               </p>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -4440,15 +4440,15 @@ function App() {
                 <CardHeader>
                   <CardTitle className="text-2xl flex items-center gap-2">
                     <Target className="h-6 w-6 text-indigo-600" />
-                    Technique du Carving Parfait
+                    {currentLang === 'fr' ? 'Technique du Carving Parfait' : 'Perfect Carving Technique'}
                   </CardTitle>
-                  <CardDescription>Maîtrisez les virages coupés comme un champion</CardDescription>
+                  <CardDescription>{currentLang === 'fr' ? 'Maîtrisez les virages coupés comme un champion' : 'Master carved turns like a champion'}</CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-gray-600 mb-4">Apprenez les secrets du carving moderne : positionnement, angulation et timing...</p>
+                  <p className="text-gray-600 mb-4">{currentLang === 'fr' ? 'Apprenez les secrets du carving moderne : positionnement, angulation et timing...' : 'Learn the secrets of modern carving: positioning, angle, and timing...'}</p>
                   <div className="flex gap-2 mb-4">
-                    <span className="px-2 py-1 bg-indigo-100 text-indigo-700 rounded text-xs">Avancé</span>
-                    <span className="px-2 py-1 bg-green-100 text-green-700 rounded text-xs">Pistes noires</span>
+                    <span className="px-2 py-1 bg-indigo-100 text-indigo-700 rounded text-xs">{currentLang === 'fr' ? 'Avancé' : 'Advanced'}</span>
+                    <span className="px-2 py-1 bg-green-100 text-green-700 rounded text-xs">{currentLang === 'fr' ? 'Pistes noires' : 'Black Runs'}</span>
                   </div>
                   <Button 
                     onClick={() => {
@@ -4456,7 +4456,7 @@ function App() {
                     }}
                     className="group-hover:scale-105 transition-transform duration-300 bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700"
                   >
-                    En savoir plus
+                    {currentLang === 'fr' ? 'En savoir plus' : 'Learn more'}
                   </Button>
                 </CardContent>
               </Card>
@@ -4465,15 +4465,15 @@ function App() {
                 <CardHeader>
                   <CardTitle className="text-2xl flex items-center gap-2">
                     <Shield className="h-6 w-6 text-green-600" />
-                    Sécurité sur les Pistes
+                    {currentLang === 'fr' ? 'Sécurité sur les Pistes' : 'Ski Safety'}
                   </CardTitle>
-                  <CardDescription>Les règles d'or pour skier en toute sécurité</CardDescription>
+                  <CardDescription>{currentLang === 'fr' ? 'Les règles d\'or pour skier en toute sécurité' : 'The golden rules for safe skiing'}</CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-gray-600 mb-4">10 règles essentielles, gestion des collisions et conduite responsable...</p>
+                  <p className="text-gray-600 mb-4">{currentLang === 'fr' ? '10 règles essentielles, gestion des collisions et conduite responsable...' : '10 essential rules, collision avoidance, and responsible skiing...'}</p>
                   <div className="flex gap-2 mb-4">
-                    <span className="px-2 py-1 bg-green-100 text-green-700 rounded text-xs">Tous niveaux</span>
-                    <span className="px-2 py-1 bg-blue-100 text-blue-700 rounded text-xs">Indispensable</span>
+                    <span className="px-2 py-1 bg-green-100 text-green-700 rounded text-xs">{currentLang === 'fr' ? 'Tous niveaux' : 'All Levels'}</span>
+                    <span className="px-2 py-1 bg-blue-100 text-blue-700 rounded text-xs">{currentLang === 'fr' ? 'Indispensable' : 'Essential'}</span>
                   </div>
                   <Button 
                     onClick={() => {
@@ -4481,7 +4481,7 @@ function App() {
                     }}
                     className="group-hover:scale-105 transition-transform duration-300 bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700"
                   >
-                    En savoir plus
+                    {currentLang === 'fr' ? 'En savoir plus' : 'Learn more'}
                   </Button>
                 </CardContent>
               </Card>
