@@ -5315,36 +5315,36 @@ function App() {
                       <div className="flex items-start gap-3 transform hover:translate-x-1 transition-all duration-200">
                         <div className="flex-shrink-0 w-8 h-8 bg-green-500 text-white rounded-full flex items-center justify-center font-bold text-sm">4</div>
                         <div>
-                          <span className="font-semibold text-gray-900">Dépassement</span>
-                          <p className="text-gray-600 text-sm">Dépasser largement par l'amont/aval, droite/gauche, en anticipant les évolutions</p>
+                          <span className="font-semibold text-gray-900">{currentLang === 'fr' ? 'Dépassement' : 'Overtaking'}</span>
+                          <p className="text-gray-600 text-sm">{currentLang === 'fr' ? 'Dépasser largement par l\'amont/aval, droite/gauche, en anticipant les évolutions' : 'Overtake well uphill/downhill, right/left, anticipating changes in direction.'}</p>
                         </div>
                       </div>
                       <div className="flex items-start gap-3 transform hover:translate-x-1 transition-all duration-200">
                         <div className="flex-shrink-0 w-8 h-8 bg-blue-500 text-white rounded-full flex items-center justify-center font-bold text-sm">5</div>
                         <div>
-                          <span className="font-semibold text-gray-900">Croisement & départ</span>
-                          <p className="text-gray-600 text-sm">Vérifier amont et aval avant de s'engager sur une piste</p>
+                          <span className="font-semibold text-gray-900">{currentLang === 'fr' ? 'Croisement & départ' : 'Crossing and Starting Out'}</span>
+                          <p className="text-gray-600 text-sm">{currentLang === 'fr' ? 'Vérifier amont et aval avant de s\'engager sur une piste' : 'Check uphill and downhill before entering a slope.'}</p>
                         </div>
                       </div>
                       <div className="flex items-start gap-3 transform hover:translate-x-1 transition-all duration-200">
                         <div className="flex-shrink-0 w-8 h-8 bg-indigo-500 text-white rounded-full flex items-center justify-center font-bold text-sm">6</div>
                         <div>
-                          <span className="font-semibold text-gray-900">Stationnement</span>
-                          <p className="text-gray-600 text-sm">Éviter passages étroits/sans visibilité, libérer la piste rapidement après chute</p>
+                          <span className="font-semibold text-gray-900">{currentLang === 'fr' ? 'Stationnement' : 'Parking'}</span>
+                          <p className="text-gray-600 text-sm">{currentLang === 'fr' ? 'Éviter passages étroits/sans visibilité, libérer la piste rapidement après chute' : 'Avoid narrow/blind spots, clear the slope quickly after a fall.'}</p>
                         </div>
                       </div>
                       <div className="flex items-start gap-3 transform hover:translate-x-1 transition-all duration-200">
                         <div className="flex-shrink-0 w-8 h-8 bg-purple-500 text-white rounded-full flex items-center justify-center font-bold text-sm">7</div>
                         <div>
-                          <span className="font-semibold text-gray-900">Montée/descente à pied</span>
-                          <p className="text-gray-600 text-sm">Utiliser le bord de la piste, veiller à ne pas être un danger pour autrui</p>
+                          <span className="font-semibold text-gray-900">{currentLang === 'fr' ? 'Montée/descente à pied' : 'Walking Uphill/Downhill'}</span>
+                          <p className="text-gray-600 text-sm">{currentLang === 'fr' ? 'Utiliser le bord de la piste, veiller à ne pas être un danger pour autrui' : 'Use the edge of the slope, be careful not to be a danger to others.'}</p>
                         </div>
                       </div>
                       <div className="flex items-start gap-3 transform hover:translate-x-1 transition-all duration-200">
                         <div className="flex-shrink-0 w-8 h-8 bg-pink-500 text-white rounded-full flex items-center justify-center font-bold text-sm">8</div>
                         <div>
-                          <span className="font-semibold text-gray-900">Respect balisage & signalisation</span>
-                          <p className="text-gray-600 text-sm">Tenir compte météo, état pistes/neige, respecter balisage et signalisation</p>
+                          <span className="font-semibold text-gray-900">{currentLang === 'fr' ? 'Respect balisage & signalisation' : 'Respect for Markings and Signage'}</span>
+                          <p className="text-gray-600 text-sm">{currentLang === 'fr' ? 'Tenir compte météo, état pistes/neige, respecter balisage et signalisation' : 'Take into account the weather, slope/snow conditions, and respect the markings and signage'}</p>
                         </div>
                       </div>
                       <div className="flex items-start gap-3 transform hover:translate-x-1 transition-all duration-200">
