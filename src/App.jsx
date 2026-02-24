@@ -70,8 +70,8 @@ function App() {
     const articles = {
       nouveautes: {
         title: currentLang === 'fr' ? 'Nouveautés Hiver 2025-2026' : 'New for Winter 2025-2026',
-        content: currentLang === 'fr' ? `
-          <h2>🎿 Les dernières améliorations des domaines skiables</h2>
+        content: currentLang === 'fr' ? 
+          `<h2>🎿 Les dernières améliorations des domaines skiables</h2>
           <p class="lead">Découvrez toutes les nouveautés qui rendront votre séjour ski inoubliable !</p>
           
           <h3>🚡 Nouvelles remontées mécaniques</h3>
@@ -97,9 +97,8 @@ function App() {
           
           <blockquote class="blockquote">
             <p>🎯 <strong>Notre conseil:</strong> Profitez des nouvelles installations dès l'ouverture pour éviter les foules de décembre !</p>
-          </blockquote>
-        ` : `
-          <h2>🎿 The latest improvements to the ski areas</h2>
+          </blockquote>` :
+          `<h2>🎿 The latest improvements to the ski areas</h2>
           <p class="lead">Discover all the new features that will make your ski holiday unforgettable!</p>
           
           <h3>🚡 New Ski Lifts</h3>
@@ -125,9 +124,7 @@ function App() {
           
           <blockquote class="blockquote">
             <p>🎯 <strong>Our Tip:</strong> Enjoy the new facilities as soon as they open to avoid the December crowds!</p>
-          </blockquote>
-        `
-        `
+          </blockquote>`
       },
       freeride: {
         title: 'Meilleures Spots Freeride',
