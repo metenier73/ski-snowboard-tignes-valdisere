@@ -3076,8 +3076,8 @@ function App() {
                         <br />
                         <span className="text-yellow-300 font-semibold">*(Ambiance plus authentique et locale que Val d'Isère)*</span>
                       </p>
-                      <div className="mt-6 bg-gray-800 backdrop-blur-sm rounded-2xl p-6 border border-gray-700">
-                      <h4 className="text-lg font-bold text-white mb-4 text-center bg-gray-700 inline-block px-4 py-2 rounded-lg">🌙 Timeline Nuit Typique à Val Claret</h4>
+                      <div className="mt-6 bg-gradient-to-br from-purple-500 via-pink-500 to-rose-500 backdrop-blur-sm rounded-2xl p-6 border border-white/30">
+                      <h4 className="text-lg font-bold text-white mb-4 text-center bg-white/20 inline-block px-4 py-2 rounded-lg">🌙 Timeline Nuit Typique à Val Claret</h4>
                       <p className="text-white text-sm font-semibold mb-3">📍 Villages & Ambiances :</p>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-2 text-xs">
                           <div className="flex items-center gap-2">
@@ -3275,31 +3275,31 @@ function App() {
 
                   {/* Timeline et badges */}
                   <div className="mt-6 bg-white/10 backdrop-blur-sm rounded-2xl p-4 md:p-6 border border-white/20 transform hover:scale-105 transition-all duration-200">
-                    <h4 className="text-lg md:text-xl font-bold text-white mb-3 md:mb-4 text-center">🌙 Timeline Nuit Typique à Val Claret</h4>
+                    <h4 className="text-lg md:text-xl font-bold text-white mb-3 md:mb-4 text-center bg-white/20 inline-block px-4 py-2 rounded-lg">🌙 Timeline Nuit Typique à Val Claret</h4>
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
                       <div className="text-center">
-                        <div className="bg-gray-700 rounded-lg p-2 md:p-3 mb-1 md:mb-2">
+                        <div className="bg-gradient-to-br from-yellow-400 to-orange-400 rounded-lg p-2 md:p-3 mb-1 md:mb-2">
                           <div className="text-sm md:text-lg font-bold text-white">15h-17h</div>
                         </div>
                         <p className="text-white/80 text-xs">Après-ski commence</p>
                         <p className="text-yellow-300 text-xs font-semibold">Le Couloir • Cocorico</p>
                       </div>
                       <div className="text-center">
-                        <div className="bg-gray-700 rounded-lg p-2 md:p-3 mb-1 md:mb-2">
+                        <div className="bg-gradient-to-br from-blue-400 to-indigo-400 rounded-lg p-2 md:p-3 mb-1 md:mb-2">
                           <div className="text-sm md:text-lg font-bold text-white">18h-20h</div>
                         </div>
                         <p className="text-white/80 text-xs">Apéro & dîner</p>
                         <p className="text-blue-300 text-xs font-semibold">Le Studio • Inside bar</p>
                       </div>
                       <div className="text-center">
-                        <div className="bg-gray-700 rounded-lg p-2 md:p-3 mb-1 md:mb-2">
+                        <div className="bg-gradient-to-br from-purple-400 to-pink-400 rounded-lg p-2 md:p-3 mb-1 md:mb-2">
                           <div className="text-sm md:text-lg font-bold text-white">21h-23h</div>
                         </div>
                         <p className="text-white/80 text-xs">Bars animés</p>
                         <p className="text-purple-300 text-xs font-semibold">Ranga's • Arobaze</p>
                       </div>
                       <div className="text-center">
-                        <div className="bg-gray-700 rounded-lg p-2 md:p-3 mb-1 md:mb-2">
+                        <div className="bg-gradient-to-br from-red-400 to-rose-400 rounded-lg p-2 md:p-3 mb-1 md:mb-2">
                           <div className="text-sm md:text-lg font-bold text-white">23h+</div>
                         </div>
                         <p className="text-white/80 text-xs">Club time</p>
@@ -3307,7 +3307,7 @@ function App() {
                       </div>
                     </div>
                     <div className="mt-3 md:mt-4 text-center">
-                      <span className="bg-gray-700 text-white px-2 py-1 md:px-3 md:py-1 rounded-full text-xs md:text-sm font-semibold">
+                      <span className="bg-gradient-to-r from-green-500 to-green-600 text-white px-2 py-1 md:px-3 md:py-1 rounded-full text-xs md:text-sm font-semibold">
                         🎯 Ambiance plus locale et authentique que Val d'Isère
                       </span>
                     </div>
@@ -3437,32 +3437,32 @@ function App() {
           </div>
 
           {/* Résumé rapide */}
-          <div className="mt-8 bg-gray-800 backdrop-blur-sm rounded-2xl p-6 border border-gray-700">
-            <h4 className="text-xl font-bold text-pink-300 mb-4 text-center bg-gray-700 inline-block px-4 py-2 rounded-lg">🎉 Résumé rapide</h4>
+          <div className="mt-8 bg-gradient-to-br from-purple-500 via-pink-500 to-rose-500 backdrop-blur-sm rounded-2xl p-6 border border-white/30">
+            <h4 className="text-xl font-bold text-white mb-4 text-center bg-white/20 inline-block px-4 py-2 rounded-lg">🎉 Résumé rapide</h4>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
-              <div className="bg-gray-700 rounded-lg p-4 hover:bg-gray-600 transition-colors duration-200">
+              <div className="bg-white/20 rounded-lg p-4 hover:bg-white/30 transition-colors duration-200">
                 <span className="text-3xl mb-3 block">🔥</span>
-                <strong className="text-pink-300 text-base">Fête forte</strong>
+                <strong className="text-white text-base">Fête forte</strong>
                 <p className="text-gray-200 text-sm mt-2 font-semibold">→ Val Claret</p>
               </div>
-              <div className="bg-gray-700 rounded-lg p-4 hover:bg-gray-600 transition-colors duration-200">
+              <div className="bg-white/20 rounded-lg p-4 hover:bg-white/30 transition-colors duration-200">
                 <span className="text-3xl mb-3 block">🍻</span>
-                <strong className="text-pink-300 text-base">Après-ski terrasse</strong>
+                <strong className="text-white text-base">Après-ski terrasse</strong>
                 <p className="text-gray-200 text-sm mt-2 font-semibold">→ Cocorico</p>
               </div>
-              <div className="bg-gray-700 rounded-lg p-4 hover:bg-gray-600 transition-colors duration-200">
+              <div className="bg-white/20 rounded-lg p-4 hover:bg-white/30 transition-colors duration-200">
                 <span className="text-3xl mb-3 block">🍸</span>
-                <strong className="text-pink-300 text-base">Bar cocktails</strong>
+                <strong className="text-white text-base">Bar cocktails</strong>
                 <p className="text-gray-200 text-sm mt-2 font-semibold">→ Granite Bar</p>
               </div>
-              <div className="bg-gray-700 rounded-lg p-4 hover:bg-gray-600 transition-colors duration-200">
+              <div className="bg-white/20 rounded-lg p-4 hover:bg-white/30 transition-colors duration-200">
                 <span className="text-3xl mb-3 block">🕺</span>
-                <strong className="text-pink-300 text-base">Club tardif</strong>
+                <strong className="text-white text-base">Club tardif</strong>
                 <p className="text-gray-200 text-sm mt-2 font-semibold">→ Avant Garde</p>
               </div>
             </div>
             <div className="mt-4 text-center">
-              <span className="bg-gradient-to-r from-green-600 to-green-700 text-pink-300 px-4 py-2 rounded-full text-sm font-semibold hover:from-green-500 hover:to-green-600 transition-all duration-200">
+              <span className="bg-gradient-to-r from-green-500 to-green-600 text-white px-4 py-2 rounded-full text-sm font-semibold hover:from-green-400 hover:to-green-500 transition-all duration-200">
                 😌 Ambiance plus détendue et locale → Lavachet ou Les Brévières
               </span>
             </div>
