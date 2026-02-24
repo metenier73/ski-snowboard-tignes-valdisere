@@ -4394,8 +4394,8 @@ function App() {
                     <p className="text-gray-600 mb-4">Agenda des événements</p>
                     <div className="space-y-2 text-sm text-gray-600">
                       <p>🎊 Ouvertures : Feu d'artifice et défilé</p>
-                      <p>🏆 Coupe du Monde : 5-10 janvier</p>
-                      <p>⭐ Carnaval et Grande Clôture</p>
+                      <p>🏆 Coupe du monde : 5-10 janvier</p>
+                      <p>⭐ Carnaval et Grande fermeture</p>
                     </div>
                   </div>
                 </div>
@@ -4446,23 +4446,23 @@ function App() {
             <div className="mt-8 flex flex-wrap justify-center gap-4">
               <a href="https://www.tignes.net" target="_blank" rel="noreferrer" className="flex items-center gap-2 px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-all duration-200 transform hover:scale-105">
                 <span>🏔️</span>
-                <span>Website Tignes</span>
+                <span>Site web de Tignes</span>
               </a>
               <a href="https://www.valdisere.com" target="_blank" rel="noreferrer" className="flex items-center gap-2 px-6 py-3 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-all duration-200 transform hover:scale-105">
                 <span>🏰️</span>
-                <span>Val d'Isère website</span>
+                <span>Site web de Val d'Isère</span>
               </a>
               <a href="https://www.espacekilly.com" target="_blank" rel="noreferrer" className="flex items-center gap-2 px-6 py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-all duration-200 transform hover:scale-105">
                 <span>🗺️</span>
-                <span>Espace Killy ski area</span>
+                <span>Domaine skiable Espace Killy</span>
               </a>
               <a href="https://play.google.com/store/search?q=tignes&c=apps" target="_blank" rel="noreferrer" className="flex items-center gap-2 px-6 py-3 bg-amber-600 text-white rounded-lg hover:bg-amber-700 transition-all duration-200 transform hover:scale-105">
                 <span>📱</span>
-                <span>Tignes apps</span>
+                <span>Applications Tignes</span>
               </a>
               <a href="https://play.google.com/store/search?q=val%20d%27isere&c=apps" target="_blank" rel="noreferrer" className="flex items-center gap-2 px-6 py-3 bg-orange-600 text-white rounded-lg hover:bg-orange-700 transition-all duration-200 transform hover:scale-105">
                 <span>📲</span>
-                <span>Val d'Isère apps</span>
+                <span>Applications Val d'Isère</span>
               </a>
             </div>
           </div>
