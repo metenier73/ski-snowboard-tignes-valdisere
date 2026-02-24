@@ -5194,37 +5194,37 @@ function App() {
                     <Shield className="h-6 w-6 text-white" />
                   </div>
                   <div>
-                    <h3 className="text-2xl font-bold text-gray-900 mb-1">Conseils équipement</h3>
-                    <p className="text-gray-600">Sécurité & performance</p>
+                    <h3 className="text-2xl font-bold text-gray-900 mb-1">{currentLang === 'fr' ? 'Conseils équipement' : 'Equipment Advice'}</h3>
+                    <p className="text-gray-600">{currentLang === 'fr' ? 'Sécurité & performance' : 'Safety & Performance'}</p>
                   </div>
                 </div>
                 <div className="space-y-4">
                   <div className="bg-gradient-to-r from-red-50 to-pink-50 rounded-xl p-4 transform hover:scale-105 transition-all duration-200">
-                    <p className="text-gray-700 mb-3">Équipement obligatoire en hors-piste :</p>
+                    <p className="text-gray-700 mb-3">{currentLang === 'fr' ? 'Équipement obligatoire en hors-piste :' : 'Mandatory off-piste equipment:'}</p>
                     <div className="space-y-3">
                       <div className="flex items-center gap-3 transform hover:translate-x-1 transition-all duration-200">
                         <ShieldAlert className="h-4 w-4 text-red-600" />
-                        <span className="text-gray-700 font-medium">DVA (Détecteur de Victimes d'Avalanche)</span>
+                        <span className="text-gray-700 font-medium">{currentLang === 'fr' ? 'DVA (Détecteur de Victimes d\'Avalanche)' : 'Avalanche transceiver (DVA)'}</span>
                       </div>
                       <div className="flex items-center gap-3 transform hover:translate-x-1 transition-all duration-200">
                         <div className="w-2 h-2 bg-red-500 rounded-full"></div>
-                        <span className="text-gray-700">Pelle et sonde</span>
+                        <span className="text-gray-700">{currentLang === 'fr' ? 'Pelle et sonde' : 'Shovel and probe'}</span>
                       </div>
                       <div className="flex items-center gap-3 transform hover:translate-x-1 transition-all duration-200">
                         <div className="w-2 h-2 bg-red-500 rounded-full"></div>
-                        <span className="text-gray-700">Casque et dorsale</span>
+                        <span className="text-gray-700">{currentLang === 'fr' ? 'Casque et dorsale' : 'Helmet and back protector'}</span>
                       </div>
                     </div>
                     <div className="mt-4 pt-4 border-t border-red-100">
-                      <p className="text-gray-700 mb-2">💡 <strong>Conseils pro :</strong></p>
+                      <p className="text-gray-700 mb-2">💡 <strong>{currentLang === 'fr' ? 'Conseils pro :' : 'Pro Tips:'}</strong></p>
                       <div className="space-y-2">
                         <div className="flex items-center gap-2 transform hover:translate-x-1 transition-all duration-200">
                           <div className="w-2 h-2 bg-pink-500 rounded-full"></div>
-                          <span className="text-gray-700">Location près des pistes</span>
+                          <span className="text-gray-700">{currentLang === 'fr' ? 'Location près des pistes' : 'Rental near the slopes'}</span>
                         </div>
                         <div className="flex items-center gap-2 transform hover:translate-x-1 transition-all duration-200">
                           <div className="w-2 h-2 bg-pink-500 rounded-full"></div>
-                          <span className="text-gray-700">Bootfitting pour le confort</span>
+                          <span className="text-gray-700">{currentLang === 'fr' ? 'Bootfitting pour le confort' : 'Boot fitting for comfort'}</span>
                         </div>
                       </div>
                     </div>
@@ -5242,30 +5242,30 @@ function App() {
                     <MapPin className="h-6 w-6 text-white" />
                   </div>
                   <div>
-                    <h3 className="text-2xl font-bold text-gray-900 mb-1">Conseils choix des pistes</h3>
-                    <p className="text-gray-600">Optimisez vos descentes</p>
+                    <h3 className="text-2xl font-bold text-gray-900 mb-1">{currentLang === 'fr' ? 'Conseils choix des pistes' : 'Skiing Tips'}</h3>
+                    <p className="text-gray-600">{currentLang === 'fr' ? 'Optimisez vos descentes' : 'Optimize your runs'}</p>
                   </div>
                 </div>
                 <div className="space-y-4">
                   <div className="bg-gradient-to-r from-indigo-50 to-blue-50 rounded-xl p-4 transform hover:scale-105 transition-all duration-200">
-                    <p className="text-gray-700 mb-3">Stratégies selon l'heure :</p>
+                    <p className="text-gray-700 mb-3">{currentLang === 'fr' ? 'Stratégies selon l\'heure :' : 'Strategies by time of day:'}</p>
                     <div className="space-y-3">
                       <div className="flex items-center gap-3 transform hover:translate-x-1 transition-all duration-200">
                         <Sun className="h-4 w-4 text-indigo-600" />
-                        <span className="text-gray-700 font-medium">🌅 Matin</span>
-                        <span className="text-gray-600">Pentes ensoleillées, neige dure</span>
+                        <span className="text-gray-700 font-medium">🌅 {currentLang === 'fr' ? 'Matin' : 'Morning'}</span>
+                        <span className="text-gray-600">{currentLang === 'fr' ? 'Pentes ensoleillées, neige dure' : 'Sunny slopes, hard snow'}</span>
                       </div>
                       <div className="flex items-center gap-3 transform hover:translate-x-1 transition-all duration-200">
                         <Cloud className="h-4 w-4 text-blue-600" />
-                        <span className="text-gray-700 font-medium">🌤️ Après-midi</span>
-                        <span className="text-gray-600">Neiges plus souples, ombragées</span>
+                        <span className="text-gray-700 font-medium">🌤️ {currentLang === 'fr' ? 'Après-midi' : 'Afternoon'}</span>
+                        <span className="text-gray-600">{currentLang === 'fr' ? 'Neiges plus souples, ombragées' : 'Softer, shaded snow'}</span>
                       </div>
                     </div>
                     <div className="mt-4 pt-4 border-t border-indigo-100">
-                      <p className="text-gray-700 mb-2">⚠️ <strong>Avant hors-piste :</strong></p>
+                      <p className="text-gray-700 mb-2">⚠️ <strong>{currentLang === 'fr' ? 'Avant hors-piste :' : 'Before going off-piste:'}</strong></p>
                       <div className="flex items-center gap-2 transform hover:translate-x-1 transition-all duration-200">
                         <ShieldAlert className="h-4 w-4 text-orange-600" />
-                        <span className="text-gray-700">Consulter le bulletin d'avalanche</span>
+                        <span className="text-gray-700">{currentLang === 'fr' ? 'Consulter le bulletin d\'avalanche' : 'Check the avalanche bulletin'}</span>
                       </div>
                     </div>
                   </div>
