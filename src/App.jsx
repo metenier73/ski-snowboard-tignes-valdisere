@@ -5612,12 +5612,12 @@ function App() {
                     </div>
                     <div className="flex-1">
                       <h3 className="text-3xl md:text-4xl font-bold text-white mb-3">
-                        📍 Sports Complex Val-d'Isère — Centre Aqua-Sportif & Bien-être 🏋️‍♀️
+                        📍 {currentLang === 'fr' ? 'Sports Complex Val-d\'Isère — Centre Aqua-Sportif & Bien-être' : 'Val-d\'Isère Sports Complex — Aquatic Sports & Wellness Center'} 🏋️‍♀️
                       </h3>
                       <p className="text-xl text-white/90 mb-4">
-                        Un grand complexe aquatique, sportif et bien-être idéal après les pistes !
+                        {currentLang === 'fr' ? 'Un grand complexe aquatique, sportif et bien-être idéal après les pistes !' : 'A large aquatic, sports, and wellness complex, ideal after a day on the slopes!'}
                         <br />
-                        <span className="text-yellow-300 font-semibold">*(370 rue de la Face, Val-d'Isère - Alpes, France)*</span>
+                        <span className="text-yellow-300 font-semibold">*({currentLang === 'fr' ? '370 rue de la Face, Val-d\'Isère - Alpes, France' : '370 rue de la Face, Val-d\'Isère - Alps, France'})*</span>
                       </p>
                     </div>
                   </div>
@@ -5627,39 +5627,39 @@ function App() {
                     <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20 transform hover:scale-105 transition-all duration-200">
                       <h4 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
                         <span className="text-2xl">🕒</span>
-                        Horaires hiver (1er janvier → 3 mai 2026)
+                        {currentLang === 'fr' ? 'Horaires hiver (1er janvier → 3 mai 2026)' : 'Winter Hours (January 1st → May 3rd, 2026)'}
                       </h4>
                       <div className="space-y-3 text-white/90">
                         <div className="bg-white/10 rounded-lg p-3">
-                          <p className="font-semibold text-white mb-2">✔️ Ouverture quotidienne :</p>
+                          <p className="font-semibold text-white mb-2">✔️ {currentLang === 'fr' ? 'Ouverture quotidienne :' : 'Daily Opening Hours:'}</p>
                           <div className="space-y-2 text-sm">
                             <div className="flex items-center gap-2 transform hover:translate-x-1 transition-all duration-200">
                               <span className="text-green-300">•</span>
-                              <span><strong>Lundi :</strong> 10h00 → 21h00</span>
+                              <span><strong>{currentLang === 'fr' ? 'Lundi' : 'Monday'}:</strong> {currentLang === 'fr' ? '10h00 → 21h00' : '10:00 AM → 9:00 PM'}</span>
                             </div>
                             <div className="flex items-center gap-2 transform hover:translate-x-1 transition-all duration-200">
                               <span className="text-green-300">•</span>
-                              <span><strong>Mardi :</strong> 07h30 → 21h00</span>
+                              <span><strong>{currentLang === 'fr' ? 'Mardi' : 'Tuesday'}:</strong> {currentLang === 'fr' ? '07h30 → 21h00' : '7:30 AM → 9:00 PM'}</span>
                             </div>
                             <div className="flex items-center gap-2 transform hover:translate-x-1 transition-all duration-200">
                               <span className="text-green-300">•</span>
-                              <span><strong>Mercredi :</strong> 10h00 → 22h00 (nocturne)</span>
+                              <span><strong>{currentLang === 'fr' ? 'Mercredi' : 'Wednesday'}:</strong> {currentLang === 'fr' ? '10h00 → 22h00 (nocturne)' : '10:00 AM → 10:00 PM (late opening)'}</span>
                             </div>
                             <div className="flex items-center gap-2 transform hover:translate-x-1 transition-all duration-200">
                               <span className="text-green-300">•</span>
-                              <span><strong>Jeudi :</strong> 10h00 → 21h00</span>
+                              <span><strong>{currentLang === 'fr' ? 'Jeudi' : 'Thursday'}:</strong> {currentLang === 'fr' ? '10h00 → 21h00' : '10:00 AM → 9:00 PM'}</span>
                             </div>
                             <div className="flex items-center gap-2 transform hover:translate-x-1 transition-all duration-200">
                               <span className="text-green-300">•</span>
-                              <span><strong>Vendredi :</strong> 10h00 → 21h00</span>
+                              <span><strong>{currentLang === 'fr' ? 'Vendredi' : 'Friday'}:</strong> {currentLang === 'fr' ? '10h00 → 21h00' : '10:00 AM → 9:00 PM'}</span>
                             </div>
                             <div className="flex items-center gap-2 transform hover:translate-x-1 transition-all duration-200">
                               <span className="text-green-300">•</span>
-                              <span><strong>Samedi :</strong> 10h00 → 21h00</span>
+                              <span><strong>{currentLang === 'fr' ? 'Samedi' : 'Saturday'}:</strong> {currentLang === 'fr' ? '10h00 → 21h00' : '10:00 AM → 9:00 PM'}</span>
                             </div>
                             <div className="flex items-center gap-2 transform hover:translate-x-1 transition-all duration-200">
                               <span className="text-green-300">•</span>
-                              <span><strong>Dimanche :</strong> 07h30 → 21h00</span>
+                              <span><strong>{currentLang === 'fr' ? 'Dimanche' : 'Sunday'}:</strong> {currentLang === 'fr' ? '07h30 → 21h00' : '7:30 AM → 9:00 PM'}</span>
                             </div>
                           </div>
                         </div>
@@ -5667,15 +5667,15 @@ function App() {
                           <div className="space-y-2 text-sm">
                             <div className="flex items-center gap-2 transform hover:translate-x-1 transition-all duration-200">
                               <span className="text-orange-300">⚠️</span>
-                              <span><strong>Évacuation de l'eau :</strong> 30 min avant fermeture</span>
+                              <span><strong>{currentLang === 'fr' ? 'Évacuation de l\'eau' : 'Water Drainage'}:</strong> {currentLang === 'fr' ? '30 min avant fermeture' : '30 minutes prior Closing time'}</span>
                             </div>
                             <div className="flex items-center gap-2 transform hover:translate-x-1 transition-all duration-200">
                               <span className="text-orange-300">⚠️</span>
-                              <span><strong>Caisses ferment :</strong> 1h avant fermeture</span>
+                              <span><strong>{currentLang === 'fr' ? 'Caisses ferment' : 'Ticket office closes'}:</strong> {currentLang === 'fr' ? '1h avant fermeture' : '1 hour before closing time'}</span>
                             </div>
                             <div className="flex items-center gap-2 transform hover:translate-x-1 transition-all duration-200">
                               <span className="text-blue-300">💪</span>
-                              <span><strong>Bassin sportif & fitness :</strong> dès 7h30 (mar & dim)</span>
+                              <span><strong>{currentLang === 'fr' ? 'Bassin sportif & fitness' : 'Sports & Fitness Pool'}:</strong> {currentLang === 'fr' ? 'dès 7h30 (mar & dim)' : 'from 7:30 am (Tue & Sun)'}</span>
                             </div>
                           </div>
                         </div>
@@ -5686,53 +5686,53 @@ function App() {
                     <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20 transform hover:scale-105 transition-all duration-200">
                       <h4 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
                         <span className="text-2xl">🏊‍♂️</span>
-                        Activités proposées
+  {currentLang === 'fr' ? 'Activités proposées' : 'Activities offered'}
                       </h4>
                       <div className="space-y-3 text-white/90">
                         <div className="bg-white/10 rounded-lg p-3">
-                          <p className="font-semibold text-white mb-2">🎽 Espace aquatique</p>
+                          <p className="font-semibold text-white mb-2">{currentLang === 'fr' ? 'Espace aquatique' : 'Aquatic Area'}</p>
                           <div className="space-y-2 text-sm">
                             <div className="flex items-center gap-2 transform hover:translate-x-1 transition-all duration-200">
                               <span className="text-blue-300">🏊</span>
-                              <span><strong>Piscine sportive 25m</strong> : natation et entraînement</span>
+                              <span><strong>{currentLang === 'fr' ? 'Piscine sportive 25m' : '25m Sports Pool'}:</strong> {currentLang === 'fr' ? 'natation et entraînement' : 'swimming and training'}</span>
                             </div>
                             <div className="flex items-center gap-2 transform hover:translate-x-1 transition-all duration-200">
                               <span className="text-green-300">🌊</span>
-                              <span><strong>Grand bassin ludique (~416m²)</strong> : jets massants, rivière à contre-courant</span>
+                              <span><strong>{currentLang === 'fr' ? 'Grand bassin ludique (~416m²)' : 'Large Leisure Pool (~416m²)'}:</strong> {currentLang === 'fr' ? 'jets massants, rivière à contre-courant' : 'massage jets, counter-current river'}</span>
                             </div>
                             <div className="flex items-center gap-2 transform hover:translate-x-1 transition-all duration-200">
                               <span className="text-yellow-300">👶</span>
-                              <span><strong>Pataugeoire & banquettes bulles</strong> : espace familial</span>
+                              <span><strong>{currentLang === 'fr' ? 'Pataugeoire & banquettes bulles' : 'Paddling Pool & Bubble Benches'}:</strong> {currentLang === 'fr' ? 'espace familial' : 'family area'}</span>
                             </div>
                           </div>
                         </div>
                         <div className="bg-white/10 rounded-lg p-3">
-                          <p className="font-semibold text-white mb-2">🧖‍♀️ Bien-être / relaxation</p>
+                          <p className="font-semibold text-white mb-2">🧖‍♀️ {currentLang === 'fr' ? 'Bien-être / relaxation' : 'Wellness / Relaxation'}</p>
                           <div className="space-y-2 text-sm">
                             <div className="flex items-center gap-2 transform hover:translate-x-1 transition-all duration-200">
                               <span className="text-orange-300">🔥</span>
-                              <span><strong>Sauna</strong> et <strong>Hammam</strong></span>
+                              <span><strong>{currentLang === 'fr' ? 'Sauna' : 'Sauna'}</strong> et <strong>{currentLang === 'fr' ? 'Hammam' : 'Hammam'}</strong></span>
                             </div>
                             <div className="flex items-center gap-2 transform hover:translate-x-1 transition-all duration-200">
                               <span className="text-purple-300">💆</span>
-                              <span><strong>Jacuzzi et zones détente</strong> : récupération musculaire</span>
+                              <span><strong>{currentLang === 'fr' ? 'Jacuzzi et zones détente' : 'Jacuzzi and relaxation areas'}:</strong> {currentLang === 'fr' ? 'récupération musculaire' : 'muscle recovery'}</span>
                             </div>
                           </div>
                         </div>
                         <div className="bg-white/10 rounded-lg p-3">
-                          <p className="font-semibold text-white mb-2">🏋️ Fitness & sport</p>
+                          <p className="font-semibold text-white mb-2">🏋️ {currentLang === 'fr' ? 'Fitness & sport' : 'Fitness & Sport'}</p>
                           <div className="space-y-2 text-sm">
                             <div className="flex items-center gap-2 transform hover:translate-x-1 transition-all duration-200">
                               <span className="text-red-300">💪</span>
-                              <span><strong>Salle cardio & musculation</strong> : équipement complet</span>
+                              <span><strong>{currentLang === 'fr' ? 'Salle cardio & musculation' : 'Cardio & Weight Training Room'}:</strong> {currentLang === 'fr' ? 'équipement complet' : 'fully equipped'}</span>
                             </div>
                             <div className="flex items-center gap-2 transform hover:translate-x-1 transition-all duration-200">
                               <span className="text-pink-300">🏃</span>
-                              <span><strong>Cours collectifs</strong> : selon saison</span>
+                              <span><strong>{currentLang === 'fr' ? 'Cours collectifs' : 'Group Classes'}:</strong> {currentLang === 'fr' ? 'selon saison' : 'depending on the season'}</span>
                             </div>
                             <div className="flex items-center gap-2 transform hover:translate-x-1 transition-all duration-200">
                               <span className="text-cyan-300">🎾</span>
-                              <span><strong>Sports indoor</strong> : badminton, squash, escalade...</span>
+                              <span><strong>{currentLang === 'fr' ? 'Sports indoor' : 'Indoor Sports'}:</strong> {currentLang === 'fr' ? 'badminton, squash, escalade...' : 'badminton, squash, climbing...'}</span>
                             </div>
                           </div>
                         </div>
@@ -5744,55 +5744,49 @@ function App() {
                   <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20 mb-6 transform hover:scale-105 transition-all duration-200">
                     <h4 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
                       <span className="text-2xl">🎿</span>
-                      Pourquoi y aller à Val d'Isère ?
+{currentLang === 'fr' ? 'Pourquoi y aller à Val d\'Isère ?' : 'Why go to Val d\'Isère?'}
                     </h4>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-white/90">
                       <div>
-                        <p className="font-semibold text-white mb-2">Souvent choisi par les skieurs pour :</p>
+<p className="font-semibold text-white mb-2">{currentLang === 'fr' ? 'Souvent choisi par les skieurs pour :' : 'Often chosen by skiers for:'}</p>
                         <ul className="space-y-2 text-sm">
                           <li className="flex items-start gap-2 transform hover:translate-x-1 transition-all duration-200">
                             <span className="text-green-300 mt-1">✓</span>
-                            <span><strong>Détente musculaire</strong> après les pistes</span>
+<span><strong>{currentLang === 'fr' ? 'Détente musculaire' : 'Muscle relaxation'}</strong> {currentLang === 'fr' ? 'après les pistes' : 'after the slopes'}</span>
                           </li>
                           <li className="flex items-start gap-2 transform hover:translate-x-1 transition-all duration-200">
                             <span className="text-blue-300 mt-1">✓</span>
-                            <span><strong>Natation / récupération cardio</strong> hors altitude</span>
+<span><strong>{currentLang === 'fr' ? 'Natation / récupération cardio' : 'Swimming / cardio recovery'}</strong> {currentLang === 'fr' ? 'hors altitude' : 'at altitude'}</span>
                           </li>
                           <li className="flex items-start gap-2 transform hover:translate-x-1 transition-all duration-200">
                             <span className="text-yellow-300 mt-1">✓</span>
-                            <span><strong>Activités indoor</strong> quand il fait mauvais</span>
+<span><strong>{currentLang === 'fr' ? 'Activités indoor' : 'Indoor activities'}</strong> {currentLang === 'fr' ? 'quand il fait mauvais' : 'when the weather is bad'}</span>
                           </li>
                           <li className="flex items-start gap-2 transform hover:translate-x-1 transition-all duration-200">
                             <span className="text-purple-300 mt-1">✓</span>
-                            <span><strong>Espace bien-être complet</strong> (sauna, hammam...)</span>
+<span><strong>{currentLang === 'fr' ? 'Espace bien-être complet' : 'Complete wellness area'}</strong> ({currentLang === 'fr' ? 'sauna, hammam...' : 'sauna, hammam...'})</span>
                           </li>
                         </ul>
-                      </div>
-                      <div>
-                        <p className="font-semibold text-white mb-2">🏆 L'équivalent du Lagon Tignes :</p>
-                        <div className="bg-white/20 rounded-lg p-3 text-center transform hover:scale-105 transition-all duration-200">
-                          <p className="text-lg font-bold text-yellow-300 mb-2">
-                            Plus grand et plus complet !
-                          </p>
-                          <p className="text-white/80 text-sm">
-                            Piscine + fitness + bien-être après le ski<br/>
-                            Le combo parfait pour la récupération à Val d'Isère !
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+<p className="font-semibold text-white mb-2">🏆 {currentLang === 'fr' ? 'L\'équivalent du Lagon Tignes :' : 'The equivalent of the Tignes Lagoon:'}</p>
+                            <div className="bg-white/20 rounded-lg p-3 text-center transform hover:scale-105 transition-all duration-200">
+                              <p className="text-lg font-bold text-yellow-300 mb-2">
+                                <strong>{currentLang === 'fr' ? 'Plus grand et plus complet !' : 'Bigger and more complete!'}</strong>
+                              </p>
+                              <p className="text-white/80 text-sm">
+                                {currentLang === 'fr' ? 'Piscine + fitness + bien-être après le ski' : 'Swimming pool + fitness + wellness after skiing'}<br/>
+                                {currentLang === 'fr' ? 'Le combo parfait pour la récupération à Val d\'Isère !' : 'The perfect combination for recovery in Val d\'Isère!'}
+                              </p>
 
                   {/* Espace enfants */}
                   <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20 transform hover:scale-105 transition-all duration-200">
                     <h4 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
                       <span className="text-2xl">👶</span>
-                      Espace enfants et animations
+{currentLang === 'fr' ? 'Espace enfants et animations' : 'Kids\' area and entertainment'}
                     </h4>
                     <div className="text-white/90">
                       <div className="bg-white/10 rounded-lg p-3 transform hover:translate-x-1 transition-all duration-200">
                         <p className="text-sm">
-                          <strong>🎈 Espace enfants avec activités adaptées</strong> et animations ponctuelles pour toute la famille !
+<strong>🎈 {currentLang === 'fr' ? 'Espace enfants avec activités adaptées' : 'Kids\' area with adapted activities'}</strong> {currentLang === 'fr' ? 'et animations ponctuelles pour toute la famille !' : 'and occasional entertainment for the whole family!'}
                         </p>
                       </div>
                     </div>
@@ -5807,7 +5801,7 @@ function App() {
                       className="inline-flex items-center gap-2 px-6 py-3 bg-white/20 backdrop-blur-sm rounded-full text-white font-semibold border border-white/30 hover:bg-white/30 transition-all duration-300 transform hover:scale-105"
                     >
                       <span className="text-lg">🏊‍♂️</span>
-                      <span>Voir le site officiel du Sports Complex</span>
+<span>{currentLang === 'fr' ? 'Voir le site officiel du Sports Complex' : 'See the official Sports Complex website'}</span>
                       <span className="text-sm">→</span>
                     </a>
                   </div>
