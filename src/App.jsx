@@ -4350,7 +4350,7 @@ function App() {
                       <MapPin className="h-8 w-8 text-white" />
                     </div>
                     <h4 className="text-xl font-bold text-gray-900 mb-2">Domaine Espace Killy</h4>
-                    <p className="text-gray-600 mb-4">The most beautiful ski area in the world</p>
+                    <p className="text-gray-600 mb-4">Le plus beau domaine skiable du monde</p>
                     <div className="space-y-2 text-sm text-gray-600">
                       <p>🎿 300 km de pistes</p>
                       <p>🏔️ Altitude: 1550m - 3450m</p>
@@ -4371,12 +4371,12 @@ function App() {
                     <div className="w-16 h-16 bg-gradient-to-br from-yellow-500 to-orange-600 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:rotate-12 transition-transform duration-300">
                       <Clock className="h-8 w-8 text-white" />
                     </div>
-                    <h4 className="text-xl font-bold text-gray-900 mb-2">2025-2026 Season Timetable</h4>
-                    <p className="text-gray-600 mb-4">Full Calendar</p>
+                    <h4 className="text-xl font-bold text-gray-900 mb-2">Calendrier de la saison 2025-2026</h4>
+                    <p className="text-gray-600 mb-4">Calendrier complet</p>
                     <div className="space-y-2 text-sm text-gray-600">
-                      <p>🎂 Tignes: November 28, 2025 → May 3, 2026</p>
-                      <p>🎂 Val d'Isère: December 5, 2025 → May 3, 2026</p>
-                      <p>⭐ High Season: December & February</p>
+                      <p>🎂 Tignes : 28 novembre 2025 → 3 mai 2026</p>
+                      <p>🎂 Val d'Isère : 5 décembre 2025 → 3 mai 2026</p>
+                      <p>⭐ Haute saison : décembre et février</p>
                     </div>
                   </div>
                 </div>
@@ -4390,12 +4390,12 @@ function App() {
                     <div className="w-16 h-16 bg-gradient-to-br from-emerald-500 to-teal-600 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:rotate-12 transition-transform duration-300">
                       <Star className="h-8 w-8 text-white" />
                     </div>
-                    <h4 className="text-xl font-bold text-gray-900 mb-2">Entertainment Program</h4>
-                    <p className="text-gray-600 mb-4">Events Calendar</p>
+                    <h4 className="text-xl font-bold text-gray-900 mb-2">Programme d'animations</h4>
+                    <p className="text-gray-600 mb-4">Agenda des événements</p>
                     <div className="space-y-2 text-sm text-gray-600">
-                      <p>🎊 Openings: Fireworks & Parade</p>
-                      <p>🏆 World Cup: January 5-10</p>
-                      <p>⭐ Carnival & Grand Closing</p>
+                      <p>🎊 Ouvertures : Feu d'artifice et défilé</p>
+                      <p>🏆 Coupe du Monde : 5-10 janvier</p>
+                      <p>⭐ Carnaval et Grande Clôture</p>
                     </div>
                   </div>
                 </div>
@@ -4412,12 +4412,12 @@ function App() {
                     <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-cyan-600 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:rotate-12 transition-transform duration-300">
                       <Smartphone className="h-8 w-8 text-white" />
                     </div>
-                    <h4 className="text-xl font-bold text-gray-900 mb-2">Mobile Apps</h4>
-                    <p className="text-gray-600 mb-4">Essential Apps</p>
+                    <h4 className="text-xl font-bold text-gray-900 mb-2">Applications mobiles</h4>
+                    <p className="text-gray-600 mb-4">Applications indispensables</p>
                     <div className="space-y-2 text-sm text-gray-600">
-                      <p>📱 MyTignes: Piste Map, Webcam</p>
-                      <p>📲 Val d'Isère: Ski Area, Piste Conditions</p>
-                      <p>⭐ Snow Forecast & Geoportal</p>
+                      <p>📱 MyTignes : Plan des pistes, Webcam</p>
+                      <p>📲 Val d'Isère : Domaine skiable, Conditions des pistes</p>
+                      <p>⭐ Prévisions neige et géoportail</p>
                     </div>
                   </div>
                 </div>
@@ -4431,12 +4431,12 @@ function App() {
                     <div className="w-16 h-16 bg-gradient-to-br from-green-500 to-emerald-600 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:rotate-12 transition-transform duration-300">
                       <Info className="h-8 w-8 text-white" />
                     </div>
-                    <h4 className="text-xl font-bold text-gray-900 mb-2">Offices & Lifts</h4>
-                    <p className="text-gray-600 mb-4">Useful Services</p>
+                    <h4 className="text-xl font-bold text-gray-900 mb-2">Bureaux et remontées mécaniques</h4>
+                    <p className="text-gray-600 mb-4">Services utiles</p>
                     <div className="space-y-2 text-sm text-gray-600">
-                      <p>🏢 Tourist Offices</p>
-                      <p>🚡 Online Lift Pass Purchase</p>
-                      <p>⭐ Lift Information</p>
+                      <p>🏢 Offices de tourisme</p>
+                      <p>🚡 Achat de forfaits de ski en ligne</p>
+                      <p>⭐ Informations sur les remontées mécaniques</p>
                     </div>
                   </div>
                 </div>
