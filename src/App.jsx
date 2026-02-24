@@ -448,7 +448,7 @@ function App() {
       applications: {
         title: 'Applications',
         content: `
-          <h2>📱 Weather, neige et forfaits</h2>
+          <h2>📱 Météo, neige et forfaits</h2>
           <p class="lead">Les applications indispensables pour votre séjour ski</p>
           
           <h3>🌨️ Météo et neige</h3>
@@ -4286,7 +4286,7 @@ function App() {
                     <Smartphone className="h-10 w-10 text-white" />
                   </div>
                   <h4 className="font-bold text-gray-900 mb-2">Applications</h4>
-                  <p className="text-sm text-gray-600">Weather, neige et forfaits</p>
+                  <p className="text-sm text-gray-600">Météo, neige et forfaits</p>
                 </div>
               </div>
             </div>
