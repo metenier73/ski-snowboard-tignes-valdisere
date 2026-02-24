@@ -5283,33 +5283,33 @@ function App() {
                     <ShieldAlert className="h-6 w-6 text-white" />
                   </div>
                   <div>
-                    <h3 className="text-2xl font-bold text-gray-900 mb-1">Les 10 Règles Essentielles de Sécurité</h3>
-                    <p className="text-gray-600">Le code de conduite sur les pistes</p>
+                    <h3 className="text-2xl font-bold text-gray-900 mb-1">{currentLang === 'fr' ? 'Les 10 Règles Essentielles de Sécurité' : 'The 10 Essential Safety Rules'}</h3>
+                    <p className="text-gray-600">{currentLang === 'fr' ? 'Le code de conduite sur les pistes' : 'The Code of Conduct on the Slopes'}</p>
                   </div>
                 </div>
                 <div className="space-y-4">
                   <div className="bg-gradient-to-r from-red-50 to-orange-50 rounded-xl p-4 transform hover:scale-105 transition-all duration-200">
-                    <p className="text-gray-700 mb-3 font-semibold">Les règles fondamentales à respecter absolument :</p>
+                    <p className="text-gray-700 mb-3 font-semibold">{currentLang === 'fr' ? 'Les règles fondamentales à respecter absolument :' : 'The fundamental rules to absolutely respect:'}</p>
                     <div className="space-y-3">
                       <div className="flex items-start gap-3 transform hover:translate-x-1 transition-all duration-200">
                         <div className="flex-shrink-0 w-8 h-8 bg-red-500 text-white rounded-full flex items-center justify-center font-bold text-sm">1</div>
                         <div>
-                          <span className="font-semibold text-gray-900">Respect d'autrui</span>
-                          <p className="text-gray-600 text-sm">Ne pas mettre les autres en danger par son comportement ou son matériel</p>
+                          <span className="font-semibold text-gray-900">{currentLang === 'fr' ? 'Respect d\'autrui' : 'Respect for Others'}</span>
+                          <p className="text-gray-600 text-sm">{currentLang === 'fr' ? 'Ne pas mettre les autres en danger par son comportement ou son matériel' : 'Do not endanger others through your behavior or equipment.'}</p>
                         </div>
                       </div>
                       <div className="flex items-start gap-3 transform hover:translate-x-1 transition-all duration-200">
                         <div className="flex-shrink-0 w-8 h-8 bg-orange-500 text-white rounded-full flex items-center justify-center font-bold text-sm">2</div>
                         <div>
-                          <span className="font-semibold text-gray-900">Maîtrise vitesse & comportement</span>
-                          <p className="text-gray-600 text-sm">Adapter son comportement à ses capacités, terrain, météo, neige et trafic</p>
+                          <span className="font-semibold text-gray-900">{currentLang === 'fr' ? 'Maîtrise vitesse & comportement' : 'Speed ​​and Behavior Control'}</span>
+                          <p className="text-gray-600 text-sm">{currentLang === 'fr' ? 'Adapter son comportement à ses capacités, terrain, météo, neige et trafic' : 'Adapt your behavior to your abilities, the terrain, weather, snow conditions, and traffic.'}</p>
                         </div>
                       </div>
                       <div className="flex items-start gap-3 transform hover:translate-x-1 transition-all duration-200">
                         <div className="flex-shrink-0 w-8 h-8 bg-yellow-500 text-white rounded-full flex items-center justify-center font-bold text-sm">3</div>
                         <div>
-                          <span className="font-semibold text-gray-900">Direction par l'amont</span>
-                          <p className="text-gray-600 text-sm">Choisir sa trajectoire pour préserver la sécurité des personnes en aval</p>
+                          <span className="font-semibold text-gray-900">{currentLang === 'fr' ? 'Direction par l\'amont' : 'Uphill Direction'}</span>
+                          <p className="text-gray-600 text-sm">{currentLang === 'fr' ? 'Choisir sa trajectoire pour préserver la sécurité des personnes en aval' : 'Choose your trajectory to ensure the safety of those below you.'}</p>
                         </div>
                       </div>
                       <div className="flex items-start gap-3 transform hover:translate-x-1 transition-all duration-200">
