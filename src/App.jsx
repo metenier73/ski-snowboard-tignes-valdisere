@@ -439,9 +439,9 @@ function App() {
           </div>`
       },
       quandPartir: {
-        title: 'Quand partir ?',
-        content: `
-          <h2>📅 Meilleures périodes, tarifs et affluence</h2>
+        title: currentLang === 'fr' ? 'Quand partir ?' : 'When to go?',
+        content: currentLang === 'fr' ? 
+          `<h2>📅 Meilleures périodes, tarifs et affluence</h2>
           <p class="lead">Optimisez votre séjour ski en choisissant la bonne période</p>
           
           <h3>🎿 Saison hiver 2025-2026</h3>
@@ -489,8 +489,56 @@ function App() {
           <div class="alert alert-info">
             <h4>💡 Conseil d'expert</h4>
             <p>Pour le meilleur rapport qualité/prix, visez la mi-janvier ou mars : neige garantie, affluence raisonnable et tarifs standards.</p>
-          </div>
-        `
+          </div>` :
+          `<h2>📅 Best Times, Prices, and Crowds</h2>
+          <p class="lead">Optimize your ski trip by choosing the right time</p>
+          
+          <h3>🎿 Winter Season 2025-2026</h3>
+          <ul>
+            <li><strong>Opening:</strong> Late November 2025 (Tignes) / Early December 2025 (Val d'Isère)</li>
+            <li><strong>Closing:</strong> Early May 2026 (depending on conditions)</li>
+            <li><strong>Optimal Period:</strong> December to March</li>
+            <li><strong>High Season:</strong> Christmas, February, and Easter holidays</li>
+          </ul>
+          
+          <h3>📊 Analysis by Period</h3>
+          
+          <h4>🍂 December - Early January</h4>
+          <ul>
+            <li><strong>Pros:</strong> Fresh snow, full ski area, festive atmosphere</li>
+            <li><strong>Cons:</strong> Maximum crowds, high prices</li>
+            <li><strong>Ideal for:</strong> Christmas vacationers, powder lovers</li>
+            <li><strong>Prices:</strong> +30% compared to average</li>
+          </ul>
+          
+          <h4>❄️ January - March</h4>
+          <ul>
+            <li><strong>Pros:</strong> Good snow conditions, stable weather, perfect slopes</li>
+            <li><strong>Cons:</strong> High crowds in February</li>
+            <li><strong>Ideal for:</strong> Skiers of all levels, families</li>
+            <li><strong>Prices:</strong> Price Standards</li>
+          </ul>
+          
+          <h4>🌸 April - May</h4>
+          <ul>
+            <li><strong>Pros:</strong> Fewer crowds, lower prices, sunshine</li>
+            <li><strong>Cons:</strong> Spring snow, some slopes closed</li>
+            <li><strong>Ideal for:</strong> Budget-conscious, sun worshippers</li>
+            <li><strong>Prices:</strong> 40% off compared to peak season</li>
+          </ul>
+          
+          <h3>💰 Budget Tips</h3>
+          <ul>
+            <li><strong>Outside of school holidays:</strong> Save 20-30%</li>
+            <li><strong>Early bird booking:</strong> Discounts up to 25%</li>
+            <li><strong>Last minute:</strong> Special offers subject to availability</li>
+            <li><strong>Season pass:</strong> Worthwhile for stays of more than 2 weeks</li>
+          </ul>
+          
+          <div class="alert alert-info">
+            <h4>💡 Expert tip</h4>
+            <p>For the best value, aim for mid-January or March: guaranteed snow, reasonable crowds, and standard prices.</p>
+          </div>`
       },
       ouLoger: {
         title: 'Où loger ?',
@@ -1400,7 +1448,7 @@ function App() {
           </div>
         `
       }
-    };
+  };
     
     // Afficher l'article
     title.textContent = articles[articleType].title;
