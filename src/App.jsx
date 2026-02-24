@@ -647,9 +647,9 @@ function App() {
           </div>`
       },
       materiel: {
-        title: 'Matériel',
-        content: `
-          <h2>🎿 Location, achat et entretien</h2>
+        title: currentLang === 'fr' ? 'Matériel' : 'Equipment',
+        content: currentLang === 'fr' ? 
+          `<h2>🎿 Location, achat et entretien</h2>
           <p class="lead">Le guide complet pour bien choisir et entretenir votre matériel</p>
           
           <h3>🏪 Location de matériel</h3>
@@ -710,8 +710,69 @@ function App() {
           <div class="alert alert-info">
             <h4>💡 Conseil pro</h4>
             <p>Un bon entretien prolonge la vie de votre matériel de 3-5 ans et améliore vos performances sur les pistes !</p>
-          </div>
-        `
+          </div>` :
+          `<h2>🎿 Rental, Purchase, and Maintenance</h2>
+          <p class="lead">The Complete Guide to Choosing and Maintaining Your Equipment</p>
+          
+          <h3>🏪 Equipment Rental</h3>
+          
+          <h4>On-Site</h4>
+          <ul>
+            <li><strong>Advantages:</strong> On-site fitting, no transportation required</li>
+            <li><strong>Disadvantages:</strong> High prices, limited stock</li>
+            <li><strong>Prices:</strong> Skis €25-35/day, Helmet €10-15/day</li>
+            <li><strong>Shops:</strong> Intersport, Skiset, Twinner, independent retailers</li>
+          </ul>
+          
+          <h4>Online</h4>
+          <ul>
+            <li><strong>Advantages:</strong> Reduced prices, wide selection, reservations</li>
+            <li><strong>Disadvantages:</strong> Transportation to arrange, fitting sometimes necessary</li>
+            <li><strong>Websites:</strong> Skiset.com, Locaski.com, Alpinresort.com</li>
+            <li><strong>Prices:</strong> Skis €15-25/day, Helmet €5-10/day</li>
+          </ul>
+          
+          <h3>💰 Equipment Purchase</h3>
+          
+          <h4>New vs. Used</h4>
+          <ul>
+            <li><strong>New:</strong> Warranty, latest technology, after-sales service</li>
+            <li><strong>Used:</strong> 30-50% cheaper, already broken in, good value for money</li>
+            <li><strong>Where to buy:</strong> Specialty stores, supermarkets, second-hand websites</li>
+            <li><strong>Warranty:</strong> 1-2 years old, new, no used warranty</li>
+          </ul>
+          
+          <h4>Average investment</h4>
+          <ul>
+            <li><strong>Skis + Bindings:</strong> €400-800 (beginner to expert)</li>
+            <li><strong>Helmet:</strong> €80-200</li>
+            <li><strong>Goggles:</strong> €100-300</li>
+            <li><strong>Boots:</strong> €200-500</li>
+            <li><strong>Total:</strong> €780-1800 for a complete set</li>
+          </ul>
+          
+          <h3>🔧 Equipment Maintenance</h3>
+          
+          <h4>After each day</h4>
+          <ul>
+            <li><strong>Dry skis:</strong> Vertically, tips down</li>
+            <li><strong>Take off boots:</strong> Open to dry</li>
+            <li><strong>Check bindings:</strong> Tighten if necessary</li>
+            <li><strong>Clean helmet:</strong> Inside and out</li>
+          </ul>
+          
+          <h4>Seasonal Maintenance</h4>
+          <ul>
+            <li><strong>Waxing:</strong> Apply wax every 5-6 days</li>
+            <li><strong>Repairs:</strong> Professional for major damage</li>
+            <li><strong>Storage:</strong> Dry, temperate, away from light</li>
+            <li><strong>Service:</strong> Bindings and bases every 2-3 years</li>
+          </ul>
+          
+          <div class="alert alert-info">
+            <h4>💡 Pro Tip</h4>
+            <p>Proper maintenance extends the life of your equipment by 3-5 years and improves your performance on the slopes!</p>
+          </div>`
       },
       applications: {
         title: 'Applications',
