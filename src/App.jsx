@@ -127,9 +127,9 @@ function App() {
           </blockquote>`
       },
       freeride: {
-        title: 'Meilleures Spots Freeride',
-        content: `
-          <h2>🏔️ Les secrets des hors-pistes authentiques et sécurisés</h2>
+        title: currentLang === 'fr' ? 'Meilleures Spots Freeride' : 'Best Freeride Spots',
+        content: currentLang === 'fr' ? 
+          `<h2>🏔️ Les secrets des hors-pistes authentiques et sécurisés</h2>
           <p class="lead">Explorez les couloirs mythiques et les forêts enneigées avec nos guides experts...</p>
           
           <h3>⛰️ Tignes - Les incontournables</h3>
@@ -156,13 +156,40 @@ function App() {
           <div class="alert alert-warning">
             <h4>⚠️ Sécurité avant tout</h4>
             <p>Toujours vérifier le bulletin d'avalanches, emporter DVA, pelle et sonde. Partir accompagné et informer quelqu'un de votre itinéraire.</p>
-          </div>
-        `
+          </div>` :
+          `<h2>🏔️ The secrets of authentic and safe off-piste skiing</h2>
+          <p class="lead">Explore legendary couloirs and snow-covered forests with our expert guides...</p>
+          
+          <h3>⛰️ Tignes - The Must-Sees</h3>
+          <ul>
+            <li><strong>Le Grand Motet:</strong> North Face - 45° - Expert Level</li>
+            <li><strong>La Sache:</strong> Snow-Covered Forest - 30° - Intermediate Level</li>
+            <li><strong>Tichot:</strong> Legendary Couloir - 40° - Expert Level</li>
+          </ul>
+          
+          <h3>🏰 Val d'Isère - Classics and Hidden Gems</h3>
+          <ul>
+            <li><strong>Face de Bellevarde:</strong> Olympic - 35° - Advanced Level</li>
+            <li><strong>Le Pissaillas:</strong> Glacier - 25° - Intermediate Level</li>
+            <li><strong>Forêt du Manchet:</strong> Snow-Covered Woods - 20° - All Levels</li>
+          </ul>
+          
+          <h3>🎿 Les Arcs - Freeride Area</h3>
+          <ul>
+            <li><strong>Aiguille Rouge:</strong> 3000m Vertical Drop - Expert Level</li>
+            <li><strong>Combe de la Arc:</strong> Wide and Accessible - Intermediate Level</li>
+            <li><strong>Forêt du Mont Blanc:</strong> Abois Snowy - All levels</li>
+          </ul>
+          
+          <div class="alert alert-warning">
+            <h4>⚠️ Safety first</h4>
+            <p>Always check the avalanche bulletin, carry an avalanche transceiver, shovel, and probe. Go with a companion and inform someone of your route.</p>
+          </div>`
       },
       equipement: {
-        title: 'Équipement Essentiel',
-        content: `
-          <h2>🎿 Le matériel parfait pour votre séjour au ski</h2>
+        title: currentLang === 'fr' ? 'Équipement Essentiel' : 'Essential Equipment',
+        content: currentLang === 'fr' ? 
+          `<h2>🎿 Le matériel parfait pour votre séjour au ski</h2>
           <p class="lead">Tests comparatifs des derniers skis, casques et accessoires de la saison...</p>
           
           <h3>🎿 Skis - Nos sélections 2025-2026</h3>
@@ -197,8 +224,43 @@ function App() {
           <h3>🥾 Chaussures - Le confort avant tout</h3>
           <div class="alert alert-info">
             <p><strong>Notre conseil:</strong> Essayez toujours vos chaussures en fin de journée quand vos pieds sont légèrement gonflés.</p>
-          </div>
-        `
+          </div>` :
+          `<h2>🎿 The perfect gear for your ski trip</h2>
+          <p class="lead">Comparative tests of the latest skis, helmets, and accessories of the season...</p>
+          
+          <h3>🎿 Skis - Our 2025-2026 selections</h3>
+          <h4>Beginner - Progression</h4>
+          <ul>
+            <li><strong>Head Supershape Team:</strong> Stable and forgiving - €400</li>
+            <li><strong>Salomon QST 85:</strong> Versatile and comfortable - €450</li>
+            <li><strong>Rossignol Experience 88:</strong> Excellent value for money - €380</li>
+          </ul>
+          
+          <h4>Intermediate - Versatility</h4>
+          <ul>
+            <li><strong>Volkl Kendo 88:</strong> Dynamic and precise - €550</li>
+            <li><strong>Blizzard Bonafide 88:</strong> Grip and stability - €600</li>
+            <li><strong>Fischer Ranger 96:</strong> Accessible freeride - €520</li>
+          </ul>
+          
+          <h4>Expert - Performance</h4>
+          <ul>
+            <li><strong>Head Kore 105:</strong> Lightweight and responsive - €650</li>
+            <li><strong>Salomon QST 106:</strong> Exceptional float - €700</li>
+            <li><strong>Black Crows Navis Freebird:</strong> Pure Freeride - €800</li>
+          </ul>
+          
+          <h3>🪖 Helmets - Protection and Comfort</h3>
+          <ul>
+            <li><strong>Smith Quantum:</strong> MIPS + Integrated Audio - €180</li>
+            <li><strong>Giro Range:</strong> Perfect Fit - €160</li>
+            <li><strong>Salomon Icon:</strong> Lightweight and Ventilated - €140</li>
+          </ul>
+          
+          <h3>🥾 Shoes - Comfort First</h3>
+          <div class="alert alert-info">
+            <p><strong>Our Tip:</strong> Always try on your shoes at the end of the day when your feet are slightly swollen.</p>
+          </div>`
       },
       carving: {
         title: 'Technique du Carving Parfait',
