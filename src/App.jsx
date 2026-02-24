@@ -5044,7 +5044,7 @@ function App() {
             <div className="text-center mb-12">
               <h3 className="text-3xl font-bold text-gray-900 mb-4">⛷️ Paradiski</h3>
               <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-                Le guide complet du domaine Paradiski et ses stations
+                {currentLang === 'fr' ? 'Le guide complet du domaine Paradiski et ses stations' : 'The complete guide to the Paradiski area and its resorts'}
               </p>
             </div>
             <div className="bg-gradient-to-br from-purple-50 to-indigo-50 rounded-3xl p-8 border border-purple-200">
@@ -5060,11 +5060,11 @@ function App() {
                       <Mountain className="h-8 w-8 text-white" />
                     </div>
                     <h4 className="text-xl font-bold text-gray-900 mb-2">Les Arcs</h4>
-                    <p className="text-gray-600 mb-4">4 stations, architecture moderne</p>
+                    <p className="text-gray-600 mb-4">{currentLang === 'fr' ? '4 stations, architecture moderne' : '4 resorts, modern architecture'}</p>
                     <div className="space-y-2 text-sm text-gray-600">
                       <p>🎿 Arc 1600, 1800, 1950, 2000</p>
                       <p>🏔️ Altitude: 1200m - 3226m</p>
-                      <p>⭐ Architecture contemporaine</p>
+                      <p>⭐ {currentLang === 'fr' ? 'Architecture contemporaine' : 'Contemporary architecture'}</p>
                     </div>
                   </div>
                 </div>
@@ -5079,11 +5079,11 @@ function App() {
                       <Compass className="h-8 w-8 text-white" />
                     </div>
                     <h4 className="text-xl font-bold text-gray-900 mb-2">La Plagne</h4>
-                    <p className="text-gray-600 mb-4">10 stations, familial</p>
+                    <p className="text-gray-600 mb-4">{currentLang === 'fr' ? '10 stations, familial' : '10 resorts, family-friendly'}</p>
                     <div className="space-y-2 text-sm text-gray-600">
                       <p>🎿 Plagne Centre, Bellecôte, etc.</p>
                       <p>🏔️ Altitude: 1250m - 3250m</p>
-                      <p>⭐ Idéal pour familles</p>
+                      <p>⭐ {currentLang === 'fr' ? 'Idéal pour familles' : 'Ideal for families'}</p>
                     </div>
                   </div>
                 </div>
@@ -5101,11 +5101,11 @@ function App() {
                       <Sparkles className="h-8 w-8 text-white" />
                     </div>
                     <h4 className="text-xl font-bold text-gray-900 mb-2">Vanoise Express</h4>
-                    <p className="text-gray-600 mb-4">Liaison magique entre domaines</p>
+                    <p className="text-gray-600 mb-4">{currentLang === 'fr' ? 'Liaison magique entre domaines' : 'Magical link between ski areas'}</p>
                     <div className="space-y-2 text-sm text-gray-600">
-                      <p>🚡 2 cabines en 5 minutes</p>
+                      <p>🚡 {currentLang === 'fr' ? '2 cabines en 5 minutes' : '2 gondolas in 5 minutes'}</p>
                       <p>🏔️ Altitude: 1600m - 2500m</p>
-                      <p>⭐ 425 km de pistes au total</p>
+                      <p>⭐ {currentLang === 'fr' ? '425 km de pistes au total' : '425 km of slopes in total'}</p>
                     </div>
                   </div>
                 </div>
@@ -5119,12 +5119,12 @@ function App() {
                     <div className="w-16 h-16 bg-gradient-to-br from-teal-500 to-green-600 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:rotate-12 transition-transform duration-300">
                       <MapPin className="h-8 w-8 text-white" />
                     </div>
-                    <h4 className="text-xl font-bold text-gray-900 mb-2">Domaine Paradiski</h4>
-                    <p className="text-gray-600 mb-4">425 km de pistes</p>
+                    <h4 className="text-xl font-bold text-gray-900 mb-2">{currentLang === 'fr' ? 'Domaine Paradiski' : 'Paradiski Area'}</h4>
+                    <p className="text-gray-600 mb-4">{currentLang === 'fr' ? '425 km de pistes' : '425 km of slopes'}</p>
                     <div className="space-y-2 text-sm text-gray-600">
                       <p>🎿 Les Arcs + La Plagne</p>
                       <p>🏔️ Altitude: 1200m - 3226m</p>
-                      <p>⭐ 130 remontées, 2 funiculaires</p>
+                      <p>⭐ {currentLang === 'fr' ? '130 remontées, 2 funiculaires' : '130 lifts, 2 funiculars'}</p>
                     </div>
                   </div>
                 </div>
@@ -5141,12 +5141,12 @@ function App() {
                     <div className="w-16 h-16 bg-gradient-to-br from-yellow-500 to-orange-600 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:rotate-12 transition-transform duration-300">
                       <Clock className="h-8 w-8 text-white" />
                     </div>
-                    <h4 className="text-xl font-bold text-gray-900 mb-2">Saison 2025-2026</h4>
-                    <p className="text-gray-600 mb-4">Calendrier complet</p>
+                    <h4 className="text-xl font-bold text-gray-900 mb-2">{currentLang === 'fr' ? 'Saison 2025-2026' : '2025-2026 Season'}</h4>
+                    <p className="text-gray-600 mb-4">{currentLang === 'fr' ? 'Calendrier complet' : 'Full calendar'}</p>
                     <div className="space-y-2 text-sm text-gray-600">
-                      <p>🎂 Ouverture: 13/12/2025</p>
-                      <p>🎂 Fermeture: 25/04/2026</p>
-                      <p>⭐ Haute saison: Février</p>
+                      <p>🎂 {currentLang === 'fr' ? 'Ouverture: 13/12/2025' : 'Opening: 13/12/2025'}</p>
+                      <p>🎂 {currentLang === 'fr' ? 'Fermeture: 25/04/2026' : 'Closing: 25/04/2026'}</p>
+                      <p>⭐ {currentLang === 'fr' ? 'Haute saison: Février' : 'High season: February'}</p>
                     </div>
                   </div>
                 </div>
@@ -5160,12 +5160,12 @@ function App() {
                     <div className="w-16 h-16 bg-gradient-to-br from-emerald-500 to-teal-600 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:rotate-12 transition-transform duration-300">
                       <Star className="h-8 w-8 text-white" />
                     </div>
-                    <h4 className="text-xl font-bold text-gray-900 mb-2">Points Forts</h4>
-                    <p className="text-gray-600 mb-4">Atouts majeurs</p>
+                    <h4 className="text-xl font-bold text-gray-900 mb-2">{currentLang === 'fr' ? 'Points Forts' : 'Highlights'}</h4>
+                    <p className="text-gray-600 mb-4">{currentLang === 'fr' ? 'Atouts majeurs' : 'Strengths Major attractions'}</p>
                     <div className="space-y-2 text-sm text-gray-600">
-                      <p>🏔️ Architecture moderne</p>
-                      <p>🎿 Domaine Paradiski</p>
-                      <p>⚡ TGV direct à Bourg-Saint-Maurice</p>
+                      <p>🏔️ {currentLang === 'fr' ? 'Architecture moderne' : 'Modern architecture'}</p>
+                      <p>🎿 {currentLang === 'fr' ? 'Domaine Paradiski' : 'Paradiski area'}</p>
+                      <p>⚡ {currentLang === 'fr' ? 'TGV direct à Bourg-Saint-Maurice' : 'Direct TGV train to Bourg-Saint-Maurice'}</p>
                     </div>
                   </div>
                 </div>
@@ -5175,7 +5175,7 @@ function App() {
             <div className="mt-8 flex flex-wrap justify-center gap-4">
               <a href="https://www.lesarcs.com" target="_blank" rel="noreferrer" className="flex items-center gap-2 px-6 py-3 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-all duration-200 transform hover:scale-105">
                 <span>⛷️</span>
-                <span>Site Les Arcs</span>
+                <span>{currentLang === 'fr' ? 'Site Les Arcs' : 'Les Arcs resort'}</span>
               </a>
               <a href="https://www.paradiski.com" target="_blank" rel="noreferrer" className="flex items-center gap-2 px-6 py-3 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-all duration-200 transform hover:scale-105">
                 <span>🗺️</span>
