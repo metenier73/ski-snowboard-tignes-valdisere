@@ -541,9 +541,9 @@ function App() {
           </div>`
       },
       ouLoger: {
-        title: 'Où loger ?',
-        content: `
-          <h2>🏨 Hôtels, chalets et appartements</h2>
+        title: currentLang === 'fr' ? 'Où loger ?' : 'Where to stay?',
+        content: currentLang === 'fr' ? 
+          `<h2>🏨 Hôtels, chalets et appartements</h2>
           <p class="lead">Trouvez l'hébergement parfait pour votre séjour ski</p>
           
           <h3>🏨 Hôtels</h3>
@@ -593,8 +593,58 @@ function App() {
           <div class="alert alert-warning">
             <h4>⚠️ Attention</h4>
             <p>Réservez 6-8 mois à l'avance pour Noël et février. Les meilleures adresses partent très vite !</p>
-          </div>
-        `
+          </div>` :
+          `<h2>🏨 Hotels, Chalets, and Apartments</h2>
+          <p class="lead">Find the perfect accommodation for your ski holiday</p>
+          
+          <h3>🏨 Hotels</h3>
+          
+          <h4>Luxury - 4★ and 5★</h4>
+          <ul>
+            <li><strong>Tignes:</strong> Le Lana, Le Savoie, Le Suites - €200-500/night</li>
+            <li><strong>Val d'Isère:</strong> Le Christiania, Le Aigle, Le Brice - €250-600/night</li>
+            <li><strong>Les Arcs:</strong> Le Royal, Le Montana, Le Sherpa - €180-450/night</li>
+            <li><strong>Amenities:</strong> Spa, restaurant, bar, concierge</li>
+          </ul>
+          
+          <h4>Standard - 3★</h4>
+          <ul>
+            <li><strong>Tignes:</strong> Le Alpaga, Le Lys, Le Gypaète - €80-150/night</li>
+            <li><strong>Val d'Isère:</strong> Le Diable, Le Belvédère, Le Kandahar - €90-180/night</li>
+            <li><strong>Les Arcs:</strong> Le Chalet, Le Marmotte, Le Chamois - €70-140/night</li>
+            <li><strong>Amenities:</strong> Breakfast, bar, ski-in/ski-out</li>
+          </ul>
+          
+          <h3>🏡 Chalets and Apartments</h3>
+          
+          <h4>Private Chalets</h4>
+          <ul>
+            <li><strong>Capacity:</strong> 4-12 people</li>
+            <li><strong>Price:</strong> €800-3000/week depending on the season</li>
+            <li><strong>Advantages:</strong> Privacy, kitchen, space, convivial atmosphere</li>
+            <li><strong>Equipment:</strong> Fireplace, spa (sometimes), garage</li>
+          </ul>
+          
+          <h4>Tourist Residences</h4>
+          <ul>
+            <li><strong>Tignes:</strong> Le Lac, Le Bouchet, Le Val Claret</li>
+            <li><strong>Val d'Isère:</strong> Le Gallois, Le Cret, Le Joseray</li>
+            <li><strong>Les Arcs:</strong> Le Charmettan, Le Planay, Le Villard</li>
+            <li><strong>Price:</strong> €500-1500/week</li>
+          </ul>
+          
+          <h3>🎯 Booking Tips</h3>
+          <ul>
+            <li><strong>Location:</strong> Close to ski lifts and shops</li>
+            <li><strong>Orientation:</strong> South for sun, north for snow</li>
+            <li><strong>Altitude:</strong> Higher = more snow guaranteed</li>
+            <li><strong>Amenities:</strong> Parking, Wi-Fi, laundry facilities, boot dryers</li>
+          </ul>
+          
+          <div class="alert alert-warning">
+            <h4>⚠️ Important</h4>
+            <p>Book 6-8 months in advance for Christmas and February. The best places get booked up very quickly!</p>
+          </div>`
       },
       materiel: {
         title: 'Matériel',
