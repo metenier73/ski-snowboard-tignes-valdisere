@@ -5350,23 +5350,23 @@ function App() {
                       <div className="flex items-start gap-3 transform hover:translate-x-1 transition-all duration-200">
                         <div className="flex-shrink-0 w-8 h-8 bg-red-600 text-white rounded-full flex items-center justify-center font-bold text-sm">9</div>
                         <div>
-                          <span className="font-semibold text-gray-900">Assistance</span>
-                          <p className="text-gray-600 text-sm">Prêter assistance en cas d'accident, donner l'alerte, se mettre à disposition des secours</p>
+                          <span className="font-semibold text-gray-900">{currentLang === 'fr' ? 'Assistance' : 'Assistance'}</span>
+                          <p className="text-gray-600 text-sm">{currentLang === 'fr' ? 'Prêter assistance en cas d\'accident, donner l\'alerte, se mettre à disposition des secours' : 'Provide assistance in case of an accident, raise the alarm, and make yourself available to emergency services'}</p>
                         </div>
                       </div>
                       <div className="flex items-start gap-3 transform hover:translate-x-1 transition-all duration-200">
                         <div className="flex-shrink-0 w-8 h-8 bg-orange-600 text-white rounded-full flex items-center justify-center font-bold text-sm">10</div>
                         <div>
-                          <span className="font-semibold text-gray-900">Identification</span>
-                          <p className="text-gray-600 text-sm">Faire connaître son identité auprès des secours et/ou des tiers en cas d'accident</p>
+                          <span className="font-semibold text-gray-900">{currentLang === 'fr' ? 'Identification' : 'Identification'}</span>
+                          <p className="text-gray-600 text-sm">{currentLang === 'fr' ? 'Faire connaître son identité auprès des secours et/ou des tiers en cas d\'accident' : 'Provide your identity to emergency services and/or third parties in case of an accident'}</p>
                         </div>
                       </div>
                     </div>
                     <div className="mt-4 pt-4 border-t border-red-100">
-                      <p className="text-gray-700 mb-2">⚠️ <strong>Conseil du moniteur :</strong></p>
+                      <p className="text-gray-700 mb-2">⚠️ <strong>{currentLang === 'fr' ? 'Conseil du moniteur :' : 'Instructor\'s tip:'}</strong></p>
                       <div className="flex items-center gap-2 transform hover:translate-x-1 transition-all duration-200">
                         <ShieldAlert className="h-4 w-4 text-red-600" />
-                        <span className="text-gray-700">Ces règles assurent la sécurité de tous sur les pistes. Respectez-les et profitez pleinement de votre ski !</span>
+                        <span className="text-gray-700">{currentLang === 'fr' ? 'Ces règles assurent la sécurité de tous sur les pistes. Respectez-les et profitez pleinement de votre ski !' : 'These rules ensure everyone\'s safety on the slopes. Respect them and fully enjoy your skiing!'}</span>
                       </div>
                     </div>
                   </div>
