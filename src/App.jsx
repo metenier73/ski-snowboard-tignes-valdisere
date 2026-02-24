@@ -3076,28 +3076,6 @@ function App() {
                         <br />
                         <span className="text-yellow-300 font-semibold">*(Ambiance plus authentique et locale que Val d'Isère)*</span>
                       </p>
-                      <div className="mt-6 bg-gradient-to-br from-purple-500 via-pink-500 to-rose-500 backdrop-blur-sm rounded-2xl p-6 border border-white/30">
-                      <h4 className="text-lg font-bold text-white mb-4 text-center bg-white/20 inline-block px-4 py-2 rounded-lg">🌙 Timeline Nuit Typique à Val Claret</h4>
-                      <p className="text-white text-sm font-semibold mb-3">📍 Villages & Ambiances :</p>
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-2 text-xs">
-                          <div className="flex items-center gap-2">
-                            <span className="text-red-400">🔥</span>
-                            <span className="text-white/90"><strong>Val Claret</strong> - Le plus festif, après-ski dès 15h</span>
-                          </div>
-                          <div className="flex items-center gap-2">
-                            <span className="text-blue-400">🍻</span>
-                            <span className="text-white/90"><strong>Le Lac</strong> - Central, ambiance mixte</span>
-                          </div>
-                          <div className="flex items-center gap-2">
-                            <span className="text-green-400">😌</span>
-                            <span className="text-white/90"><strong>Lavachet</strong> - Local & détendu</span>
-                          </div>
-                          <div className="flex items-center gap-2">
-                            <span className="text-purple-400">🏔️</span>
-                            <span className="text-white/90"><strong>Les Brévières</strong> - Authentique, plus cosy</span>
-                          </div>
-                        </div>
-                      </div>
                     </div>
                   </div>
 
@@ -3265,7 +3243,7 @@ function App() {
                           </div>
                         </div>
                       </div>
-                      <div className="mt-4 pt-4 border-t border-gray-600">
+                      <div className="mt-4 pt-4 border-t border-white/20">
                         <p className="text-white/90 text-sm">
                           <strong className="text-white">💡 Tips pour la nuit à Val Claret :</strong> l'ambiance commence souvent avec un après-ski vers 15-17h, puis se transforme en soirée musicale plus tard (bars + clubs), et beaucoup de gens finissent en club après 23h.
                         </p>
@@ -3275,7 +3253,7 @@ function App() {
 
                   {/* Timeline et badges */}
                   <div className="mt-6 bg-white/10 backdrop-blur-sm rounded-2xl p-4 md:p-6 border border-white/20 transform hover:scale-105 transition-all duration-200">
-                    <h4 className="text-lg md:text-xl font-bold text-white mb-3 md:mb-4 text-center bg-white/20 inline-block px-4 py-2 rounded-lg">🌙 Timeline Nuit Typique à Val Claret</h4>
+                    <h4 className="text-lg md:text-xl font-bold text-white mb-3 md:mb-4 text-center">🌙 Timeline Nuit Typique à Val Claret</h4>
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
                       <div className="text-center">
                         <div className="bg-gradient-to-br from-yellow-400 to-orange-400 rounded-lg p-2 md:p-3 mb-1 md:mb-2">
