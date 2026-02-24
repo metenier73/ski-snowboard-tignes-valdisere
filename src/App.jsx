@@ -263,9 +263,9 @@ function App() {
           </div>`
       },
       carving: {
-        title: 'Technique du Carving Parfait',
-        content: `
-          <h2>🎿 Maîtrisez les virages coupés comme un champion</h2>
+        title: currentLang === 'fr' ? 'Technique du Carving Parfait' : 'The Perfect Carving Technique',
+        content: currentLang === 'fr' ? 
+          `<h2>🎿 Maîtrisez les virages coupés comme un champion</h2>
           <p class="lead">Apprenez les secrets du carving moderne : positionnement, angulation et timing...</p>
           
           <h3>🏃‍♂️ Positionnement du corps</h3>
@@ -303,13 +303,51 @@ function App() {
           <div class="alert alert-info">
             <h4>💡 Conseil de pro</h4>
             <p>Commencez par des virages larges et progressivement réduisez le rayon. La vitesse vient avec la maîtrise, pas l'inverse !</p>
-          </div>
-        `
+          </div>` :
+          `<h2>🎿 Master carved turns like a champion</h2>
+          <p class="lead">Learn the secrets of modern carving: positioning, angle, and timing...</p>
+          
+          <h3>🏃‍♂️ Body Positioning</h3>
+          <ul>
+            <li><strong>Low hips:</strong> Keep your hips level with your knees to maximize angle</li>
+            <li><strong>Leaning torso:</strong> Lean your torso into the turn for balance</li>
+            <li><strong>Open arms:</strong> Spread your arms like wings for balance and visibility</li>
+            <li><strong>Look ahead:</strong> Focus on the exit of the turn, not your skis</li>
+          </ul>
+          
+          <h3>🦵 Knee Angle</h3>
+          <ul>
+            <li><strong>Bent knees:</strong> Bend your knees to absorb shock and maintain balance</li>
+            <li><strong>Equal pressure:</strong> Distribute weight evenly on both skis</li>
+            <li><strong>Dynamic flexion:</strong> Maintain active flexion throughout the turn</li>
+            <li><strong>Progressive extension:</strong> Extend gradually at the exit of the turn</li>
+          </ul>
+          
+          <h3>⏱️ Timing and Rhythm</h3>
+          <ul>
+            <li><strong>Early initiation:</strong> Start the turn before the natural breakaway point</li>
+            <li><strong>Control phase:</strong> Maintain maximum angle in the middle of the turn.</li>
+            <li><strong>Smooth exit:</strong> Gradually release the angle for the next turn.</li>
+            <li><strong>Linking turns:</strong> Rhythmically flow through your turns like a dance on the snow.</li>
+          </ul>
+          
+          <h3>🎯 Progressive exercises</h3>
+          <ul>
+            <li><strong>Boys' turns:</strong> Link short turns to develop rhythm.</li>
+            <li><strong>Skiing on one edge:</strong> Practice on flat terrain to perfect your angle.</li>
+            <li><strong>Tight turns:</strong> Reduce the radius to test your control.</li>
+            <li><strong>Carving on variable terrain:</strong> Adapt your technique to the snow conditions.</li>
+          </ul>
+          
+          <div class="alert alert-info">
+            <h4>💡 Pro tip</h4>
+            <p>Start with wide turns and gradually reduce the radius. Speed comes with control, not the other way around!</p>
+          </div>`
       },
       securite: {
-        title: 'Sécurité sur les Pistes',
-        content: `
-          <h2>⛑️ Les règles d'or pour skier en toute sécurité</h2>
+        title: currentLang === 'fr' ? 'Sécurité sur les Pistes' : 'Ski Safety',
+        content: currentLang === 'fr' ? 
+          `<h2>⛑️ Les règles d'or pour skier en toute sécurité</h2>
           <p class="lead">10 règles essentielles, gestion des collisions et conduite responsable...</p>
           
           <h3>📋 Les 10 règles d'or du skieur</h3>
@@ -353,8 +391,52 @@ function App() {
           <div class="alert alert-warning">
             <h4>⚠️ Rappel important</h4>
             <p>La sécurité est l'affaire de tous. Un skieur responsable est un skieur qui revient vivant !</p>
-          </div>
-        `
+          </div>` :
+          `<h2>⛑️ The Golden Rules for Safe Skiing</h2>
+          <p class="lead">10 Essential Rules, Collision Management, and Responsible Skiing...</p>
+          
+          <h3>📋 The 10 Golden Rules for Skiers</h3>
+          <ol>
+            <li><strong>Respect Others:</strong> Adapt your speed and trajectory</li>
+            <li><strong>Control Your Speed:</strong> Always ski in control of your trajectory</li>
+            <li><strong>Choose Your Trajectory:</strong> The skier uphill has priority</li>
+            <li><strong>Overtake Carefully:</strong> Leave Sufficient Lateral Space</li>
+            <li><strong>Don't Stop Suddenly:</strong> Check uphill before stopping</li>
+            <li><strong>Uphill on the Side:</strong> Use the edges of the slopes to ascend</li>
+            <li><strong>Respect Signage:</strong> Obey signs and markers</li>
+            <li><strong>Help in Case of an Accident:</strong> Protect others and alert emergency services</li>
+            <li><strong>Identify Yourself:</strong> Carry your name and contact information in case of an accident</li>
+            <li><strong>Equip Yourself:</strong> Always wear a certified helmet</li>
+          </ol>
+          
+          <h3>🚨 Collision Management</h3>
+          <ul>
+            <li><strong>Anticipation:</strong> Constantly observe the skiers around you</li>
+            <li><strong>Communication:</strong> Use gestures or sounds to signal Your intentions</li>
+            <li><strong>Safety zone:</strong> Always maintain a safe distance</li>
+            <li><strong>Adapt:</strong> Modify your trajectory if necessary</li>
+          </ul>
+          
+          <h3>🏥 In case of an accident</h3>
+          <ul>
+            <li><strong>Protect the area:</strong> Place skis in a cross shape above and below</li>
+            <li><strong>Alert emergency services:</strong> Call 112 or the ski patrol</li>
+            <li><strong>Do not move:</strong> Except in case of immediate danger</li>
+            <li><strong>Reassure the victim:</strong> Remain calm and communicative</li>
+          </ul>
+          
+          <h3>🎿 Safety equipment</h3>
+          <ul>
+            <li><strong>Helmet:</strong> Essential for everyone, children and adults alike</li>
+            <li><strong>Goggles:</strong> UV protection and optimal visibility</li>
+            <li><strong>Phone:</strong> Charged battery and network coverage</li>
+            <li><strong>Lift pass:</strong> Emergency number visible on the pass</li>
+          </ul>
+          
+          <div class="alert alert-warning">
+            <h4>⚠️ Important reminder</h4>
+            <p>Safety is everyone's responsibility. A responsible skier is a skier who comes back alive!</p>
+          </div>`
       },
       quandPartir: {
         title: 'Quand partir ?',
@@ -4490,9 +4572,9 @@ function App() {
 
           <div id="guide-complet" className="mb-16">
             <div className="text-center mb-12">
-              <h3 className="text-3xl font-bold text-gray-900 mb-4">🏔️ Guide Complet</h3>
+              <h3 className="text-3xl font-bold text-gray-900 mb-4">🏔️ {currentLang === 'fr' ? 'Guide Complet' : 'Complete Guide'}</h3>
               <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-                Tout ce qu'il faut savoir pour organiser votre séjour ski
+                {currentLang === 'fr' ? 'Tout ce qu\'il faut savoir pour organiser votre séjour ski' : 'Everything you need to know to plan your ski trip'}
               </p>
             </div>
             <div className="bg-gradient-to-br from-purple-50 to-indigo-50 rounded-3xl p-8 border border-purple-200">
@@ -4506,8 +4588,8 @@ function App() {
                   <div className="w-20 h-20 bg-gradient-to-br from-purple-500 to-indigo-600 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:rotate-12 transition-transform duration-300">
                     <Calendar className="h-10 w-10 text-white" />
                   </div>
-                  <h4 className="font-bold text-gray-900 mb-2">Quand partir ?</h4>
-                  <p className="text-sm text-gray-600">Meilleures périodes, tarifs et affluence</p>
+                  <h4 className="font-bold text-gray-900 mb-2">{currentLang === 'fr' ? 'Quand partir ?' : 'When to go?'}</h4>
+                  <p className="text-sm text-gray-600">{currentLang === 'fr' ? 'Meilleures périodes, tarifs et affluence' : 'Best times, prices, and crowds'}</p>
                 </div>
                 <div 
                   onClick={() => {
@@ -4518,8 +4600,8 @@ function App() {
                   <div className="w-20 h-20 bg-gradient-to-br from-blue-500 to-cyan-600 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:rotate-12 transition-transform duration-300">
                     <MapPin className="h-10 w-10 text-white" />
                   </div>
-                  <h4 className="font-bold text-gray-900 mb-2">Où loger ?</h4>
-                  <p className="text-sm text-gray-600">Hôtels, chalets et appartements</p>
+                  <h4 className="font-bold text-gray-900 mb-2">{currentLang === 'fr' ? 'Où loger ?' : 'Where to stay?'}</h4>
+                  <p className="text-sm text-gray-600">{currentLang === 'fr' ? 'Hôtels, chalets et appartements' : 'Hotels, chalets, and apartments'}</p>
                 </div>
                 <div 
                   onClick={() => {
@@ -4530,8 +4612,8 @@ function App() {
                   <div className="w-20 h-20 bg-gradient-to-br from-green-500 to-emerald-600 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:rotate-12 transition-transform duration-300">
                     <Settings className="h-10 w-10 text-white" />
                   </div>
-                  <h4 className="font-bold text-gray-900 mb-2">Matériel</h4>
-                  <p className="text-sm text-gray-600">Location, achat et entretien</p>
+                  <h4 className="font-bold text-gray-900 mb-2">{currentLang === 'fr' ? 'Matériel' : 'Equipment'}</h4>
+                  <p className="text-sm text-gray-600">{currentLang === 'fr' ? 'Location, achat et entretien' : 'Rental, purchase, and maintenance'}</p>
                 </div>
                 <div 
                   onClick={() => {
@@ -4542,8 +4624,8 @@ function App() {
                   <div className="w-20 h-20 bg-gradient-to-br from-orange-500 to-red-600 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:rotate-12 transition-transform duration-300">
                     <Smartphone className="h-10 w-10 text-white" />
                   </div>
-                  <h4 className="font-bold text-gray-900 mb-2">Applications</h4>
-                  <p className="text-sm text-gray-600">Météo, neige et forfaits</p>
+                  <h4 className="font-bold text-gray-900 mb-2">{currentLang === 'fr' ? 'Applications' : 'Apps'}</h4>
+                  <p className="text-sm text-gray-600">{currentLang === 'fr' ? 'Météo, neige et forfaits' : 'Weather, snow conditions, and lift passes'}</p>
                 </div>
               </div>
             </div>
