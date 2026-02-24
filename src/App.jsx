@@ -775,9 +775,9 @@ function App() {
           </div>`
       },
       applications: {
-        title: 'Applications',
-        content: `
-          <h2>📱 Météo, neige et forfaits</h2>
+        title: currentLang === 'fr' ? 'Applications' : 'Apps',
+        content: currentLang === 'fr' ? 
+          `<h2>📱 Météo, neige et forfaits</h2>
           <p class="lead">Les applications indispensables pour votre séjour ski</p>
           
           <h3>🌨️ Météo et neige</h3>
@@ -851,8 +851,82 @@ function App() {
           <div class="alert alert-info">
             <h4>💡 Conseil de pro</h4>
             <p>Combinez 2-3 applications : une météo (Snow-Forecast), une domaine (MyTignes) et une utilitaire (Geoportail) pour couvrir tous vos besoins !</p>
-          </div>
-        `
+          </div>` :
+          `<h2>📱 Weather, Snow, and Lift Passes</h2>
+          <p class="lead">Essential apps for your ski trip</p>
+          
+          <h3>🌨️ Weather and Snow</h3>
+          
+          <h4>Météo France</h4>
+          <ul>
+            <li><strong>Features:</strong> Detailed forecasts, snow reports, radar</li>
+            <li><strong>Pros:</strong> Official, reliable, free</li>
+            <li><strong>Cons:</strong> Forecasts sometimes inaccurate in the mountains</li>
+            <li><strong>Ideal for:</strong> Short-term planning</li>
+          </ul>
+          
+          <h4>Snow-Forecast</h4>
+          <ul>
+            <li><strong>Features:</strong> Ultra-precise snow forecasts, webcams</li>
+            <li><strong>Pros:</strong> Very accurate in the mountains, live webcams</li>
+            <li><strong>Cons:</strong> Paid for advanced features</li>
+            <li><strong>Ideal for:</strong> Choosing the best day to ski</li>
+          </ul>
+          
+          <h4>YR.no</h4>
+          <ul>
+            <li><strong>Features:</strong> Norwegian weather, very reliable in the mountains</li>
+            <li><strong>Pros:</strong> Exceptional forecasts, free</li>
+            <li><strong>Cons:</strong> Interface in English/Norwegian</li>
+            <li><strong>Ideal for:</strong> Long-term forecasts</li>
+          </ul>
+          
+          <h3>🎿 Ski Area Apps</h3>
+          
+          <h4>MyTignes</h4>
+          <ul>
+            <li><strong>Features:</strong> Piste map, webcam, weather, snow conditions</li>
+            <li><strong>Pros:</strong> Official Tignes app, very comprehensive</li>
+            <li><strong>Services:</strong> Ski pass purchase, restaurant reservations</li>
+            <li><strong>Ideal for:</strong> Tignes and Val d'Isère</li>
+          </ul>
+          
+          <h4>Val d'Isère</h4>
+          <ul>
+            <li><strong>Features:</strong> Area map, webcam, piste conditions</li>
+            <li><strong>Advantages:</strong> Official Val d'Isère, reliable information</li>
+            <li><strong>Services:</strong> Digital ski pass, practical information</li>
+            <li><strong>Ideal for:</strong> Val d'Isère and Espace Killy</li>
+          </ul>
+          
+          <h4>Ski-Alpes</h4>
+          <ul>
+            <li><strong>Features:</strong> Multiple areas, weather, webcams</li>
+            <li><strong>Advantages:</strong> Multi-area, resort comparison</li>
+            <li><strong>Coverage:</strong> French and Swiss Alps</li>
+            <li><strong>Ideal for:</strong> Comparing different resorts</li>
+          </ul>
+          
+          <h3>📱 Useful Apps</h3>
+          
+          <h4>Geoportail</h4>
+          <ul>
+            <li><strong>Features:</strong> IGN maps, GPS location, safety</li>
+            <li><strong>Advantages:</strong> Essential for off-piste skiing, free</li>
+            <li><strong>Ideal for:</strong> Mountain hiking, safety</li>
+          </ul>
+          
+          <h4>WhatsApp</h4>
+          <ul>
+            <li><strong>Features:</strong> Group communication, location sharing</li>
+            <li><strong>Advantages:</strong> Free, universal, works offline</li>
+            <li><strong>Ideal for:</strong> Coordinating with your group on the slopes</li>
+          </ul>
+          
+          <div class="alert alert-info">
+            <h4>💡 Pro Tip</h4>
+            <p>Combine 2-3 apps: one weather app (Snow-Forecast), a domain (MyTignes) and a utility (Geoportail) to cover all your needs!</p>
+          </div>`
       },
       lesArcs: {
         title: 'Les Arcs',
@@ -4794,7 +4868,7 @@ function App() {
             <div className="text-center mb-12">
               <h3 className="text-3xl font-bold text-gray-900 mb-4">⛷️ Espace Killy</h3>
               <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-                Le guide complet du domaine Espace Killy et ses stations
+                {currentLang === 'fr' ? 'Le guide complet du domaine Espace Killy et ses stations' : 'The complete guide to the Espace Killy ski area and its resorts'}
               </p>
             </div>
             <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-3xl p-8 border border-blue-200">
@@ -4810,7 +4884,7 @@ function App() {
                       <Mountain className="h-8 w-8 text-white" />
                     </div>
                     <h4 className="text-xl font-bold text-gray-900 mb-2">Tignes</h4>
-                    <p className="text-gray-600 mb-4">Station moderne, haute altitude, glacier</p>
+                    <p className="text-gray-600 mb-4">{currentLang === 'fr' ? 'Station moderne, haute altitude, glacier' : 'Modern resort, high altitude, glacier'}</p>
                     <div className="space-y-2 text-sm text-gray-600">
                       <p>🎿 Val Claret, Le Lac, Le Bouchet</p>
                       <p>🏔️ Altitude: 1550m - 3450m</p>
@@ -4829,7 +4903,7 @@ function App() {
                       <Compass className="h-8 w-8 text-white" />
                     </div>
                     <h4 className="text-xl font-bold text-gray-900 mb-2">Val d'Isère</h4>
-                    <p className="text-gray-600 mb-4">Station historique, village authentique</p>
+                    <p className="text-gray-600 mb-4">{currentLang === 'fr' ? 'Station historique, village authentique' : 'Historic resort, authentic village'}</p>
                     <div className="space-y-2 text-sm text-gray-600">
                       <p>🎿 Traditional village</p>
                       <p>🏔️ Altitude: 1850m - 3450m</p>
@@ -4847,12 +4921,12 @@ function App() {
                     <div className="w-16 h-16 bg-gradient-to-br from-green-500 to-emerald-600 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:rotate-12 transition-transform duration-300">
                       <MapPin className="h-8 w-8 text-white" />
                     </div>
-                    <h4 className="text-xl font-bold text-gray-900 mb-2">Domaine Espace Killy</h4>
-                    <p className="text-gray-600 mb-4">Le plus beau domaine skiable du monde</p>
+                    <h4 className="text-xl font-bold text-gray-900 mb-2">{currentLang === 'fr' ? 'Domaine Espace Killy' : 'Espace Killy Ski Area'}</h4>
+                    <p className="text-gray-600 mb-4">{currentLang === 'fr' ? 'Le plus beau domaine skiable du monde' : 'The most beautiful ski area in the world'}</p>
                     <div className="space-y-2 text-sm text-gray-600">
-                      <p>🎿 300 km de pistes</p>
+                      <p>🎿 {currentLang === 'fr' ? '300 km de pistes' : '300 km of slopes'}</p>
                       <p>🏔️ Altitude: 1550m - 3450m</p>
-                      <p>⭐ 139 pistes, 88 remontées</p>
+                      <p>⭐ {currentLang === 'fr' ? '139 pistes, 88 remontées' : '139 slopes, 88 lifts'}</p>
                     </div>
                   </div>
                 </div>
@@ -4869,12 +4943,12 @@ function App() {
                     <div className="w-16 h-16 bg-gradient-to-br from-yellow-500 to-orange-600 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:rotate-12 transition-transform duration-300">
                       <Clock className="h-8 w-8 text-white" />
                     </div>
-                    <h4 className="text-xl font-bold text-gray-900 mb-2">Calendrier de la saison 2025-2026</h4>
-                    <p className="text-gray-600 mb-4">Calendrier complet</p>
+                    <h4 className="text-xl font-bold text-gray-900 mb-2">{currentLang === 'fr' ? 'Calendrier de la saison 2025-2026' : '2025-2026 Season Calendar'}</h4>
+                    <p className="text-gray-600 mb-4">{currentLang === 'fr' ? 'Calendrier complet' : 'Complete Calendar'}</p>
                     <div className="space-y-2 text-sm text-gray-600">
-                      <p>🎂 Tignes : 28 novembre 2025 → 3 mai 2026</p>
-                      <p>🎂 Val d'Isère : 5 décembre 2025 → 3 mai 2026</p>
-                      <p>⭐ Haute saison : décembre et février</p>
+                      <p>🎂 {currentLang === 'fr' ? 'Tignes : 28 novembre 2025 → 3 mai 2026' : 'Tignes: November 28, 2025 → May 3, 2026'}</p>
+                      <p>🎂 {currentLang === 'fr' ? 'Val d\'Isère : 5 décembre 2025 → 3 mai 2026' : 'Val d\'Isère: December 5, 2025 → May 3, 2026'}</p>
+                      <p>⭐ {currentLang === 'fr' ? 'Haute saison : décembre et février' : 'High Season: December and February'}</p>
                     </div>
                   </div>
                 </div>
@@ -4888,12 +4962,12 @@ function App() {
                     <div className="w-16 h-16 bg-gradient-to-br from-emerald-500 to-teal-600 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:rotate-12 transition-transform duration-300">
                       <Star className="h-8 w-8 text-white" />
                     </div>
-                    <h4 className="text-xl font-bold text-gray-900 mb-2">Programme d'animations</h4>
-                    <p className="text-gray-600 mb-4">Agenda des événements</p>
+                    <h4 className="text-xl font-bold text-gray-900 mb-2">{currentLang === 'fr' ? 'Programme d\'animations' : 'Entertainment Program'}</h4>
+                    <p className="text-gray-600 mb-4">{currentLang === 'fr' ? 'Agenda des événements' : 'Events Calendar'}</p>
                     <div className="space-y-2 text-sm text-gray-600">
-                      <p>🎊 Ouvertures : Feu d'artifice et défilé</p>
-                      <p>🏆 Coupe du monde : 5-10 janvier</p>
-                      <p>⭐ Carnaval et Grande fermeture</p>
+                      <p>🎊 {currentLang === 'fr' ? 'Ouvertures : Feu d\'artifice et défilé' : 'Openings: Fireworks and Parade'}</p>
+                      <p>🏆 {currentLang === 'fr' ? 'Coupe du monde : 5-10 janvier' : 'World Cup: January 5-10'}</p>
+                      <p>⭐ {currentLang === 'fr' ? 'Carnaval et Grande fermeture' : 'Carnival and Grand Closing'}</p>
                     </div>
                   </div>
                 </div>
@@ -4910,12 +4984,12 @@ function App() {
                     <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-cyan-600 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:rotate-12 transition-transform duration-300">
                       <Smartphone className="h-8 w-8 text-white" />
                     </div>
-                    <h4 className="text-xl font-bold text-gray-900 mb-2">Applications mobiles</h4>
-                    <p className="text-gray-600 mb-4">Applications indispensables</p>
+                    <h4 className="text-xl font-bold text-gray-900 mb-2">{currentLang === 'fr' ? 'Applications mobiles' : 'Mobile Apps'}</h4>
+                    <p className="text-gray-600 mb-4">{currentLang === 'fr' ? 'Applications indispensables' : 'Essential Apps'}</p>
                     <div className="space-y-2 text-sm text-gray-600">
-                      <p>📱 MyTignes : Plan des pistes, Webcam</p>
-                      <p>📲 Val d'Isère : Domaine skiable, Conditions des pistes</p>
-                      <p>⭐ Prévisions neige et géoportail</p>
+                      <p>📱 MyTignes: {currentLang === 'fr' ? 'Plan des pistes, Webcam' : 'Piste Map, Webcam'}</p>
+                      <p>📲 Val d'Isère: {currentLang === 'fr' ? 'Domaine skiable, Conditions des pistes' : 'Ski Area, Piste Conditions'}</p>
+                      <p>⭐ {currentLang === 'fr' ? 'Prévisions neige et géoportail' : 'Snow Forecast and Geoportal'}</p>
                     </div>
                   </div>
                 </div>
@@ -4929,12 +5003,12 @@ function App() {
                     <div className="w-16 h-16 bg-gradient-to-br from-green-500 to-emerald-600 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:rotate-12 transition-transform duration-300">
                       <Info className="h-8 w-8 text-white" />
                     </div>
-                    <h4 className="text-xl font-bold text-gray-900 mb-2">Bureaux et remontées mécaniques</h4>
-                    <p className="text-gray-600 mb-4">Services utiles</p>
+                    <h4 className="text-xl font-bold text-gray-900 mb-2">{currentLang === 'fr' ? 'Bureaux et remontées mécaniques' : 'Offices and Ski Lifts'}</h4>
+                    <p className="text-gray-600 mb-4">{currentLang === 'fr' ? 'Services utiles' : 'Useful Services'}</p>
                     <div className="space-y-2 text-sm text-gray-600">
-                      <p>🏢 Offices de tourisme</p>
-                      <p>🚡 Achat de forfaits de ski en ligne</p>
-                      <p>⭐ Informations sur les remontées mécaniques</p>
+                      <p>🏢 {currentLang === 'fr' ? 'Offices de tourisme' : 'Tourist Offices'}</p>
+                      <p>🚡 {currentLang === 'fr' ? 'Achat de forfaits de ski en ligne' : 'Online Ski Pass Purchase'}</p>
+                      <p>⭐ {currentLang === 'fr' ? 'Informations sur les remontées mécaniques' : 'Ski Lift Information'}</p>
                     </div>
                   </div>
                 </div>
@@ -4944,23 +5018,23 @@ function App() {
             <div className="mt-8 flex flex-wrap justify-center gap-4">
               <a href="https://www.tignes.net" target="_blank" rel="noreferrer" className="flex items-center gap-2 px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-all duration-200 transform hover:scale-105">
                 <span>🏔️</span>
-                <span>Site web de Tignes</span>
+                <span>{currentLang === 'fr' ? 'Site web de Tignes' : 'Website of Tignes'}</span>
               </a>
               <a href="https://www.valdisere.com" target="_blank" rel="noreferrer" className="flex items-center gap-2 px-6 py-3 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-all duration-200 transform hover:scale-105">
                 <span>🏰️</span>
-                <span>Site web de Val d'Isère</span>
+                <span>{currentLang === 'fr' ? 'Site web de Val d\'Isère' : 'Val d\'Isère website'}</span>
               </a>
               <a href="https://www.espacekilly.com" target="_blank" rel="noreferrer" className="flex items-center gap-2 px-6 py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-all duration-200 transform hover:scale-105">
                 <span>🗺️</span>
-                <span>Domaine skiable Espace Killy</span>
+                <span>{currentLang === 'fr' ? 'Domaine skiable Espace Killy' : 'Espace Killy ski area'}</span>
               </a>
               <a href="https://play.google.com/store/search?q=tignes&c=apps" target="_blank" rel="noreferrer" className="flex items-center gap-2 px-6 py-3 bg-amber-600 text-white rounded-lg hover:bg-amber-700 transition-all duration-200 transform hover:scale-105">
                 <span>📱</span>
-                <span>Applications Tignes</span>
+                <span>{currentLang === 'fr' ? 'Applications Tignes' : 'Tignes apps'}</span>
               </a>
               <a href="https://play.google.com/store/search?q=val%20d%27isere&c=apps" target="_blank" rel="noreferrer" className="flex items-center gap-2 px-6 py-3 bg-orange-600 text-white rounded-lg hover:bg-orange-700 transition-all duration-200 transform hover:scale-105">
                 <span>📲</span>
-                <span>Applications Val d'Isère</span>
+                <span>{currentLang === 'fr' ? 'Applications Val d\'Isère' : 'Val d\'Isère apps'}</span>
               </a>
             </div>
           </div>
