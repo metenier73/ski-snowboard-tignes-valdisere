@@ -6,46 +6,46 @@ import { Button } from '@/components/ui/button.jsx'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card.jsx'
 import { galleryAltTexts, getGalleryImage, totalImages } from '@/data/galleryImages'
 import {
-  AlertTriangle,
-  ArrowRight,
-  Award,
-  BarChart3,
-  BookOpen,
-  Bot,
-  Calendar,
-  CheckCircle,
-  ChevronDown,
-  ChevronUp,
-  Clock,
-  Cloud,
-  CloudFog,
-  CloudHail,
-  CloudLightning,
-  CloudRain,
-  CloudSnow,
-  CloudSun,
-  Cloudy,
-  Compass,
-  Image,
-  ImagePlus,
-  Info,
-  Mail,
-  MapPin,
-  Menu,
-  MessageCircle,
-  Mountain,
-  Phone,
-  Settings,
-  Shield,
-  ShieldAlert,
-  Smartphone,
-  Snowflake,
-  Sparkles,
-  Star,
-  Sun,
-  Target,
-  TrendingUp,
-  X
+    AlertTriangle,
+    ArrowRight,
+    Award,
+    BarChart3,
+    BookOpen,
+    Bot,
+    Calendar,
+    CheckCircle,
+    ChevronDown,
+    ChevronUp,
+    Clock,
+    Cloud,
+    CloudFog,
+    CloudHail,
+    CloudLightning,
+    CloudRain,
+    CloudSnow,
+    CloudSun,
+    Cloudy,
+    Compass,
+    Image,
+    ImagePlus,
+    Info,
+    Mail,
+    MapPin,
+    Menu,
+    MessageCircle,
+    Mountain,
+    Phone,
+    Settings,
+    Shield,
+    ShieldAlert,
+    Smartphone,
+    Snowflake,
+    Sparkles,
+    Star,
+    Sun,
+    Target,
+    TrendingUp,
+    X
 } from 'lucide-react'
 import { useEffect, useState } from 'react'
 import './App.css'
@@ -4308,15 +4308,15 @@ function App() {
                   className="group hover:scale-105 transition-transform duration-300 cursor-pointer"
                 >
                   <div className="text-center mb-4">
-                    <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:rotate-12 transition-transform duration-300">
+                    <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-cyan-600 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:rotate-12 transition-transform duration-300">
                       <Mountain className="h-8 w-8 text-white" />
                     </div>
                     <h4 className="text-xl font-bold text-gray-900 mb-2">Tignes</h4>
-                    <p className="text-gray-600 mb-4">Station moderne, haute altitude, glacier</p>
+                    <p className="text-gray-600 mb-4">Modern resort, high altitude, glacier</p>
                     <div className="space-y-2 text-sm text-gray-600">
                       <p>🎿 Val Claret, Le Lac, Le Bouchet</p>
                       <p>🏔️ Altitude: 1550m - 3450m</p>
-                      <p>⭐ Glacier du Grand Motte</p>
+                      <p>⭐ Grand Motte Glacier</p>
                     </div>
                   </div>
                 </div>
@@ -4331,11 +4331,11 @@ function App() {
                       <Compass className="h-8 w-8 text-white" />
                     </div>
                     <h4 className="text-xl font-bold text-gray-900 mb-2">Val d'Isère</h4>
-                    <p className="text-gray-600 mb-4">Station historique, village authentique</p>
+                    <p className="text-gray-600 mb-4">Historic resort, authentic village</p>
                     <div className="space-y-2 text-sm text-gray-600">
-                      <p>🎿 Village traditionnel</p>
+                      <p>🎿 Traditional village</p>
                       <p>🏔️ Altitude: 1850m - 3450m</p>
-                      <p>⭐ Face de Bellevarde</p>
+                      <p>⭐ Bellevarde Face</p>
                     </div>
                   </div>
                 </div>
@@ -4371,12 +4371,12 @@ function App() {
                     <div className="w-16 h-16 bg-gradient-to-br from-yellow-500 to-orange-600 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:rotate-12 transition-transform duration-300">
                       <Clock className="h-8 w-8 text-white" />
                     </div>
-                    <h4 className="text-xl font-bold text-gray-900 mb-2">Horaires Saison 2025-2026</h4>
-                    <p className="text-gray-600 mb-4">Calendrier complet</p>
+                    <h4 className="text-xl font-bold text-gray-900 mb-2">2025-2026 Season Timetable</h4>
+                    <p className="text-gray-600 mb-4">Full Calendar</p>
                     <div className="space-y-2 text-sm text-gray-600">
-                      <p>🎂 Tignes: 28/11/2025 → 03/05/2026</p>
-                      <p>🎂 Val d'Isère: 05/12/2025 → 03/05/2026</p>
-                      <p>⭐ Haute saison: Déc & Février</p>
+                      <p>🎂 Tignes: November 28, 2025 → May 3, 2026</p>
+                      <p>🎂 Val d'Isère: December 5, 2025 → May 3, 2026</p>
+                      <p>⭐ High Season: December & February</p>
                     </div>
                   </div>
                 </div>
@@ -4390,12 +4390,12 @@ function App() {
                     <div className="w-16 h-16 bg-gradient-to-br from-emerald-500 to-teal-600 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:rotate-12 transition-transform duration-300">
                       <Star className="h-8 w-8 text-white" />
                     </div>
-                    <h4 className="text-xl font-bold text-gray-900 mb-2">Programme d'animations</h4>
-                    <p className="text-gray-600 mb-4">Agenda des événements</p>
+                    <h4 className="text-xl font-bold text-gray-900 mb-2">Entertainment Program</h4>
+                    <p className="text-gray-600 mb-4">Events Calendar</p>
                     <div className="space-y-2 text-sm text-gray-600">
-                      <p>🎊 Ouvertures: Feux d'artifice & défilé</p>
-                      <p>🏆 Coupe du monde: 5-10 janvier</p>
-                      <p>⭐ Carnaval & Grand closing</p>
+                      <p>🎊 Openings: Fireworks & Parade</p>
+                      <p>🏆 World Cup: January 5-10</p>
+                      <p>⭐ Carnival & Grand Closing</p>
                     </div>
                   </div>
                 </div>
@@ -4412,12 +4412,12 @@ function App() {
                     <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-cyan-600 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:rotate-12 transition-transform duration-300">
                       <Smartphone className="h-8 w-8 text-white" />
                     </div>
-                    <h4 className="text-xl font-bold text-gray-900 mb-2">Applications Mobiles</h4>
-                    <p className="text-gray-600 mb-4">Apps indispensables</p>
+                    <h4 className="text-xl font-bold text-gray-900 mb-2">Mobile Apps</h4>
+                    <p className="text-gray-600 mb-4">Essential Apps</p>
                     <div className="space-y-2 text-sm text-gray-600">
-                      <p>📱 MyTignes: Plan pistes, webcam</p>
-                      <p>📲 Val d'Isère: Domaine, état pistes</p>
-                      <p>⭐ Snow-Forecast & Geoportail</p>
+                      <p>📱 MyTignes: Piste Map, Webcam</p>
+                      <p>📲 Val d'Isère: Ski Area, Piste Conditions</p>
+                      <p>⭐ Snow Forecast & Geoportal</p>
                     </div>
                   </div>
                 </div>
@@ -4431,12 +4431,12 @@ function App() {
                     <div className="w-16 h-16 bg-gradient-to-br from-green-500 to-emerald-600 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:rotate-12 transition-transform duration-300">
                       <Info className="h-8 w-8 text-white" />
                     </div>
-                    <h4 className="text-xl font-bold text-gray-900 mb-2">Offices & Remontées</h4>
-                    <p className="text-gray-600 mb-4">Services pratiques</p>
+                    <h4 className="text-xl font-bold text-gray-900 mb-2">Offices & Lifts</h4>
+                    <p className="text-gray-600 mb-4">Useful Services</p>
                     <div className="space-y-2 text-sm text-gray-600">
-                      <p>🏢 Offices de tourisme</p>
-                      <p>🚡 Achat forfaits en ligne</p>
-                      <p>⭐ Informations remontées</p>
+                      <p>🏢 Tourist Offices</p>
+                      <p>🚡 Online Lift Pass Purchase</p>
+                      <p>⭐ Lift Information</p>
                     </div>
                   </div>
                 </div>
@@ -4446,166 +4446,171 @@ function App() {
             <div className="mt-8 flex flex-wrap justify-center gap-4">
               <a href="https://www.tignes.net" target="_blank" rel="noreferrer" className="flex items-center gap-2 px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-all duration-200 transform hover:scale-105">
                 <span>🏔️</span>
-                <span>Site Tignes</span>
+                <span>Website Tignes</span>
               </a>
               <a href="https://www.valdisere.com" target="_blank" rel="noreferrer" className="flex items-center gap-2 px-6 py-3 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-all duration-200 transform hover:scale-105">
                 <span>🏰️</span>
-                <span>Site Val d'Isère</span>
+                <span>Val d'Isère website</span>
               </a>
               <a href="https://www.espacekilly.com" target="_blank" rel="noreferrer" className="flex items-center gap-2 px-6 py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-all duration-200 transform hover:scale-105">
                 <span>🗺️</span>
-                <span>Espace Killy</span>
+                <span>Espace Killy ski area</span>
               </a>
               <a href="https://play.google.com/store/search?q=tignes&c=apps" target="_blank" rel="noreferrer" className="flex items-center gap-2 px-6 py-3 bg-amber-600 text-white rounded-lg hover:bg-amber-700 transition-all duration-200 transform hover:scale-105">
                 <span>📱</span>
-                <span>Apps Tignes</span>
+                <span>Tignes apps</span>
               </a>
               <a href="https://play.google.com/store/search?q=val%20d%27isere&c=apps" target="_blank" rel="noreferrer" className="flex items-center gap-2 px-6 py-3 bg-orange-600 text-white rounded-lg hover:bg-orange-700 transition-all duration-200 transform hover:scale-105">
                 <span>📲</span>
-                <span>Apps Val d'Isère</span>
+                <span>Val d'Isère apps</span>
               </a>
             </div>
           </div>
 
-          {/* Les Arcs */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            <div className="group relative bg-white rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-3 overflow-hidden border border-gray-100">
-              <div className="absolute top-0 right-0 w-40 h-40 bg-gradient-to-br from-purple-100 to-indigo-100 rounded-full -mr-20 -mt-20 opacity-50 group-hover:opacity-70 transition-opacity duration-300"></div>
-              <div className="absolute bottom-0 left-0 w-32 h-32 bg-gradient-to-br from-indigo-100 to-purple-100 rounded-full -ml-16 -mb-16 opacity-30 group-hover:opacity-50 transition-opacity duration-300"></div>
-              <div className="p-8 relative z-10">
-                <div className="flex items-center mb-6">
-                  <div className="flex items-center justify-center w-12 h-12 bg-gradient-to-br from-purple-500 to-indigo-600 rounded-xl mr-4 transform group-hover:rotate-12 transition-all duration-300">
-                    <Mountain className="h-6 w-6 text-white" />
-                  </div>
-                  <div>
-                    <h3 className="text-2xl font-bold text-gray-900 mb-1">Les Arcs</h3>
-                    <p className="text-gray-600">Domaine skiable Paradiski - 425 km de pistes</p>
+          {/* Paradiski */}
+          <div id="paradiski-guide" className="mb-16">
+            <div className="text-center mb-12">
+              <h3 className="text-3xl font-bold text-gray-900 mb-4">⛷️ Paradiski</h3>
+              <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+                Le guide complet du domaine Paradiski et ses stations
+              </p>
+            </div>
+            <div className="bg-gradient-to-br from-purple-50 to-indigo-50 rounded-3xl p-8 border border-purple-200">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div 
+                  onClick={() => {
+                    showArticle('lesArcs');
+                  }}
+                  className="group hover:scale-105 transition-transform duration-300 cursor-pointer"
+                >
+                  <div className="text-center mb-4">
+                    <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-indigo-600 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:rotate-12 transition-transform duration-300">
+                      <Mountain className="h-8 w-8 text-white" />
+                    </div>
+                    <h4 className="text-xl font-bold text-gray-900 mb-2">Les Arcs</h4>
+                    <p className="text-gray-600 mb-4">4 stations, architecture moderne</p>
+                    <div className="space-y-2 text-sm text-gray-600">
+                      <p>🎿 Arc 1600, 1800, 1950, 2000</p>
+                      <p>🏔️ Altitude: 1200m - 3226m</p>
+                      <p>⭐ Architecture contemporaine</p>
+                    </div>
                   </div>
                 </div>
-                <div className="space-y-4">
-                  <div className="bg-gradient-to-r from-purple-50 to-indigo-50 rounded-xl p-4 transform hover:scale-105 transition-all duration-200">
-                    <p className="text-gray-700 mb-3">Les 4 stations des Arcs :</p>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                      <div className="space-y-3">
-                        <div className="flex items-center gap-3 transform hover:translate-x-1 transition-all duration-200">
-                          <div className="w-2 h-2 bg-purple-500 rounded-full"></div>
-                          <div>
-                            <span className="font-semibold text-gray-900">Arc 1600</span>
-                            <p className="text-sm text-gray-600">Station familiale (1600m) • Accès facile</p>
-                          </div>
-                        </div>
-                        <div className="flex items-center gap-3 transform hover:translate-x-1 transition-all duration-200">
-                          <div className="w-2 h-2 bg-indigo-500 rounded-full"></div>
-                          <div>
-                            <span className="font-semibold text-gray-900">Arc 1800</span>
-                            <p className="text-sm text-gray-600">Station dynamique (1800m) • Animée</p>
-                          </div>
-                        </div>
-                      </div>
-                      <div className="space-y-3">
-                        <div className="flex items-center gap-3 transform hover:translate-x-1 transition-all duration-200">
-                          <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
-                          <div>
-                            <span className="font-semibold text-gray-900">Arc 1950</span>
-                            <p className="text-sm text-gray-600">Station chic (1950m) • Vue panoramique</p>
-                          </div>
-                        </div>
-                        <div className="flex items-center gap-3 transform hover:translate-x-1 transition-all duration-200">
-                          <div className="w-2 h-2 bg-cyan-500 rounded-full"></div>
-                          <div>
-                            <span className="font-semibold text-gray-900">Arc 2000</span>
-                            <p className="text-sm text-gray-600">Station moderne (2000m) • Architecture contemporaine</p>
-                          </div>
-                        </div>
-                      </div>
+                <div 
+                  onClick={() => {
+                    showArticle('laPlagne');
+                  }}
+                  className="group hover:scale-105 transition-transform duration-300 cursor-pointer"
+                >
+                  <div className="text-center mb-4">
+                    <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-cyan-600 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:rotate-12 transition-transform duration-300">
+                      <Compass className="h-8 w-8 text-white" />
+                    </div>
+                    <h4 className="text-xl font-bold text-gray-900 mb-2">La Plagne</h4>
+                    <p className="text-gray-600 mb-4">10 stations, familial</p>
+                    <div className="space-y-2 text-sm text-gray-600">
+                      <p>🎿 Plagne Centre, Bellecôte, etc.</p>
+                      <p>🏔️ Altitude: 1250m - 3250m</p>
+                      <p>⭐ Idéal pour familles</p>
                     </div>
                   </div>
-                  <div className="bg-gradient-to-r from-blue-50 to-cyan-50 rounded-xl p-4 transform hover:scale-105 transition-all duration-200">
-                    <p className="text-gray-700 mb-3">Caractéristiques du domaine Paradiski :</p>
-                    <div className="space-y-3">
-                      <div className="flex items-center gap-3 transform hover:translate-x-1 transition-all duration-200">
-                        <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
-                        <span className="text-gray-700"><strong>Domaine skiable :</strong> 425 km de pistes (Les Arcs + La Plagne)</span>
-                      </div>
-                      <div className="flex items-center gap-3 transform hover:translate-x-1 transition-all duration-200">
-                        <div className="w-2 h-2 bg-cyan-500 rounded-full"></div>
-                        <span className="text-gray-700"><strong>Altitude max :</strong> 3226m (Aiguille Rouge)</span>
-                      </div>
-                      <div className="flex items-center gap-3 transform hover:translate-x-1 transition-all duration-200">
-                        <div className="w-2 h-2 bg-teal-500 rounded-full"></div>
-                        <span className="text-gray-700"><strong>Saison :</strong> Décembre à avril</span>
-                      </div>
-                      <div className="flex items-center gap-3 transform hover:translate-x-1 transition-all duration-200">
-                        <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-                        <span className="text-gray-700"><strong>Remontées mécaniques :</strong> 130 installations, 2 funiculaires</span>
-                      </div>
+                </div>
+              </div>
+              
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8">
+                <div 
+                  onClick={() => {
+                    showArticle('vanoiseExpress');
+                  }}
+                  className="group hover:scale-105 transition-transform duration-300 cursor-pointer"
+                >
+                  <div className="text-center mb-4">
+                    <div className="w-16 h-16 bg-gradient-to-br from-pink-500 to-rose-600 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:rotate-12 transition-transform duration-300">
+                      <Sparkles className="h-8 w-8 text-white" />
+                    </div>
+                    <h4 className="text-xl font-bold text-gray-900 mb-2">Vanoise Express</h4>
+                    <p className="text-gray-600 mb-4">Liaison magique entre domaines</p>
+                    <div className="space-y-2 text-sm text-gray-600">
+                      <p>🚡 2 cabines en 5 minutes</p>
+                      <p>🏔️ Altitude: 1600m - 2500m</p>
+                      <p>⭐ 425 km de pistes au total</p>
                     </div>
                   </div>
-                  <div className="bg-gradient-to-r from-green-50 to-emerald-50 rounded-xl p-4 transform hover:scale-105 transition-all duration-200">
-                    <p className="text-gray-700 mb-3">Points forts des Arcs :</p>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                      <div className="space-y-3">
-                        <div className="flex items-center gap-3 transform hover:translate-x-1 transition-all duration-200">
-                          <span className="text-lg">🏔️</span>
-                          <div>
-                            <span className="font-semibold text-gray-900">Architecture moderne</span>
-                            <p className="text-sm text-gray-600">Stations intégrées, ski-in/ski-out</p>
-                          </div>
-                        </div>
-                        <div className="flex items-center gap-3 transform hover:translate-x-1 transition-all duration-200">
-                          <span className="text-lg">🎿</span>
-                          <div>
-                            <span className="font-semibold text-gray-900">Domaine Paradiski</span>
-                            <p className="text-sm text-gray-600">Liaison avec La Plagne via Vanoise Express</p>
-                          </div>
-                        </div>
-                      </div>
-                      <div className="space-y-3">
-                        <div className="flex items-center gap-3 transform hover:translate-x-1 transition-all duration-200">
-                          <span className="text-lg">🎯</span>
-                          <div>
-                            <span className="font-semibold text-gray-900">Variété de pistes</span>
-                            <p className="text-sm text-gray-600">234 pistes, tous niveaux</p>
-                          </div>
-                        </div>
-                        <div className="flex items-center gap-3 transform hover:translate-x-1 transition-all duration-200">
-                          <span className="text-lg">⚡</span>
-                          <div>
-                            <span className="font-semibold text-gray-900">Accessibilité</span>
-                            <p className="text-sm text-gray-600">TGV direct à Bourg-Saint-Maurice</p>
-                          </div>
-                        </div>
-                      </div>
+                </div>
+                <div 
+                  onClick={() => {
+                    showArticle('paradiski');
+                  }}
+                  className="group hover:scale-105 transition-transform duration-300 cursor-pointer"
+                >
+                  <div className="text-center mb-4">
+                    <div className="w-16 h-16 bg-gradient-to-br from-teal-500 to-green-600 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:rotate-12 transition-transform duration-300">
+                      <MapPin className="h-8 w-8 text-white" />
+                    </div>
+                    <h4 className="text-xl font-bold text-gray-900 mb-2">Domaine Paradiski</h4>
+                    <p className="text-gray-600 mb-4">425 km de pistes</p>
+                    <div className="space-y-2 text-sm text-gray-600">
+                      <p>🎿 Les Arcs + La Plagne</p>
+                      <p>🏔️ Altitude: 1200m - 3226m</p>
+                      <p>⭐ 130 remontées, 2 funiculaires</p>
                     </div>
                   </div>
-                  <div className="bg-gradient-to-r from-yellow-50 to-orange-50 rounded-xl p-4 transform hover:scale-105 transition-all duration-200">
-                    <p className="text-gray-700 mb-3">Informations pratiques saison 2025-2026 :</p>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                      <div>
-                        <p className="text-gray-700"><strong>🎂 Ouverture :</strong> 13/12/2025</p>
-                        <p className="text-gray-700"><strong>🎂 Fermeture estimée :</strong> 25/04/2026</p>
-                        <p className="text-gray-700"><strong>🎿 Forfait :</strong> Paradiski (Les Arcs + La Plagne)</p>
-                      </div>
-                      <div>
-                        <p className="text-gray-700"><strong>🌞 Haute saison :</strong> Vacances de février</p>
-                        <p className="text-gray-700"><strong>💰 Basse saison :</strong> Décembre & mars-avril</p>
-                        <p className="text-gray-700"><strong>🏂 Printemps ski :</strong> Avril (neige garantie)</p>
-                      </div>
+                </div>
+              </div>
+              
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8">
+                <div 
+                  onClick={() => {
+                    showArticle('horairesParadiski');
+                  }}
+                  className="group hover:scale-105 transition-transform duration-300 cursor-pointer"
+                >
+                  <div className="text-center mb-4">
+                    <div className="w-16 h-16 bg-gradient-to-br from-yellow-500 to-orange-600 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:rotate-12 transition-transform duration-300">
+                      <Clock className="h-8 w-8 text-white" />
+                    </div>
+                    <h4 className="text-xl font-bold text-gray-900 mb-2">Saison 2025-2026</h4>
+                    <p className="text-gray-600 mb-4">Calendrier complet</p>
+                    <div className="space-y-2 text-sm text-gray-600">
+                      <p>🎂 Ouverture: 13/12/2025</p>
+                      <p>🎂 Fermeture: 25/04/2026</p>
+                      <p>⭐ Haute saison: Février</p>
                     </div>
                   </div>
-                  <div className="flex gap-4 pt-4">
-                    <a href="https://www.lesarcs.com" target="_blank" rel="noreferrer" className="flex items-center gap-2 px-4 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-all duration-200 transform hover:scale-105">
-                      <span>⛷️</span>
-                      <span>Site Les Arcs</span>
-                    </a>
-                    <a href="https://www.paradiski.com" target="_blank" rel="noreferrer" className="flex items-center gap-2 px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-all duration-200 transform hover:scale-105">
-                      <span>🗺️</span>
-                      <span>Paradiski</span>
-                    </a>
+                </div>
+                <div 
+                  onClick={() => {
+                    showArticle('pointsFortsArcs');
+                  }}
+                  className="group hover:scale-105 transition-transform duration-300 cursor-pointer"
+                >
+                  <div className="text-center mb-4">
+                    <div className="w-16 h-16 bg-gradient-to-br from-emerald-500 to-teal-600 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:rotate-12 transition-transform duration-300">
+                      <Star className="h-8 w-8 text-white" />
+                    </div>
+                    <h4 className="text-xl font-bold text-gray-900 mb-2">Points Forts</h4>
+                    <p className="text-gray-600 mb-4">Atouts majeurs</p>
+                    <div className="space-y-2 text-sm text-gray-600">
+                      <p>🏔️ Architecture moderne</p>
+                      <p>🎿 Domaine Paradiski</p>
+                      <p>⚡ TGV direct à Bourg-Saint-Maurice</p>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
+            
+            <div className="mt-8 flex flex-wrap justify-center gap-4">
+              <a href="https://www.lesarcs.com" target="_blank" rel="noreferrer" className="flex items-center gap-2 px-6 py-3 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-all duration-200 transform hover:scale-105">
+                <span>⛷️</span>
+                <span>Site Les Arcs</span>
+              </a>
+              <a href="https://www.paradiski.com" target="_blank" rel="noreferrer" className="flex items-center gap-2 px-6 py-3 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-all duration-200 transform hover:scale-105">
+                <span>🗺️</span>
+                <span>Paradiski</span>
+              </a>
+            </div>
+          </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             <div className="group relative bg-white rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-3 overflow-hidden border border-gray-100">
@@ -5481,7 +5486,6 @@ function App() {
               </div>
             </div>
           </div>
-        </div>
       </section>
 
       {/* Tignes Other Villages Nightlife */}
