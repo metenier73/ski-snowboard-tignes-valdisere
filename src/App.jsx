@@ -69,8 +69,8 @@ function App() {
     // Contenu des articles
     const articles = {
       nouveautes: {
-        title: 'Nouveautés Hiver 2025-2026',
-        content: `
+        title: currentLang === 'fr' ? 'Nouveautés Hiver 2025-2026' : 'New for Winter 2025-2026',
+        content: currentLang === 'fr' ? `
           <h2>🎿 Les dernières améliorations des domaines skiables</h2>
           <p class="lead">Découvrez toutes les nouveautés qui rendront votre séjour ski inoubliable !</p>
           
@@ -98,6 +98,35 @@ function App() {
           <blockquote class="blockquote">
             <p>🎯 <strong>Notre conseil:</strong> Profitez des nouvelles installations dès l'ouverture pour éviter les foules de décembre !</p>
           </blockquote>
+        ` : `
+          <h2>🎿 The latest improvements to the ski areas</h2>
+          <p class="lead">Discover all the new features that will make your ski holiday unforgettable!</p>
+          
+          <h3>🚡 New Ski Lifts</h3>
+          <ul>
+            <li><strong>Tignes:</strong> New detachable 6-seater chairlift - Palafour Express</li>
+            <li><strong>Val d'Isère:</strong> Renovated Olympic gondola with onboard Wi-Fi</li>
+            <li><strong>Les Arcs:</strong> New Arc 2000 - Aiguille Rouge funicular</li>
+          </ul>
+          
+          <h3>🎪 Expanded Freestyle Areas</h3>
+          <ul>
+            <li><strong>Tignes Snowpark:</strong> New 25m Big Air jump and Olympic halfpipe</li>
+            <li><strong>Val Park:</strong> Expanded beginner area and freestyle features</li>
+            <li><strong>Les Arcs:</strong> Snowpark 2.0 with boardercross area</li>
+          </ul>
+          
+          <h3>🏠 Enhanced Services</h3>
+          <ul>
+            <li><strong>High-Altitude Restaurants:</strong> New self-service restaurants with local cuisine</li>
+            <li><strong>Ski Schools:</strong> Learning areas equipped with magic carpets</li>
+            <li><strong>Mobile Apps:</strong> Digital lift pass and real-time tracking</li>
+          </ul>
+          
+          <blockquote class="blockquote">
+            <p>🎯 <strong>Our Tip:</strong> Enjoy the new facilities as soon as they open to avoid the December crowds!</p>
+          </blockquote>
+        `
         `
       },
       freeride: {
@@ -3844,10 +3873,10 @@ function App() {
               <BookOpen className="h-10 w-10 text-white" />
             </div>
             <h2 className="text-5xl md:text-6xl font-bold bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 bg-clip-text text-transparent mb-6 animate-gradient">
-              Blog
+              {currentLang === 'fr' ? 'Blog' : 'Blog'}
             </h2>
             <p className="text-2xl text-gray-700 max-w-3xl mx-auto font-medium">
-              Actus, conseils et bons plans Tignes, Val d'Isère & Les Arcs
+              {currentLang === 'fr' ? 'Actus, conseils et bons plans Tignes, Val d\'Isère & Les Arcs' : 'News, tips, and deals in Tignes, Val d\'Isère & Les Arcs'}
             </p>
             <div className="mt-6 flex justify-center gap-4 flex-wrap">
               <button 
@@ -3914,6 +3943,7 @@ function App() {
           </div>
           
           {/* Encart Diplôme d'État français */}
+          {currentLang === 'fr' && (
           <div className="mb-12">
             <div className="relative bg-gradient-to-br from-blue-600 via-indigo-600 to-purple-600 rounded-3xl shadow-2xl overflow-hidden border-4 border-white/20 transform hover:scale-[1.02] transition-all duration-500">
               {/* Décoration de fond */}
@@ -4077,13 +4107,181 @@ function App() {
               </div>
             </div>
           </div>
+          )}
+
+          {/* Encart French State Diploma */}
+          {currentLang === 'en' && (
+          <div className="mb-12">
+            <div className="relative bg-gradient-to-br from-blue-600 via-indigo-600 to-purple-600 rounded-3xl shadow-2xl overflow-hidden border-4 border-white/20 transform hover:scale-[1.02] transition-all duration-500">
+              {/* Background decoration */}
+              <div className="absolute inset-0 opacity-20">
+                <div className="absolute top-0 right-0 w-96 h-96 bg-white rounded-full blur-3xl animate-pulse"></div>
+                <div className="absolute bottom-0 left-0 w-80 h-80 bg-white rounded-full blur-3xl animate-pulse delay-1000"></div>
+                <div className="absolute top-1/2 left-1/2 w-64 h-64 bg-blue-300 rounded-full blur-3xl animate-pulse delay-500"></div>
+              </div>
+              
+              <div className="relative z-10 p-8 md:p-12">
+                <div className="flex items-start gap-6 mb-8">
+                  <div className="flex-shrink-0">
+                    <div className="flex items-center justify-center w-24 h-24 bg-white/20 backdrop-blur-sm rounded-2xl border-2 border-white/30 transform hover:rotate-12 transition-all duration-300">
+                      <span className="text-5xl">🇫🇷</span>
+                    </div>
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="text-4xl md:text-5xl font-bold text-white mb-4">
+                      French State Diploma in Alpine Skiing 🇫🇷
+                    </h3>
+                    <p className="text-2xl text-white/90 mb-6">
+                      A globally recognized training program of excellence
+                    </p>
+                    <div className="flex flex-wrap gap-3">
+                      <span className="px-6 py-3 bg-white/20 backdrop-blur-sm rounded-full text-white text-sm font-medium border border-white/30 transform hover:scale-105 transition-all duration-200">
+                        ⭐ World benchmark
+                      </span>
+                      <span className="px-6 py-3 bg-white/20 backdrop-blur-sm rounded-full text-white text-sm font-medium border border-white/30 transform hover:scale-105 transition-all duration-200">
+                        🏆 Exceptional technical level
+                      </span>
+                      <span className="px-6 py-3 bg-white/20 backdrop-blur-sm rounded-full text-white text-sm font-medium border border-white/30 transform hover:scale-105 transition-all duration-200">
+                        📚 Comprehensive training
+                      </span>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                  <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20 transform hover:scale-[1.02] hover:bg-white/15 transition-all duration-300">
+                    <h4 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
+                      <div className="p-2 bg-green-500 rounded-lg">
+                        <CheckCircle className="h-5 w-5 text-white" />
+                      </div>
+                      Diploma structure
+                    </h4>
+                    <ul className="space-y-3 text-white/90">
+                      <li className="flex items-start gap-2 transform hover:translate-x-1 transition-all duration-200">
+                        <span className="text-white mt-1">✓</span>
+                        <span><strong>Authority:</strong> National School of Mountain Sports (ENSM) + Ministry of Sports</span>
+                      </li>
+                      <li className="flex items-start gap-2 transform hover:translate-x-1 transition-all duration-200">
+                        <span className="text-white mt-1">✓</span>
+                        <span><strong>Status:</strong> National State Diploma</span>
+                      </li>
+                      <li className="flex items-start gap-2 transform hover:translate-x-1 transition-all duration-200">
+                        <span className="text-white mt-1">✓</span>
+                        <span><strong>Duration:</strong> 4 to 6 years of training</span>
+                      </li>
+                      <li className="flex items-start gap-2 transform hover:translate-x-1 transition-all duration-200">
+                        <span className="text-white mt-1">✓</span>
+                        <span><strong>Recognition:</strong> ISIA card, work in Europe</span>
+                      </li>
+                    </ul>
+                  </div>
+
+                  <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20 transform hover:scale-[1.02] hover:bg-white/15 transition-all duration-300">
+                    <h4 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
+                      <div className="p-2 bg-yellow-500 rounded-lg">
+                        <Star className="h-5 w-5 text-white" />
+                      </div>
+                      Training path
+                    </h4>
+                    <div className="space-y-3 text-white/90 mb-4">
+                      <div className="flex items-start gap-2 transform hover:translate-x-1 transition-all duration-200">
+                        <span className="text-white font-bold">1.</span>
+                        <span>Technical test (timed giant slalom)</span>
+                      </div>
+                      <div className="flex items-start gap-2 transform hover:translate-x-1 transition-all duration-200">
+                        <span className="text-white font-bold">2.</span>
+                        <span>Preparatory cycle</span>
+                      </div>
+                      <div className="flex items-start gap-2 transform hover:translate-x-1 transition-all duration-200">
+                        <span className="text-white font-bold">3.</span>
+                        <span>Eurotest</span>
+                      </div>
+                      <div className="flex items-start gap-2 transform hover:translate-x-1 transition-all duration-200">
+                        <span className="text-white font-bold">4.</span>
+                        <span>Pedagogical and technical internships</span>
+                      </div>
+                      <div className="flex items-start gap-2 transform hover:translate-x-1 transition-all duration-200">
+                        <span className="text-white font-bold">5.</span>
+                        <span><strong>French State Diploma in Alpine Skiing</strong></span>
+                      </div>
+                    </div>
+                    <div className="pt-4 border-t border-white/20 space-y-2">
+                      <a 
+                        href="https://www.ensm.sports.gouv.fr/formation-de-moniteur-de-ski-alpin/" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-2 text-white hover:text-blue-200 transition-all duration-200 underline decoration-white/50 hover:decoration-white transform hover:translate-x-1"
+                      >
+                        <BookOpen className="h-4 w-4" />
+                        <span className="text-sm">Learn more about the ENSM training program</span>
+                      </a>
+                      <a 
+                        href="https://www.ensm.sports.gouv.fr/wp-content/uploads/2024/12/D.E-SKI-ALPIN.pdf" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-2 text-white hover:text-blue-200 transition-all duration-200 underline decoration-white/50 hover:decoration-white transform hover:translate-x-1"
+                      >
+                        <BookOpen className="h-4 w-4" />
+                        <span className="text-sm">Download the complete curriculum (PDF)</span>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20 mb-6 transform hover:scale-[1.02] hover:bg-white/15 transition-all duration-300">
+                  <h4 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
+                    <div className="p-2 bg-red-500 rounded-lg">
+                      <Target className="h-5 w-5 text-white" />
+                    </div>
+                    French educational philosophy
+                  </h4>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-white/90">
+                    <div>
+                      <p className="font-semibold text-white mb-2">Features:</p>
+                      <ul className="space-y-2 text-sm">
+                        <li className="transform hover:translate-x-1 transition-all duration-200">• Highly competitive initial training (Eurotest)</li>
+                        <li className="transform hover:translate-x-1 transition-all duration-200">• Strong focus on giant slalom skiing</li>
+                        <li className="transform hover:translate-x-1 transition-all duration-200">• Long progression with alternating internships and teaching sessions</li>
+                        <li className="transform hover:translate-x-1 transition-all duration-200">• Emphasis on technical precision and flawless demonstration</li>
+                      </ul>
+                    </div>
+                    <div>
+                      <p className="font-semibold text-white mb-2">Objective:</p>
+                      <p className="text-sm">
+                        To train an <strong>expert technician</strong> capable of teaching at the highest level, using a structured national teaching methodology and exceptional technical mastery.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                  <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20 text-center transform hover:scale-105 hover:bg-white/15 transition-all duration-300">
+                    <div className="text-4xl font-bold text-white mb-2">⭐</div>
+                    <div className="text-white font-semibold">World-renowned</div>
+                    <div className="text-white/80 text-sm mt-1">Most technically selective qualification</div>
+                  </div>
+                  <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20 text-center transform hover:scale-105 hover:bg-white/15 transition-all duration-300">
+                    <div className="text-4xl font-bold text-white mb-2">🏆</div>
+                    <div className="text-white font-semibold">Technical excellence</div>
+                    <div className="text-white/80 text-sm mt-1">Exceptional technical level</div>
+                  </div>
+                  <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20 text-center transform hover:scale-105 hover:bg-white/15 transition-all duration-300">
+                    <div className="text-4xl font-bold text-white mb-2">📚</div>
+                    <div className="text-white font-semibold">Comprehensive training</div>
+                    <div className="text-white/80 text-sm mt-1">Structured national teaching methodology</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          )}
 
           {/* Articles interactifs */}
           <div id="blog-articles" className="mb-16">
             <div className="text-center mb-12">
-              <h3 className="text-3xl font-bold text-gray-900 mb-4">📰 Articles Exclusifs</h3>
+              <h3 className="text-3xl font-bold text-gray-900 mb-4">📰 {currentLang === 'fr' ? 'Articles Exclusifs' : 'Exclusive Articles'}</h3>
               <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-                Découvrez nos derniers articles et actualités sur les stations de ski
+                {currentLang === 'fr' ? 'Découvrez nos derniers articles et actualités sur les stations de ski' : 'Discover our latest articles and news about ski resorts'}
               </p>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -4092,18 +4290,18 @@ function App() {
                   <div className="h-48 bg-gradient-to-br from-blue-400 to-indigo-500 rounded-lg flex items-center justify-center mb-4">
                     <BookOpen className="h-16 w-16 text-white" />
                   </div>
-                  <CardTitle className="text-xl">Nouveautés Hiver 2025-2026</CardTitle>
-                  <CardDescription>Découvrez les dernières améliorations des domaines skiables</CardDescription>
+                  <CardTitle className="text-xl">{currentLang === 'fr' ? 'Nouveautés Hiver 2025-2026' : 'What\'s New for Winter 2025-2026'}</CardTitle>
+                  <CardDescription>{currentLang === 'fr' ? 'Découvrez les dernières améliorations des domaines skiables' : 'Discover the latest improvements to ski areas'}</CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-gray-600 mb-4">Nouvelles remontées mécaniques, zones freestyle étendues et services améliorés...</p>
+                  <p className="text-gray-600 mb-4">{currentLang === 'fr' ? 'Nouvelles remontées mécaniques, zones freestyle étendues et services améliorés...' : 'New lifts, expanded freestyle zones, and enhanced services...'}</p>
                   <Button 
                     onClick={() => {
                       showArticle('nouveautes');
                     }}
                     className="w-full group-hover:scale-105 transition-transform duration-300 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700"
                   >
-                    Lire l'article
+                    {currentLang === 'fr' ? 'Lire l\'article' : 'Read article'}
                   </Button>
                 </CardContent>
               </Card>
@@ -4113,18 +4311,18 @@ function App() {
                   <div className="h-48 bg-gradient-to-br from-purple-400 to-pink-500 rounded-lg flex items-center justify-center mb-4">
                     <Star className="h-16 w-16 text-white" />
                   </div>
-                  <CardTitle className="text-xl">Meilleures Spots Freeride</CardTitle>
-                  <CardDescription>Les secrets des hors-pistes authentiques et sécurisés</CardDescription>
+                  <CardTitle className="text-xl">{currentLang === 'fr' ? 'Meilleures Spots Freeride' : 'Best Freeride Spots'}</CardTitle>
+                  <CardDescription>{currentLang === 'fr' ? 'Les secrets des hors-pistes authentiques et sécurisés' : 'The secrets of authentic and safe off-piste skiing'}</CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-gray-600 mb-4">Explorez les couloirs mythiques et les forêts enneigées avec nos guides experts...</p>
+                  <p className="text-gray-600 mb-4">{currentLang === 'fr' ? 'Explorez les couloirs mythiques et les forêts enneigées avec nos guides experts...' : 'Explore legendary couloirs and snow-covered forests with our expert guides...'}</p>
                   <Button 
                     onClick={() => {
                       showArticle('freeride');
                     }}
                     className="w-full group-hover:scale-105 transition-transform duration-300 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700"
                   >
-                    Lire l'article
+                    {currentLang === 'fr' ? 'Lire l\'article' : 'Read article'}
                   </Button>
                 </CardContent>
               </Card>
@@ -4134,18 +4332,18 @@ function App() {
                   <div className="h-48 bg-gradient-to-br from-green-400 to-emerald-500 rounded-lg flex items-center justify-center mb-4">
                     <Mountain className="h-16 w-16 text-white" />
                   </div>
-                  <CardTitle className="text-xl">Équipement Essentiel</CardTitle>
-                  <CardDescription>Le matériel parfait pour votre séjour au ski</CardDescription>
+                  <CardTitle className="text-xl">{currentLang === 'fr' ? 'Équipement Essentiel' : 'Essential Equipment'}</CardTitle>
+                  <CardDescription>{currentLang === 'fr' ? 'Le matériel parfait pour votre séjour au ski' : 'The perfect gear for your ski holiday'}</CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-gray-600 mb-4">Tests comparatifs des derniers skis, casques et accessoires de la saison...</p>
+                  <p className="text-gray-600 mb-4">{currentLang === 'fr' ? 'Tests comparatifs des derniers skis, casques et accessoires de la saison...' : 'Comparative reviews of the latest skis, helmets, and accessories for the season...'}</p>
                   <Button 
                     onClick={() => {
                       showArticle('equipement');
                     }}
                     className="w-full group-hover:scale-105 transition-transform duration-300 bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700"
                   >
-                    Lire l'article
+                    {currentLang === 'fr' ? 'Lire l\'article' : 'Read article'}
                   </Button>
                 </CardContent>
               </Card>
