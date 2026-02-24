@@ -7,6 +7,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { galleryAltTexts, getGalleryImage, totalImages } from '@/data/galleryImages'
 import {
   AlertTriangle,
+  ArrowRight,
   Award,
   BarChart3,
   BookOpen,
@@ -58,6 +59,1192 @@ function App() {
   const [currentHash, setCurrentHash] = useState(
     typeof window !== 'undefined' ? (window.location.hash || '#home') : '#home'
   )
+
+  // Fonctions pour gérer l'affichage des articles
+  const showArticle = (articleType) => {
+    const preview = document.getElementById('article-preview');
+    const title = document.getElementById('article-title');
+    const content = document.getElementById('article-content');
+    
+    // Contenu des articles
+    const articles = {
+      nouveautes: {
+        title: 'Nouveautés Hiver 2025-2026',
+        content: `
+          <h2>🎿 Les dernières améliorations des domaines skiables</h2>
+          <p class="lead">Découvrez toutes les nouveautés qui rendront votre séjour ski inoubliable !</p>
+          
+          <h3>🚡 Nouvelles remontées mécaniques</h3>
+          <ul>
+            <li><strong>Tignes:</strong> Nouveau télésiège 6 places débrayable - Palafour Express</li>
+            <li><strong>Val d'Isère:</strong> Télécabine Olympique rénovée avec WiFi embarqué</li>
+            <li><strong>Les Arcs:</strong> Nouveau funiculaire Arc 2000 - Aiguille Rouge</li>
+          </ul>
+          
+          <h3>🎪 Zones freestyle étendues</h3>
+          <ul>
+            <li><strong>Snowpark Tignes:</strong> Nouveau Big Air de 25m et half-pipe olympique</li>
+            <li><strong>Val Park:</strong> Zone débutant agrandie et modules de freestyle</li>
+            <li><strong>Les Arcs:</strong> Snowpark 2.0 avec zone boardercross</li>
+          </ul>
+          
+          <h3>🏠 Services améliorés</h3>
+          <ul>
+            <li><strong>Restaurants altitude:</strong> Nouveaux self-services avec cuisine locale</li>
+            <li><strong>Écoles de ski:</strong> Zones d'apprentissage équipées de tapis magiques</li>
+            <li><strong>Applications mobile:</strong> Forfait digital et suivi en temps réel</li>
+          </ul>
+          
+          <blockquote class="blockquote">
+            <p>🎯 <strong>Notre conseil:</strong> Profitez des nouvelles installations dès l'ouverture pour éviter les foules de décembre !</p>
+          </blockquote>
+        `
+      },
+      freeride: {
+        title: 'Meilleures Spots Freeride',
+        content: `
+          <h2>🏔️ Les secrets des hors-pistes authentiques et sécurisés</h2>
+          <p class="lead">Explorez les couloirs mythiques et les forêts enneigées avec nos guides experts...</p>
+          
+          <h3>⛰️ Tignes - Les incontournables</h3>
+          <ul>
+            <li><strong>Le Grand Motet:</strong> Face Nord - 45° - Niveau Expert</li>
+            <li><strong>La Sache:</strong> Forêt enneigée - 30° - Niveau Intermédiaire</li>
+            <li><strong>Tichot:</strong> Couloir mythique - 40° - Niveau Expert</li>
+          </ul>
+          
+          <h3>🏰 Val d'Isère - Classiques et secrets</h3>
+          <ul>
+            <li><strong>Face de Bellevarde:</strong> Olympique - 35° - Niveau Avancé</li>
+            <li><strong>Le Pissaillas:</strong> Glacier - 25° - Niveau Intermédiaire</li>
+            <li><strong>Forêt du Manchet:</strong> Bois enneigé - 20° - Tous niveaux</li>
+          </ul>
+          
+          <h3>🎿 Les Arcs - Domaine freeride</h3>
+          <ul>
+            <li><strong>Aiguille Rouge:</strong> 3000m de dénivelé - Niveau Expert</li>
+            <li><strong>Combe de la Arc:</strong> Large et accessible - Niveau Intermédiaire</li>
+            <li><strong>Foret du Mont Blanc:</strong> Abois enneigés - Tous niveaux</li>
+          </ul>
+          
+          <div class="alert alert-warning">
+            <h4>⚠️ Sécurité avant tout</h4>
+            <p>Toujours vérifier le bulletin d'avalanches, emporter DVA, pelle et sonde. Partir accompagné et informer quelqu'un de votre itinéraire.</p>
+          </div>
+        `
+      },
+      equipement: {
+        title: 'Équipement Essentiel',
+        content: `
+          <h2>🎿 Le matériel parfait pour votre séjour au ski</h2>
+          <p class="lead">Tests comparatifs des derniers skis, casques et accessoires de la saison...</p>
+          
+          <h3>🎿 Skis - Nos sélections 2025-2026</h3>
+          <h4>Débutant - Progression</h4>
+          <ul>
+            <li><strong>Head Supershape Team:</strong> Stable et tolérant - 400€</li>
+            <li><strong>Salomon QST 85:</strong> Polyvalent et confortable - 450€</li>
+            <li><strong>Rossignol Experience 88:</strong> Excellent rapport qualité/prix - 380€</li>
+          </ul>
+          
+          <h4>Intermédiaire - Polyvalence</h4>
+          <ul>
+            <li><strong>Volkl Kendo 88:</strong> Dynamique et précis - 550€</li>
+            <li><strong>Blizzard Bonafide 88:</strong> Accroche et stabilité - 600€</li>
+            <li><strong>Fischer Ranger 96:</strong> Freeride accessible - 520€</li>
+          </ul>
+          
+          <h4>Expert - Performance</h4>
+          <ul>
+            <li><strong>Head Kore 105:</strong> Léger et réactif - 650€</li>
+            <li><strong>Salomon QST 106:</strong> Flottabilité exceptionnelle - 700€</li>
+            <li><strong>Black Crows Navis Freebird:</strong> Pur freeride - 800€</li>
+          </ul>
+          
+          <h3>🪖 Casques - Protection et confort</h3>
+          <ul>
+            <li><strong>Smith Quantum:</strong> MIPS + Audio intégré - 180€</li>
+            <li><strong>Giro Range:</strong> ajustement parfait - 160€</li>
+            <li><strong>Salomon Icon:</strong> léger et ventilé - 140€</li>
+          </ul>
+          
+          <h3>🥾 Chaussures - Le confort avant tout</h3>
+          <div class="alert alert-info">
+            <p><strong>Notre conseil:</strong> Essayez toujours vos chaussures en fin de journée quand vos pieds sont légèrement gonflés.</p>
+          </div>
+        `
+      },
+      carving: {
+        title: 'Technique du Carving Parfait',
+        content: `
+          <h2>🎿 Maîtrisez les virages coupés comme un champion</h2>
+          <p class="lead">Apprenez les secrets du carving moderne : positionnement, angulation et timing...</p>
+          
+          <h3>🏃‍♂️ Positionnement du corps</h3>
+          <ul>
+            <li><strong>Hanches basses:</strong> Gardez les hanches au niveau des genoux pour maximiser l'angulation</li>
+            <li><strong>Torse incliné:</strong> Penchez le torse vers l'intérieur du virage pour équilibrer</li>
+            <li><strong>Bras ouverts:</strong> Écartez les bras comme des ailes pour l'équilibre et la visibilité</li>
+            <li><strong>Regard en avant:</strong> Fixez la sortie du virage, pas vos skis</li>
+          </ul>
+          
+          <h3>🦵 Angulation des genoux</h3>
+          <ul>
+            <li><strong>Genoux pliés:</strong> Fléchissez les genoux pour absorber les chocs et maintenir l'équilibre</li>
+            <li><strong>Pression égale:</strong> Répartissez le poids uniformément sur les deux skis</li>
+            <li><strong>Flexion dynamique:</strong> Maintenez une flexion active tout au long du virage</li>
+            <li><strong>Extension progressive:</strong> Dépliez progressivement en sortie de virage</li>
+          </ul>
+          
+          <h3>⏱️ Timing et rythme</h3>
+          <ul>
+            <li><strong>Initiation précoce:</strong> Commencez le virage avant le point de chute naturel</li>
+            <li><strong>Phase de contrôle:</strong> Maintenez l'angulation maximale au milieu du virage</li>
+            <li><strong>Sortie fluide:</strong> Relâchez progressivement l'angulation pour le virage suivant</li>
+            <li><strong>Enchaînement:</strong> Rythmez vos virages comme une danse sur la neige</li>
+          </ul>
+          
+          <h3>🎯 Exercices progressifs</h3>
+          <ul>
+            <li><strong>Virages garçons:</strong> Enchaînez des virages courts pour développer le rythme</li>
+            <li><strong>Ski sur une carre:</strong> Pratiquez sur piste plate pour perfectionner l'angulation</li>
+            <li><strong>Virages serrés:</strong> Réduisez le rayon pour tester votre maîtrise</li>
+            <li><strong>Carving en terrain variable:</strong> Adaptez votre technique selon la neige</li>
+          </ul>
+          
+          <div class="alert alert-info">
+            <h4>💡 Conseil de pro</h4>
+            <p>Commencez par des virages larges et progressivement réduisez le rayon. La vitesse vient avec la maîtrise, pas l'inverse !</p>
+          </div>
+        `
+      },
+      securite: {
+        title: 'Sécurité sur les Pistes',
+        content: `
+          <h2>⛑️ Les règles d'or pour skier en toute sécurité</h2>
+          <p class="lead">10 règles essentielles, gestion des collisions et conduite responsable...</p>
+          
+          <h3>📋 Les 10 règles d'or du skieur</h3>
+          <ol>
+            <li><strong>Respectez les autres:</strong> Adaptez votre vitesse et votre trajectoire</li>
+            <li><strong>Maîtrisez votre vitesse:</strong> Skiiez toujours en contrôle de votre trajectoire</li>
+            <li><strong>Choisissez votre trajectoire:</strong> Le skieur en amont a priorité</li>
+            <li><strong>Dépassez avec précaution:</strong> Laissez suffisamment d'espace latéral</li>
+            <li><strong>Ne vous arrêtez pas brutalement:</strong> Vérifiez en amont avant de vous arrêter</li>
+            <li><strong>Remontez sur le côté:</strong> Utilisez les bords des pistes pour monter</li>
+            <li><strong>Respectez la signalisation:</strong> Obéissez aux panneaux et balises</li>
+            <li><strong>Aidez en cas d'accident:</strong> Protégez et alertez les secours</li>
+            <li><strong>Identifiez-vous:</strong> Portez votre nom et coordonnées en cas d'accident</li>
+            <li><strong>Équipez-vous:</strong> Portez toujours un casque homologué</li>
+          </ol>
+          
+          <h3>🚨 Gestion des collisions</h3>
+          <ul>
+            <li><strong>Anticipation:</strong> Observez constamment les skieurs autour de vous</li>
+            <li><strong>Communication:</strong> Utilisez des gestes ou des sons pour signaler vos intentions</li>
+            <li><strong>Zone de sécurité:</strong> Gardez toujours une distance de sécurité</li>
+            <li><strong>Adaptation:</strong> Modifiez votre trajectoire si nécessaire</li>
+          </ul>
+          
+          <h3>🏥 En cas d'accident</h3>
+          <ul>
+            <li><strong>Protégez la zone:</strong> Placez des skis en croix au-dessus et en dessous</li>
+            <li><strong>Alertez les secours:</strong> Appelez le 112 ou les pistoires-secouristes</li>
+            <li><strong>Ne déplacez pas:</strong> Sauf en cas de danger immédiat</li>
+            <li><strong>Rassurez la victime:</strong> Restez calme et communiquant</li>
+          </ul>
+          
+          <h3>🎿 Équipement de sécurité</h3>
+          <ul>
+            <li><strong>Casque:</strong> Indispensable pour tous, enfants comme adultes</li>
+            <li><strong>Lunettes:</strong> Protection UV et visibilité optimale</li>
+            <li><strong>Téléphone:</strong> Batterie chargée et couverture réseau</li>
+            <li><strong>Forfait:</strong> Numéro d'urgence visible sur le forfait</li>
+          </ul>
+          
+          <div class="alert alert-warning">
+            <h4>⚠️ Rappel important</h4>
+            <p>La sécurité est l'affaire de tous. Un skieur responsable est un skieur qui revient vivant !</p>
+          </div>
+        `
+      },
+      quandPartir: {
+        title: 'Quand partir ?',
+        content: `
+          <h2>📅 Meilleures périodes, tarifs et affluence</h2>
+          <p class="lead">Optimisez votre séjour ski en choisissant la bonne période</p>
+          
+          <h3>🎿 Saison hiver 2025-2026</h3>
+          <ul>
+            <li><strong>Ouverture:</strong> Fin novembre 2025 (Tignes) / Début décembre 2025 (Val d'Isère)</li>
+            <li><strong>Fermeture:</strong> Début mai 2026 (selon conditions)</li>
+            <li><strong>Période optimale:</strong> Décembre à mars</li>
+            <li><strong>Haute saison:</strong> Vacances de Noël, février et Pâques</li>
+          </ul>
+          
+          <h3>📊 Analyse par période</h3>
+          
+          <h4>🍂 Décembre - Début Janvier</h4>
+          <ul>
+            <li><strong>Avantages:</strong> Neige fraîche, domaine complet, ambiance festive</li>
+            <li><strong>Inconvénients:</strong> Affluence maximale, prix élevés</li>
+            <li><strong>Idéal pour:</strong> Vacanciers de Noël, amateurs de neige poudreuse</li>
+            <li><strong>Tarifs:</strong> +30% par rapport à la moyenne</li>
+          </ul>
+          
+          <h4>❄️ Janvier - Mars</h4>
+          <ul>
+            <li><strong>Avantages:</strong> Bon enneigement, météo stable, pistes parfaites</li>
+            <li><strong>Inconvénients:</strong> Forte affluence en février</li>
+            <li><strong>Idéal pour:</strong> Skieurs de tous niveaux, familles</li>
+            <li><strong>Tarifs:</strong> Prix standards</li>
+          </ul>
+          
+          <h4>🌸 Avril - Mai</h4>
+          <ul>
+            <li><strong>Avantages:</strong> Moins de monde, prix réduits, ensoleillement</li>
+            <li><strong>Inconvénients:</strong> Neige de printemps, certaines pistes fermées</li>
+            <li><strong>Idéal pour:</strong> Budget limité, amateurs de soleil</li>
+            <li><strong>Tarifs:</strong> -40% par rapport à la haute saison</li>
+          </ul>
+          
+          <h3>💰 Conseils budgétaires</h3>
+          <ul>
+            <li><strong>Hors vacances scolaires:</strong> Économisez 20-30%</li>
+            <li><strong>Réservation anticipée:</strong> Réductions jusqu'à 25%</li>
+            <li><strong>Dernière minute:</strong> Offres spéciales selon disponibilité</li>
+            <li><strong>Forfait saison:</strong> Intéressant pour plus de 2 semaines</li>
+          </ul>
+          
+          <div class="alert alert-info">
+            <h4>💡 Conseil d'expert</h4>
+            <p>Pour le meilleur rapport qualité/prix, visez la mi-janvier ou mars : neige garantie, affluence raisonnable et tarifs standards.</p>
+          </div>
+        `
+      },
+      ouLoger: {
+        title: 'Où loger ?',
+        content: `
+          <h2>🏨 Hôtels, chalets et appartements</h2>
+          <p class="lead">Trouvez l'hébergement parfait pour votre séjour ski</p>
+          
+          <h3>🏨 Hôtels</h3>
+          
+          <h4>Luxe - 4★ et 5★</h4>
+          <ul>
+            <li><strong>Tignes:</strong> Le Lana, Le Savoie, Le Suites - 200-500€/nuit</li>
+            <li><strong>Val d'Isère:</strong> Le Christiania, Le Aigle, Le Brice - 250-600€/nuit</li>
+            <li><strong>Les Arcs:</strong> Le Royal, Le Montana, Le Sherpa - 180-450€/nuit</li>
+            <li><strong>Services:</strong> Spa, restaurant, bar, consierge</li>
+          </ul>
+          
+          <h4>Standard - 3★</h4>
+          <ul>
+            <li><strong>Tignes:</strong> Le Alpaga, Le Lys, Le Gypaète - 80-150€/nuit</li>
+            <li><strong>Val d'Isère:</strong> Le Diable, Le Belvédère, Le Kandahar - 90-180€/nuit</li>
+            <li><strong>Les Arcs:</strong> Le Chalet, Le Marmotte, Le Chamois - 70-140€/nuit</li>
+            <li><strong>Services:</strong> Petit déjeuner, bar, localisation ski aux pieds</li>
+          </ul>
+          
+          <h3>🏡 Chalets et appartements</h3>
+          
+          <h4>Chalets privés</h4>
+          <ul>
+            <li><strong>Capacité:</strong> 4-12 personnes</li>
+            <li><strong>Prix:</strong> 800-3000€/semaine selon saison</li>
+            <li><strong>Avantages:</strong> Intimité, cuisine, espace, convivialité</li>
+            <li><strong>Équipement:</strong> Cheminée, spa parfois, garage</li>
+          </ul>
+          
+          <h4>Résidences de tourisme</h4>
+          <ul>
+            <li><strong>Tignes:</strong> Le Lac, Le Bouchet, Le Val Claret</li>
+            <li><strong>Val d'Isère:</strong> Le Gallois, Le Cret, Le Joseray</li>
+            <li><strong>Les Arcs:</strong> Le Charmettan, Le Planay, Le Villard</li>
+            <li><strong>Prix:</strong> 500-1500€/semaine</li>
+          </ul>
+          
+          <h3>🎯 Conseils de réservation</h3>
+          <ul>
+            <li><strong>Lieu:</strong> Proximité des remontées et commerces</li>
+            <li><strong>Orientation:</strong> Sud pour le soleil, nord pour la neige</li>
+            <li><strong>Altitude:</strong> Plus haut = plus de neige garantie</li>
+            <li><strong>Services:</strong> Parking, WiFi, laverie, sèche-chaussures</li>
+          </ul>
+          
+          <div class="alert alert-warning">
+            <h4>⚠️ Attention</h4>
+            <p>Réservez 6-8 mois à l'avance pour Noël et février. Les meilleures adresses partent très vite !</p>
+          </div>
+        `
+      },
+      materiel: {
+        title: 'Matériel',
+        content: `
+          <h2>🎿 Location, achat et entretien</h2>
+          <p class="lead">Le guide complet pour bien choisir et entretenir votre matériel</p>
+          
+          <h3>🏪 Location de matériel</h3>
+          
+          <h4>Sur place</h4>
+          <ul>
+            <li><strong>Avantages:</strong> Adaptation sur place, pas de transport</li>
+            <li><strong>Inconvénients:</strong> Prix élevés, stock limité</li>
+            <li><strong>Prix:</strong> Skis 25-35€/jour, Casque 10-15€/jour</li>
+            <li><strong>Boutiques:</strong> Intersport, Skiset, Twinner, locaux indépendants</li>
+          </ul>
+          
+          <h4>En ligne</h4>
+          <ul>
+            <li><strong>Avantages:</strong> Prix réduits, large choix, réservation</li>
+            <li><strong>Inconvénients:</strong> Transport à gérer, adaptation parfois nécessaire</li>
+            <li><strong>Sites:</strong> Skiset.com, Locaski.com, Alpinresort.com</li>
+            <li><strong>Prix:</strong> Skis 15-25€/jour, Casque 5-10€/jour</li>
+          </ul>
+          
+          <h3>💰 Achat de matériel</h3>
+          
+          <h4>Neuf vs Occasion</h4>
+          <ul>
+            <li><strong>Neuf:</strong> Garantie, dernière technologie, service après-vente</li>
+            <li><strong>Occasion:</strong> 30-50% moins cher, déjà rodé, bon rapport qualité/prix</li>
+            <li><strong>Où acheter:</strong> Magasins spécialisés, grandes surfaces, sites d'occasion</li>
+            <li><strong>Garantie:</strong> 1-2 ans neuf, pas de garantie occasion</li>
+          </ul>
+          
+          <h4>Investissement moyen</h4>
+          <ul>
+            <li><strong>Skis + Fixations:</strong> 400-800€ (débutant à expert)</li>
+            <li><strong>Casque:</strong> 80-200€</li>
+            <li><strong>Lunettes:</strong> 100-300€</li>
+            <li><strong>Chaussures:</strong> 200-500€</li>
+            <li><strong>Total:</strong> 780-1800€ pour un équipement complet</li>
+          </ul>
+          
+          <h3>🔧 Entretien du matériel</h3>
+          
+          <h4>Après chaque journée</h4>
+          <ul>
+            <li><strong>Sécher les skis:</strong> Verticalement, pointes vers le bas</li>
+            <li><strong>Déposer les chaussures:</strong> Ouvertes pour séchage</li>
+            <li><strong>Vérifier les fixations:</strong> Resserrer si nécessaire</li>
+            <li><strong>Nettoyer casque:</strong> Intérieur et extérieur</li>
+          </ul>
+          
+          <h4>Entretien saisonnier</h4>
+          <ul>
+            <li><strong>Fartage:</strong> Appliquer cire de fartage tous les 5-6 jours</li>
+            <li><strong>Reparations:</strong> Professionnel pour les dégâts importants</li>
+            <li><strong>Stockage:</strong> Sec, tempéré, à l'abri de la lumière</li>
+            <li><strong>Révision:</strong> Fixations et semelles tous les 2-3 ans</li>
+          </ul>
+          
+          <div class="alert alert-info">
+            <h4>💡 Conseil pro</h4>
+            <p>Un bon entretien prolonge la vie de votre matériel de 3-5 ans et améliore vos performances sur les pistes !</p>
+          </div>
+        `
+      },
+      applications: {
+        title: 'Applications',
+        content: `
+          <h2>📱 Weather, neige et forfaits</h2>
+          <p class="lead">Les applications indispensables pour votre séjour ski</p>
+          
+          <h3>🌨️ Météo et neige</h3>
+          
+          <h4>Météo France</h4>
+          <ul>
+            <li><strong>Fonctionnalités:</strong> Prévisions détaillées, bulletins neige, radars</li>
+            <li><strong>Avantages:</strong> Officiel, fiable, gratuit</li>
+            <li><strong>Inconvénients:</strong> Prévisions parfois imprécises en montagne</li>
+            <li><strong>Idéal pour:</strong> Planification à court terme</li>
+          </ul>
+          
+          <h4>Snow-Forecast</h4>
+          <ul>
+            <li><strong>Fonctionnalités:</strong> Prévisions neige ultra-précises, webcams</li>
+            <li><strong>Avantages:</strong> Très précis en montagne, webcams en direct</li>
+            <li><strong>Inconvénients:</strong> Payant pour fonctionnalités avancées</li>
+            <li><strong>Idéal pour:</strong> Choisir le meilleur jour pour skier</li>
+          </ul>
+          
+          <h4>YR.no</h4>
+          <ul>
+            <li><strong>Fonctionnalités:</strong> Météo norvégienne, très fiable en montagne</li>
+            <li><strong>Avantages:</strong> Prévisions exceptionnelles, gratuit</li>
+            <li><strong>Inconvénients:</strong> Interface en anglais/norvégien</li>
+            <li><strong>Idéal pour:</strong> Prévisions à long terme</li>
+          </ul>
+          
+          <h3>🎿 Applications domaines skiables</h3>
+          
+          <h4>MyTignes</h4>
+          <ul>
+            <li><strong>Fonctionnalités:</strong> Plan des pistes, webcam, météo, enneigement</li>
+            <li><strong>Avantages:</strong> Officiel Tignes, très complet</li>
+            <li><strong>Services:</strong> Achat forfait, réservation restaurants</li>
+            <li><strong>Idéal pour:</strong> Tignes et Val d'Isère</li>
+          </ul>
+          
+          <h4>Val d'Isère</h4>
+          <ul>
+            <li><strong>Fonctionnalités:</strong> Plan domaines, webcam, état des pistes</li>
+            <li><strong>Avantages:</strong> Officiel Val d'Isère, informations fiables</li>
+            <li><strong>Services:</strong> Forfait digital, informations pratiques</li>
+            <li><strong>Idéal pour:</strong> Val d'Isère et Espace Killy</li>
+          </ul>
+          
+          <h4>Ski-Alpes</h4>
+          <ul>
+            <li><strong>Fonctionnalités:</strong> Plusieurs domaines, météo, webcams</li>
+            <li><strong>Avantages:</strong> Multi-domaines, comparaison stations</li>
+            <li><strong>Couverture:</strong> Alpes françaises et suisses</li>
+            <li><strong>Idéal pour:</strong> Comparer différentes stations</li>
+          </ul>
+          
+          <h3>📱 Applications utiles</h3>
+          
+          <h4>Geoportail</h4>
+          <ul>
+            <li><strong>Fonctionnalités:</strong> Cartes IGN, localisation GPS, sécurité</li>
+            <li><strong>Avantages:</strong> Indispensable pour hors-piste, gratuit</li>
+            <li><strong>Idéal pour:</strong> Randonnées en montagne, sécurité</li>
+          </ul>
+          
+          <h4>WhatsApp</h4>
+          <ul>
+            <li><strong>Fonctionnalités:</strong> Communication groupe, partage position</li>
+            <li><strong>Avantages:</strong> Gratuit, universel, fonctionne hors réseau</li>
+            <li><strong>Idéal pour:</strong> Coordonner avec votre groupe sur les pistes</li>
+          </ul>
+          
+          <div class="alert alert-info">
+            <h4>💡 Conseil de pro</h4>
+            <p>Combinez 2-3 applications : une météo (Snow-Forecast), une domaine (MyTignes) et une utilitaire (Geoportail) pour couvrir tous vos besoins !</p>
+          </div>
+        `
+      },
+      lesArcs: {
+        title: 'Les Arcs',
+        content: `
+          <h2>🏔️ 4 stations, 200+ km de pistes, architecture moderne</h2>
+          <p class="lead">Découvrez le domaine skiable des Arcs avec ses 4 stations uniques</p>
+          
+          <h3>🏔️ Les 4 stations des Arcs</h3>
+          
+          <h4>🎿 Arc 1600 - La porte des Arcs</h4>
+          <ul>
+            <li><strong>Altitude:</strong> 1600m - Station la plus basse</li>
+            <li><strong>Caractère:</strong> Familiale, accessible, moderne</li>
+            <li><strong>Avantages:</strong> Accès facile, parking gratuit, commerces</li>
+            <li><strong>Pistes:</strong> 10 pistes (2 vertes, 5 bleues, 3 rouges)</li>
+            <li><strong>Idéal pour:</strong> Débutants, familles, premier prix</li>
+          </ul>
+          
+          <h4>🎿 Arc 1800 - Le charme authentique</h4>
+          <ul>
+            <li><strong>Altitude:</strong> 1800m - Station village</li>
+            <li><strong>Caractère:</strong> Traditionnel, convivial, authentique</li>
+            <li><strong>Avantages:</strong> Architecture savoyarde, restaurants typiques</li>
+            <li><strong>Pistes:</strong> 15 pistes (3 vertes, 7 bleues, 4 rouges, 1 noire)</li>
+            <li><strong>Idéal pour:</strong> Ambiance village, ski familial, tradition</li>
+          </ul>
+          
+          <h4>🎿 Arc 1950 - La station moderne</h4>
+          <ul>
+            <li><strong>Altitude:</strong> 1950m - Station piétonne</li>
+            <li><strong>Caractère:</strong> Moderne, dynamique, piétonne</li>
+            <li><strong>Avantages:</strong> Pas de voitures, architecture innovante, spa</li>
+            <li><strong>Pistes:</strong> 20 pistes (4 vertes, 10 bleues, 5 rouges, 1 noire)</li>
+            <li><strong>Idéal pour:</strong> Ski sans voiture, modernité, bien-être</li>
+          </ul>
+          
+          <h4>🎿 Arc 2000 - La station sport</h4>
+          <ul>
+            <li><strong>Altitude:</strong> 2000m - Station haute altitude</li>
+            <li><strong>Caractère:</strong> Sportive, ensoleillée, panoramique</li>
+            <li><strong>Avantages:</strong> Vue exceptionnelle, ensoleillement maximal</li>
+            <li><strong>Pistes:</strong> 25 pistes (5 vertes, 12 bleues, 6 rouges, 2 noires)</li>
+            <li><strong>Idéal pour:</strong> Skieurs sportifs, ensoleillement, vue</li>
+          </ul>
+          
+          <h3>🎿 Domaine skiable des Arcs</h3>
+          <ul>
+            <li><strong>Kilomètres de pistes:</strong> 200+ km</li>
+            <li><strong>Nombre de pistes:</strong> 106 pistes (21 vertes, 48 bleues, 28 rouges, 9 noires)</li>
+            <li><strong>Remontées:</strong> 54 installations</li>
+            <li><strong>Altitude max:</strong> 3226m (Aiguille Rouge)</li>
+            <li><strong>Enneigement:</strong> 80% du domaine enneigeable artificiellement</li>
+          </ul>
+          
+          <h3>🎿 Spécialités des Arcs</h3>
+          <ul>
+            <li><strong>Freeride:</strong> Domaine réputé, nombreux itinéraires</li>
+            <li><strong>Freestyle:</strong> Snowpark 2.0, boardercross, half-pipe</li>
+            <li><strong>Famille:</strong> Zones dédiées, écoles de ski</li>
+            <li><strong>Architecture:</strong> Station piétonne, design moderne</li>
+          </ul>
+          
+          <div class="alert alert-info">
+            <h4>💡 Conseil d'expert</h4>
+            <p>Les Arcs sont parfaits pour les skieurs de tous niveaux avec une architecture moderne et un excellent enneigement garanti !</p>
+          </div>
+        `
+      },
+      laPlagne: {
+        title: 'La Plagne',
+        content: `
+          <h2>🏔️ 10 stations, 225 km de pistes, familial</h2>
+          <p class="lead">Le domaine familial par excellence avec ses 10 stations uniques</p>
+          
+          <h3>🏔️ Les 10 stations de La Plagne</h3>
+          
+          <h4>🎿 Plagne Centre - Le cœur du domaine</h4>
+          <ul>
+            <li><strong>Altitude:</strong> 1970m - Station principale</li>
+            <li><strong>Caractère:</strong> Dynamique, commerciale, familiale</li>
+            <li><strong>Avantages:</strong> Tous commerces, piscine, cinéma</li>
+            <li><strong>Pistes:</strong> 15 pistes (3 vertes, 8 bleues, 3 rouges, 1 noire)</li>
+            <li><strong>Idéal pour:</strong> Familles, commodités, animations</li>
+          </ul>
+          
+          <h4>🎿 Bellecôte - L'élégance</h4>
+          <ul>
+            <li><strong>Altitude:</strong> 2050m - Station prestige</li>
+            <li><strong>Caractère:</strong> Luxueuse, élégante, panoramique</li>
+            <li><strong>Avantages:</strong> Hôtels 5★, restaurants gastronomiques</li>
+            <li><strong>Pistes:</strong> 20 pistes (4 vertes, 10 bleues, 4 rouges, 2 noires)</li>
+            <li><strong>Idéal pour:</strong> Luxe, gastronomie, vue exceptionnelle</li>
+          </ul>
+          
+          <h4>🎿 Aime 2000 - La tranquillité</h4>
+          <ul>
+            <li><strong>Altitude:</strong> 2000m - Station calme</li>
+            <li><strong>Caractère:</strong> Familiale, tranquille, ensoleillée</li>
+            <li><strong>Avantages:</strong> Calme, ensoleillement, accès facile</li>
+            <li><strong>Pistes:</strong> 12 pistes (3 vertes, 6 bleues, 2 rouges, 1 noire)</li>
+            <li><strong>Idéal pour:</strong> Familles avec jeunes enfants, calme</li>
+          </ul>
+          
+          <h4>🎿 Plagne 1800 - Le village</h4>
+          <ul>
+            <li><strong>Altitude:</strong> 1800m - Station traditionnelle</li>
+            <li><strong>Caractère:</strong> Authentique, savoyarde, conviviale</li>
+            <li><strong>Avantages:</strong> Architecture traditionnelle, restaurants</li>
+            <li><strong>Pistes:</strong> 10 pistes (2 vertes, 5 bleues, 2 rouges, 1 noire)</li>
+            <li><strong>Idéal pour:</strong> Ambiance village, tradition, convivialité</li>
+          </ul>
+          
+          <h3>🎿 Domaine skiable de La Plagne</h3>
+          <ul>
+            <li><strong>Kilomètres de pistes:</strong> 225 km</li>
+            <li><strong>Nombre de pistes:</strong> 131 pistes (28 vertes, 63 bleues, 34 rouges, 6 noires)</li>
+            <li><strong>Remontées:</strong> 63 installations</li>
+            <li><strong>Altitude max:</strong> 3250m (Glacier de Bellecôte)</li>
+            <li><strong>Enneigement:</strong> 85% du domaine enneigeable artificiellement</li>
+          </ul>
+          
+          <h3>🎿 Spécialités de La Plagne</h3>
+          <ul>
+            <li><strong>Familial:</strong> Idéal pour les enfants, zones dédiées</li>
+            <li><strong>Glacier:</strong> Glacier de Bellecôte pour ski d'été</li>
+            <li><strong>Freeride:</strong> Domaine accessible pour tous niveaux</li>
+            <li><strong>Innovation:</strong> Premier téléphérique du monde</li>
+          </ul>
+          
+          <div class="alert alert-info">
+            <h4>💡 Conseil d'expert</h4>
+            <p>La Plagne est parfaite pour les familles avec un excellent rapport qualité/prix et des pistes adaptées à tous les niveaux !</p>
+          </div>
+        `
+      },
+      vanoiseExpress: {
+        title: 'Vanoise Express',
+        content: `
+          <h2>🚡 Le lien magique entre les domaines</h2>
+          <p class="lead">Le téléphérique qui relie Les Arcs à La Plagne en 5 minutes</p>
+          
+          <h3>🚡 Caractéristiques techniques</h3>
+          <ul>
+            <li><strong>Type:</strong> Téléphérique à double cabine</li>
+            <li><strong>Capacité:</strong> 200 personnes par cabine</li>
+            <li><strong>Durée:</strong> 4 minutes de trajet</li>
+            <li><strong>Altitude départ:</strong> 1600m (Arc 1600)</li>
+            <li><strong>Altitude arrivée:</strong> 2500m (Roche de Mioz)</li>
+            <li><strong>Débit:</strong> 2000 personnes/heure par sens</li>
+          </ul>
+          
+          <h3>🏔️ Les 2 gares</h3>
+          
+          <h4>Gare des Arcs (Arc 1600)</h4>
+          <ul>
+            <li><strong>Services:</strong> Restaurants, boutiques, location</li>
+            <li><strong>Accès:</strong> Parking gratuit, navettes depuis autres stations</li>
+            <li><strong>Commerces:</strong> Supermarché, pharmacies, boulangeries</li>
+            <li><strong>Idéal pour:</strong> Départ depuis Les Arcs</li>
+          </ul>
+          
+          <h4>Gare de La Plagne (Plagne Centre)</h4>
+          <ul>
+            <li><strong>Services:</strong> Restaurants, boutiques, crèche</li>
+            <li><strong>Accès:</strong> Navettes depuis toutes stations Plagne</li>
+            <li><strong>Commerces:</strong> Tous services de station principale</li>
+            <li><strong>Idéal pour:</strong> Départ depuis La Plagne</li>
+          </ul>
+          
+          <h3>🎿 Domaine Paradiski unifié</h3>
+          <ul>
+            <li><strong>Kilomètres totaux:</strong> 425 km de pistes</li>
+            <li><strong>Nombre de pistes:</strong> 237 pistes (49 vertes, 111 bleues, 62 rouges, 15 noires)</li>
+            <li><strong>Remontées totales:</strong> 117 installations</li>
+            <li><strong>Altitude max:</strong> 3250m (Glacier de Bellecôte)</li>
+            <li><strong>Altitude min:</strong> 1200m (Arc 1600)</li>
+          </ul>
+          
+          <h3>🎿 Avantages du Vanoise Express</h3>
+          <ul>
+            <li><strong>Rapidité:</strong> 5 minutes entre les domaines</li>
+            <li><strong>Capacité:</strong> 2000 personnes/heure</li>
+            <li><strong>Confort:</strong> Cabines spacieuses, assises</li>
+            <li><strong>Paysage:</strong> Vue spectaculaire sur la vallée</li>
+            <li><strong>Flexibilité:</strong> Ski sur 2 domaines le même jour</li>
+          </ul>
+          
+          <h3>🎿 Conseils pratiques</h3>
+          <ul>
+            <li><strong>Horaires:</strong> 8h30-17h00 (saison d'hiver)</li>
+            <li><strong>Forfait:</strong> Forfait Paradiski obligatoire</li>
+            <li><strong>Attente:</strong> 5-15 minutes en haute saison</li>
+            <li><strong>Stockage skis:</strong> Gratuit aux gares</li>
+          </ul>
+          
+          <div class="alert alert-warning">
+            <h4>⚠️ Important</h4>
+            <p>Le Vanoise Express ferme généralement 2 semaines par an pour maintenance. Vérifiez les dates avant votre séjour !</p>
+          </div>
+        `
+      },
+      tignes: {
+        title: 'Tignes',
+        content: `
+          <h2>🏔️ Station moderne, haute altitude, glacier du Grand Motte</h2>
+          <p class="lead">Découvrez Tignes, la station sportive par excellence de l'Espace Killy</p>
+          
+          <h3>🏔️ Les 5 stations de Tignes</h3>
+          
+          <h4>🎿 Val Claret (1550m) - La porte de Tignes</h4>
+          <ul>
+            <li><strong>Altitude:</strong> 1550m - Station principale</li>
+            <li><strong>Caractère:</strong> Dynamique, commerciale, familiale</li>
+            <li><strong>Avantages:</strong> Tous commerces, piscine, cinéma, restaurants</li>
+            <li><strong>Pistes:</strong> 15 pistes (3 vertes, 8 bleues, 3 rouges, 1 noire)</li>
+            <li><strong>Idéal pour:</strong> Familles, commodités, animations</li>
+          </ul>
+          
+          <h4>🎿 Le Lac (2100m) - Le cœur sportif</h4>
+          <ul>
+            <li><strong>Altitude:</strong> 2100m - Station haute altitude</li>
+            <li><strong>Caractère:</strong> Sportive, ensoleillée, panoramique</li>
+            <li><strong>Avantages:</strong> Vue exceptionnelle, accès direct glacier</li>
+            <li><strong>Pistes:</strong> 20 pistes (4 vertes, 10 bleues, 4 rouges, 2 noires)</li>
+            <li><strong>Idéal pour:</strong> Skieurs sportifs, ensoleillement, glacier</li>
+          </ul>
+          
+          <h4>🎿 Le Bouchet (1550m) - La tranquillité</h4>
+          <ul>
+            <li><strong>Altitude:</strong> 1550m - Station calme</li>
+            <li><strong>Caractère:</strong> Familiale, tranquille, ensoleillée</li>
+            <li><strong>Avantages:</strong> Calme, ensoleillement, accès facile</li>
+            <li><strong>Pistes:</strong> 12 pistes (3 vertes, 6 bleues, 2 rouges, 1 noire)</li>
+            <li><strong>Idéal pour:</strong> Familles avec jeunes enfants, calme</li>
+          </ul>
+          
+          <h3>🏂 Particularités de Tignes</h3>
+          <ul>
+            <li><strong>Glacier du Grand Motte:</strong> Ski d'été garanti</li>
+            <li><strong>Haute altitude:</strong> Enneigement exceptionnel</li>
+            <li><strong>Station moderne:</strong> Architecture innovante</li>
+            <li><strong>Sportive:</strong> Accueil de grandes compétitions</li>
+            <li><strong>Familiale:</strong> Zones dédiées enfants</li>
+          </ul>
+          
+          <h3>🎿 Domaine skiable Tignes</h3>
+          <ul>
+            <li><strong>Kilomètres de pistes:</strong> 150 km (uniquement Tignes)</li>
+            <li><strong>Nombre de pistes:</strong> 82 pistes (15 vertes, 36 bleues, 23 rouges, 8 noires)</li>
+            <li><strong>Remontées:</strong> 44 installations</li>
+            <li><strong>Altitude max:</strong> 3450m (Glacier du Grand Motte)</li>
+            <li><strong>Enneigement:</strong> 90% du domaine enneigeable artificiellement</li>
+          </ul>
+          
+          <div class="alert alert-info">
+            <h4>💡 Conseil d'expert</h4>
+            <p>Tignes est parfaite pour les skieurs sportifs avec un enneigement garanti et un accès au glacier toute l'année !</p>
+          </div>
+        `
+      },
+      valDisere: {
+        title: 'Val d\'Isère',
+        content: `
+          <h2>🏰 Station historique, village authentique, Face de Bellevarde</h2>
+          <p class="lead">Découvrez Val d'Isère, la station prestigieuse de l'Espace Killy</p>
+          
+          <h3>🏰 Les quartiers de Val d'Isère</h3>
+          
+          <h4>🎿 Centre historique (1850m) - Le village authentique</h4>
+          <ul>
+            <li><strong>Altitude:</strong> 1850m - Cœur historique</li>
+            <li><strong>Caractère:</strong> Traditionnel, savoyard, authentique</li>
+            <li><strong>Avantages:</strong> Architecture traditionnelle, restaurants typiques</li>
+            <li><strong>Pistes:</strong> 18 pistes (4 vertes, 9 bleues, 4 rouges, 1 noire)</li>
+            <li><strong>Idéal pour:</strong> Ambiance village, tradition, gastronomie</li>
+          </ul>
+          
+          <h4>🎿 Le Fornet (1930m) - L'élégance</h4>
+          <ul>
+            <li><strong>Altitude:</strong> 1930m - Station prestige</li>
+            <li><strong>Caractère:</strong> Luxueuse, élégante, panoramique</li>
+            <li><strong>Avantages:</strong> Hôtels 5★, restaurants gastronomiques</li>
+            <li><strong>Pistes:</strong> 15 pistes (3 vertes, 8 bleues, 3 rouges, 1 noire)</li>
+            <li><strong>Idéal pour:</strong> Luxe, gastronomie, vue exceptionnelle</li>
+          </ul>
+          
+          <h4>🎿 La Daille (1780m) - Le soleil</h4>
+          <ul>
+            <li><strong>Altitude:</strong> 1780m - Station ensoleillée</li>
+            <li><strong>Caractère:</strong> Familiale, ensoleillée, accessible</li>
+            <li><strong>Avantages:</strong> Ensoleillement maximal, accès facile</li>
+            <li><strong>Pistes:</strong> 12 pistes (3 vertes, 6 bleues, 2 rouges, 1 noire)</li>
+            <li><strong>Idéal pour:</strong> Familles, ensoleillement, accessibilité</li>
+          </ul>
+          
+          <h3>🏂 Particularités de Val d'Isère</h3>
+          <ul>
+            <li><strong>Face de Bellevarde:</strong> Piste olympique mythique</li>
+            <li><strong>Village authentique:</strong> Architecture savoyarde préservée</li>
+            <li><strong>Station historique:</strong> Plus de 80 ans d'histoire</li>
+            <li><strong>Prestigieuse:</strong> Accueil de grandes compétitions</li>
+            <li><strong>Gastronomique:</strong> Restaurants étoilés</li>
+          </ul>
+          
+          <h3>🎿 Domaine skiable Val d'Isère</h3>
+          <ul>
+            <li><strong>Kilomètres de pistes:</strong> 150 km (uniquement Val d'Isère)</li>
+            <li><strong>Nombre de pistes:</strong> 89 pistes (17 vertes, 42 bleues, 24 rouges, 6 noires)</li>
+            <li><strong>Remontées:</strong> 44 installations</li>
+            <li><strong>Altitude max:</strong> 3450m (Pointe du Mont Pourri)</li>
+            <li><strong>Enneigement:</strong> 85% du domaine enneigeable artificiellement</li>
+          </ul>
+          
+          <div class="alert alert-info">
+            <h4>💡 Conseil d'expert</h4>
+            <p>Val d'Isère est parfaite pour les amateurs de tradition et de gastronomie avec des pistes mythiques et un village authentique !</p>
+          </div>
+        `
+      },
+      espaceKilly: {
+        title: 'Espace Killy',
+        content: `
+          <h2>🗺️ Le plus beau domaine du monde</h2>
+          <p class="lead">Découvrez l'Espace Killy, 300 km de pistes entre Tignes et Val d'Isère</p>
+          
+          <h3>🎿 Domaine skiable unifié</h3>
+          <ul>
+            <li><strong>Kilomètres totaux:</strong> 300 km de pistes</li>
+            <li><strong>Nombre de pistes:</strong> 139 pistes (21 vertes, 66 bleues, 40 rouges, 12 noires)</li>
+            <li><strong>Remontées totales:</strong> 88 installations</li>
+            <li><strong>Altitude max:</strong> 3450m (Pointe du Mont Pourri)</li>
+            <li><strong>Altitude min:</strong> 1550m (Val Claret)</li>
+          </ul>
+          
+          <h3>🚡 Remontées mécaniques</h3>
+          <ul>
+            <li><strong>Téléphériques:</strong> 12 installations</li>
+            <li><strong>Télésièges:</strong> 35 installations</li>
+            <li><strong>Télécabines:</strong> 18 installations</li>
+            <li><strong>Téléskis:</strong> 23 installations</li>
+            <li><strong>Funiculaires:</strong> 2 installations (Tignes & Val d'Isère)</li>
+          </ul>
+          
+          <h3>❄️ Glaciers</h3>
+          
+          <h4>Glacier du Grand Motte (Tignes)</h4>
+          <ul>
+            <li><strong>Altitude:</strong> 3450m - 2550m</li>
+            <li><strong>Particularité:</strong> Ski d'été possible</li>
+            <li><strong>Pistes:</strong> 20 km de pistes glacier</li>
+            <li><strong>Accès:</strong> Téléphérique depuis Le Lac</li>
+          </ul>
+          
+          <h4>Glacier de Pisaillas (Val d'Isère)</h4>
+          <ul>
+            <li><strong>Altitude:</strong> 3400m - 2800m</li>
+            <li><strong>Particularité:</strong> Domaine freeride</li>
+            <li><strong>Pistes:</strong> 15 km de pistes glacier</li>
+            <li><strong>Accès:</strong> Télécabine depuis Le Fornet</li>
+          </ul>
+          
+          <h3>🎯 Forfait unique</h3>
+          <ul>
+            <li><strong>Type:</strong> Forfait Espace Killy</li>
+            <li><strong>Accès:</strong> Illimité Tignes + Val d'Isère</li>
+            <li><strong>Validité:</strong> 1 jour à saison complète</li>
+            <li><strong>Options:</strong> Family, Senior, Junior</li>
+            <li><strong>Rabais:</strong> -10% réservation en ligne</li>
+          </ul>
+          
+          <h3>🎿 Spécialités du domaine</h3>
+          <ul>
+            <li><strong>Freeride:</strong> Domaine exceptionnel, nombreux itinéraires</li>
+            <li><strong>Freestyle:</strong> 2 snowparks, half-pipe, boardercross</li>
+            <li><strong>Familial:</strong> Zones dédiées, écoles de ski</li>
+            <li><strong>Olympique:</strong> Piste de Bellevarde, compétitions</li>
+          </ul>
+          
+          <div class="alert alert-warning">
+            <h4>⚠️ Important</h4>
+            <p>L'Espace Killy est l'un des rares domaines à garantir l'enneigement de novembre à mai grâce à ses 2 glaciers !</p>
+          </div>
+        `
+      },
+      horairesSaison: {
+        title: 'Horaires saison 2025-2026',
+        content: `
+          <h2>⏰ Calendrier complet de la saison</h2>
+          <p class="lead">Toutes les dates importantes pour planifier votre séjour</p>
+          
+          <h3>📅 Dates d'ouverture et fermeture</h3>
+          
+          <h4>🎂 Ouverture Tignes</h4>
+          <ul>
+            <li><strong>Date:</strong> 28 novembre 2025</li>
+            <li><strong>Particularité:</strong> Plus ouverte des Alpes</li>
+            <li><strong>Domaine:</strong> Glacier du Grand Motte ouvert</li>
+            <li><strong>Conditions:</strong> Neige naturelle + enneigement artificiel</li>
+          </ul>
+          
+          <h4>🎂 Ouverture Val d'Isère</h4>
+          <ul>
+            <li><strong>Date:</strong> 5 décembre 2025</li>
+            <li><strong>Particularité:</strong> Ouverture traditionnelle</li>
+            <li><strong>Domaine:</strong> Ensemble du domaine</li>
+            <li><strong>Conditions:</strong> Enneigement artificiel garanti</li>
+          </ul>
+          
+          <h4>🎂 Fermeture estimée</h4>
+          <ul>
+            <li><strong>Date:</strong> 3 mai 2026</li>
+            <li><strong>Particularité:</strong> Selon conditions météo</li>
+            <li><strong>Domaine:</strong> Glacier Grand Motte ouvert jusqu'en juillet</li>
+            <li><strong>Conditions:</strong> Minimum 30 cm de neige</li>
+          </ul>
+          
+          <h3>🌞 Périodes saisonnières</h3>
+          
+          <h4>Haute saison</h4>
+          <ul>
+            <li><strong>Noël:</strong> 20 décembre - 6 janvier</li>
+            <li><strong>Février:</strong> 8 février - 8 mars</li>
+            <li><strong>Particularité:</strong> Affluence maximale</li>
+            <li><strong>Tarifs:</strong> +30% par rapport à la moyenne</li>
+          </ul>
+          
+          <h4>Basse saison</h4>
+          <ul>
+            <li><strong>Décembre:</strong> 7 décembre - 19 décembre</li>
+            <li><strong>Mars-avril:</strong> 9 mars - 2 mai</li>
+            <li><strong>Particularité:</strong> Moins de monde</li>
+            <li><strong>Tarifs:</strong> -20% par rapport à la moyenne</li>
+          </ul>
+          
+          <h4>Printemps ski</h4>
+          <ul>
+            <li><strong>Période:</strong> Avril 2026</li>
+            <li><strong>Particularité:</strong> Neige de printemps</li>
+            <li><strong>Avantages:</strong> Ensoleillement, prix réduits</li>
+            <li><strong>Conditions:</strong> Neige garantie en altitude</li>
+          </ul>
+          
+          <h3>🎿 Horaires des remontées</h3>
+          <ul>
+            <li><strong>Hiver:</strong> 8h30 - 17h00</li>
+            <li><strong>Décembre:</strong> 8h45 - 16h45</li>
+            <li><strong>Printemps:</strong> 9h00 - 16h30</li>
+            <li><strong>Glacier:</strong> 8h00 - 13h00 (été)</li>
+          </ul>
+          
+          <div class="alert alert-info">
+            <h4>💡 Conseil de pro</h4>
+            <p>Pour le meilleur rapport qualité/prix, visez la mi-décembre ou mars : neige garantie, affluence raisonnable et tarifs réduits !</p>
+          </div>
+        `
+      },
+      programmeAnimations: {
+        title: 'Programme d\'animations',
+        content: `
+          <h2>🎊 Agenda des événements saison 2025-2026</h2>
+          <p class="lead">Découvrez toutes les animations et événements de la saison</p>
+          
+          <h3>🎂 Décembre 2025</h3>
+          
+          <h4>Ouverture et festivités</h4>
+          <ul>
+            <li><strong>28 nov:</strong> Ouverture Tignes - Feux d'artifice</li>
+            <li><strong>5 déc:</strong> Ouverture Val d'Isère - Défilé</li>
+            <li><strong>15 déc:</strong> Marché de Noël - Tignes</li>
+            <li><strong>24 déc:</strong> Veillée de Noël - Les deux stations</li>
+            <li><strong>31 déc:</strong> Réveillon - Grand feu d'artifice</li>
+          </ul>
+          
+          <h3>❄️ Janvier 2026</h3>
+          
+          <h4>Sports et compétitions</h4>
+          <ul>
+            <li><strong>5-10 jan:</strong> Coupe du monde de slalom - Val d'Isère</li>
+            <li><strong>15 jan:</strong> Grand Prix de freeride - Tignes</li>
+            <li><strong>20 jan:</strong> Festival de musique - Tignes</li>
+            <li><strong>25 jan:</strong> Course de luge - Val d'Isère</li>
+          </ul>
+          
+          <h3>🎿 Février 2026</h3>
+          
+          <h4>Février - Vacances scolaires</h4>
+          <ul>
+            <li><strong>1-28 fév:</strong> Animations quotidiennes</li>
+            <li><strong>8 fév:</strong> Carnaval d'hiver - Tignes</li>
+            <li><strong>15 fév:</strong> Festival de glace - Val d'Isère</li>
+            <li><strong>20 fév:</strong> Soirée DJ - Les deux stations</li>
+            <li><strong>25 fév:</strong> Course de fond - Espace Killy</li>
+          </ul>
+          
+          <h3>🌸 Mars 2026</h3>
+          
+          <h4>Printemps et soleil</h4>
+          <ul>
+            <li><strong>5 mars:</strong> Festival de musique folklorique</li>
+            <li><strong>10 mars:</strong> Course de ski alpin</li>
+            <li><strong>15 mars:</strong> Fête du printemps - Tignes</li>
+            <li><strong>20 mars:</strong> Soirée gastronomique - Val d'Isère</li>
+            <li><strong>25 mars:</strong> Grand festival de ski</li>
+          </ul>
+          
+          <h3>🎊 Avril 2026</h3>
+          
+          <h4>Printemps ski et festivités</h4>
+          <ul>
+            <li><strong>1-15 avr:</strong> Printemps ski - Animations</li>
+            <li><strong>5 avr:</strong> Festival de musique électronique</li>
+            <li><strong>10 avr:</strong> Course de ski de vitesse</li>
+            <li><strong>15 avr:</strong> Fête de la montagne</li>
+            <li><strong>20 avr:</strong> Grand closing - Les deux stations</li>
+          </ul>
+          
+          <h3>🎿 Animations régulières</h3>
+          <ul>
+            <li><strong>Lundi:</strong> Soirée cinéma - Tignes</li>
+            <li><strong>Mardi:</strong> Marché local - Val d'Isère</li>
+            <li><strong>Mercredi:</strong> Animations enfants</li>
+            <li><strong>Jeudi:</strong> Soirée DJ - Les deux stations</li>
+            <li><strong>Vendredi:</strong> Feu d'artifice</li>
+          </ul>
+          
+          <div class="alert alert-info">
+            <h4>💡 Conseil de pro</h4>
+            <p>Consultez le programme hebdomadaire à votre arrivée : les événements peuvent changer selon les conditions météo !</p>
+          </div>
+        `
+      },
+      applicationsMobile: {
+        title: 'Applications mobiles',
+        content: `
+          <h2>📱 Apps Tignes & Val d'Isère</h2>
+          <p class="lead">Les applications indispensables pour votre séjour dans l'Espace Killy</p>
+          
+          <h3>📱 Applications officielles</h3>
+          
+          <h4>MyTignes</h4>
+          <ul>
+            <li><strong>Fonctionnalités:</strong> Plan des pistes, webcam, météo, enneigement</li>
+            <li><strong>Avantages:</strong> Officiel Tignes, très complet</li>
+            <li><strong>Services:</strong> Achat forfait, réservation restaurants</li>
+            <li><strong>Particularité:</strong> Notifications en temps réel</li>
+            <li><strong>Idéal pour:</strong> Tignes et Espace Killy</li>
+          </ul>
+          
+          <h4>Val d'Isère</h4>
+          <ul>
+            <li><strong>Fonctionnalités:</strong> Plan domaines, webcam, état des pistes</li>
+            <li><strong>Avantages:</strong> Officiel Val d'Isère, informations fiables</li>
+            <li><strong>Services:</strong> Forfait digital, informations pratiques</li>
+            <li><strong>Particularité:</strong> Guide restaurants et boutiques</li>
+            <li><strong>Idéal pour:</strong> Val d'Isère et Espace Killy</li>
+          </ul>
+          
+          <h3>🌨️ Météo et neige</h3>
+          
+          <h4>Snow-Forecast</h4>
+          <ul>
+            <li><strong>Fonctionnalités:</strong> Prévisions neige ultra-précises, webcams</li>
+            <li><strong>Avantages:</strong> Très précis en montagne, webcams en direct</li>
+            <li><strong>Couverture:</strong> Toutes les stations de l'Espace Killy</li>
+            <li><strong>Idéal pour:</strong> Choisir le meilleur jour pour skier</li>
+          </ul>
+          
+          <h4>Météo France</h4>
+          <ul>
+            <li><strong>Fonctionnalités:</strong> Prévisions détaillées, bulletins neige, radars</li>
+            <li><strong>Avantages:</strong> Officiel, fiable, gratuit</li>
+            <li><strong>Particularité:</strong> Alertes météo en temps réel</li>
+            <li><strong>Idéal pour:</strong> Planification à court terme</li>
+          </ul>
+          
+          <h3>🗺️ Cartes et navigation</h3>
+          
+          <h4>Geoportail</h4>
+          <ul>
+            <li><strong>Fonctionnalités:</strong> Cartes IGN, localisation GPS, sécurité</li>
+            <li><strong>Avantages:</strong> Indispensable pour hors-piste, gratuit</li>
+            <li><strong>Particularité:</strong> Cartes topographiques détaillées</li>
+            <li><strong>Idéal pour:</strong> Randonnées en montagne, sécurité</li>
+          </ul>
+          
+          <h4>IGNrando</h4>
+          <ul>
+            <li><strong>Fonctionnalités:</strong> Itinéraires, traces GPS, points d'intérêt</li>
+            <li><strong>Avantages:</strong> Spécialisé randonnée, très complet</li>
+            <li><strong>Particularité:</strong> Hors-ligne possible</li>
+            <li><strong>Idéal pour:</strong> Randonneurs expérimentés</li>
+          </ul>
+          
+          <h3>📲 Applications utiles</h3>
+          
+          <h4>WhatsApp</h4>
+          <ul>
+            <li><strong>Fonctionnalités:</strong> Communication groupe, partage position</li>
+            <li><strong>Avantages:</strong> Gratuit, universel, fonctionne hors réseau</li>
+            <li><strong>Idéal pour:</strong> Coordonner avec votre groupe sur les pistes</li>
+          </ul>
+          
+          <h4>Strava</h4>
+          <ul>
+            <li><strong>Fonctionnalités:</strong> Tracking GPS, statistiques, challenges</li>
+            <li><strong>Avantages:</strong> Communauté sportive, motivation</li>
+            <li><strong>Idéal pour:</strong> Sportifs, suivi performance</li>
+          </ul>
+          
+          <div class="alert alert-info">
+            <h4>💡 Conseil de pro</h4>
+            <p>Combinez 2-3 applications : une officielle (MyTignes), une météo (Snow-Forecast) et une utilitaire (Geoportail) pour couvrir tous vos besoins !</p>
+          </div>
+        `
+      },
+      servicesPratiques: {
+        title: 'Services pratiques',
+        content: `
+          <h2>🏢 Offices & Remontées</h2>
+          <p class="lead">Accédez aux services essentiels de l'Espace Killy</p>
+          
+          <h3>🏢 Offices de tourisme</h3>
+          
+          <h4>Office de Tourisme de Tignes</h4>
+          <ul>
+            <li><strong>Adresse:</strong> Place du Curling, Val Claret</li>
+            <li><strong>Téléphone:</strong> 04 79 06 44 44</li>
+            <li><strong>Horaires:</strong> 8h30-12h30 / 14h30-18h30</li>
+            <li><strong>Services:</strong> Informations, réservations, billets</li>
+            <li><strong>Site:</strong> www.tignes.net</li>
+            <li><strong>Email:</strong> info@tignes.net</li>
+          </ul>
+          
+          <h4>Office de Tourisme de Val d'Isère</h4>
+          <ul>
+            <li><strong>Adresse:</strong> Avenue de la Face de Bellevarde</li>
+            <li><strong>Téléphone:</strong> 04 79 06 44 44</li>
+            <li><strong>Horaires:</strong> 8h30-12h30 / 14h30-18h30</li>
+            <li><strong>Services:</strong> Informations, réservations, billets</li>
+            <li><strong>Site:</strong> www.valdisere.com</li>
+            <li><strong>Email:</strong> info@valdisere.com</li>
+          </ul>
+          
+          <h3>🚡 Services des remontées</h3>
+          
+          <h4>Tignes Ski Lifts</h4>
+          <ul>
+            <li><strong>Téléphone:</strong> 04 79 06 42 22</li>
+            <li><strong>Horaires:</strong> 8h00-18h00 (saison)</li>
+            <li><strong>Services:</strong> Forfaits, informations, pannes</li>
+            <li><strong>Site:</strong> www.tignes-ski.com</li>
+            <li><strong>Particularité:</strong> Forfaits en ligne</li>
+          </ul>
+          
+          <h4>Val d'Isère Ski Lifts</h4>
+          <ul>
+            <li><strong>Téléphone:</strong> 04 79 06 42 22</li>
+            <li><strong>Horaires:</strong> 8h00-18h00 (saison)</li>
+            <li><strong>Services:</strong> Forfaits, informations, pannes</li>
+            <li><strong>Site:</strong> www.valdisere-ski.com</li>
+            <li><strong>Particularité:</strong> Forfaits Espace Killy</li>
+          </ul>
+          
+          <h3>💳 Achat de forfaits en ligne</h3>
+          
+          <h4>Sites officiels</h4>
+          <ul>
+            <li><strong>Tignes:</strong> www.tignes.net/forfaits</li>
+            <li><strong>Val d'Isère:</strong> www.valdisere.com/forfaits</li>
+            <li><strong>Espace Killy:</strong> www.espacekilly.com</li>
+            <li><strong>Avantages:</strong> -10% réservation en ligne</li>
+            <li><strong>Options:</strong> Assurance, casque, livraison</li>
+          </ul>
+          
+          <h4>Types de forfaits</h4>
+          <ul>
+            <li><strong>Espace Killy:</strong> Toutes pistes Tignes + Val d'Isère</li>
+            <li><strong>Tignes:</strong> Uniquement pistes Tignes</li>
+            <li><strong>Val d'Isère:</strong> Uniquement pistes Val d'Isère</li>
+            <li><strong>Durée:</strong> 1 jour, 6 jours, saison</li>
+          </ul>
+          
+          <h3>📱 Informations remontées</h3>
+          
+          <h4>État des pistes</h4>
+          <ul>
+            <li><strong>Site:</strong> www.espacekilly.com/pistes</li>
+            <li><strong>Mise à jour:</strong> Quotidienne 8h00</li>
+            <li><strong>Informations:</strong> Ouvertures, fermetures, conditions</li>
+            <li><strong>Webcams:</strong> 15 webcams en direct</li>
+          </ul>
+          
+          <h4>Alertes et informations</h4>
+          <ul>
+            <li><strong>SMS:</strong> Inscription gratuite</li>
+            <li><strong>Newsletter:</strong> Hebdomadaire</li>
+            <li><strong>Applications:</strong> Notifications push</li>
+            <li><strong>Réseaux sociaux:</strong> Facebook, Instagram, Twitter</li>
+          </ul>
+          
+          <div class="alert alert-warning">
+            <h4>⚠️ Important</h4>
+            <p>Réservez vos forfaits en ligne pour économiser jusqu'à 15% et éviter les files d'attente aux caisses !</p>
+          </div>
+        `
+      }
+    };
+    
+    // Afficher l'article
+    title.textContent = articles[articleType].title;
+    content.innerHTML = articles[articleType].content;
+    preview.classList.remove('hidden');
+    
+    // Scroll vers l'article
+    preview.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  };
+  
+  const hideArticle = () => {
+    const preview = document.getElementById('article-preview');
+    preview.classList.add('hidden');
+  };
 
   // Suivre le hash pour marquer le lien actif dans la navigation
   useEffect(() => {
@@ -696,36 +1883,73 @@ function App() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-16">
-            <Card className="bg-gradient-to-br from-blue-50 to-indigo-50 border-blue-200">
-              <CardHeader>
-                <CardTitle className="text-2xl flex items-center gap-2">
-                  <Mountain className="h-6 w-6 text-blue-600" />
-                  Cours particuliers dans l'Espace Killy 🏔️
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <CardDescription className="text-base text-gray-700">
-                  Profitez de cours particuliers dans l'Espace Killy, le plus beau domaine skiable du monde ! Que vous souhaitiez apprendre les bases à Tignes, perfectionner votre technique à Val d'Isère, ou explorer de nouvelles sensations, je vous accompagne sur les pistes mythiques de Tignes et Val d'Isère avec un suivi personnalisé et bienveillant ❄️✨.
-                </CardDescription>
-              </CardContent>
-            </Card>
+            {currentLang === 'fr' && (
+              <Card className="bg-gradient-to-br from-blue-50 to-indigo-50 border-blue-200">
+                <CardHeader>
+                  <CardTitle className="text-2xl flex items-center gap-2">
+                    <Mountain className="h-6 w-6 text-blue-600" />
+                    Cours particuliers dans l'Espace Killy 🏔️
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <CardDescription className="text-base text-gray-700">
+                    Profitez de cours particuliers dans l'Espace Killy, le plus beau domaine skiable du monde ! Que vous souhaitiez apprendre les bases à Tignes, perfectionner votre technique à Val d'Isère, ou explorer de nouvelles sensations, je vous accompagne sur les pistes mythiques de Tignes et Val d'Isère avec un suivi personnalisé et bienveillant ❄️✨.
+                  </CardDescription>
+                </CardContent>
+              </Card>
+            )}
 
-            <Card className="bg-gradient-to-br from-emerald-50 to-teal-50 border-emerald-200">
-              <CardHeader>
-                <CardTitle className="text-2xl flex items-center gap-2">
-                  <Snowflake className="h-6 w-6 text-emerald-600" />
-                  Cours de ski et snowboard dans Paradiski ⛷️
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <CardDescription className="text-base text-gray-700">
-                  Découvrez mes cours de ski et snowboard dans le domaine Paradiski ! Que vous soyez débutant ou expert, mes cours aux Arcs et La Plagne vous permettent de progresser efficacement. L'objectif : gagner en confiance, maîtriser les pistes et surtout prendre du plaisir sur la neige dans ce domaine exceptionnel 😄.
-                </CardDescription>
-              </CardContent>
-            </Card>
+            {currentLang === 'en' && (
+              <Card>
+                <CardHeader>
+                  <CardTitle className="text-2xl flex items-center gap-2">
+                    <Mountain className="h-6 w-6 text-blue-600" />
+                    Private lessons in the Espace Killy 🏔️
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <CardDescription className="text-base text-gray-700">
+                    Enjoy private lessons in the Espace Killy, the most beautiful ski area in the world! Whether you want to learn the basics in Tignes, perfect your technique in Val d'Isère, or explore new sensations, I will accompany you on the legendary slopes of Tignes and Val d'Isère with personalized and supportive guidance ❄️✨.
+                  </CardDescription>
+                </CardContent>
+              </Card>
+            )}
+
+            {currentLang === 'fr' && (
+              <Card className="bg-gradient-to-br from-emerald-50 to-teal-50 border-emerald-200">
+                <CardHeader>
+                  <CardTitle className="text-2xl flex items-center gap-2">
+                    <Snowflake className="h-6 w-6 text-emerald-600" />
+                    Cours de ski et snowboard dans Paradiski ⛷️
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <CardDescription className="text-base text-gray-700">
+                    Découvrez mes cours de ski et snowboard dans le domaine Paradiski ! Que vous soyez débutant ou expert, mes cours aux Arcs et La Plagne vous permettent de progresser efficacement. L'objectif : gagner en confiance, maîtriser les pistes et surtout prendre du plaisir sur la neige dans ce domaine exceptionnel 😄.
+                  </CardDescription>
+                </CardContent>
+              </Card>
+            )}
+
+            {currentLang === 'en' && (
+              <Card className="bg-gradient-to-br from-emerald-50 to-teal-50 border-emerald-200">
+                <CardHeader>
+                  <CardTitle className="text-2xl flex items-center gap-2">
+                    <Snowflake className="h-6 w-6 text-emerald-600" />
+                    Ski and snowboard lessons in Paradiski ⛷️
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <CardDescription className="text-base text-gray-700">
+                    Discover my ski and snowboard lessons in the Paradiski area! Whether you're a beginner or an expert, my lessons in Les Arcs and La Plagne will help you progress effectively. The goal: to gain confidence, master the slopes, and above all, have fun on the snow in this exceptional area 😄.
+                  </CardDescription>
+                </CardContent>
+              </Card>
+            )}
           </div>
 
           <div className="mt-12">
+            {currentLang === 'fr' && (
             <Card className="bg-gradient-to-br from-amber-50 to-orange-50 border-amber-200">
               <CardHeader>
                 <CardTitle className="text-2xl flex items-center gap-2 justify-center">
@@ -768,6 +1992,52 @@ function App() {
                 </div>
               </CardContent>
             </Card>
+          )}
+
+          {currentLang === 'en' && (
+            <Card className="bg-gradient-to-br from-amber-50 to-orange-50 border-amber-200">
+              <CardHeader>
+                <CardTitle className="text-2xl flex items-center gap-2 justify-center">
+                  <Star className="h-6 w-6 text-amber-600" />
+                  Why choose a private lesson in Tignes – Val d'Isère – Les Arcs? ⭐
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+                  <div className="flex items-start gap-3">
+                    <CheckCircle className="h-5 w-5 text-amber-600 mt-1 flex-shrink-0" />
+                    <div>
+                      <div className="font-semibold text-gray-900">100% personalized private lessons</div>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <CheckCircle className="h-5 w-5 text-amber-600 mt-1 flex-shrink-0" />
+                    <div>
+                      <div className="font-semibold text-gray-900">Qualified and passionate instructor</div>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <CheckCircle className="h-5 w-5 text-amber-600 mt-1 flex-shrink-0" />
+                    <div>
+                      <div className="font-semibold text-gray-900">Fast progress and safe supervision</div>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <CheckCircle className="h-5 w-5 text-amber-600 mt-1 flex-shrink-0" />
+                    <div>
+                      <div className="font-semibold text-gray-900">Discover the most beautiful areas of Tignes Le Lac, Val Claret, Val d'Isère, and Les Arcs</div>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3 md:col-span-2">
+                    <MapPin className="h-5 w-5 text-amber-600 mt-1 flex-shrink-0" />
+                    <div>
+                      <div className="font-semibold text-gray-900">Flexible schedule and meeting point 📍</div>
+                    </div>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          )}
           </div>
         </div>
       </section>
@@ -776,9 +2046,19 @@ function App() {
       <section id="about" className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
+            {currentLang === 'fr' && (
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-8">
               À propos de Myriam 🏔️⛷️💻
             </h2>
+          )}
+
+          {currentLang === 'en' && (
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-8">
+              About Myriam 🏔️⛷️💻
+            </h2>
+          )}
+
+          {currentLang === 'fr' && (
             <div className="text-lg text-gray-700 max-w-4xl mx-auto">
               <div className="space-y-6 text-left">
                 <p>
@@ -819,6 +2099,50 @@ function App() {
                 </div>
               </div>
             </div>
+          )}
+
+          {currentLang === 'en' && (
+            <div className="text-lg text-gray-700 max-w-4xl mx-auto">
+              <div className="space-y-6 text-left">
+                <p>
+                  My name is <strong>Myriam Metenier</strong>, born in Lyon and living in the Tarentaise region for over 32 years. The mountains aren't just my home: they're my playground for expression, learning, and sharing 🌲❄️.
+                </p>
+                <p>
+                  Known for my expertise, teaching skills, and deep connection to the mountains, I teach alpine skiing and snowboarding to children and adults alike ⛷️🏂. I guide each student with a personalized approach, tailored to their level, goals, and individual needs. Over the years, I've led numerous groups on diverse terrain, sharing both advanced techniques and essential mountain safety principles 🛡️🏔️.
+                </p>
+                <p>
+                  From a very young age, sport shaped my path. Raised in a world of high-level sports, I developed my skills in middle-distance running, achieving a French record at 15 🏃‍♀️🔥. Pushing my limits has always been a core value for me: surpassing myself, yes, but above all, pushing my own boundaries 💪. And this sense of accomplishment takes on even greater meaning when I can help others reach their full potential through their own achievements 🌟.
+                </p>
+                <p>
+                  After graduating high school with a degree in chemistry, a deep-seated need to be close to the mountains led me to settle permanently in the Tarentaise Valley 🏔️. There, I earned my State Diploma in Alpine Skiing, having started as an instructor at the age of 16, and then teaching skiing and snowboarding with passion and dedication ⛷️🏂❤️.
+                </p>
+                <p>
+                  In parallel, I built a solid career in new technologies 💻. Holding a BTS (Advanced Vocational Diploma) in IT Services for Organizations – specializing in SLAM (Software Solutions and Applications), I found a valuable balance between the need to be hands-on and the need to reflect, structure, and analyze 🧠. This dynamic naturally led me to a Master's degree in Infrastructure and Cloud Administration ☁️.
+                </p>
+                <p>
+                  Today, I am fortunate to be able to combine my two passions: digital technologies and my love of board sports ❄️. Curious and constantly evolving, I am actively developing my skills in cybersecurity 🔒 and artificial intelligence 🤖.
+                </p>
+                <p>
+                  At the same time, I am deeply interested in anything that fosters greater self-awareness 🌿. This quest led me to obtain degrees in naturopathy 🌱 and psychoanalysis 🧠, enriching my understanding of human nature, its mechanisms, and its potential.
+                </p>
+                <div className="mt-8 pt-6 border-t border-gray-200">
+                  <h3 className="text-2xl font-semibold text-gray-900 mb-4">🌟 What I strive for</h3>
+                  <p>
+                    The complementarity of these two worlds—the mountains and technology, body and mind, action and reflection—is now at the heart of my fulfillment ⚖️.
+                  </p>
+                  <p className="mt-4">
+                    As a ski instructor, this balance guides my teaching, mentoring, and sharing knowledge.
+                  </p>
+                  <p className="mt-4">
+                    It allows me to adopt an approach that is both human and structured: remaining present, observant, and empathetic 💛, while also being demanding, focused, pragmatic, and organized 🎯. On and off the slopes, I move forward attentively, adapting to each individual and each situation.
+                  </p>
+                  <p className="mt-4 italic text-gray-600">
+                    It is in this blend of sensitivity and rigor that I continue to progress, learn, and share my knowledge, in harmony with the rhythm of the mountains 🏔️✨
+                  </p>
+                </div>
+              </div>
+            </div>
+          )}
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -849,6 +2173,7 @@ function App() {
           
           {/* Cours de Ski */}
           <div className="mb-16">
+            {currentLang === 'fr' && (
             <div className="text-center mb-8">
               <h3 className="text-2xl font-bold text-gray-900 flex items-center justify-center gap-2">
                 <Mountain className="h-7 w-7 text-blue-600" />
@@ -858,6 +2183,21 @@ function App() {
                 Découvrez le plaisir du ski alpin ⛷️❄️ avec des cours adaptés à tous les niveaux, du débutant au skieur confirmé !
               </p>
             </div>
+          )}
+
+          {currentLang === 'en' && (
+            <div className="text-center mb-8">
+              <h3 className="text-2xl font-bold text-gray-900 flex items-center justify-center gap-2">
+                <Mountain className="h-7 w-7 text-blue-600" />
+                Ski Lessons ⛷️❄️
+              </h3>
+              <p className="text-gray-700 mt-4 max-w-3xl mx-auto">
+                Discover the joy of alpine skiing ⛷️❄️ with lessons adapted to all levels, from beginner to advanced skier!
+              </p>
+            </div>
+          )}
+
+          {currentLang === 'fr' && (
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               <Card className="hover:shadow-lg transition-shadow border-t-4 border-green-500">
                 <CardHeader>
@@ -970,53 +2310,42 @@ function App() {
                 </CardContent>
               </Card>
             </div>
-          </div>
+          )}
 
-          {/* Ski Hors-Piste */}
-          <div className="mb-16">
-            <div className="text-center mb-8">
-              <h3 className="text-2xl font-bold text-gray-900 flex items-center justify-center gap-2">
-                <Mountain className="h-7 w-7 text-blue-600" />
-                Ski Hors-Piste ⛷️🏔️
-              </h3>
-              <p className="text-gray-700 mt-4 max-w-3xl mx-auto">
-                Explorez les montagnes 🏔️ et découvrez les sensations uniques du ski hors-piste ❄️⛷️ avec mes cours adaptés à tous les niveaux.
-                Que vous soyez débutant en hors-piste 🌱 ou skieur expérimenté 🔥 cherchant à perfectionner votre technique, je vous accompagne avec sérieux et bienveillance, en toute sécurité 🛡️.
-              </p>
-            </div>
+          {currentLang === 'en' && (
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              <Card className="hover:shadow-lg transition-shadow border-t-4 border-emerald-500">
+              <Card className="hover:shadow-lg transition-shadow border-t-4 border-green-500">
                 <CardHeader>
-                  <CardTitle className="flex items-center gap-2 text-emerald-700">
-                    🌨️ Découverte du ski hors-piste
+                  <CardTitle className="flex items-center gap-2 text-green-700">
+                    🌱 Beginners
                   </CardTitle>
                   <CardDescription className="text-gray-600">
-                    Idéal pour les skieurs expérimentés sur piste 🎿 souhaitant découvrir le hors-piste en douceur.
+                    For skiers new to alpine skiing.
                   </CardDescription>
                 </CardHeader>
                 <CardContent className="space-y-3">
-                  <p className="text-sm text-gray-700 font-medium">Vous apprendrez :</p>
+                  <p className="text-sm text-gray-700 font-medium">You will learn:</p>
                   <ul className="text-sm text-gray-600 space-y-2">
                     <li className="flex items-start gap-2">
-                      <span>🎒</span>
-                      <span>Introduction à l'équipement (skis, DVA 📡, pelle, sonde)</span>
+                      <span>🎿</span>
+                      <span>Equipment setup and adjustment (boots, skis, poles)</span>
                     </li>
                     <li className="flex items-start gap-2">
-                      <span>⛷️</span>
-                      <span>Techniques de base (positions, virages)</span>
+                      <span>⚖️</span>
+                      <span>Basic stance and balance</span>
                     </li>
                     <li className="flex items-start gap-2">
-                      <span>🧭</span>
-                      <span>Lecture du terrain et choix des lignes de descente</span>
+                      <span>🛷</span>
+                      <span>Straight skiing and first sensations</span>
                     </li>
                     <li className="flex items-start gap-2">
-                      <span>⚠️</span>
-                      <span>Premiers principes de sécurité avalanche ❄️</span>
+                      <span>↩️</span>
+                      <span>Snowploughing techniques ⛔ and first turns</span>
                     </li>
                   </ul>
                   <div className="pt-3 border-t border-gray-100">
-                    <p className="text-sm font-medium text-emerald-700">
-                      🎯 Objectif : acquérir les bases nécessaires pour skier en toute sécurité en hors-piste et explorer des terrains faciles à modérés en confiance.
+                    <p className="text-sm font-medium text-green-700">
+                      🎯 Goal: to acquire the basics of skiing, gain confidence, and ski down gentle slopes safely 🛡️.
                     </p>
                   </div>
                 </CardContent>
@@ -1025,285 +2354,35 @@ function App() {
               <Card className="hover:shadow-lg transition-shadow border-t-4 border-blue-500">
                 <CardHeader>
                   <CardTitle className="flex items-center gap-2 text-blue-700">
-                    ❄️ Perfectionnement hors-piste
+                    ⛷️ Intermediate
                   </CardTitle>
                   <CardDescription className="text-gray-600">
-                    Pour les skieurs ayant déjà une première expérience du hors-piste.
+                    For those who want to improve their technique.
                   </CardDescription>
                 </CardHeader>
                 <CardContent className="space-y-3">
-                  <p className="text-sm text-gray-700 font-medium">Ce cours vise à :</p>
+                  <p className="text-sm text-gray-700 font-medium">On the agenda:</p>
                   <ul className="text-sm text-gray-600 space-y-2">
                     <li className="flex items-start gap-2">
-                      <span>⛷️</span>
-                      <span>Techniques avancées (virages serrés, contrôle de la vitesse)</span>
+                      <span>🔄</span>
+                      <span>Parallel turns and smooth transitions</span>
                     </li>
                     <li className="flex items-start gap-2">
-                      <span>🌲</span>
-                      <span>Navigation en terrain varié (poudreuse, neige croûtée, forêts)</span>
+                      <span>🏁</span>
+                      <span>Improved speed and trajectory control</span>
                     </li>
                     <li className="flex items-start gap-2">
-                      <span>📡</span>
-                      <span>Utilisation avancée du DVA</span>
+                      <span>🎯</span>
+                      <span>Balance and weight distribution training</span>
                     </li>
                     <li className="flex items-start gap-2">
-                      <span>⚠️</span>
-                      <span>Gestion des risques et choix des lignes de descente</span>
+                      <span>✨</span>
+                      <span>Introduction to carving on blue and red runs</span>
                     </li>
                   </ul>
                   <div className="pt-3 border-t border-gray-100">
                     <p className="text-sm font-medium text-blue-700">
-                      🎯 Objectif : gagner en confiance et en compétence sur des terrains intermédiaires à difficiles, tout en renforçant les bonnes pratiques de sécurité.
-                    </p>
-                  </div>
-                </CardContent>
-              </Card>
-
-              <Card className="hover:shadow-lg transition-shadow border-t-4 border-red-500">
-                <CardHeader>
-                  <CardTitle className="flex items-center gap-2 text-red-700">
-                    🏔️ Hors-piste expert / engagement
-                  </CardTitle>
-                  <CardDescription className="text-gray-600">
-                    Destiné aux skieurs confirmés 💪 pour des terrains exigeants.
-                  </CardDescription>
-                </CardHeader>
-                <CardContent className="space-y-3">
-                  <p className="text-sm text-gray-700 font-medium">Au programme :</p>
-                  <ul className="text-sm text-gray-600 space-y-2">
-                    <li className="flex items-start gap-2">
-                      <span>⛰️</span>
-                      <span>Ski en pente raide et couloirs</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span>❄️</span>
-                      <span>Gestion des conditions de neige difficiles</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span>🚑</span>
-                      <span>Techniques de secours en avalanche</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span>🧭</span>
-                      <span>Planification d'itinéraires et prise de décision en haute montagne</span>
-                    </li>
-                  </ul>
-                  <div className="pt-3 border-t border-gray-100">
-                    <p className="text-sm font-medium text-red-700">
-                      🎯 Objectif : devenir un skieur hors-piste autonome et compétent, capable d'évoluer sur des terrains complexes en toute sécurité.
-                    </p>
-                  </div>
-                </CardContent>
-              </Card>
-            </div>
-          </div>
-
-          {/* Snowboard Hors-Piste */}
-          <div className="mb-16">
-            <div className="text-center mb-8">
-              <h3 className="text-2xl font-bold text-gray-900 flex items-center justify-center gap-2">
-                <Snowflake className="h-7 w-7 text-purple-600" />
-                Snowboard Hors-Piste 🏂🏔️
-              </h3>
-              <p className="text-gray-700 mt-4 max-w-3xl mx-auto">
-                Plongez dans l'aventure 🏔️ et découvrez la liberté du snowboard hors-piste ❄️🏂 avec mes cours adaptés à tous les niveaux. Que vous soyez débutant 🌱 ou rider expérimenté 🔥 cherchant à perfectionner votre technique, je vous accompagne en toute sécurité 🛡️.
-              </p>
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              <Card className="hover:shadow-lg transition-shadow border-t-4 border-emerald-500">
-                <CardHeader>
-                  <CardTitle className="flex items-center gap-2 text-emerald-700">
-                    🌨️ Découverte du hors-piste
-                  </CardTitle>
-                  <CardDescription className="text-gray-600">
-                    Idéal pour les snowboarders ayant de l'expérience sur piste 🎿 et souhaitant explorer le hors-piste.
-                  </CardDescription>
-                </CardHeader>
-                <CardContent className="space-y-3">
-                  <p className="text-sm text-gray-700 font-medium">Vous apprendrez :</p>
-                  <ul className="text-sm text-gray-600 space-y-2">
-                    <li className="flex items-start gap-2">
-                      <span>🎒</span>
-                      <span>Introduction à l'équipement 🏂 (planche, DVA 📡, pelle, sonde)</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span>⛷️</span>
-                      <span>Techniques de base (positions, virages)</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span>🧭</span>
-                      <span>Lecture du terrain et choix des lignes de descente</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span>⚠️</span>
-                      <span>Principes de sécurité avalanche ❄️</span>
-                    </li>
-                  </ul>
-                  <div className="pt-3 border-t border-gray-100">
-                    <p className="text-sm font-medium text-emerald-700">
-                      🎯 Objectif : acquérir les bases nécessaires pour rider en toute sécurité et explorer des terrains faciles à modérés 🌲.
-                    </p>
-                  </div>
-                </CardContent>
-              </Card>
-
-              <Card className="hover:shadow-lg transition-shadow border-t-4 border-purple-500">
-                <CardHeader>
-                  <CardTitle className="flex items-center gap-2 text-purple-700">
-                    ❄️ Perfectionnement hors-piste
-                  </CardTitle>
-                  <CardDescription className="text-gray-600">
-                    Pour les riders ayant déjà une première expérience.
-                  </CardDescription>
-                </CardHeader>
-                <CardContent className="space-y-3">
-                  <p className="text-sm text-gray-700 font-medium">Au programme :</p>
-                  <ul className="text-sm text-gray-600 space-y-2">
-                    <li className="flex items-start gap-2">
-                      <span>⛷️</span>
-                      <span>Techniques avancées (virages serrés, contrôle de la vitesse)</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span>🌨️</span>
-                      <span>Navigation en terrain varié (poudreuse, croûtée, forêts)</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span>📡</span>
-                      <span>Utilisation avancée du DVA</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span>⚠️</span>
-                      <span>Gestion des risques et choix des lignes de descente</span>
-                    </li>
-                  </ul>
-                  <div className="pt-3 border-t border-gray-100">
-                    <p className="text-sm font-medium text-purple-700">
-                      🎯 Objectif : gagner en confiance et en compétence sur des terrains intermédiaires à difficiles, tout en renforçant les pratiques de sécurité.
-                    </p>
-                  </div>
-                </CardContent>
-              </Card>
-
-              <Card className="hover:shadow-lg transition-shadow border-t-4 border-red-500">
-                <CardHeader>
-                  <CardTitle className="flex items-center gap-2 text-red-700">
-                    🏔️ Hors-piste expert / engagement
-                  </CardTitle>
-                  <CardDescription className="text-gray-600">
-                    Pour les snowboarders confirmés 💪.
-                  </CardDescription>
-                </CardHeader>
-                <CardContent className="space-y-3">
-                  <p className="text-sm text-gray-700 font-medium">Au programme :</p>
-                  <ul className="text-sm text-gray-600 space-y-2">
-                    <li className="flex items-start gap-2">
-                      <span>⛰️</span>
-                      <span>Techniques en pente raide et couloirs</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span>❄️</span>
-                      <span>Gestion des conditions de neige difficiles</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span>🚑</span>
-                      <span>Techniques de secours en avalanche</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span>🧭</span>
-                      <span>Planification d'itinéraires et prise de décision en haute montagne</span>
-                    </li>
-                  </ul>
-                  <div className="pt-3 border-t border-gray-100">
-                    <p className="text-sm font-medium text-red-700">
-                      🎯 Objectif : devenir un rider autonome et compétent, capable de naviguer sur des terrains complexes en toute sécurité ✅.
-                    </p>
-                  </div>
-                </CardContent>
-              </Card>
-            </div>
-          </div>
-
-          {/* Cours de Snowboard */}
-          <div className="mb-8">
-            <div className="text-center mb-8">
-              <h3 className="text-2xl font-bold text-gray-900 flex items-center justify-center gap-2">
-                <Snowflake className="h-7 w-7 text-cyan-600" />
-                Cours de Snowboard 🏂❄️
-              </h3>
-              <p className="text-gray-700 mt-4 max-w-3xl mx-auto">
-                Découvrez le plaisir du snowboard 🏂❄️ avec mes cours adaptés à tous les niveaux !
-              </p>
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              <Card className="hover:shadow-lg transition-shadow border-t-4 border-green-500">
-                <CardHeader>
-                  <CardTitle className="flex items-center gap-2 text-green-700">
-                    🌱 Débutants
-                  </CardTitle>
-                  <CardDescription className="text-gray-600">
-                    Pour les riders qui découvrent le snowboard.
-                  </CardDescription>
-                </CardHeader>
-                <CardContent className="space-y-3">
-                  <p className="text-sm text-gray-700 font-medium">Vous apprendrez :</p>
-                  <ul className="text-sm text-gray-600 space-y-2">
-                    <li className="flex items-start gap-2">
-                      <span>🎒</span>
-                      <span>Apprendre à connaître et ajuster l'équipement</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span>⚖️</span>
-                      <span>Positions de base et équilibre</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span>🛷</span>
-                      <span>Glisser sur une surface plane</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span>↩️</span>
-                      <span>Techniques de freinage de base ⛔ et premiers virages</span>
-                    </li>
-                  </ul>
-                  <div className="pt-3 border-t border-gray-100">
-                    <p className="text-sm font-medium text-green-700">
-                      🎯 Objectif : gagner en confiance et maîtriser les bases pour vos premières descentes sur des pentes douces en toute sécurité 🛡️.
-                    </p>
-                  </div>
-                </CardContent>
-              </Card>
-
-              <Card className="hover:shadow-lg transition-shadow border-t-4 border-cyan-500">
-                <CardHeader>
-                  <CardTitle className="flex items-center gap-2 text-cyan-700">
-                    ⛷️ Intermédiaires
-                  </CardTitle>
-                  <CardDescription className="text-gray-600">
-                    Pour ceux qui veulent progresser.
-                  </CardDescription>
-                </CardHeader>
-                <CardContent className="space-y-3">
-                  <p className="text-sm text-gray-700 font-medium">Au programme :</p>
-                  <ul className="text-sm text-gray-600 space-y-2">
-                    <li className="flex items-start gap-2">
-                      <span>🔄</span>
-                      <span>Techniques de virage avancées</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span>🏁</span>
-                      <span>Contrôle de la vitesse et de la direction</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span>🎯</span>
-                      <span>Initiation au carving</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span>✨</span>
-                      <span>Introduction au freestyle (sauts simples et figures de base)</span>
-                    </li>
-                  </ul>
-                  <div className="pt-3 border-t border-gray-100">
-                    <p className="text-sm font-medium text-cyan-700">
-                      🎯 Objectif : être à l'aise sur des pentes plus raides et commencer à explorer le freestyle 🏂💨.
+                      🎯 Objective: Ski with ease on steeper slopes and gain precision and fluidity ⛷️💨.
                     </p>
                   </div>
                 </CardContent>
@@ -1312,40 +2391,800 @@ function App() {
               <Card className="hover:shadow-lg transition-shadow border-t-4 border-orange-500">
                 <CardHeader>
                   <CardTitle className="flex items-center gap-2 text-orange-700">
-                    🔥 Avancés
+                    🔥 Advanced
                   </CardTitle>
                   <CardDescription className="text-gray-600">
-                    Pour les riders confirmés souhaitant repousser leurs limites.
+                    For experienced skiers looking to refine their skills.
                   </CardDescription>
                 </CardHeader>
                 <CardContent className="space-y-3">
-                  <p className="text-sm text-gray-700 font-medium">Au programme :</p>
+                  <p className="text-sm text-gray-700 font-medium">On the agenda:</p>
                   <ul className="text-sm text-gray-600 space-y-2">
                     <li className="flex items-start gap-2">
-                      <span>⛷️</span>
-                      <span>Carving avancé et techniques de virage</span>
+                      <span>⚡</span>
+                      <span>Advanced carving and high-speed turns</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span>🖤</span>
+                      <span>Techniques on red and black runs</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <span>🤸‍♂️</span>
-                      <span>Sauts et figures en freestyle (grabs, rotations…)</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span>🏔️</span>
-                      <span>Techniques de hors-piste / backcountry</span>
+                      <span>Introduction to freestyle (features, simple jumps)</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <span>⚠️</span>
-                      <span>Sécurité en montagne et avalanche ❄️</span>
+                      <span>Off-piste basics and mountain safety ❄️</span>
                     </li>
                   </ul>
                   <div className="pt-3 border-t border-gray-100">
                     <p className="text-sm font-medium text-orange-700">
-                      🎯 Objectif : maîtriser des techniques avancées et profiter pleinement du snowboard dans toutes ses dimensions 🌟.
+                      🎯 Objective: Master an advanced technique, push your limits, and fully enjoy alpine skiing in all conditions 🌟.
                     </p>
                   </div>
                 </CardContent>
               </Card>
             </div>
+          )}
+          </div>
+
+          {/* Ski Hors-Piste */}
+          <div className="mb-16">
+            {currentLang === 'fr' && (
+              <div className="text-center mb-8">
+                <h3 className="text-2xl font-bold text-gray-900 flex items-center justify-center gap-2">
+                  <Mountain className="h-7 w-7 text-blue-600" />
+                  Ski Hors-Piste ⛷️🏔️
+                </h3>
+                <p className="text-gray-700 mt-4 max-w-3xl mx-auto">
+                  Explorez les montagnes 🏔️ et découvrez les sensations uniques du ski hors-piste ❄️⛷️ avec mes cours adaptés à tous les niveaux. Que vous soyez débutant en hors-piste 🌱 ou skieur expérimenté 🔥 cherchant à perfectionner votre technique, je vous accompagne avec sérieux et bienveillance, en toute sécurité 🛡️.
+                </p>
+              </div>
+            )}
+
+            {currentLang === 'en' && (
+              <div className="text-center mb-8">
+                <h3 className="text-2xl font-bold text-gray-900 flex items-center justify-center gap-2">
+                  <Mountain className="h-7 w-7 text-blue-600" />
+                  Off-Piste Skiing ⛷️🏔️
+                </h3>
+                <p className="text-gray-700 mt-4 max-w-3xl mx-auto">
+                  Explore the mountains 🏔️ and discover the unique sensations of off-piste skiing ❄️⛷️ with my lessons tailored to all levels. Whether you're a beginner in off-piste 🌱 or an experienced skier 🔥 looking to refine your technique, I'll guide you with professionalism and care, ensuring your safety 🛡️.
+                </p>
+              </div>
+            )}
+
+            {currentLang === 'fr' && (
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <Card className="hover:shadow-lg transition-shadow border-t-4 border-emerald-500">
+                  <CardHeader>
+                    <CardTitle className="flex items-center gap-2 text-emerald-700">
+                      🌨️ Découverte du ski hors-piste
+                    </CardTitle>
+                    <CardDescription className="text-gray-600">
+                      Idéal pour les skieurs expérimentés sur piste 🎿 souhaitant découvrir le hors-piste en douceur.
+                    </CardDescription>
+                  </CardHeader>
+                  <CardContent className="space-y-3">
+                    <p className="text-sm text-gray-700 font-medium">Vous apprendrez :</p>
+                    <ul className="text-sm text-gray-600 space-y-2">
+                      <li className="flex items-start gap-2">
+                        <span>🎒</span>
+                        <span>Introduction à l'équipement (skis, DVA 📡, pelle, sonde)</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span>⛷️</span>
+                        <span>Techniques de base (positions, virages)</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span>🧭</span>
+                        <span>Lecture du terrain et choix des lignes de descente</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span>⚠️</span>
+                        <span>Premiers principes de sécurité avalanche ❄️</span>
+                      </li>
+                    </ul>
+                    <div className="pt-3 border-t border-gray-100">
+                      <p className="text-sm font-medium text-emerald-700">
+                        🎯 Objectif : acquérir les bases nécessaires pour skier en toute sécurité en hors-piste et explorer des terrains faciles à modérés en confiance.
+                      </p>
+                    </div>
+                  </CardContent>
+                </Card>
+
+                <Card className="hover:shadow-lg transition-shadow border-t-4 border-blue-500">
+                  <CardHeader>
+                    <CardTitle className="flex items-center gap-2 text-blue-700">
+                      ❄️ Perfectionnement hors-piste
+                    </CardTitle>
+                    <CardDescription className="text-gray-600">
+                      Pour les skieurs ayant déjà une première expérience du hors-piste.
+                    </CardDescription>
+                  </CardHeader>
+                  <CardContent className="space-y-3">
+                    <p className="text-sm text-gray-700 font-medium">Ce cours vise à :</p>
+                    <ul className="text-sm text-gray-600 space-y-2">
+                      <li className="flex items-start gap-2">
+                        <span>⛷️</span>
+                        <span>Techniques avancées (virages serrés, contrôle de la vitesse)</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span>🌲</span>
+                        <span>Navigation en terrain varié (poudreuse, neige croûtée, forêts)</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span>📡</span>
+                        <span>Utilisation avancée du DVA</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span>⚠️</span>
+                        <span>Gestion des risques et choix des lignes de descente</span>
+                      </li>
+                    </ul>
+                    <div className="pt-3 border-t border-gray-100">
+                      <p className="text-sm font-medium text-blue-700">
+                        🎯 Objectif : gagner en confiance et en compétence sur des terrains intermédiaires à difficiles, tout en renforçant les bonnes pratiques de sécurité.
+                      </p>
+                    </div>
+                  </CardContent>
+                </Card>
+
+                <Card className="hover:shadow-lg transition-shadow border-t-4 border-red-500">
+                  <CardHeader>
+                    <CardTitle className="flex items-center gap-2 text-red-700">
+                      🏔️ Hors-piste expert / engagement
+                    </CardTitle>
+                    <CardDescription className="text-gray-600">
+                      Destiné aux skieurs confirmés 💪 pour des terrains exigeants.
+                    </CardDescription>
+                  </CardHeader>
+                  <CardContent className="space-y-3">
+                    <p className="text-sm text-gray-700 font-medium">Au programme :</p>
+                    <ul className="text-sm text-gray-600 space-y-2">
+                      <li className="flex items-start gap-2">
+                        <span>⛰️</span>
+                        <span>Ski en pente raide et couloirs</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span>❄️</span>
+                        <span>Gestion des conditions de neige difficiles</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span>🚑</span>
+                        <span>Techniques de secours en avalanche</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span>🧭</span>
+                        <span>Planification d'itinéraires et prise de décision en haute montagne</span>
+                      </li>
+                    </ul>
+                    <div className="pt-3 border-t border-gray-100">
+                      <p className="text-sm font-medium text-red-700">
+                        🎯 Objectif : devenir un skieur hors-piste autonome et compétent, capable d'évoluer sur des terrains complexes en toute sécurité.
+                      </p>
+                    </div>
+                  </CardContent>
+                </Card>
+              </div>
+            )}
+
+            {currentLang === 'en' && (
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <Card className="hover:shadow-lg transition-shadow border-t-4 border-emerald-500">
+                  <CardHeader>
+                    <CardTitle className="flex items-center gap-2 text-emerald-700">
+                      🌨️ Discover Off-Piste Skiing
+                    </CardTitle>
+                    <CardDescription className="text-gray-600">
+                      Ideal for experienced on-piste skiers 🎿 who want to gently discover off-piste skiing.
+                    </CardDescription>
+                  </CardHeader>
+                  <CardContent className="space-y-3">
+                    <p className="text-sm text-gray-700 font-medium">You will learn:</p>
+                    <ul className="text-sm text-gray-600 space-y-2">
+                      <li className="flex items-start gap-2">
+                        <span>🎒</span>
+                        <span>Introduction to equipment (skis, avalanche transceiver 📡, shovel, probe)</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span>⛷️</span>
+                        <span>Basic techniques (stances, turns)</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span>🧭</span>
+                        <span>Reading the terrain and choosing descent lines</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span>⚠️</span>
+                        <span>Basic avalanche safety principles ❄️</span>
+                      </li>
+                    </ul>
+                    <div className="pt-3 border-t border-gray-100">
+                      <p className="text-sm font-medium text-emerald-700">
+                        🎯 Objective: to acquire the necessary skills to ski safely off-piste and confidently explore easy to moderate terrain.
+                      </p>
+                    </div>
+                  </CardContent>
+                </Card>
+
+                <Card className="hover:shadow-lg transition-shadow border-t-4 border-blue-500">
+                  <CardHeader>
+                    <CardTitle className="flex items-center gap-2 text-blue-700">
+                      ❄️ Advanced Off-Piste Skiing
+                    </CardTitle>
+                    <CardDescription className="text-gray-600">
+                      For skiers with some prior off-piste experience.
+                    </CardDescription>
+                  </CardHeader>
+                  <CardContent className="space-y-3">
+                    <p className="text-sm text-gray-700 font-medium">This course aims to:</p>
+                    <ul className="text-sm text-gray-600 space-y-2">
+                      <li className="flex items-start gap-2">
+                        <span>⛷️</span>
+                        <span>Advanced techniques (tight turns, speed control)</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span>🌲</span>
+                        <span>Navigation in varied terrain (powder, crusty snow, forests)</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span>📡</span>
+                        <span>Advanced use of avalanche transceivers (DVA)</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span>⚠️</span>
+                        <span>Risk management and route selection</span>
+                      </li>
+                    </ul>
+                    <div className="pt-3 border-t border-gray-100">
+                      <p className="text-sm font-medium text-blue-700">
+                        🎯 Objective: to gain confidence and skill on intermediate to difficult terrain, while reinforcing good safety practices.
+                      </p>
+                    </div>
+                  </CardContent>
+                </Card>
+
+                <Card className="hover:shadow-lg transition-shadow border-t-4 border-red-500">
+                  <CardHeader>
+                    <CardTitle className="flex items-center gap-2 text-red-700">
+                      🏔️ Expert off-piste / commitment
+                    </CardTitle>
+                    <CardDescription className="text-gray-600">
+                      Designed for advanced skiers 💪 for challenging terrain.
+                    </CardDescription>
+                  </CardHeader>
+                  <CardContent className="space-y-3">
+                    <p className="text-sm text-gray-700 font-medium">On the agenda:</p>
+                    <ul className="text-sm text-gray-600 space-y-2">
+                      <li className="flex items-start gap-2">
+                        <span>⛰️</span>
+                        <span>Skiing on steep slopes and couloirs</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span>❄️</span>
+                        <span>Managing difficult snow conditions</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span>🚑</span>
+                        <span>Avalanche rescue techniques</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span>🧭</span>
+                        <span>Route planning and decision-making in high mountain environments</span>
+                      </li>
+                    </ul>
+                    <div className="pt-3 border-t border-gray-100">
+                      <p className="text-sm font-medium text-red-700">
+                        🎯 Objective: to become a self-reliant and competent off-piste skier, capable of navigating complex terrain safely.
+                      </p>
+                    </div>
+                  </CardContent>
+                </Card>
+              </div>
+            )}
+          </div>
+
+          {/* Snowboard Hors-Piste */}
+          <div className="mb-16">
+            {currentLang === 'fr' && (
+              <div className="text-center mb-8">
+                <h3 className="text-2xl font-bold text-gray-900 flex items-center justify-center gap-2">
+                  <Snowflake className="h-7 w-7 text-purple-600" />
+                  Snowboard Hors-Piste 🏂🏔️
+                </h3>
+                <p className="text-gray-700 mt-4 max-w-3xl mx-auto">
+                  Plongez dans l'aventure 🏔️ et découvrez la liberté du snowboard hors-piste ❄️🏂 avec mes cours adaptés à tous les niveaux. Que vous soyez débutant 🌱 ou rider expérimenté 🔥 cherchant à perfectionner votre technique, je vous accompagne en toute sécurité 🛡️.
+                </p>
+              </div>
+            )}
+
+            {currentLang === 'en' && (
+              <div className="text-center mb-8">
+                <h3 className="text-2xl font-bold text-gray-900 flex items-center justify-center gap-2">
+                  <Snowflake className="h-7 w-7 text-purple-600" />
+                  Off-Piste Snowboarding 🏂🏔️
+                </h3>
+                <p className="text-gray-700 mt-4 max-w-3xl mx-auto">
+                  Dive into the adventure 🏔️ and discover the freedom of off-piste snowboarding ❄️🏂 with lessons tailored to all levels. Whether you're a beginner 🌱 or an experienced rider 🔥 looking to refine your technique, I'll guide you safely 🛡️.
+                </p>
+              </div>
+            )}
+
+            {currentLang === 'fr' && (
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <Card className="hover:shadow-lg transition-shadow border-t-4 border-emerald-500">
+                  <CardHeader>
+                    <CardTitle className="flex items-center gap-2 text-emerald-700">
+                      🌨️ Découverte du hors-piste
+                    </CardTitle>
+                    <CardDescription className="text-gray-600">
+                      Idéal pour les snowboarders ayant de l'expérience sur piste 🎿 et souhaitant explorer le hors-piste.
+                    </CardDescription>
+                  </CardHeader>
+                  <CardContent className="space-y-3">
+                    <p className="text-sm text-gray-700 font-medium">Vous apprendrez :</p>
+                    <ul className="text-sm text-gray-600 space-y-2">
+                      <li className="flex items-start gap-2">
+                        <span>🎒</span>
+                        <span>Introduction à l'équipement 🏂 (planche, DVA 📡, pelle, sonde)</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span>⛷️</span>
+                        <span>Techniques de base (positions, virages)</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span>🧭</span>
+                        <span>Lecture du terrain et choix des lignes de descente</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span>⚠️</span>
+                        <span>Principes de sécurité avalanche ❄️</span>
+                      </li>
+                    </ul>
+                    <div className="pt-3 border-t border-gray-100">
+                      <p className="text-sm font-medium text-emerald-700">
+                        🎯 Objectif : acquérir les bases nécessaires pour rider en toute sécurité et explorer des terrains faciles à modérés 🌲.
+                      </p>
+                    </div>
+                  </CardContent>
+                </Card>
+
+                <Card className="hover:shadow-lg transition-shadow border-t-4 border-purple-500">
+                  <CardHeader>
+                    <CardTitle className="flex items-center gap-2 text-purple-700">
+                      ❄️ Perfectionnement hors-piste
+                    </CardTitle>
+                    <CardDescription className="text-gray-600">
+                      Pour les riders ayant déjà une première expérience.
+                    </CardDescription>
+                  </CardHeader>
+                  <CardContent className="space-y-3">
+                    <p className="text-sm text-gray-700 font-medium">Au programme :</p>
+                    <ul className="text-sm text-gray-600 space-y-2">
+                      <li className="flex items-start gap-2">
+                        <span>⛷️</span>
+                        <span>Techniques avancées (virages serrés, contrôle de la vitesse)</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span>🌨️</span>
+                        <span>Navigation en terrain varié (poudreuse, croûtée, forêts)</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span>📡</span>
+                        <span>Utilisation avancée du DVA</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span>⚠️</span>
+                        <span>Gestion des risques et choix des lignes de descente</span>
+                      </li>
+                    </ul>
+                    <div className="pt-3 border-t border-gray-100">
+                      <p className="text-sm font-medium text-purple-700">
+                        🎯 Objectif : gagner en confiance et en compétence sur des terrains intermédiaires à difficiles, tout en renforçant les pratiques de sécurité.
+                      </p>
+                    </div>
+                  </CardContent>
+                </Card>
+
+                <Card className="hover:shadow-lg transition-shadow border-t-4 border-red-500">
+                  <CardHeader>
+                    <CardTitle className="flex items-center gap-2 text-red-700">
+                      🏔️ Hors-piste expert / engagement
+                    </CardTitle>
+                    <CardDescription className="text-gray-600">
+                      Pour les snowboarders confirmés 💪.
+                    </CardDescription>
+                  </CardHeader>
+                  <CardContent className="space-y-3">
+                    <p className="text-sm text-gray-700 font-medium">Au programme :</p>
+                    <ul className="text-sm text-gray-600 space-y-2">
+                      <li className="flex items-start gap-2">
+                        <span>⛰️</span>
+                        <span>Techniques en pente raide et couloirs</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span>❄️</span>
+                        <span>Gestion des conditions de neige difficiles</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span>🚑</span>
+                        <span>Techniques de secours en avalanche</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span>🧭</span>
+                        <span>Planification d'itinéraires et prise de décision en haute montagne</span>
+                      </li>
+                    </ul>
+                    <div className="pt-3 border-t border-gray-100">
+                      <p className="text-sm font-medium text-red-700">
+                        🎯 Objectif : devenir un rider autonome et compétent, capable de naviguer sur des terrains complexes en toute sécurité ✅.
+                      </p>
+                    </div>
+                  </CardContent>
+                </Card>
+              </div>
+            )}
+
+            {currentLang === 'en' && (
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <Card className="hover:shadow-lg transition-shadow border-t-4 border-emerald-500">
+                  <CardHeader>
+                    <CardTitle className="flex items-center gap-2 text-emerald-700">
+                      🌨️ Discover Off-Piste
+                    </CardTitle>
+                    <CardDescription className="text-gray-600">
+                      Ideal for snowboarders with on-piste experience 🎿 who want to explore off-piste terrain.
+                    </CardDescription>
+                  </CardHeader>
+                  <CardContent className="space-y-3">
+                    <p className="text-sm text-gray-700 font-medium">You will learn:</p>
+                    <ul className="text-sm text-gray-600 space-y-2">
+                      <li className="flex items-start gap-2">
+                        <span>🎒</span>
+                        <span>Introduction to equipment 🏂 (snowboard, avalanche transceiver 📡, shovel, probe)</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span>⛷️</span>
+                        <span>Basic techniques (stances, turns)</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span>🧭</span>
+                        <span>Reading the terrain and choosing descent lines</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span>⚠️</span>
+                        <span>Avalanche safety principles ❄️</span>
+                      </li>
+                    </ul>
+                    <div className="pt-3 border-t border-gray-100">
+                      <p className="text-sm font-medium text-emerald-700">
+                        🎯 Objective: to acquire the necessary skills to ride safely and explore easy to moderate terrain 🌲.
+                      </p>
+                    </div>
+                  </CardContent>
+                </Card>
+
+                <Card className="hover:shadow-lg transition-shadow border-t-4 border-purple-500">
+                  <CardHeader>
+                    <CardTitle className="flex items-center gap-2 text-purple-700">
+                      ❄️ Advanced off-piste riding
+                    </CardTitle>
+                    <CardDescription className="text-gray-600">
+                      For riders with some prior experience.
+                    </CardDescription>
+                  </CardHeader>
+                  <CardContent className="space-y-3">
+                    <p className="text-sm text-gray-700 font-medium">On the agenda:</p>
+                    <ul className="text-sm text-gray-600 space-y-2">
+                      <li className="flex items-start gap-2">
+                        <span>⛷️</span>
+                        <span>Advanced techniques (tight turns, speed control)</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span>🌨️</span>
+                        <span>Navigation in varied terrain (powder, crust, trees)</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span>📡</span>
+                        <span>Advanced use of avalanche transceivers</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span>⚠️</span>
+                        <span>Risk management and line selection</span>
+                      </li>
+                    </ul>
+                    <div className="pt-3 border-t border-gray-100">
+                      <p className="text-sm font-medium text-purple-700">
+                        🎯 Objective: to gain confidence and skill on intermediate to difficult terrain, while reinforcing safety practices.
+                      </p>
+                    </div>
+                  </CardContent>
+                </Card>
+
+                <Card className="hover:shadow-lg transition-shadow border-t-4 border-red-500">
+                  <CardHeader>
+                    <CardTitle className="flex items-center gap-2 text-red-700">
+                      🏔️ Expert off-piste / commitment
+                    </CardTitle>
+                    <CardDescription className="text-gray-600">
+                      For experienced snowboarders 💪.
+                    </CardDescription>
+                  </CardHeader>
+                  <CardContent className="space-y-3">
+                    <p className="text-sm text-gray-700 font-medium">On the agenda:</p>
+                    <ul className="text-sm text-gray-600 space-y-2">
+                      <li className="flex items-start gap-2">
+                        <span>⛰️</span>
+                        <span>Steep slope and couloir techniques</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span>❄️</span>
+                        <span>Managing difficult snow conditions</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span>🚑</span>
+                        <span>Avalanche rescue techniques</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span>🧭</span>
+                        <span>Route planning and decision-making in high mountain environments</span>
+                      </li>
+                    </ul>
+                    <div className="pt-3 border-t border-gray-100">
+                      <p className="text-sm font-medium text-red-700">
+                        🎯 Objective: to become an independent and competent rider, capable of navigating complex terrain safely ✅.
+                      </p>
+                    </div>
+                  </CardContent>
+                </Card>
+              </div>
+            )}
+          </div>
+
+          {/* Cours de Snowboard */}
+          <div className="mb-8">
+            {currentLang === 'en' && (
+              <div className="text-center mb-8">
+                <h3 className="text-2xl font-bold text-gray-900 flex items-center justify-center gap-2">
+                  <Snowflake className="h-7 w-7 text-cyan-600" />
+                  Snowboard Lessons 🏂❄️
+                </h3>
+                <p className="text-gray-700 mt-4 max-w-3xl mx-auto">
+                  Discover the joy of snowboarding 🏂❄️ with my lessons adapted to all levels!
+                </p>
+              </div>
+            )}
+
+            {currentLang === 'fr' && (
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <Card className="hover:shadow-lg transition-shadow border-t-4 border-green-500">
+                  <CardHeader>
+                    <CardTitle className="flex items-center gap-2 text-green-700">
+                      🌱 Débutants
+                    </CardTitle>
+                    <CardDescription className="text-gray-600">
+                      Pour les riders qui découvrent le snowboard.
+                    </CardDescription>
+                  </CardHeader>
+                  <CardContent className="space-y-3">
+                    <p className="text-sm text-gray-700 font-medium">Vous apprendrez :</p>
+                    <ul className="text-sm text-gray-600 space-y-2">
+                      <li className="flex items-start gap-2">
+                        <span>🎒</span>
+                        <span>Apprendre à connaître et ajuster l'équipement</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span>⚖️</span>
+                        <span>Positions de base et équilibre</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span>🛷</span>
+                        <span>Glisser sur une surface plane</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span>↩️</span>
+                        <span>Techniques de freinage de base ⛔ et premiers virages</span>
+                      </li>
+                    </ul>
+                    <div className="pt-3 border-t border-gray-100">
+                      <p className="text-sm font-medium text-green-700">
+                        🎯 Objectif : gagner en confiance et maîtriser les bases pour vos premières descentes sur des pentes douces en toute sécurité 🛡️.
+                      </p>
+                    </div>
+                  </CardContent>
+                </Card>
+
+                <Card className="hover:shadow-lg transition-shadow border-t-4 border-cyan-500">
+                  <CardHeader>
+                    <CardTitle className="flex items-center gap-2 text-cyan-700">
+                      ⛷️ Intermédiaires
+                    </CardTitle>
+                    <CardDescription className="text-gray-600">
+                      Pour ceux qui veulent progresser.
+                    </CardDescription>
+                  </CardHeader>
+                  <CardContent className="space-y-3">
+                    <p className="text-sm text-gray-700 font-medium">Au programme :</p>
+                    <ul className="text-sm text-gray-600 space-y-2">
+                      <li className="flex items-start gap-2">
+                        <span>🔄</span>
+                        <span>Techniques de virage avancées</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span>🏁</span>
+                        <span>Contrôle de la vitesse et de la direction</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span>🎯</span>
+                        <span>Initiation au carving</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span>✨</span>
+                        <span>Introduction au freestyle (sauts simples et figures de base)</span>
+                      </li>
+                    </ul>
+                    <div className="pt-3 border-t border-gray-100">
+                      <p className="text-sm font-medium text-cyan-700">
+                        🎯 Objectif : être à l'aise sur des pentes plus raides et commencer à explorer le freestyle 🏂💨.
+                      </p>
+                    </div>
+                  </CardContent>
+                </Card>
+
+                <Card className="hover:shadow-lg transition-shadow border-t-4 border-orange-500">
+                  <CardHeader>
+                    <CardTitle className="flex items-center gap-2 text-orange-700">
+                      🔥 Avancés
+                    </CardTitle>
+                    <CardDescription className="text-gray-600">
+                      Pour les riders confirmés souhaitant repousser leurs limites.
+                    </CardDescription>
+                  </CardHeader>
+                  <CardContent className="space-y-3">
+                    <p className="text-sm text-gray-700 font-medium">Au programme :</p>
+                    <ul className="text-sm text-gray-600 space-y-2">
+                      <li className="flex items-start gap-2">
+                        <span>⛷️</span>
+                        <span>Carving avancé et techniques de virage</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span>🤸‍♂️</span>
+                        <span>Sauts et figures en freestyle (grabs, rotations…)</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span>🏔️</span>
+                        <span>Techniques de hors-piste / backcountry</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span>⚠️</span>
+                        <span>Sécurité en montagne et avalanche ❄️</span>
+                      </li>
+                    </ul>
+                    <div className="pt-3 border-t border-gray-100">
+                      <p className="text-sm font-medium text-orange-700">
+                        🎯 Objectif : maîtriser des techniques avancées et profiter pleinement du snowboard dans toutes ses dimensions 🌟.
+                      </p>
+                    </div>
+                  </CardContent>
+                </Card>
+              </div>
+            )}
+
+            {currentLang === 'en' && (
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <Card className="hover:shadow-lg transition-shadow border-t-4 border-green-500">
+                  <CardHeader>
+                    <CardTitle className="flex items-center gap-2 text-green-700">
+                      🌱 Beginners
+                    </CardTitle>
+                    <CardDescription className="text-gray-600">
+                      For riders new to snowboarding.
+                    </CardDescription>
+                  </CardHeader>
+                  <CardContent className="space-y-3">
+                    <p className="text-sm text-gray-700 font-medium">You will learn:</p>
+                    <ul className="text-sm text-gray-600 space-y-2">
+                      <li className="flex items-start gap-2">
+                        <span>🎒</span>
+                        <span>How to understand and adjust your equipment</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span>⚖️</span>
+                        <span>Basic stances and balance</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span>🛷</span>
+                        <span>Gliding on a flat surface</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span>↩️</span>
+                        <span>Basic braking techniques ⛔ and first turns</span>
+                      </li>
+                    </ul>
+                    <div className="pt-3 border-t border-gray-100">
+                      <p className="text-sm font-medium text-green-700">
+                        🎯 Goal: Gain confidence and master the basics for your first runs on gentle slopes safely 🛡️.
+                      </p>
+                    </div>
+                  </CardContent>
+                </Card>
+
+                <Card className="hover:shadow-lg transition-shadow border-t-4 border-cyan-500">
+                  <CardHeader>
+                    <CardTitle className="flex items-center gap-2 text-cyan-700">
+                      ⛷️ Intermediate
+                    </CardTitle>
+                    <CardDescription className="text-gray-600">
+                      For those who want to progress.
+                    </CardDescription>
+                  </CardHeader>
+                  <CardContent className="space-y-3">
+                    <p className="text-sm text-gray-700 font-medium">On the agenda:</p>
+                    <ul className="text-sm text-gray-600 space-y-2">
+                      <li className="flex items-start gap-2">
+                        <span>🔄</span>
+                        <span>Advanced turning techniques</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span>🏁</span>
+                        <span>Speed ​​and direction control</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span>🎯</span>
+                        <span>Introduction to carving</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span>✨</span>
+                        <span>Introduction to freestyle (simple jumps and basic tricks)</span>
+                      </li>
+                    </ul>
+                    <div className="pt-3 border-t border-gray-100">
+                      <p className="text-sm font-medium text-cyan-700">
+                        🎯 Goal: to feel comfortable on steeper slopes and start exploring freestyle 🏂💨.
+                      </p>
+                    </div>
+                  </CardContent>
+                </Card>
+
+                <Card className="hover:shadow-lg transition-shadow border-t-4 border-orange-500">
+                  <CardHeader>
+                    <CardTitle className="flex items-center gap-2 text-orange-700">
+                      🔥 Advanced
+                    </CardTitle>
+                    <CardDescription className="text-gray-600">
+                      For experienced riders looking to push their limits.
+                    </CardDescription>
+                  </CardHeader>
+                  <CardContent className="space-y-3">
+                    <p className="text-sm text-gray-700 font-medium">On the agenda:</p>
+                    <ul className="text-sm text-gray-600 space-y-2">
+                      <li className="flex items-start gap-2">
+                        <span>⛷️</span>
+                        <span>Advanced carving and turning techniques</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span>🤸‍♂️</span>
+                        <span>Freestyle jumps and tricks (grabs, rotations…)</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span>🏔️</span>
+                        <span>Off-piste/backcountry techniques</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span>⚠️</span>
+                        <span>Mountain safety and avalanche awareness ❄️</span>
+                      </li>
+                    </ul>
+                    <div className="pt-3 border-t border-gray-100">
+                      <p className="text-sm font-medium text-orange-700">
+                        🎯 Goal: Master advanced techniques and fully enjoy snowboarding in all its dimensions 🌟.
+                      </p>
+                    </div>
+                  </CardContent>
+                </Card>
+              </div>
+            )}
           </div>
         </div>
       </section>
@@ -1604,12 +3443,26 @@ function App() {
             <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-teal-600 to-cyan-600 rounded-2xl mb-6 shadow-2xl">
               <Calendar className="h-8 w-8 text-white" />
             </div>
-            <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-teal-600 via-cyan-600 to-blue-600 bg-clip-text text-transparent mb-4">
-              Réserver vos cours (Hiver 2025-2026)
-            </h2>
-            <p className="text-xl text-gray-700 max-w-3xl mx-auto">
-              Planning détaillé et tarifs pour vos cours particuliers de ski et snowboard
-            </p>
+            {currentLang === 'fr' && (
+              <>
+                <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-teal-600 via-cyan-600 to-blue-600 bg-clip-text text-transparent mb-4">
+                  Réserver vos cours (Hiver 2025-2026)
+                </h2>
+                <p className="text-xl text-gray-700 max-w-3xl mx-auto">
+                  Planning détaillé et tarifs pour vos cours particuliers de ski et snowboard
+                </p>
+              </>
+            )}
+            {currentLang === 'en' && (
+              <>
+                <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-teal-600 via-cyan-600 to-blue-600 bg-clip-text text-transparent mb-4">
+                  Book your lessons (Winter 2025-2026)
+                </h2>
+                <p className="text-xl text-gray-700 max-w-3xl mx-auto">
+                  Detailed schedule and prices for your private ski and snowboard lessons
+                </p>
+              </>
+            )}
           </div>
           
           <div className="bg-gradient-to-br from-white/90 to-white/70 backdrop-blur-sm rounded-2xl p-8 shadow-xl border border-white/20 hover:shadow-2xl transition-all duration-300">
@@ -1619,29 +3472,63 @@ function App() {
                   <Calendar className="h-6 w-6 text-white" />
                 </div>
                 <div>
-                  <h3 className="text-2xl font-bold text-gray-900">Planning des disponibilités</h3>
-                  <p className="text-sm text-gray-600">Sélectionnez votre semaine et réservez en ligne</p>
+                {currentLang === 'fr' && (
+                  <>
+                    <h3 className="text-2xl font-bold text-gray-900">Planning des disponibilités</h3>
+                    <p className="text-sm text-gray-600">Sélectionnez votre semaine et réservez en ligne</p>
+                  </>
+                )}
+                {currentLang === 'en' && (
+                  <>
+                    <h3 className="text-2xl font-bold text-gray-900">Availability schedule</h3>
+                    <p className="text-sm text-gray-600">Select your week and book online</p>
+                  </>
+                )}
                 </div>
               </div>
               
               {/* Légende des statuts */}
               <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
-                <div className="flex items-center gap-2 px-3 py-2 bg-emerald-50 rounded-lg border border-emerald-200">
-                  <CheckCircle className="h-4 w-4 text-emerald-600" />
-                  <span className="text-sm text-emerald-700">Disponible</span>
-                </div>
-                <div className="flex items-center gap-2 px-3 py-2 bg-amber-50 rounded-lg border border-amber-200">
-                  <AlertTriangle className="h-4 w-4 text-amber-600" />
-                  <span className="text-sm text-amber-700">Partiel</span>
-                </div>
-                <div className="flex items-center gap-2 px-3 py-2 bg-red-50 rounded-lg border border-red-200">
-                  <X className="h-4 w-4 text-red-600" />
-                  <span className="text-sm text-red-700">Complet</span>
-                </div>
-                <div className="flex items-center gap-2 px-3 py-2 bg-blue-50 rounded-lg border border-blue-200">
-                  <Info className="h-4 w-4 text-blue-600" />
-                  <span className="text-sm text-blue-700">Règle spéciale</span>
-                </div>
+                {currentLang === 'fr' && (
+                  <>
+                    <div className="flex items-center gap-2 px-3 py-2 bg-emerald-50 rounded-lg border border-emerald-200">
+                      <CheckCircle className="h-4 w-4 text-emerald-600" />
+                      <span className="text-sm text-emerald-700">Disponible</span>
+                    </div>
+                    <div className="flex items-center gap-2 px-3 py-2 bg-amber-50 rounded-lg border border-amber-200">
+                      <AlertTriangle className="h-4 w-4 text-amber-600" />
+                      <span className="text-sm text-amber-700">Partiel</span>
+                    </div>
+                    <div className="flex items-center gap-2 px-3 py-2 bg-red-50 rounded-lg border border-red-200">
+                      <X className="h-4 w-4 text-red-600" />
+                      <span className="text-sm text-red-700">Complet</span>
+                    </div>
+                    <div className="flex items-center gap-2 px-3 py-2 bg-blue-50 rounded-lg border border-blue-200">
+                      <Info className="h-4 w-4 text-blue-600" />
+                      <span className="text-sm text-blue-700">Règle spéciale</span>
+                    </div>
+                  </>
+                )}
+                {currentLang === 'en' && (
+                  <>
+                    <div className="flex items-center gap-2 px-3 py-2 bg-emerald-50 rounded-lg border border-emerald-200">
+                      <CheckCircle className="h-4 w-4 text-emerald-600" />
+                      <span className="text-sm text-emerald-700">Available</span>
+                    </div>
+                    <div className="flex items-center gap-2 px-3 py-2 bg-amber-50 rounded-lg border border-amber-200">
+                      <AlertTriangle className="h-4 w-4 text-amber-600" />
+                      <span className="text-sm text-amber-700">Partially booked</span>
+                    </div>
+                    <div className="flex items-center gap-2 px-3 py-2 bg-red-50 rounded-lg border border-red-200">
+                      <X className="h-4 w-4 text-red-600" />
+                      <span className="text-sm text-red-700">Fully booked</span>
+                    </div>
+                    <div className="flex items-center gap-2 px-3 py-2 bg-blue-50 rounded-lg border border-blue-200">
+                      <Info className="h-4 w-4 text-blue-600" />
+                      <span className="text-sm text-blue-700">Special offer</span>
+                    </div>
+                  </>
+                )}
               </div>
             </div>
             
@@ -1649,13 +3536,27 @@ function App() {
               <div className="min-w-full">
                 <div className="bg-gradient-to-r from-teal-50 to-cyan-50 rounded-t-xl p-4 border border-teal-200">
                   <div className="grid grid-cols-7 gap-4 text-center font-semibold text-gray-800">
-                    <div>Semaine</div>
-                    <div>Dates</div>
-                    <div>Tarif H</div>
-                    <div>Tarif J</div>
-                    <div>Remise</div>
-                    <div>Créneaux</div>
-                    <div>Action</div>
+                    {currentLang === 'fr' ? (
+                      <>
+                        <div>Semaine</div>
+                        <div>Dates</div>
+                        <div>Tarif H</div>
+                        <div>Tarif J</div>
+                        <div>Remise</div>
+                        <div>Créneaux</div>
+                        <div>Action</div>
+                      </>
+                    ) : (
+                      <>
+                        <div>Week</div>
+                        <div>Dates</div>
+                        <div>H Rate</div>
+                        <div>J Rate</div>
+                        <div>Discount</div>
+                        <div>Time slots</div>
+                        <div>Promotion</div>
+                      </>
+                    )}
                   </div>
                 </div>
                 <div className="divide-y divide-gray-200">
@@ -1793,7 +3694,7 @@ function App() {
                         <div>
                           {row.reserved ? (
                             <span className="inline-flex items-center px-3 py-1.5 border border-transparent text-sm font-semibold rounded-md shadow-sm text-white bg-gray-400 cursor-not-allowed select-none">
-                              Complet
+                              {currentLang === 'fr' ? 'Complet' : 'Fully booked'}
                             </span>
                           ) : (
                             <a 
@@ -1802,7 +3703,7 @@ function App() {
                               rel="noopener noreferrer"
                               className="inline-flex items-center px-3 py-1.5 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-gradient-to-r from-teal-600 to-cyan-600 hover:from-teal-700 hover:to-cyan-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-teal-500 transition-all duration-300"
                             >
-                              Réserver
+                              {currentLang === 'fr' ? 'Réserver' : 'Book'}
                             </a>
                           )}
                         </div>
@@ -1815,13 +3716,13 @@ function App() {
                             {row.dailyPartialSlots.map((slot, slotIdx) => (
                               <div key={slotIdx} className="flex flex-wrap gap-2">
                                 {slot.blocked && (
-                                  <span title={`Indisponible le ${slot.date} (${slot.blocked})`} className="inline-flex items-center gap-1 px-2 py-0.5 rounded text-xs font-medium bg-red-50 text-red-700 border border-red-200">
+                                  <span title={`${currentLang === 'fr' ? `Indisponible le ${slot.date} (${slot.blocked})` : `Unavailable on ${slot.date} (${slot.blocked})`}`} className="inline-flex items-center gap-1 px-2 py-0.5 rounded text-xs font-medium bg-red-50 text-red-700 border border-red-200">
                                     <X className="h-3 w-3" />
-                                    {slot.date} · {slot.blocked} indisponible
+                                    {slot.date} · {slot.blocked} {currentLang === 'fr' ? 'indisponible' : 'unavailable'}
                                   </span>
                                 )}
                                 {Array.isArray(slot.availableSlots) && slot.availableSlots.map((availableSlot, availableIdx) => (
-                                  <span key={availableIdx} title={`Disponible le ${slot.date} (${availableSlot})`} className="inline-flex items-center gap-1 px-2 py-0.5 rounded text-xs font-medium bg-emerald-50 text-emerald-700 border border-emerald-200">
+                                  <span key={availableIdx} title={`${currentLang === 'fr' ? `Disponible le ${slot.date} (${availableSlot})` : `Available on ${slot.date} (${availableSlot})`}`} className="inline-flex items-center gap-1 px-2 py-0.5 rounded text-xs font-medium bg-emerald-50 text-emerald-700 border border-emerald-200">
                                     <CheckCircle className="h-3 w-3" />
                                     {slot.date} · {availableSlot}
                                   </span>
@@ -1834,9 +3735,9 @@ function App() {
                         {Array.isArray(row.dailyAvailableDates) && row.dailyAvailableDates.length > 0 && (
                           <div className="flex flex-wrap gap-2">
                             {row.dailyAvailableDates.map((dateStr) => (
-                              <span key={dateStr} title={`Disponible le ${dateStr}`} className="inline-flex items-center gap-1 px-2 py-0.5 rounded text-xs font-medium bg-emerald-50 text-emerald-700 border border-emerald-200">
+                              <span key={dateStr} title={`${currentLang === 'fr' ? `Disponible le ${dateStr}` : `Available on ${dateStr}`}`} className="inline-flex items-center gap-1 px-2 py-0.5 rounded text-xs font-medium bg-emerald-50 text-emerald-700 border border-emerald-200">
                                 <CheckCircle className="h-3 w-3" />
-                                {dateStr} · Journée complète
+                                {dateStr} · {currentLang === 'fr' ? 'Journée complète' : 'All day'}
                               </span>
                             ))}
                           </div>
@@ -1845,9 +3746,9 @@ function App() {
                         {Array.isArray(row.dailyFullBlockedDates) && row.dailyFullBlockedDates.length > 0 && (
                           <div className="flex flex-wrap gap-2">
                             {row.dailyFullBlockedDates.map((dateStr) => (
-                              <span key={dateStr} title={`Journée complète indisponible le ${dateStr}`} className="inline-flex items-center gap-1 px-2 py-0.5 rounded text-xs font-medium bg-red-50 text-red-700 border border-red-200">
+                              <span key={dateStr} title={`${currentLang === 'fr' ? `Journée complète indisponible le ${dateStr}` : `Full day unavailable on ${dateStr}`}`} className="inline-flex items-center gap-1 px-2 py-0.5 rounded text-xs font-medium bg-red-50 text-red-700 border border-red-200">
                                 <X className="h-3 w-3" />
-                                {dateStr} · Complet
+                                {dateStr} · {currentLang === 'fr' ? 'Complet' : 'Full'}
                               </span>
                             ))}
                           </div>
@@ -1858,13 +3759,13 @@ function App() {
                             {row.dailyPartialSlots2.map((slot, slotIdx) => (
                               <div key={slotIdx} className="flex flex-wrap gap-2">
                                 {slot.blocked && (
-                                  <span title={`Indisponible le ${slot.date} (${slot.blocked})`} className="inline-flex items-center gap-1 px-2 py-0.5 rounded text-xs font-medium bg-red-50 text-red-700 border border-red-200">
+                                  <span title={`${currentLang === 'fr' ? `Indisponible le ${slot.date} (${slot.blocked})` : `Unavailable on ${slot.date} (${slot.blocked})`}`} className="inline-flex items-center gap-1 px-2 py-0.5 rounded text-xs font-medium bg-red-50 text-red-700 border border-red-200">
                                     <X className="h-3 w-3" />
-                                    {slot.date} · {slot.blocked} indisponible
+                                    {slot.date} · {slot.blocked} {currentLang === 'fr' ? 'indisponible' : 'unavailable'}
                                   </span>
                                 )}
                                 {Array.isArray(slot.availableSlots) && slot.availableSlots.map((availableSlot, availableIdx) => (
-                                  <span key={availableIdx} title={`Disponible le ${slot.date} (${availableSlot})`} className="inline-flex items-center gap-1 px-2 py-0.5 rounded text-xs font-medium bg-emerald-50 text-emerald-700 border border-emerald-200">
+                                  <span key={availableIdx} title={`${currentLang === 'fr' ? `Disponible le ${slot.date} (${availableSlot})` : `Available on ${slot.date} (${availableSlot})`}`} className="inline-flex items-center gap-1 px-2 py-0.5 rounded text-xs font-medium bg-emerald-50 text-emerald-700 border border-emerald-200">
                                     <CheckCircle className="h-3 w-3" />
                                     {slot.date} · {availableSlot}
                                   </span>
@@ -1888,7 +3789,7 @@ function App() {
                         {row.rule && (
                           <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded text-xs font-medium bg-blue-50 text-blue-700 border border-blue-200">
                             <Info className="h-3 w-3" />
-                            Règle spéciale de réservation
+                            {currentLang === 'fr' ? 'Règle spéciale de réservation' : 'Special booking rule'}
                           </span>
                         )}
                       </div>
@@ -1901,13 +3802,25 @@ function App() {
             {/* Widget de réservation interactif par date/slot */}
             <div className="mt-12">
               <div className="text-center mb-8">
-                <h2 className="text-3xl font-bold text-gray-900 mb-4">Réserver par date</h2>
-                <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-                  Consultez le calendrier interactif pour vérifier les disponibilités en temps réel et réservez directement votre créneau horaire.
-                </p>
+                {currentLang === 'fr' ? (
+                  <>
+                    <h2 className="text-3xl font-bold text-gray-900 mb-4">Réserver par date</h2>
+                    <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+                      Consultez le calendrier interactif pour vérifier les disponibilités en temps réel et réservez directement votre créneau horaire.
+                    </p>
+                  </>
+                ) : (
+                  <>
+                    <h2 className="text-3xl font-bold text-gray-900 mb-4">Book by date</h2>
+                    <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+                      Check the interactive calendar to see real-time availability and book your time slot directly.
+                    </p>
+                  </>
+                )}
               </div>
               <BookingWidget 
                 bookingUrl="https://maisonsport.com/fr/profile/927576662/myriam-m?omnisendContactID=65cb1772c613deaa1396a153&utm_campaign=automation%3A+Transactional+Flow+(6537bd845397fc850450a200)&utm_content=6537c00f5397fc850450a21a&utm_medium=email&utm_source=omnisend"
+                currentLang={currentLang}
               />
             </div>
           </div>
@@ -1936,19 +3849,67 @@ function App() {
             <p className="text-2xl text-gray-700 max-w-3xl mx-auto font-medium">
               Actus, conseils et bons plans Tignes, Val d'Isère & Les Arcs
             </p>
-            <div className="mt-6 flex justify-center gap-4">
-              <span className="px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-medium border border-blue-200">
-                📰 Articles exclusifs
-              </span>
-              <span className="px-4 py-2 bg-indigo-100 text-indigo-700 rounded-full text-sm font-medium border border-indigo-200">
-                🎿 Expert ski
-              </span>
-              <span className="px-4 py-2 bg-purple-100 text-purple-700 rounded-full text-sm font-medium border border-purple-200">
-                🏔️ Guide complet
-              </span>
-              <span className="px-4 py-2 bg-teal-100 text-teal-700 rounded-full text-sm font-medium border border-teal-200">
-                ⛷️ Paradiski
-              </span>
+            <div className="mt-6 flex justify-center gap-4 flex-wrap">
+              <button 
+                onClick={() => {
+                  // Scroll to articles section or filter articles
+                  const element = document.querySelector('#blog-articles');
+                  if (element) {
+                    element.scrollIntoView({ behavior: 'smooth' });
+                  }
+                }}
+                className="group px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-medium border border-blue-200 transform hover:scale-110 hover:bg-blue-200 hover:border-blue-300 hover:shadow-lg transition-all duration-300 cursor-pointer active:scale-95"
+              >
+                <span className="flex items-center gap-2">
+                  📰 Articles exclusifs
+                  <ArrowRight className="h-3 w-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                </span>
+              </button>
+              <button 
+                onClick={() => {
+                  // Scroll to expert ski section or filter articles
+                  const element = document.querySelector('#expert-ski');
+                  if (element) {
+                    element.scrollIntoView({ behavior: 'smooth' });
+                  }
+                }}
+                className="group px-4 py-2 bg-indigo-100 text-indigo-700 rounded-full text-sm font-medium border border-indigo-200 transform hover:scale-110 hover:bg-indigo-200 hover:border-indigo-300 hover:shadow-lg transition-all duration-300 cursor-pointer active:scale-95"
+              >
+                <span className="flex items-center gap-2">
+                  🎿 Expert ski
+                  <ArrowRight className="h-3 w-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                </span>
+              </button>
+              <button 
+                onClick={() => {
+                  // Scroll to guide section or filter articles
+                  const element = document.querySelector('#guide-complet');
+                  if (element) {
+                    element.scrollIntoView({ behavior: 'smooth' });
+                  }
+                }}
+                className="group px-4 py-2 bg-purple-100 text-purple-700 rounded-full text-sm font-medium border border-purple-200 transform hover:scale-110 hover:bg-purple-200 hover:border-purple-300 hover:shadow-lg transition-all duration-300 cursor-pointer active:scale-95"
+              >
+                <span className="flex items-center gap-2">
+                  🏔️ Guide complet
+                  <ArrowRight className="h-3 w-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                </span>
+              </button>
+              <button 
+                onClick={() => {
+                  // Scroll to Paradiski section or filter articles
+                  const element = document.querySelector('#paradiski-guide');
+                  if (element) {
+                    element.scrollIntoView({ behavior: 'smooth' });
+                  }
+                }}
+                className="group px-4 py-2 bg-teal-100 text-teal-700 rounded-full text-sm font-medium border border-teal-200 transform hover:scale-110 hover:bg-teal-200 hover:border-teal-300 hover:shadow-lg transition-all duration-300 cursor-pointer active:scale-95"
+              >
+                <span className="flex items-center gap-2">
+                  ⛷️ Paradiski
+                  <ArrowRight className="h-3 w-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                </span>
+              </button>
             </div>
           </div>
           
@@ -2117,172 +4078,397 @@ function App() {
             </div>
           </div>
 
+          {/* Articles interactifs */}
+          <div id="blog-articles" className="mb-16">
+            <div className="text-center mb-12">
+              <h3 className="text-3xl font-bold text-gray-900 mb-4">📰 Articles Exclusifs</h3>
+              <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+                Découvrez nos derniers articles et actualités sur les stations de ski
+              </p>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <Card className="group hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 cursor-pointer">
+                <CardHeader>
+                  <div className="h-48 bg-gradient-to-br from-blue-400 to-indigo-500 rounded-lg flex items-center justify-center mb-4">
+                    <BookOpen className="h-16 w-16 text-white" />
+                  </div>
+                  <CardTitle className="text-xl">Nouveautés Hiver 2025-2026</CardTitle>
+                  <CardDescription>Découvrez les dernières améliorations des domaines skiables</CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-gray-600 mb-4">Nouvelles remontées mécaniques, zones freestyle étendues et services améliorés...</p>
+                  <Button 
+                    onClick={() => {
+                      showArticle('nouveautes');
+                    }}
+                    className="w-full group-hover:scale-105 transition-transform duration-300 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700"
+                  >
+                    Lire l'article
+                  </Button>
+                </CardContent>
+              </Card>
+
+              <Card className="group hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 cursor-pointer">
+                <CardHeader>
+                  <div className="h-48 bg-gradient-to-br from-purple-400 to-pink-500 rounded-lg flex items-center justify-center mb-4">
+                    <Star className="h-16 w-16 text-white" />
+                  </div>
+                  <CardTitle className="text-xl">Meilleures Spots Freeride</CardTitle>
+                  <CardDescription>Les secrets des hors-pistes authentiques et sécurisés</CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-gray-600 mb-4">Explorez les couloirs mythiques et les forêts enneigées avec nos guides experts...</p>
+                  <Button 
+                    onClick={() => {
+                      showArticle('freeride');
+                    }}
+                    className="w-full group-hover:scale-105 transition-transform duration-300 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700"
+                  >
+                    Lire l'article
+                  </Button>
+                </CardContent>
+              </Card>
+
+              <Card className="group hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 cursor-pointer">
+                <CardHeader>
+                  <div className="h-48 bg-gradient-to-br from-green-400 to-emerald-500 rounded-lg flex items-center justify-center mb-4">
+                    <Mountain className="h-16 w-16 text-white" />
+                  </div>
+                  <CardTitle className="text-xl">Équipement Essentiel</CardTitle>
+                  <CardDescription>Le matériel parfait pour votre séjour au ski</CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-gray-600 mb-4">Tests comparatifs des derniers skis, casques et accessoires de la saison...</p>
+                  <Button 
+                    onClick={() => {
+                      showArticle('equipement');
+                    }}
+                    className="w-full group-hover:scale-105 transition-transform duration-300 bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700"
+                  >
+                    Lire l'article
+                  </Button>
+                </CardContent>
+              </Card>
+            </div>
+
+            {/* Section d'aperçu d'article qui s'affiche au clic */}
+            <div id="article-preview" className="hidden mt-8 bg-white rounded-2xl shadow-2xl p-8 border border-gray-200 animate-fadeIn">
+              <div className="flex justify-between items-start mb-6">
+                <h4 id="article-title" className="text-2xl font-bold text-gray-900">Titre de l'article</h4>
+                <Button 
+                  onClick={() => {
+                    hideArticle();
+                  }}
+                  variant="outline"
+                  className="ml-4"
+                >
+                  Fermer
+                </Button>
+              </div>
+              <div id="article-content" className="prose max-w-none">
+                {/* Le contenu de l'article sera inséré ici dynamiquement */}
+              </div>
+            </div>
+          </div>
+
+          <div id="expert-ski" className="mb-16">
+            <div className="text-center mb-12">
+              <h3 className="text-3xl font-bold text-gray-900 mb-4">🎿 Expert Ski</h3>
+              <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+                Techniques avancées et conseils d'experts pour progresser
+              </p>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <Card className="group hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2">
+                <CardHeader>
+                  <CardTitle className="text-2xl flex items-center gap-2">
+                    <Target className="h-6 w-6 text-indigo-600" />
+                    Technique du Carving Parfait
+                  </CardTitle>
+                  <CardDescription>Maîtrisez les virages coupés comme un champion</CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-gray-600 mb-4">Apprenez les secrets du carving moderne : positionnement, angulation et timing...</p>
+                  <div className="flex gap-2 mb-4">
+                    <span className="px-2 py-1 bg-indigo-100 text-indigo-700 rounded text-xs">Avancé</span>
+                    <span className="px-2 py-1 bg-green-100 text-green-700 rounded text-xs">Pistes noires</span>
+                  </div>
+                  <Button 
+                    onClick={() => {
+                      showArticle('carving');
+                    }}
+                    className="group-hover:scale-105 transition-transform duration-300 bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700"
+                  >
+                    En savoir plus
+                  </Button>
+                </CardContent>
+              </Card>
+
+              <Card className="group hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2">
+                <CardHeader>
+                  <CardTitle className="text-2xl flex items-center gap-2">
+                    <Shield className="h-6 w-6 text-green-600" />
+                    Sécurité sur les Pistes
+                  </CardTitle>
+                  <CardDescription>Les règles d'or pour skier en toute sécurité</CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-gray-600 mb-4">10 règles essentielles, gestion des collisions et conduite responsable...</p>
+                  <div className="flex gap-2 mb-4">
+                    <span className="px-2 py-1 bg-green-100 text-green-700 rounded text-xs">Tous niveaux</span>
+                    <span className="px-2 py-1 bg-blue-100 text-blue-700 rounded text-xs">Indispensable</span>
+                  </div>
+                  <Button 
+                    onClick={() => {
+                      showArticle('securite');
+                    }}
+                    className="group-hover:scale-105 transition-transform duration-300 bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700"
+                  >
+                    En savoir plus
+                  </Button>
+                </CardContent>
+              </Card>
+            </div>
+          </div>
+
+          <div id="guide-complet" className="mb-16">
+            <div className="text-center mb-12">
+              <h3 className="text-3xl font-bold text-gray-900 mb-4">🏔️ Guide Complet</h3>
+              <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+                Tout ce qu'il faut savoir pour organiser votre séjour ski
+              </p>
+            </div>
+            <div className="bg-gradient-to-br from-purple-50 to-indigo-50 rounded-3xl p-8 border border-purple-200">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div 
+                  onClick={() => {
+                    showArticle('quandPartir');
+                  }}
+                  className="text-center group hover:scale-105 transition-transform duration-300 cursor-pointer"
+                >
+                  <div className="w-20 h-20 bg-gradient-to-br from-purple-500 to-indigo-600 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:rotate-12 transition-transform duration-300">
+                    <Calendar className="h-10 w-10 text-white" />
+                  </div>
+                  <h4 className="font-bold text-gray-900 mb-2">Quand partir ?</h4>
+                  <p className="text-sm text-gray-600">Meilleures périodes, tarifs et affluence</p>
+                </div>
+                <div 
+                  onClick={() => {
+                    showArticle('ouLoger');
+                  }}
+                  className="text-center group hover:scale-105 transition-transform duration-300 cursor-pointer"
+                >
+                  <div className="w-20 h-20 bg-gradient-to-br from-blue-500 to-cyan-600 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:rotate-12 transition-transform duration-300">
+                    <MapPin className="h-10 w-10 text-white" />
+                  </div>
+                  <h4 className="font-bold text-gray-900 mb-2">Où loger ?</h4>
+                  <p className="text-sm text-gray-600">Hôtels, chalets et appartements</p>
+                </div>
+                <div 
+                  onClick={() => {
+                    showArticle('materiel');
+                  }}
+                  className="text-center group hover:scale-105 transition-transform duration-300 cursor-pointer"
+                >
+                  <div className="w-20 h-20 bg-gradient-to-br from-green-500 to-emerald-600 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:rotate-12 transition-transform duration-300">
+                    <Settings className="h-10 w-10 text-white" />
+                  </div>
+                  <h4 className="font-bold text-gray-900 mb-2">Matériel</h4>
+                  <p className="text-sm text-gray-600">Location, achat et entretien</p>
+                </div>
+                <div 
+                  onClick={() => {
+                    showArticle('applications');
+                  }}
+                  className="text-center group hover:scale-105 transition-transform duration-300 cursor-pointer"
+                >
+                  <div className="w-20 h-20 bg-gradient-to-br from-orange-500 to-red-600 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:rotate-12 transition-transform duration-300">
+                    <Smartphone className="h-10 w-10 text-white" />
+                  </div>
+                  <h4 className="font-bold text-gray-900 mb-2">Applications</h4>
+                  <p className="text-sm text-gray-600">Weather, neige et forfaits</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div id="espace-killy-guide" className="mb-16">
+            <div className="text-center mb-12">
+              <h3 className="text-3xl font-bold text-gray-900 mb-4">⛷️ Espace Killy</h3>
+              <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+                Le guide complet du domaine Espace Killy et ses stations
+              </p>
+            </div>
+            <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-3xl p-8 border border-blue-200">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div 
+                  onClick={() => {
+                    showArticle('tignes');
+                  }}
+                  className="group hover:scale-105 transition-transform duration-300 cursor-pointer"
+                >
+                  <div className="text-center mb-4">
+                    <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:rotate-12 transition-transform duration-300">
+                      <Mountain className="h-8 w-8 text-white" />
+                    </div>
+                    <h4 className="text-xl font-bold text-gray-900 mb-2">Tignes</h4>
+                    <p className="text-gray-600 mb-4">Station moderne, haute altitude, glacier</p>
+                    <div className="space-y-2 text-sm text-gray-600">
+                      <p>🎿 Val Claret, Le Lac, Le Bouchet</p>
+                      <p>🏔️ Altitude: 1550m - 3450m</p>
+                      <p>⭐ Glacier du Grand Motte</p>
+                    </div>
+                  </div>
+                </div>
+                <div 
+                  onClick={() => {
+                    showArticle('valDisere');
+                  }}
+                  className="group hover:scale-105 transition-transform duration-300 cursor-pointer"
+                >
+                  <div className="text-center mb-4">
+                    <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-600 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:rotate-12 transition-transform duration-300">
+                      <Compass className="h-8 w-8 text-white" />
+                    </div>
+                    <h4 className="text-xl font-bold text-gray-900 mb-2">Val d'Isère</h4>
+                    <p className="text-gray-600 mb-4">Station historique, village authentique</p>
+                    <div className="space-y-2 text-sm text-gray-600">
+                      <p>🎿 Village traditionnel</p>
+                      <p>🏔️ Altitude: 1850m - 3450m</p>
+                      <p>⭐ Face de Bellevarde</p>
+                    </div>
+                  </div>
+                </div>
+                <div 
+                  onClick={() => {
+                    showArticle('espaceKilly');
+                  }}
+                  className="group hover:scale-105 transition-transform duration-300 cursor-pointer"
+                >
+                  <div className="text-center mb-4">
+                    <div className="w-16 h-16 bg-gradient-to-br from-green-500 to-emerald-600 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:rotate-12 transition-transform duration-300">
+                      <MapPin className="h-8 w-8 text-white" />
+                    </div>
+                    <h4 className="text-xl font-bold text-gray-900 mb-2">Domaine Espace Killy</h4>
+                    <p className="text-gray-600 mb-4">Le plus beau domaine du monde</p>
+                    <div className="space-y-2 text-sm text-gray-600">
+                      <p>🎿 300 km de pistes</p>
+                      <p>🏔️ Altitude: 1550m - 3450m</p>
+                      <p>⭐ 139 pistes, 88 remontées</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8">
+                <div 
+                  onClick={() => {
+                    showArticle('horairesSaison');
+                  }}
+                  className="group hover:scale-105 transition-transform duration-300 cursor-pointer"
+                >
+                  <div className="text-center mb-4">
+                    <div className="w-16 h-16 bg-gradient-to-br from-yellow-500 to-orange-600 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:rotate-12 transition-transform duration-300">
+                      <Clock className="h-8 w-8 text-white" />
+                    </div>
+                    <h4 className="text-xl font-bold text-gray-900 mb-2">Horaires Saison 2025-2026</h4>
+                    <p className="text-gray-600 mb-4">Calendrier complet</p>
+                    <div className="space-y-2 text-sm text-gray-600">
+                      <p>🎂 Tignes: 28/11/2025 → 03/05/2026</p>
+                      <p>🎂 Val d'Isère: 05/12/2025 → 03/05/2026</p>
+                      <p>⭐ Haute saison: Déc & Février</p>
+                    </div>
+                  </div>
+                </div>
+                <div 
+                  onClick={() => {
+                    showArticle('programmeAnimations');
+                  }}
+                  className="group hover:scale-105 transition-transform duration-300 cursor-pointer"
+                >
+                  <div className="text-center mb-4">
+                    <div className="w-16 h-16 bg-gradient-to-br from-emerald-500 to-teal-600 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:rotate-12 transition-transform duration-300">
+                      <Star className="h-8 w-8 text-white" />
+                    </div>
+                    <h4 className="text-xl font-bold text-gray-900 mb-2">Programme d'animations</h4>
+                    <p className="text-gray-600 mb-4">Agenda des événements</p>
+                    <div className="space-y-2 text-sm text-gray-600">
+                      <p>🎊 Ouvertures: Feux d'artifice & défilé</p>
+                      <p>🏆 Coupe du monde: 5-10 janvier</p>
+                      <p>⭐ Carnaval & Grand closing</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8">
+                <div 
+                  onClick={() => {
+                    showArticle('applicationsMobile');
+                  }}
+                  className="group hover:scale-105 transition-transform duration-300 cursor-pointer"
+                >
+                  <div className="text-center mb-4">
+                    <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-cyan-600 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:rotate-12 transition-transform duration-300">
+                      <Smartphone className="h-8 w-8 text-white" />
+                    </div>
+                    <h4 className="text-xl font-bold text-gray-900 mb-2">Applications Mobiles</h4>
+                    <p className="text-gray-600 mb-4">Apps indispensables</p>
+                    <div className="space-y-2 text-sm text-gray-600">
+                      <p>📱 MyTignes: Plan pistes, webcam</p>
+                      <p>📲 Val d'Isère: Domaine, état pistes</p>
+                      <p>⭐ Snow-Forecast & Geoportail</p>
+                    </div>
+                  </div>
+                </div>
+                <div 
+                  onClick={() => {
+                    showArticle('servicesPratiques');
+                  }}
+                  className="group hover:scale-105 transition-transform duration-300 cursor-pointer"
+                >
+                  <div className="text-center mb-4">
+                    <div className="w-16 h-16 bg-gradient-to-br from-green-500 to-emerald-600 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:rotate-12 transition-transform duration-300">
+                      <Info className="h-8 w-8 text-white" />
+                    </div>
+                    <h4 className="text-xl font-bold text-gray-900 mb-2">Offices & Remontées</h4>
+                    <p className="text-gray-600 mb-4">Services pratiques</p>
+                    <div className="space-y-2 text-sm text-gray-600">
+                      <p>🏢 Offices de tourisme</p>
+                      <p>🚡 Achat forfaits en ligne</p>
+                      <p>⭐ Informations remontées</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div className="mt-8 flex flex-wrap justify-center gap-4">
+              <a href="https://www.tignes.net" target="_blank" rel="noreferrer" className="flex items-center gap-2 px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-all duration-200 transform hover:scale-105">
+                <span>🏔️</span>
+                <span>Site Tignes</span>
+              </a>
+              <a href="https://www.valdisere.com" target="_blank" rel="noreferrer" className="flex items-center gap-2 px-6 py-3 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-all duration-200 transform hover:scale-105">
+                <span>🏰️</span>
+                <span>Site Val d'Isère</span>
+              </a>
+              <a href="https://www.espacekilly.com" target="_blank" rel="noreferrer" className="flex items-center gap-2 px-6 py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-all duration-200 transform hover:scale-105">
+                <span>🗺️</span>
+                <span>Espace Killy</span>
+              </a>
+              <a href="https://play.google.com/store/search?q=tignes&c=apps" target="_blank" rel="noreferrer" className="flex items-center gap-2 px-6 py-3 bg-amber-600 text-white rounded-lg hover:bg-amber-700 transition-all duration-200 transform hover:scale-105">
+                <span>📱</span>
+                <span>Apps Tignes</span>
+              </a>
+              <a href="https://play.google.com/store/search?q=val%20d%27isere&c=apps" target="_blank" rel="noreferrer" className="flex items-center gap-2 px-6 py-3 bg-orange-600 text-white rounded-lg hover:bg-orange-700 transition-all duration-200 transform hover:scale-105">
+                <span>📲</span>
+                <span>Apps Val d'Isère</span>
+              </a>
+            </div>
+          </div>
+
+          {/* Les Arcs */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            <div className="group relative bg-white rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-3 overflow-hidden border border-gray-100">
-              <div className="absolute top-0 right-0 w-40 h-40 bg-gradient-to-br from-blue-100 to-indigo-100 rounded-full -mr-20 -mt-20 opacity-50 group-hover:opacity-70 transition-opacity duration-300"></div>
-              <div className="absolute bottom-0 left-0 w-32 h-32 bg-gradient-to-br from-purple-100 to-pink-100 rounded-full -ml-16 -mb-16 opacity-30 group-hover:opacity-50 transition-opacity duration-300"></div>
-              <div className="p-8 relative z-10">
-                <div className="flex items-center mb-6">
-                  <div className="flex items-center justify-center w-12 h-12 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-xl mr-4 transform group-hover:rotate-12 transition-all duration-300">
-                    <Calendar className="h-6 w-6 text-white" />
-                  </div>
-                  <div>
-                    <h3 className="text-2xl font-bold text-gray-900 mb-1">Tignes & Val d'Isère</h3>
-                    <p className="text-gray-600">Saison hiver 2025-2026 - Informations complètes</p>
-                  </div>
-                </div>
-                <div className="space-y-4">
-                  <div className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl p-4 transform hover:scale-105 transition-all duration-200">
-                    <div className="flex items-center gap-3 mb-3">
-                      <Mountain className="h-5 w-5 text-blue-600" />
-                      <span className="font-semibold text-gray-900">🏔️ Tignes</span>
-                    </div>
-                    <div className="space-y-2">
-                      <p className="text-gray-700"><strong>📅 Saison :</strong> Fin novembre → début mai</p>
-                      <p className="text-gray-700"><strong>🎿 Domaine :</strong> Espace Killy (300 km de pistes)</p>
-                      <p className="text-gray-700"><strong>⛰️ Altitude :</strong> 1550m - 3450m</p>
-                      <p className="text-gray-700"><strong>🏂 Particularités :</strong> Station moderne, haute altitude, glacier du Grand Motte</p>
-                      <p className="text-gray-700"><strong>🎯 Stations :</strong> Val Claret (1550m), Le Lac (2100m), Le Bouchet (1550m)</p>
-                    </div>
-                  </div>
-                  <div className="bg-gradient-to-r from-purple-50 to-pink-50 rounded-xl p-4 transform hover:scale-105 transition-all duration-200">
-                    <div className="flex items-center gap-3 mb-3">
-                      <Compass className="h-5 w-5 text-purple-600" />
-                      <span className="font-semibold text-gray-900">🏰️ Val d'Isère</span>
-                    </div>
-                    <div className="space-y-2">
-                      <p className="text-gray-700"><strong>📅 Saison :</strong> Début décembre → début mai</p>
-                      <p className="text-gray-700"><strong>🎿 Domaine :</strong> Espace Killy (300 km de pistes)</p>
-                      <p className="text-gray-700"><strong>⛰️ Altitude :</strong> 1850m - 3450m</p>
-                      <p className="text-gray-700"><strong>🏂 Particularités :</strong> Station historique, village authentique, Face de Bellevarde</p>
-                      <p className="text-gray-700"><strong>🎯 Accès :</strong> Col de l'Iseran (2770m) en été</p>
-                    </div>
-                  </div>
-                  <div className="bg-gradient-to-r from-green-50 to-emerald-50 rounded-xl p-4 transform hover:scale-105 transition-all duration-200">
-                    <div className="flex items-center gap-3 mb-3">
-                      <MapPin className="h-5 w-5 text-green-600" />
-                      <span className="font-semibold text-gray-900">🗺️ Espace Killy - Le plus beau domaine du monde</span>
-                    </div>
-                    <div className="space-y-2">
-                      <p className="text-gray-700"><strong>🎿 Pistes :</strong> 300 km total, 139 pistes (21 vertes, 66 bleues, 40 rouges, 12 noires)</p>
-                      <p className="text-gray-700"><strong>🚡 Remontées :</strong> 88 installations, 2 funiculaires</p>
-                      <p className="text-gray-700"><strong>🏔️ Altitude max :</strong> 3450m (Pointe du Mont Pourri)</p>
-                      <p className="text-gray-700"><strong>❄️ Glaciers :</strong> Grand Motte (Tignes) & Pisaillas (Val d'Isère)</p>
-                      <p className="text-gray-700"><strong>🎯 Forfait unique :</strong> Accès illimité aux deux stations</p>
-                    </div>
-                  </div>
-                  <div className="bg-gradient-to-r from-yellow-50 to-orange-50 rounded-xl p-4 transform hover:scale-105 transition-all duration-200">
-                    <div className="flex items-center gap-3 mb-3">
-                      <Clock className="h-5 w-5 text-orange-600" />
-                      <span className="font-semibold text-gray-900">⏰ Horaires typiques saison 2025-2026</span>
-                    </div>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                      <div>
-                        <p className="text-gray-700"><strong>🎂 Ouverture Tignes :</strong> 28/11/2025</p>
-                        <p className="text-gray-700"><strong>🎂 Ouverture Val d'Isère :</strong> 05/12/2025</p>
-                        <p className="text-gray-700"><strong>🎂 Fermeture estimée :</strong> 03/05/2026</p>
-                      </div>
-                      <div>
-                        <p className="text-gray-700"><strong>🌞 Haute saison :</strong> 20/12 - 06/01 & 08/02 - 08/03</p>
-                        <p className="text-gray-700"><strong>💰 Basse saison :</strong> Début décembre & mars-avril</p>
-                        <p className="text-gray-700"><strong>🎿 Printemps ski :</strong> Avril (neige de printemps)</p>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="flex gap-4 pt-4">
-                    <a href="https://www.tignes.net" target="_blank" rel="noreferrer" className="flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transform hover:scale-105 transition-all duration-200">
-                      <span>🏔️</span>
-                      <span>Site Tignes</span>
-                    </a>
-                    <a href="https://www.valdisere.com" target="_blank" rel="noreferrer" className="flex items-center gap-2 px-4 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transform hover:scale-105 transition-all duration-200">
-                      <span>🏰️</span>
-                      <span>Site Val d'Isère</span>
-                    </a>
-                    <a href="https://www.espacekilly.com" target="_blank" rel="noreferrer" className="flex items-center gap-2 px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transform hover:scale-105 transition-all duration-200">
-                      <span>🗺️</span>
-                      <span>Espace Killy</span>
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div className="group relative bg-white rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-3 overflow-hidden border border-gray-100">
-              <div className="absolute top-0 right-0 w-40 h-40 bg-gradient-to-br from-emerald-100 to-teal-100 rounded-full -mr-20 -mt-20 opacity-50 group-hover:opacity-70 transition-opacity duration-300"></div>
-              <div className="absolute bottom-0 left-0 w-32 h-32 bg-gradient-to-br from-green-100 to-cyan-100 rounded-full -ml-16 -mb-16 opacity-30 group-hover:opacity-50 transition-opacity duration-300"></div>
-              <div className="p-8 relative z-10">
-                <div className="flex items-center mb-6">
-                  <div className="flex items-center justify-center w-12 h-12 bg-gradient-to-br from-emerald-500 to-teal-600 rounded-xl mr-4 transform group-hover:rotate-12 transition-all duration-300">
-                    <Star className="h-6 w-6 text-white" />
-                  </div>
-                  <div>
-                    <h3 className="text-2xl font-bold text-gray-900 mb-1">Programme d'animations</h3>
-                    <p className="text-gray-600">Agenda des événements</p>
-                  </div>
-                  <div className="flex gap-4 pt-4">
-                    <a href="https://play.google.com/store/search?q=tignes&c=apps" target="_blank" rel="noreferrer" className="flex items-center gap-2 px-4 py-2 bg-amber-600 text-white rounded-lg hover:bg-amber-700 transition-colors">
-                      <span>📱</span>
-                      <span>Apps Tignes</span>
-                    </a>
-                    <a href="https://play.google.com/store/search?q=val%20d%27isere&c=apps" target="_blank" rel="noreferrer" className="flex items-center gap-2 px-4 py-2 bg-orange-600 text-white rounded-lg hover:bg-orange-700 transition-colors">
-                      <span>📲</span>
-                      <span>Apps Val d'Isère</span>
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div className="group relative bg-white rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-3 overflow-hidden border border-gray-100">
-              <div className="absolute top-0 right-0 w-40 h-40 bg-gradient-to-br from-green-100 to-emerald-100 rounded-full -mr-20 -mt-20 opacity-50 group-hover:opacity-70 transition-opacity duration-300"></div>
-              <div className="absolute bottom-0 left-0 w-32 h-32 bg-gradient-to-br from-emerald-100 to-green-100 rounded-full -ml-16 -mb-16 opacity-30 group-hover:opacity-50 transition-opacity duration-300"></div>
-              <div className="p-8 relative z-10">
-                <div className="flex items-center mb-6">
-                  <div className="flex items-center justify-center w-12 h-12 bg-gradient-to-br from-green-500 to-emerald-600 rounded-xl mr-4 transform group-hover:rotate-12 transition-all duration-300">
-                    <Info className="h-6 w-6 text-white" />
-                  </div>
-                  <div>
-                    <h3 className="text-2xl font-bold text-gray-900 mb-1">Offices & Remontées</h3>
-                    <p className="text-gray-600">Services pratiques</p>
-                  </div>
-                </div>
-                <div className="space-y-4">
-                  <div className="bg-gradient-to-r from-green-50 to-emerald-50 rounded-xl p-4 transform hover:scale-105 transition-all duration-200">
-                    <p className="text-gray-700 mb-3">Accédez aux services essentiels :</p>
-                    <div className="space-y-3">
-                      <div className="flex items-center gap-3 transform hover:translate-x-1 transition-all duration-200">
-                        <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-                        <span className="text-gray-700">Offices de tourisme</span>
-                      </div>
-                      <div className="flex items-center gap-3 transform hover:translate-x-1 transition-all duration-200">
-                        <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-                        <span className="text-gray-700">Achat de forfaits en ligne</span>
-                      </div>
-                      <div className="flex items-center gap-3 transform hover:translate-x-1 transition-all duration-200">
-                        <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-                        <span className="text-gray-700">Informations remontées</span>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="flex gap-4 pt-4">
-                    <a href="https://www.tignes.net" target="_blank" rel="noreferrer" className="flex items-center gap-2 px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-all duration-200 transform hover:scale-105">
-                      <span>🏢</span>
-                      <span>Office Tignes</span>
-                    </a>
-                    <a href="https://www.compagniedesalpes.com/" target="_blank" rel="noreferrer" className="flex items-center gap-2 px-4 py-2 bg-emerald-600 text-white rounded-lg hover:bg-emerald-700 transition-all duration-200 transform hover:scale-105">
-                      <span>🚡</span>
-                      <span>Remontées</span>
-                    </a>
-                    <a href="https://www.valdisere.com" target="_blank" rel="noreferrer" className="flex items-center gap-2 px-4 py-2 bg-teal-600 text-white rounded-lg hover:bg-teal-700 transition-all duration-200 transform hover:scale-105">
-                      <span>🏔️</span>
-                      <span>Office Val d'Isère</span>
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Les Arcs */}
             <div className="group relative bg-white rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-3 overflow-hidden border border-gray-100">
               <div className="absolute top-0 right-0 w-40 h-40 bg-gradient-to-br from-purple-100 to-indigo-100 rounded-full -mr-20 -mt-20 opacity-50 group-hover:opacity-70 transition-opacity duration-300"></div>
               <div className="absolute bottom-0 left-0 w-32 h-32 bg-gradient-to-br from-indigo-100 to-purple-100 rounded-full -ml-16 -mb-16 opacity-30 group-hover:opacity-50 transition-opacity duration-300"></div>
@@ -2421,6 +4607,7 @@ function App() {
               </div>
             </div>
 
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             <div className="group relative bg-white rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-3 overflow-hidden border border-gray-100">
               <div className="absolute top-0 right-0 w-40 h-40 bg-gradient-to-br from-red-100 to-pink-100 rounded-full -mr-20 -mt-20 opacity-50 group-hover:opacity-70 transition-opacity duration-300"></div>
               <div className="absolute bottom-0 left-0 w-32 h-32 bg-gradient-to-br from-rose-100 to-red-100 rounded-full -ml-16 -mb-16 opacity-30 group-hover:opacity-50 transition-opacity duration-300"></div>
@@ -2508,8 +4695,8 @@ function App() {
                 </div>
               </div>
             </div>
+          </div>
 
-            {/* Encart 10 Règles Essentielles de Sécurité */}
             <div className="group relative bg-white rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-3 overflow-hidden border border-gray-100">
               <div className="absolute top-0 right-0 w-40 h-40 bg-gradient-to-br from-red-100 to-orange-100 rounded-full -mr-20 -mt-20 opacity-50 group-hover:opacity-70 transition-opacity duration-300"></div>
               <div className="absolute bottom-0 left-0 w-32 h-32 bg-gradient-to-br from-orange-100 to-red-100 rounded-full -ml-16 -mb-16 opacity-30 group-hover:opacity-50 transition-opacity duration-300"></div>
