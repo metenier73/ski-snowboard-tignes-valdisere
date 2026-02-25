@@ -37,6 +37,28 @@ export default defineConfig(({ command, mode }) => {
               }))
               return
             }
+            
+            // Intercepte les requêtes vers metenier73.github.io pour les rediriger vers localhost
+            if (req.url && req.url.includes('metenier73.github.io')) {
+              console.log(`Intercepted request to: ${req.url}`)
+              // Retourne une réponse vide ou redirige vers une ressource locale
+              if (req.url.includes('favicon.ico')) {
+                // Servir le favicon local
+                const fs = require('fs')
+                const path = require('path')
+                const faviconPath = path.join(__dirname, 'public', 'favicon.ico')
+                if (fs.existsSync(faviconPath)) {
+                  res.writeHead(200, { 'Content-Type': 'image/x-icon' })
+                  res.end(fs.readFileSync(faviconPath))
+                  return
+                }
+              }
+              // Pour les autres requêtes, retourner 404 silencieusement
+              res.writeHead(404)
+              res.end()
+              return
+            }
+            
             next()
           })
         },
@@ -106,7 +128,13 @@ export default defineConfig(({ command, mode }) => {
       headers: {
         'X-Content-Type-Options': 'nosniff',
         'X-Frame-Options': 'DENY',
-        'Referrer-Policy': 'strict-origin-when-cross-origin'
+        'Referrer-Policy': 'strict-origin-when-cross-origin',
+        // CSP très permissive en développement pour éviter les blocages
+        'Content-Security-Policy': "default-src 'self' 'unsafe-inline' 'unsafe-eval' data: blob: https: http:; script-src 'self' 'unsafe-inline' 'unsafe-eval' data: blob:; style-src 'self' 'unsafe-inline' data: blob:; img-src 'self' data: blob: https: http:; font-src 'self' data: blob: https: http:; connect-src 'self' data: blob: https: http: ws: wss:; media-src 'self' data: blob: https: http:; object-src 'none'; base-uri 'self'; form-action 'self';",
+        // Cache control pour éviter les problèmes de cache
+        'Cache-Control': 'no-cache, no-store, must-revalidate',
+        'Pragma': 'no-cache',
+        'Expires': '0'
       },
       // Middleware pour gérer les types MIME et l'encodage
       middlewareMode: false,
