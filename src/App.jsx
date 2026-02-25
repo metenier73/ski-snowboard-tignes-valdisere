@@ -6,46 +6,46 @@ import { Button } from '@/components/ui/button.jsx'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card.jsx'
 import { galleryAltTexts, getGalleryImage, totalImages } from '@/data/galleryImages'
 import {
-    AlertTriangle,
-    ArrowRight,
-    Award,
-    BarChart3,
-    BookOpen,
-    Bot,
-    Calendar,
-    CheckCircle,
-    ChevronDown,
-    ChevronUp,
-    Clock,
-    Cloud,
-    CloudFog,
-    CloudHail,
-    CloudLightning,
-    CloudRain,
-    CloudSnow,
-    CloudSun,
-    Cloudy,
-    Compass,
-    Image,
-    ImagePlus,
-    Info,
-    Mail,
-    MapPin,
-    Menu,
-    MessageCircle,
-    Mountain,
-    Phone,
-    Settings,
-    Shield,
-    ShieldAlert,
-    Smartphone,
-    Snowflake,
-    Sparkles,
-    Star,
-    Sun,
-    Target,
-    TrendingUp,
-    X
+  AlertTriangle,
+  ArrowRight,
+  Award,
+  BarChart3,
+  BookOpen,
+  Bot,
+  Calendar,
+  CheckCircle,
+  ChevronDown,
+  ChevronUp,
+  Clock,
+  Cloud,
+  CloudFog,
+  CloudHail,
+  CloudLightning,
+  CloudRain,
+  CloudSnow,
+  CloudSun,
+  Cloudy,
+  Compass,
+  Image,
+  ImagePlus,
+  Info,
+  Mail,
+  MapPin,
+  Menu,
+  MessageCircle,
+  Mountain,
+  Phone,
+  Settings,
+  Shield,
+  ShieldAlert,
+  Smartphone,
+  Snowflake,
+  Sparkles,
+  Star,
+  Sun,
+  Target,
+  TrendingUp,
+  X
 } from 'lucide-react'
 import { useEffect, useState } from 'react'
 import './App.css'
@@ -5594,41 +5594,46 @@ function App() {
               </div>
             </div>
 
-            {/* Encart Sports Complex Val-d'Isère */}
-            <div className="mt-12">
-              <div className="group relative bg-gradient-to-br from-emerald-600 via-teal-600 to-cyan-600 rounded-3xl shadow-2xl overflow-hidden border-4 border-white/20 hover:shadow-3xl transition-all duration-500 transform hover:-translate-y-2">
-                {/* Décoration de fond */}
-                <div className="absolute inset-0 opacity-10">
-                  <div className="absolute top-0 right-0 w-96 h-96 bg-white rounded-full blur-3xl group-hover:opacity-20 transition-opacity duration-300"></div>
-                  <div className="absolute bottom-0 left-0 w-80 h-80 bg-white rounded-full blur-3xl group-hover:opacity-20 transition-opacity duration-300"></div>
-                </div>
-                
-                <div className="relative z-10 p-8 md:p-12">
-                  <div className="flex items-start gap-6 mb-8">
-                    <div className="flex-shrink-0">
-                      <div className="flex items-center justify-center w-20 h-20 bg-white/20 backdrop-blur-sm rounded-2xl border-2 border-white/30 transform group-hover:rotate-12 transition-all duration-300">
-                        <span className="text-4xl">🏊‍♂️</span>
-                      </div>
-                    </div>
-                    <div className="flex-1">
-                      <h3 className="text-3xl md:text-4xl font-bold text-white mb-3">
-                        📍 {currentLang === 'fr' ? 'Sports Complex Val-d\'Isère — Centre Aqua-Sportif & Bien-être' : 'Val-d\'Isère Sports Complex — Aquatic Sports & Wellness Center'} 🏋️‍♀️
-                      </h3>
-                      <p className="text-xl text-white/90 mb-4">
-                        {currentLang === 'fr' ? 'Un grand complexe aquatique, sportif et bien-être idéal après les pistes !' : 'A large aquatic, sports, and wellness complex, ideal after a day on the slopes!'}
-                        <br />
-                        <span className="text-yellow-300 font-semibold">*({currentLang === 'fr' ? '370 rue de la Face, Val-d\'Isère - Alpes, France' : '370 rue de la Face, Val-d\'Isère - Alps, France'})*</span>
-                      </p>
-                    </div>
-                  </div>
+            {/* Section séparée - Sports Complex Val-d'Isère */}
+          </div>
+      </section>
 
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-                    {/* Horaires */}
-                    <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20 transform hover:scale-105 transition-all duration-200">
-                      <h4 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
-                        <span className="text-2xl">🕒</span>
-                        {currentLang === 'fr' ? 'Horaires hiver (1er janvier → 3 mai 2026)' : 'Winter Hours (January 1st → May 3rd, 2026)'}
-                      </h4>
+      {/* Section Sports Complex Val-d'Isère */}
+      <section className="py-20 px-4 bg-gradient-to-br from-emerald-50 to-teal-50">
+        <div className="container mx-auto max-w-6xl">
+          <div className="group relative bg-gradient-to-br from-emerald-600 via-teal-600 to-cyan-600 rounded-3xl shadow-2xl overflow-hidden border-4 border-white/20 hover:shadow-3xl transition-all duration-500 transform hover:-translate-y-2">
+            {/* Décoration de fond */}
+            <div className="absolute inset-0 opacity-10">
+              <div className="absolute top-0 right-0 w-96 h-96 bg-white rounded-full blur-3xl group-hover:opacity-20 transition-opacity duration-300"></div>
+              <div className="absolute bottom-0 left-0 w-80 h-80 bg-white rounded-full blur-3xl group-hover:opacity-20 transition-opacity duration-300"></div>
+            </div>
+            
+            <div className="relative z-10 p-8 md:p-12">
+              <div className="flex items-start gap-6 mb-8">
+                <div className="flex-shrink-0">
+                  <div className="flex items-center justify-center w-20 h-20 bg-white/20 backdrop-blur-sm rounded-2xl border-2 border-white/30 transform group-hover:rotate-12 transition-all duration-300">
+                    <span className="text-4xl">🏊‍♂️</span>
+                  </div>
+                </div>
+                <div className="flex-1">
+                  <h3 className="text-3xl md:text-4xl font-bold text-white mb-3">
+                    📍 {currentLang === 'fr' ? 'Sports Complex Val-d\'Isère — Centre Aqua-Sportif & Bien-être' : 'Val-d\'Isère Sports Complex — Aquatic Sports & Wellness Center'} 🏋️‍♀️
+                  </h3>
+                  <p className="text-xl text-white/90 mb-4">
+                    {currentLang === 'fr' ? 'Un grand complexe aquatique, sportif et bien-être idéal après les pistes !' : 'A large aquatic, sports, and wellness complex, ideal after a day on slopes!'}
+                    <br />
+                    <span className="text-yellow-300 font-semibold">*({currentLang === 'fr' ? '370 rue de la Face, Val-d\'Isère - Alpes, France' : '370 rue de la Face, Val-d\'Isère - Alps, France'})*</span>
+                  </p>
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                {/* Horaires */}
+                <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20 transform hover:scale-105 transition-all duration-200">
+                  <h4 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
+                    <span className="text-2xl">🕒</span>
+                    {currentLang === 'fr' ? 'Horaires hiver (1er janvier → 3 mai 2026)' : 'Winter Hours (January 1st → May 3rd, 2026)'}
+                  </h4>
                       <div className="space-y-3 text-white/90">
                         <div className="bg-white/10 rounded-lg p-3">
                           <p className="font-semibold text-white mb-2">✔️ {currentLang === 'fr' ? 'Ouverture quotidienne :' : 'Daily Opening Hours:'}</p>
@@ -5776,6 +5781,8 @@ function App() {
                                 {currentLang === 'fr' ? 'Piscine + fitness + bien-être après le ski' : 'Swimming pool + fitness + wellness after skiing'}<br/>
                                 {currentLang === 'fr' ? 'Le combo parfait pour la récupération à Val d\'Isère !' : 'The perfect combination for recovery in Val d\'Isère!'}
                               </p>
+                            </div>
+                          </div>
 
                   {/* Espace enfants */}
                   <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20 transform hover:scale-105 transition-all duration-200">
@@ -5808,113 +5815,149 @@ function App() {
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
 
-            {/* Encart Bars & Vie nocturne Tignes */}
-            <div className="mt-12">
-              <div className="group relative bg-gradient-to-br from-purple-600 via-pink-600 to-rose-600 rounded-3xl shadow-2xl overflow-hidden border-4 border-white/20 hover:shadow-3xl transition-all duration-500 transform hover:-translate-y-2">
-                {/* Décoration de fond */}
-                <div className="absolute inset-0 opacity-10">
-                  <div className="absolute top-0 right-0 w-96 h-96 bg-white rounded-full blur-3xl group-hover:opacity-20 transition-opacity duration-300"></div>
-                  <div className="absolute bottom-0 left-0 w-80 h-80 bg-white rounded-full blur-3xl group-hover:opacity-20 transition-opacity duration-300"></div>
-                </div>
-                
-                <div className="relative z-10 p-8 md:p-12">
-                  <div className="flex items-start gap-6 mb-8">
-                    <div className="flex-shrink-0">
-                      <div className="flex items-center justify-center w-20 h-20 bg-white/20 backdrop-blur-sm rounded-2xl border-2 border-white/30 transform group-hover:rotate-12 transition-all duration-300">
-                        <span className="text-4xl">🍹</span>
-                      </div>
-                    </div>
-                    <div className="flex-1">
-                      <h3 className="text-3xl md:text-4xl font-bold text-white mb-3">
-                        Bars & Vie nocturne à Tignes 🎿🍹
-                      </h3>
-                      <p className="text-xl text-white/90 mb-4">
-                        Une sélection de bars branchés et animés — parfaits pour l'après-ski, boire un verre entre amis ou faire la fête !
-                        <br />
-                        <span className="text-yellow-300 font-semibold">*(Ambiance plus authentique et locale que Val d'Isère)*</span>
-                      </p>
-                    </div>
+      {/* Section Bars & Vie nocturne Tignes */}
+      <section className="py-20 px-4 bg-gradient-to-br from-purple-50 to-pink-50">
+        <div className="container mx-auto max-w-6xl">
+          <div className="group relative bg-gradient-to-br from-purple-600 via-pink-600 to-rose-600 rounded-3xl shadow-2xl overflow-hidden border-4 border-white/20 hover:shadow-3xl transition-all duration-500 transform hover:-translate-y-2">
+            {/* Décoration de fond */}
+            <div className="absolute inset-0 opacity-10">
+              <div className="absolute top-0 right-0 w-96 h-96 bg-white rounded-full blur-3xl group-hover:opacity-20 transition-opacity duration-300"></div>
+              <div className="absolute bottom-0 left-0 w-80 h-80 bg-white rounded-full blur-3xl group-hover:opacity-20 transition-opacity duration-300"></div>
+            </div>
+            
+            <div className="relative z-10 p-8 md:p-12">
+              <div className="flex items-start gap-6 mb-8">
+                <div className="flex-shrink-0">
+                  <div className="flex items-center justify-center w-20 h-20 bg-white/20 backdrop-blur-sm rounded-2xl border-2 border-white/30 transform group-hover:rotate-12 transition-all duration-300">
+                    <span className="text-4xl">🍹</span>
                   </div>
-
-                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-6">
-                    {/* Bars & Apéro animés */}
-                    <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20 transform hover:scale-105 transition-all duration-200">
-                      <h4 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
-                        <span className="text-2xl">🍸</span>
-                        Val Claret - Bars & Apéro animés 🔥
-                      </h4>
-                      <div className="space-y-3">
-                        <div className="bg-white/10 rounded-lg p-3 transform hover:translate-x-1 transition-all duration-200">
-                          <div className="flex items-start gap-2">
-                            <span className="text-yellow-300 mt-1">⭐</span>
-                            <div>
-                              <strong className="text-white">Le Studio</strong>
-                              <p className="text-white/80 text-xs">Bar très bien noté • Ambiance festive en soirée • 4.7/5</p>
-                            </div>
-                          </div>
-                        </div>
-                        <div className="bg-white/10 rounded-lg p-3 transform hover:translate-x-1 transition-all duration-200">
-                          <div className="flex items-start gap-2">
-                            <span className="text-green-300 mt-1">🍺</span>
-                            <div>
-                              <strong className="text-white">Inside bar</strong>
-                              <p className="text-white/80 text-xs">Ambiance conviviale • Bon choix de boissons • Après-ski animé • 4.6/5</p>
-                            </div>
-                          </div>
-                        </div>
-                        <div className="bg-white/10 rounded-lg p-3 transform hover:translate-x-1 transition-all duration-200">
-                          <div className="flex items-start gap-2">
-                            <span className="text-blue-300 mt-1">🎯</span>
-                            <div>
-                              <strong className="text-white">Ranga's Bar</strong>
-                              <p className="text-white/80 text-xs">Bar très apprécié • Happy hour • Sport à l'écran • Bonne vibe • 4.9/5</p>
-                            </div>
-                          </div>
-                        </div>
-                        <div className="bg-white/10 rounded-lg p-3 transform hover:translate-x-1 transition-all duration-200">
-                          <div className="flex items-start gap-2">
-                            <span className="text-purple-300 mt-1">🍹</span>
-                            <div>
-                              <strong className="text-white">Arobaze</strong>
-                              <p className="text-white/80 text-xs">Ambiance détendue • Cocktails • Cœur de Val Claret • 4.4/5</p>
-                            </div>
-                          </div>
-                        </div>
-                        <div className="bg-white/10 rounded-lg p-3 transform hover:translate-x-1 transition-all duration-200">
-                          <div className="flex items-start gap-2">
-                            <span className="text-pink-300 mt-1">🥃</span>
-                            <div>
-                              <strong className="text-white">Granite-bar</strong>
-                              <p className="text-white/80 text-xs">Bar cocktail cosy • Branché • Apéro populaire • 4.5/5</p>
-                            </div>
-                          </div>
-                        </div>
-                        <div className="bg-white/10 rounded-lg p-3 transform hover:translate-x-1 transition-all duration-200">
-                          <div className="flex items-start gap-2">
-                            <span className="text-amber-300 mt-1">🍷</span>
-                            <div>
-                              <strong className="text-white">Le Caveau</strong>
-                              <p className="text-white/80 text-xs">Petit bar sympa • Bonne sélection de boissons • 4.6/5</p>
-                            </div>
-                          </div>
+                </div>
+                <div className="flex-1">
+                  <h3 className="text-3xl md:text-4xl font-bold text-white mb-3">
+                    {currentLang === 'fr' 
+                      ? 'Bars et vie nocturne à Tignes 🎿🍹'
+                      : 'Bars & Nightlife in Tignes 🎿🍹'
+                    }
+                  </h3>
+                  <p className="text-xl text-white/90 mb-4">
+                    {currentLang === 'fr' 
+                      ? 'Une sélection de bars branchés et animés, parfaits pour l\'après-ski, un verre entre amis ou pour faire la fête !'
+                      : 'A selection of trendy and lively bars, perfect for après-ski, a drink with friends or for partying!'
+                    }
+                  </p>
+                  <p className="text-indigo-300 mt-1">🎶</p>
+                  <div className="space-y-3">
+                    <div className="bg-white/10 rounded-lg p-3 transform hover:translate-x-1 transition-all duration-200">
+                      <div className="flex items-start gap-2">
+                        <span className="text-yellow-300 mt-1">⭐</span>
+                        <div>
+                          <strong className="text-white">Le Studio</strong>
+                          <p className="text-white/80 text-xs">
+                            {currentLang === 'fr' 
+                              ? 'Bar très apprécié • Ambiance festive en soirée • 4,7/5'
+                              : 'Very popular bar • Festive evening atmosphere • 4.7/5'
+                            }
+                          </p>
                         </div>
                       </div>
                     </div>
+                    <div className="bg-white/10 rounded-lg p-3 transform hover:translate-x-1 transition-all duration-200">
+                      <div className="flex items-start gap-2">
+                        <span className="text-blue-300 mt-1">🍺</span>
+                        <div>
+                          <strong className="text-white">Bar intérieur</strong>
+                          <p className="text-white/80 text-xs">
+                            {currentLang === 'fr' 
+                              ? 'Ambiance conviviale • Belle carte des boissons • Après-ski animé • 4,6/5'
+                              : 'Friendly atmosphere • Great drink menu • Lively après-ski • 4.6/5'
+                            }
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="bg-white/10 rounded-lg p-3 transform hover:translate-x-1 transition-all duration-200">
+                      <div className="flex items-start gap-2">
+                        <span className="text-pink-300 mt-1">🎯</span>
+                        <div>
+                          <strong className="text-white">Ranga's Bar</strong>
+                          <p className="text-white/80 text-xs">
+                            {currentLang === 'fr' 
+                              ? 'Bar très populaire • Happy Hour • Diffusion de matchs • Bonne ambiance • 4,9/5'
+                              : 'Very popular bar • Happy Hour • Sports broadcasts • Great atmosphere • 4.9/5'
+                            }
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="bg-white/10 rounded-lg p-3 transform hover:translate-x-1 transition-all duration-200">
+                      <div className="flex items-start gap-2">
+                        <span className="text-purple-300 mt-1">🔥</span>
+                        <div>
+                          <strong className="text-white">Arobaze</strong>
+                          <p className="text-white/80 text-xs">
+                            {currentLang === 'fr' 
+                              ? 'Ambiance décontractée • Cocktails • Au cœur de Val Claret • 4,4/5'
+                              : 'Relaxed atmosphere • Cocktails • In the heart of Val Claret • 4.4/5'
+                            }
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="bg-white/10 rounded-lg p-3 transform hover:translate-x-1 transition-all duration-200">
+                      <div className="flex items-start gap-2">
+                        <span className="text-pink-300 mt-1">🥃</span>
+                        <div>
+                          <strong className="text-white">Granite-bar</strong>
+                          <p className="text-white/80 text-xs">
+                            {currentLang === 'fr' 
+                              ? 'Bar à cocktails cosy • Branché • Happy Hour populaire • 4,5/5'
+                              : 'Cosy cocktail bar • Trendy • Popular Happy Hour • 4.5/5'
+                            }
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="bg-white/10 rounded-lg p-3 transform hover:translate-x-1 transition-all duration-200">
+                      <div className="flex items-start gap-2">
+                        <span className="text-amber-300 mt-1">🍷</span>
+                        <div>
+                          <strong className="text-white">Le Caveau</strong>
+                          <p className="text-white/80 text-xs">
+                            {currentLang === 'fr' 
+                              ? 'Petit bar sympa • Belle carte des boissons • 4,6/5'
+                              : 'Nice little bar • Great drink menu • 4.6/5'
+                            }
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                      </div>
 
                     {/* Spots après-ski */}
                     <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20 transform hover:scale-105 transition-all duration-200">
                       <h4 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
                         <span className="text-2xl">🍻</span>
-                        Val Claret - Après-ski & bars musicaux 🔥
+                        {currentLang === 'fr' 
+                          ? 'Val Claret - Après-ski & Music Bars 🔥'
+                          : 'Val Claret - Après-Ski & Music Bars 🔥'
+                        }
                       </h4>
                       <div className="space-y-3">
                         <div className="bg-white/10 rounded-lg p-3 transform hover:translate-x-1 transition-all duration-200">
                           <div className="flex items-start gap-2">
                             <span className="text-orange-300 mt-1">🎿</span>
                             <div>
-                              <strong className="text-white">Le Couloir | Bar & Restaurant</strong>
-                              <p className="text-white/80 text-xs">Après-ski classique • Bière pression • Snacks • Musique • 4.7/5</p>
+                              <strong className="text-white">The Corridor | Bar & Restaurant</strong>
+                              <p className="text-white/80 text-xs">
+                              {currentLang === 'fr' 
+                                ? 'Après-ski classique • Bières pression • Snacks • Musique • 4,7/5'
+                                : 'Classic après-ski • Draft beers • Snacks • Music • 4.7/5'
+                              }
+                            </p>
                             </div>
                           </div>
                         </div>
@@ -5923,7 +5966,12 @@ function App() {
                             <span className="text-red-300 mt-1">🎉</span>
                             <div>
                               <strong className="text-white">Cocorico Après Ski</strong>
-                              <p className="text-white/80 text-xs">Grand concept après-ski • Terrasse • Dancefloor • 4.1/5</p>
+                              <p className="text-white/80 text-xs">
+                              {currentLang === 'fr' 
+                                ? 'Concept après-ski original • Terrasse • Piste de danse • 4,1/5'
+                                : 'Original après-ski concept • Terrace • Dance floor • 4.1/5'
+                              }
+                            </p>
                             </div>
                           </div>
                         </div>
@@ -5931,8 +5979,13 @@ function App() {
                           <div className="flex items-start gap-2">
                             <span className="text-cyan-300 mt-1">🍻</span>
                             <div>
-                              <strong className="text-white">Le Whitney Bar</strong>
-                              <p className="text-white/80 text-xs">Bar convivial • Début/fin soirée • Bonne atmosphère • 4.5/5</p>
+                              <strong className="text-white">The Whitney Bar</strong>
+                              <p className="text-white/80 text-xs">
+                              {currentLang === 'fr' 
+                                ? 'Bar convivial • Ouvert en début et fin de soirée • Bonne ambiance • 4,5/5'
+                                : 'Friendly bar • Open early and late evening • Good atmosphere • 4.5/5'
+                              }
+                            </p>
                             </div>
                           </div>
                         </div>
@@ -5941,7 +5994,12 @@ function App() {
                             <span className="text-green-300 mt-1">🍀</span>
                             <div>
                               <strong className="text-white">Tom Crean's Pub</strong>
-                              <p className="text-white/80 text-xs">Pub irlandais • Ambiance détendue • Bières • 4.1/5</p>
+                              <p className="text-white/80 text-xs">
+                              {currentLang === 'fr' 
+                                ? 'Pub irlandais • Ambiance décontractée • Bières • 4,1/5'
+                                : 'Irish pub • Relaxed atmosphere • Beers • 4.1/5'
+                              }
+                            </p>
                             </div>
                           </div>
                         </div>
@@ -5950,7 +6008,12 @@ function App() {
                             <span className="text-blue-300 mt-1">🌟</span>
                             <div>
                               <strong className="text-white">L'Embuscade Tignes</strong>
-                              <p className="text-white/80 text-xs">Bar animé • Bonne clientèle locale • Soirées • 4.5/5</p>
+                              <p className="text-white/80 text-xs">
+                              {currentLang === 'fr' 
+                                ? 'Bar animé • Clientèle locale • Soirées • 4,5/5'
+                                : 'Lively bar • Local clientele • Parties • 4.5/5'
+                              }
+                            </p>
                             </div>
                           </div>
                         </div>
@@ -5959,7 +6022,12 @@ function App() {
                             <span className="text-cyan-300 mt-1">🍽</span>
                             <div>
                               <strong className="text-white">Loop Bar & Restaurant</strong>
-                              <p className="text-white/80 text-xs">Bon spot • Boire un verre + Manger • 4.2/5</p>
+                              <p className="text-white/80 text-xs">
+                              {currentLang === 'fr' 
+                                ? 'Bon endroit • Boissons et restauration • 4,2/5'
+                                : 'Good place • Drinks and dining • 4.2/5'
+                              }
+                            </p>
                             </div>
                           </div>
                         </div>
@@ -5967,8 +6035,13 @@ function App() {
                           <div className="flex items-start gap-2">
                             <span className="text-indigo-300 mt-1">🎶</span>
                             <div>
-                              <strong className="text-white">247 Bar – Le Twenty Four Seven</strong>
-                              <p className="text-white/80 text-xs">Bar dansant avec DJ en soirée • Ambiance nocturne</p>
+                              <strong className="text-white">247 Bar – The Twenty Four Seven</strong>
+                              <p className="text-white/80 text-xs">
+                              {currentLang === 'fr' 
+                                ? 'Bar dansant avec DJ en soirée • Ambiance nocturne'
+                                : 'Dancing bar with evening DJ • Nighttime atmosphere'
+                              }
+                            </p>
                             </div>
                           </div>
                         </div>
@@ -5979,7 +6052,10 @@ function App() {
                     <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20 transform hover:scale-105 transition-all duration-200">
                       <h4 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
                         <span className="text-2xl">🕺</span>
-                        Val Claret - Clubs 🔥
+                        {currentLang === 'fr' 
+                          ? 'Val Claret - Clubs 🔥'
+                          : 'Val Claret - Clubs 🔥'
+                        }
                       </h4>
                       <div className="space-y-3 mb-4">
                         <div className="bg-white/10 rounded-lg p-3 transform hover:translate-x-1 transition-all duration-200">
@@ -5987,7 +6063,12 @@ function App() {
                             <span className="text-pink-300 mt-1">🎧</span>
                             <div>
                               <strong className="text-white">Avant Garde Tignes</strong>
-                              <p className="text-white/80 text-xs">Discothèque • Soirées tardives • Musique variée • 3.8/5</p>
+                              <p className="text-white/80 text-xs">
+                              {currentLang === 'fr' 
+                                ? 'Boîte de nuit • Ouvert tard • Musique variée • 3,8/5'
+                                : 'Nightclub • Open late • Varied music • 3.8/5'
+                              }
+                            </p>
                             </div>
                           </div>
                         </div>
@@ -5995,15 +6076,29 @@ function App() {
                           <div className="flex items-start gap-2">
                             <span className="text-purple-300 mt-1">💃</span>
                             <div>
-                              <strong className="text-white">Discothèque Le Blue Girl</strong>
-                              <p className="text-white/80 text-xs">Club populaire • Tôt matin • Danser • 3.3/5</p>
+                              <strong className="text-white">Blue Girl Nightclub</strong>
+                              <p className="text-white/80 text-xs">
+                              {currentLang === 'fr' 
+                                ? 'Club populaire • Tôt le matin • Danse • 3,3/5'
+                                : 'Popular club • Early morning • Dancing • 3.3/5'
+                              }
+                            </p>
                             </div>
                           </div>
                         </div>
                       </div>
                       <div className="mt-4 pt-4 border-t border-white/20">
                         <p className="text-white/90 text-sm">
-                          <strong className="text-white">💡 Tips pour la nuit à Val Claret :</strong> l'ambiance commence souvent avec un après-ski vers 15-17h, puis se transforme en soirée musicale plus tard (bars + clubs), et beaucoup de gens finissent en club après 23h.
+                          <strong className="text-white">
+                            {currentLang === 'fr' 
+                              ? '💡 Conseils pour les soirées à Val Claret :'
+                              : '💡 Tips for nights out in Val Claret:'
+                            }
+                          </strong>{' '}
+                          {currentLang === 'fr' 
+                            ? "L'ambiance commence souvent par l'après-ski vers 15h-17h, puis se transforme en une soirée musicale (bars et clubs), et beaucoup se retrouvent en boîte après 23h."
+                            : "The atmosphere often starts with après-ski around 3-5 PM, then turns into a musical evening (bars and clubs), and many end up in clubs after 11 PM."
+                          }
                         </p>
                       </div>
                     </div>
@@ -6011,40 +6106,73 @@ function App() {
 
                   {/* Timeline et badges */}
                   <div className="mt-6 bg-white/10 backdrop-blur-sm rounded-2xl p-4 md:p-6 border border-white/20 transform hover:scale-105 transition-all duration-200">
-                    <h4 className="text-lg md:text-xl font-bold text-white mb-3 md:mb-4 text-center">🌙 Timeline Nuit Typique à Val Claret</h4>
+                    <h4 className="text-lg md:text-xl font-bold text-white mb-3 md:mb-4 text-center">
+                      {currentLang === 'fr' 
+                        ? '🌙 Timeline d\'une nuit typique à Val Claret'
+                        : '🌙 Typical Night Timeline in Val Claret'
+                      }
+                    </h4>
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
                       <div className="text-center">
                         <div className="bg-gradient-to-br from-yellow-400 to-orange-400 rounded-lg p-2 md:p-3 mb-1 md:mb-2">
                           <div className="text-sm md:text-lg font-bold text-white">15h-17h</div>
                         </div>
-                        <p className="text-white/80 text-xs">Après-ski commence</p>
-                        <p className="text-yellow-300 text-xs font-semibold">Le Couloir • Cocorico</p>
+                        <p className="text-white/80 text-xs">
+                          {currentLang === 'fr' 
+                            ? 'Début de l\'après-ski'
+                            : 'Après-ski starts'
+                          }
+                        </p>
+                        <p className="text-yellow-300 text-xs font-semibold">The Corridor • Cocorico</p>
                       </div>
                       <div className="text-center">
                         <div className="bg-gradient-to-br from-blue-400 to-indigo-400 rounded-lg p-2 md:p-3 mb-1 md:mb-2">
                           <div className="text-sm md:text-lg font-bold text-white">18h-20h</div>
                         </div>
-                        <p className="text-white/80 text-xs">Apéro & dîner</p>
-                        <p className="text-blue-300 text-xs font-semibold">Le Studio • Inside bar</p>
+                        <p className="text-white/80 text-xs">
+                          {currentLang === 'fr' 
+                            ? 'Happy hour et dîner'
+                            : 'Happy hour and dinner'
+                          }
+                        </p>
+                        <p className="text-blue-300 text-xs font-semibold">
+                          {currentLang === 'fr' 
+                            ? 'The Studio • Bar intérieur'
+                            : 'The Studio • Indoor bar'
+                          }
+                        </p>
                       </div>
                       <div className="text-center">
                         <div className="bg-gradient-to-br from-purple-400 to-pink-400 rounded-lg p-2 md:p-3 mb-1 md:mb-2">
                           <div className="text-sm md:text-lg font-bold text-white">21h-23h</div>
                         </div>
-                        <p className="text-white/80 text-xs">Bars animés</p>
+                        <p className="text-white/80 text-xs">
+                          {currentLang === 'fr' 
+                            ? 'Bars animés'
+                            : 'Lively bars'
+                          }
+                        </p>
                         <p className="text-purple-300 text-xs font-semibold">Ranga's • Arobaze</p>
                       </div>
                       <div className="text-center">
                         <div className="bg-gradient-to-br from-red-400 to-rose-400 rounded-lg p-2 md:p-3 mb-1 md:mb-2">
                           <div className="text-sm md:text-lg font-bold text-white">23h+</div>
                         </div>
-                        <p className="text-white/80 text-xs">Club time</p>
+                        <p className="text-white/80 text-xs">
+                          {currentLang === 'fr' 
+                            ? 'Soirée en boîte'
+                            : 'Club time'
+                          }
+                        </p>
                         <p className="text-red-300 text-xs font-semibold">Avant Garde • Blue Girl</p>
                       </div>
                     </div>
                     <div className="mt-3 md:mt-4 text-center">
                       <span className="bg-gradient-to-r from-green-500 to-green-600 text-white px-2 py-1 md:px-3 md:py-1 rounded-full text-xs md:text-sm font-semibold">
-                        🎯 Ambiance plus locale et authentique que Val d'Isère
+                        {currentLang === 'fr' 
+                          ? '🎯 Ambiance plus locale et authentique que Val d\'Isère'
+                          : '🎯 More local and authentic atmosphere than Val d\'Isère'
+                        }
                       </span>
                     </div>
                   </div>
@@ -6052,10 +6180,7 @@ function App() {
               </div>
             </div>
           </div>
-        </div>
-        </div>
-        </div>
-        </div>
+        
       </section>
 
       {/* Tignes Other Villages Nightlife */}
@@ -6071,16 +6196,29 @@ function App() {
               <div className="relative z-10 p-6">
                 <h4 className="text-xl font-bold text-white mb-3 flex items-center gap-2">
                   <span className="text-2xl">🍻</span>
-                  Tignes Le Lac (plus central, ambiance mixte)
+                  {currentLang === 'fr' 
+                    ? 'Tignes Le Lac (plus central, ambiance mixte)'
+                    : 'Tignes Le Lac (more central, mixed atmosphere)'
+                  }
                 </h4>
-                <p className="text-white/90 text-sm mb-4">Ambiance animée mais un peu moins "club" que Val Claret</p>
+                <p className="text-white/90 text-sm mb-4">
+                  {currentLang === 'fr' 
+                    ? 'Ambiance animée mais un peu moins "club" que Val Claret'
+                    : 'Lively atmosphere but a little less "club-like" than Val Claret'
+                  }
+                </p>
                 <div className="space-y-3">
                   <div className="bg-white/10 rounded-lg p-3 transform hover:translate-x-1 transition-all duration-200">
                     <div className="flex items-start gap-2">
                       <span className="text-blue-300 mt-1">🌟</span>
                       <div>
                         <strong className="text-white">L'Embuscade Tignes Le Lac</strong>
-                        <p className="text-white/80 text-xs">Bonne ambiance, populaire</p>
+                        <p className="text-white/80 text-xs">
+                          {currentLang === 'fr' 
+                            ? 'Bonne ambiance, populaire'
+                            : 'Good atmosphere, popular'
+                          }
+                        </p>
                       </div>
                     </div>
                   </div>
@@ -6089,7 +6227,12 @@ function App() {
                       <span className="text-green-300 mt-1">🎓</span>
                       <div>
                         <strong className="text-white">Jam Bar</strong>
-                        <p className="text-white/80 text-xs">Soirées étudiantes / saisonniers</p>
+                        <p className="text-white/80 text-xs">
+                          {currentLang === 'fr' 
+                            ? 'Soirées étudiantes / saisonniers'
+                            : 'Student/seasonal worker nights'
+                          }
+                        </p>
                       </div>
                     </div>
                   </div>
@@ -6098,7 +6241,12 @@ function App() {
                       <span className="text-purple-300 mt-1">🎵</span>
                       <div>
                         <strong className="text-white">The Marmot Arms</strong>
-                        <p className="text-white/80 text-xs">Pub chaleureux avec musique live selon périodes</p>
+                        <p className="text-white/80 text-xs">
+                          {currentLang === 'fr' 
+                            ? 'Pub chaleureux avec musique live selon périodes'
+                            : 'Cozy pub with live music depending on season'
+                          }
+                        </p>
                       </div>
                     </div>
                   </div>
@@ -6114,16 +6262,29 @@ function App() {
               <div className="relative z-10 p-6">
                 <h4 className="text-xl font-bold text-white mb-3 flex items-center gap-2">
                   <span className="text-2xl">😌</span>
-                  Tignes Lavachet (plus local & détendu)
+                  {currentLang === 'fr' 
+                    ? 'Tignes Lavachet (plus local & détendu)'
+                    : 'Tignes Lavachet (more local & relaxed)'
+                  }
                 </h4>
-                <p className="text-white/90 text-sm mb-4">Plus petit, ambiance conviviale</p>
+                <p className="text-white/90 text-sm mb-4">
+                  {currentLang === 'fr' 
+                    ? 'Plus petit, ambiance conviviale'
+                    : 'Smaller, friendly atmosphere'
+                  }
+                </p>
                 <div className="space-y-3">
                   <div className="bg-white/10 rounded-lg p-3 transform hover:translate-x-1 transition-all duration-200">
                     <div className="flex items-start gap-2">
                       <span className="text-orange-300 mt-1">🔥</span>
                       <div>
                         <strong className="text-white">Le Brasero</strong>
-                        <p className="text-white/80 text-xs">Bar-restaurant chaleureux</p>
+                        <p className="text-white/80 text-xs">
+                          {currentLang === 'fr' 
+                            ? 'Bar-restaurant chaleureux'
+                            : 'Cozy bar-restaurant'
+                          }
+                        </p>
                       </div>
                     </div>
                   </div>
@@ -6132,7 +6293,12 @@ function App() {
                       <span className="text-cyan-300 mt-1">⭐</span>
                       <div>
                         <strong className="text-white">TC's Bar</strong>
-                        <p className="text-white/80 text-xs">Petit bar apprécié des saisonniers</p>
+                        <p className="text-white/80 text-xs">
+                          {currentLang === 'fr' 
+                            ? 'Petit bar apprécié des saisonniers'
+                            : 'Small bar popular with seasonal workers'
+                          }
+                        </p>
                       </div>
                     </div>
                   </div>
@@ -6148,16 +6314,29 @@ function App() {
               <div className="relative z-10 p-6">
                 <h4 className="text-xl font-bold text-white mb-3 flex items-center gap-2">
                   <span className="text-2xl">🏔️</span>
-                  Tignes Les Brévières (village + authentique)
+                  {currentLang === 'fr' 
+                    ? 'Tignes Les Brévières (village + authentique)'
+                    : 'Tignes Les Brévières (village + more authentic)'
+                  }
                 </h4>
-                <p className="text-white/90 text-sm mb-4">Ambiance plus cosy, moins clubbing</p>
+                <p className="text-white/90 text-sm mb-4">
+                  {currentLang === 'fr' 
+                    ? 'Ambiance plus cosy, moins clubbing'
+                    : 'Cozier atmosphere, less clubbing'
+                  }
+                </p>
                 <div className="space-y-3">
                   <div className="bg-white/10 rounded-lg p-3 transform hover:translate-x-1 transition-all duration-200">
                     <div className="flex items-start gap-2">
                       <span className="text-indigo-300 mt-1">🎵</span>
                       <div>
                         <strong className="text-white">The Underground Bar</strong>
-                        <p className="text-white/80 text-xs">Bonne ambiance et musique</p>
+                        <p className="text-white/80 text-xs">
+                          {currentLang === 'fr' 
+                            ? 'Bonne ambiance et musique'
+                            : 'Good atmosphere and music'
+                          }
+                        </p>
                       </div>
                     </div>
                   </div>
@@ -6166,7 +6345,12 @@ function App() {
                       <span className="text-red-300 mt-1">🐂</span>
                       <div>
                         <strong className="text-white">Black Bull Pub</strong>
-                        <p className="text-white/80 text-xs">Pub convivial après-ski</p>
+                        <p className="text-white/80 text-xs">
+                          {currentLang === 'fr' 
+                            ? 'Pub convivial après-ski'
+                            : 'Friendly après-ski pub'
+                          }
+                        </p>
                       </div>
                     </div>
                   </div>
@@ -6177,32 +6361,45 @@ function App() {
 
           {/* Résumé rapide */}
           <div className="mt-8 bg-gradient-to-br from-purple-500 via-pink-500 to-rose-500 backdrop-blur-sm rounded-2xl p-6 border border-white/30">
-            <h4 className="text-xl font-bold text-white mb-4 text-center bg-white/20 inline-block px-4 py-2 rounded-lg">🎉 Résumé rapide</h4>
+            <h4 className="text-xl font-bold text-white mb-4 text-center bg-white/20 inline-block px-4 py-2 rounded-lg">
+              🎉 {currentLang === 'fr' ? 'Résumé rapide' : 'Quick summary'}
+            </h4>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
               <div className="bg-white/20 rounded-lg p-4 hover:bg-white/30 transition-colors duration-200">
                 <span className="text-3xl mb-3 block">🔥</span>
-                <strong className="text-white text-base">Fête forte</strong>
+                <strong className="text-white text-base">
+                  {currentLang === 'fr' ? 'Fête forte' : 'Big party'}
+                </strong>
                 <p className="text-gray-200 text-sm mt-2 font-semibold">→ Val Claret</p>
               </div>
               <div className="bg-white/20 rounded-lg p-4 hover:bg-white/30 transition-colors duration-200">
                 <span className="text-3xl mb-3 block">🍻</span>
-                <strong className="text-white text-base">Après-ski terrasse</strong>
+                <strong className="text-white text-base">
+                  {currentLang === 'fr' ? 'Après-ski terrasse' : 'Après-ski terrace'}
+                </strong>
                 <p className="text-gray-200 text-sm mt-2 font-semibold">→ Cocorico</p>
               </div>
               <div className="bg-white/20 rounded-lg p-4 hover:bg-white/30 transition-colors duration-200">
                 <span className="text-3xl mb-3 block">🍸</span>
-                <strong className="text-white text-base">Bar cocktails</strong>
+                <strong className="text-white text-base">
+                  {currentLang === 'fr' ? 'Bar cocktails' : 'Cocktail bar'}
+                </strong>
                 <p className="text-gray-200 text-sm mt-2 font-semibold">→ Granite Bar</p>
               </div>
               <div className="bg-white/20 rounded-lg p-4 hover:bg-white/30 transition-colors duration-200">
                 <span className="text-3xl mb-3 block">🕺</span>
-                <strong className="text-white text-base">Club tardif</strong>
+                <strong className="text-white text-base">
+                  {currentLang === 'fr' ? 'Club tardif' : 'Late club'}
+                </strong>
                 <p className="text-gray-200 text-sm mt-2 font-semibold">→ Avant Garde</p>
               </div>
             </div>
             <div className="mt-4 text-center">
               <span className="bg-gradient-to-r from-green-500 to-green-600 text-white px-4 py-2 rounded-full text-sm font-semibold hover:from-green-400 hover:to-green-500 transition-all duration-200">
-                😌 Ambiance plus détendue et locale → Lavachet ou Les Brévières
+                😌 {currentLang === 'fr' 
+                  ? 'Ambiance plus détendue et locale → Lavachet ou Les Brévières'
+                  : 'More relaxed and local atmosphere → Lavachet or Les Brévières'
+                }
               </span>
             </div>
           </div>
@@ -6228,12 +6425,19 @@ function App() {
                 </div>
                 <div className="flex-1">
                   <h3 className="text-3xl md:text-4xl font-bold text-white mb-3">
-                    Nightlife & Après-Ski à Val d'Isère 🎿🍸
+                    {currentLang === 'fr' ? 'Vie nocturne et après-ski à Val d\'Isère 🎿🍸' : 'Nightlife & Après-Ski in Val d\'Isère 🎿🍸'}
                   </h3>
                   <p className="text-xl text-white/90 mb-4">
-                    Découvrez les meilleurs bars et clubs pour des soirées inoubliables au cœur des Alpes 🎿🍸
-                    <br />
-                    <span className="text-yellow-300 font-semibold">*(Ambiance souvent plus festive et "internationale" qu'à Tignes)*</span>
+                    {currentLang === 'fr' 
+                      ? 'Découvrez les meilleurs bars et clubs pour des soirées inoubliables au cœur des Alpes 🎿🍸\n*(Ambiance souvent plus festive et internationale qu\'à Tignes)*'
+                      : 'Discover the best bars and clubs for unforgettable nights out in the heart of the Alps 🎿🍸\n*(Often a more festive and "international" atmosphere than in Tignes)*'
+                    }
+                  </p>
+                  <p className="text-indigo-300 mt-1">
+                    {currentLang === 'fr' 
+                      ? '*(Ambiance souvent plus festive et internationale qu\'à Tignes)*'
+                      : '*(Often a more festive and "international" atmosphere than in Tignes)*'
+                    }
                   </p>
                 </div>
               </div>
@@ -6243,7 +6447,7 @@ function App() {
                 <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20 transform hover:scale-105 transition-all duration-200">
                   <h4 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
                     <span className="text-2xl">🍸</span>
-                    Bars & Apéro animés
+                    {currentLang === 'fr' ? 'Bars animés et après-ski' : 'Lively Bars & Après-Ski'}
                   </h4>
                   <div className="space-y-3">
                     <div className="bg-white/10 rounded-lg p-3 transform hover:translate-x-1 transition-all duration-200">
@@ -6251,7 +6455,12 @@ function App() {
                         <span className="text-yellow-300 mt-1">⭐</span>
                         <div>
                           <strong className="text-white">Cocorico</strong>
-                          <p className="text-white/80 text-xs">Iconique • Terrasse • DJ live • Ambiance festive</p>
+                          <p className="text-white/80 text-xs">
+                          {currentLang === 'fr' 
+                            ? 'Icône • Terrasse • DJ en live • Ambiance festive'
+                            : 'Iconic • Terrace • Live DJ • Festive atmosphere'
+                          }
+                        </p>
                         </div>
                       </div>
                     </div>
@@ -6260,7 +6469,12 @@ function App() {
                         <span className="text-pink-300 mt-1">🎭</span>
                         <div>
                           <strong className="text-white">La Folie Douce</strong>
-                          <p className="text-white/80 text-xs">Légendaire • Shows live • Champagne • Sur pistes</p>
+                          <p className="text-white/80 text-xs">
+                          {currentLang === 'fr' 
+                            ? 'Légendaire • Spectacles • Champagne • Au pied des pistes'
+                            : 'Legendary • Shows • Champagne • At the foot of the slopes'
+                          }
+                        </p>
                         </div>
                       </div>
                     </div>
@@ -6269,7 +6483,12 @@ function App() {
                         <span className="text-indigo-300 mt-1">🍹</span>
                         <div>
                           <strong className="text-white">Dick's Tea Bar</strong>
-                          <p className="text-white/80 text-xs">Institution • Bar + club • Très animé</p>
+                          <p className="text-white/80 text-xs">
+                          {currentLang === 'fr' 
+                            ? 'Institution • Bar + Club • Très animé'
+                            : 'Institution • Bar + Club • Very lively'
+                          }
+                        </p>
                         </div>
                       </div>
                     </div>
@@ -6280,7 +6499,7 @@ function App() {
                 <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20 transform hover:scale-105 transition-all duration-200">
                   <h4 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
                     <span className="text-2xl">🍻</span>
-                    Spots Premium & Conviviaux
+                    {currentLang === 'fr' ? 'Lieux conviviaux et haut de gamme' : 'Friendly & Upscale Places'}
                   </h4>
                   <div className="space-y-3">
                     <div className="bg-white/10 rounded-lg p-3 transform hover:translate-x-1 transition-all duration-200">
@@ -6288,7 +6507,12 @@ function App() {
                         <span className="text-amber-300 mt-1">🎸</span>
                         <div>
                           <strong className="text-white">Le Petit Danois</strong>
-                          <p className="text-white/80 text-xs">Pub populaire • Live music • International</p>
+                          <p className="text-white/80 text-xs">
+                          {currentLang === 'fr' 
+                            ? 'Pub populaire • Musique live • International'
+                            : 'Popular pub • Live music • International'
+                          }
+                        </p>
                         </div>
                       </div>
                     </div>
@@ -6297,7 +6521,12 @@ function App() {
                         <span className="text-cyan-300 mt-1">🍺</span>
                         <div>
                           <strong className="text-white">The Underground Bar</strong>
-                          <p className="text-white/80 text-xs">Détendu • DJ le soir • Ambiance chill</p>
+                          <p className="text-white/80 text-xs">
+                          {currentLang === 'fr' 
+                            ? 'Détendu • DJ en soirée • Ambiance chill'
+                            : 'Relaxed • Evening DJ • Chill atmosphere'
+                          }
+                        </p>
                         </div>
                       </div>
                     </div>
@@ -6306,7 +6535,12 @@ function App() {
                         <span className="text-blue-300 mt-1">🥃</span>
                         <div>
                           <strong className="text-white">The M Bar</strong>
-                          <p className="text-white/80 text-xs">Cocktails • Cadre cosy • Moderne</p>
+                          <p className="text-white/80 text-xs">
+                          {currentLang === 'fr' 
+                            ? 'Cocktails • Cadre cosy • Moderne'
+                            : 'Cocktails • Cosy setting • Modern'
+                          }
+                        </p>
                         </div>
                       </div>
                     </div>
@@ -6317,7 +6551,7 @@ function App() {
                 <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20 transform hover:scale-105 transition-all duration-200">
                   <h4 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
                     <span className="text-2xl">🕺</span>
-                    Clubs / Soirée tardive
+                    {currentLang === 'fr' ? 'Clubs / Soirée tardive' : 'Clubs / Late Night'}
                   </h4>
                   <div className="space-y-3 mb-4">
                     <div className="bg-white/10 rounded-lg p-3 transform hover:translate-x-1 transition-all duration-200">
@@ -6325,14 +6559,28 @@ function App() {
                         <span className="text-red-300 mt-1">🕺</span>
                         <div>
                           <strong className="text-white">Doudoune Club</strong>
-                          <p className="text-white/80 text-xs">Mythique • DJ internationaux • Premium</p>
+                          <p className="text-white/80 text-xs">
+                          {currentLang === 'fr' 
+                            ? 'Légendaire • DJ internationaux • Premium'
+                            : 'Legendary • International DJs • Premium'
+                          }
+                        </p>
                         </div>
                       </div>
                     </div>
                   </div>
                   <div className="mt-4 pt-4 border-t border-white/20">
                     <p className="text-white/90 text-sm">
-                      <strong className="text-white">💡 Tips pour la nuit à Val d'Isère :</strong> Ambiance haut de gamme, clientèle internationale, après-ski dès 15h30, bars animés 21h-23h, clubs à partir de 23h30.
+                      <strong className="text-white">
+                        {currentLang === 'fr' 
+                          ? '💡 Bons plans Val d\'Isère Nightlife :'
+                          : '💡 Val d\'Isère Nightlife Tips:'
+                        }
+                      </strong> 
+                      {currentLang === 'fr' 
+                        ? ' Ambiance huppée, clientèle internationale, après-ski à partir de 15h30, bars animés de 21h à 23h, clubs à partir de 23h30.'
+                        : ' Upscale atmosphere, international clientele, après-ski from 3:30 PM, lively bars from 9-11 PM, clubs from 11:30 PM.'
+                      }
                     </p>
                   </div>
                 </div>
@@ -6340,40 +6588,52 @@ function App() {
 
               {/* Timeline et badges */}
               <div className="mt-6 bg-white/10 backdrop-blur-sm rounded-2xl p-4 md:p-6 border border-white/20 transform hover:scale-105 transition-all duration-200">
-                <h4 className="text-lg md:text-xl font-bold text-white mb-3 md:mb-4 text-center">🌙 Timeline Nuit Premium à Val d'Isère</h4>
+                <h4 className="text-lg md:text-xl font-bold text-white mb-3 md:mb-4 text-center">
+                    {currentLang === 'fr' 
+                      ? '🌙 Chronologie de la vie nocturne Premium de Val d\'Isère'
+                      : '🌙 Val d\'Isère Premium Nightlife Timeline'
+                    }
+                  </h4>
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
                   <div className="text-center">
                     <div className="bg-gradient-to-br from-yellow-400 to-orange-400 rounded-lg p-2 md:p-3 mb-1 md:mb-2">
-                      <div className="text-sm md:text-lg font-bold text-white">15h30-16h00</div>
+                      <div className="text-sm md:text-lg font-bold text-white">{currentLang === 'fr' ? '15h30 - 16h' : '3:30 PM - 4:00 PM'}</div>
                     </div>
-                    <p className="text-white/80 text-xs">Après-ski premium</p>
-                    <p className="text-yellow-300 text-xs font-semibold">Cocorico • Folie Douce</p>
+                    <p className="text-white/80 text-xs">{currentLang === 'fr' ? 'Après-ski Premium' : 'Premium Après-Ski'}</p>
+                    <p className="text-yellow-300 text-xs font-semibold">{currentLang === 'fr' ? 'Cocorico • Folie Douce' : 'Cocorico • La Folie Douce'}</p>
                   </div>
                   <div className="text-center">
                     <div className="bg-gradient-to-br from-pink-400 to-rose-400 rounded-lg p-2 md:p-3 mb-1 md:mb-2">
-                      <div className="text-sm md:text-lg font-bold text-white">19h30-21h00</div>
+                      <div className="text-sm md:text-lg font-bold text-white">{currentLang === 'fr' ? '19h30 - 21h' : '7:30 PM - 9:00 PM'}</div>
                     </div>
-                    <p className="text-white/80 text-xs">Dîner chic</p>
-                    <p className="text-pink-300 text-xs font-semibold">Restaurants haut de gamme</p>
+                    <p className="text-white/80 text-xs">
+                      {currentLang === 'fr' ? 'Dîner chic' : 'Fine dining'}
+                    </p>
+                    <p className="text-pink-300 text-xs font-semibold">{currentLang === 'fr' ? 'Restaurants haut de gamme' : 'Upscale Restaurants'}</p>
                   </div>
                   <div className="text-center">
                     <div className="bg-gradient-to-br from-purple-400 to-indigo-400 rounded-lg p-2 md:p-3 mb-1 md:mb-2">
-                      <div className="text-sm md:text-lg font-bold text-white">21h00-23h00</div>
+                      <div className="text-sm md:text-lg font-bold text-white">{currentLang === 'fr' ? '21h00 - 23h00' : '9:00 PM - 11:00 PM'}</div>
                     </div>
-                    <p className="text-white/80 text-xs">Bars animés</p>
-                    <p className="text-purple-300 text-xs font-semibold">Dick's • Petit Danois</p>
+                    <p className="text-white/80 text-xs">
+                      {currentLang === 'fr' ? 'Bars animés' : 'Lively bars'}
+                    </p>
+                    <p className="text-purple-300 text-xs font-semibold">{currentLang === 'fr' ? 'Dick\'s • Petit Danois' : 'Dick\'s • Le Petit Danois'}</p>
                   </div>
                   <div className="text-center">
                     <div className="bg-gradient-to-br from-red-400 to-rose-400 rounded-lg p-2 md:p-3 mb-1 md:mb-2">
                       <div className="text-sm md:text-lg font-bold text-white">23h30+</div>
                     </div>
-                    <p className="text-white/80 text-xs">Club time</p>
-                    <p className="text-red-300 text-xs font-semibold">Doudoune Club</p>
+                    <p className="text-white/80 text-xs">{currentLang === 'fr' ? 'Temps du club' : 'Club Time'}</p>
+                    <p className="text-red-300 text-xs font-semibold">{currentLang === 'fr' ? 'Club Doudoune' : 'Doudoune Club'}</p>
                   </div>
                 </div>
                 <div className="mt-3 md:mt-4 text-center">
                   <span className="bg-gradient-to-r from-purple-500 to-pink-500 text-white px-2 py-1 md:px-3 md:py-1 rounded-full text-xs md:text-sm font-semibold">
-                    🎯 Ambiance "party haut de gamme" • Clientèle internationale • Plus upscale que Tignes
+                    {currentLang === 'fr' 
+                      ? '🎯 Ambiance de fête haut de gamme • Clientèle internationale • Plus haut de gamme que Tignes'
+                      : '🎯 High-end party atmosphere • International clientele • More upscale than Tignes'
+                    }
                   </span>
                 </div>
               </div>
@@ -6401,12 +6661,23 @@ function App() {
                 </div>
                 <div className="flex-1">
                   <h3 className="text-3xl md:text-4xl font-bold text-white mb-3">
-                    Nightlife & Après-Ski aux Arcs 🎿🍹
+                    {currentLang === 'fr' 
+                      ? 'Vie nocturne et après-ski aux Arcs 🎿🍹'
+                      : 'Nightlife & Après-Ski in Les Arcs 🎿🍹'
+                    }
                   </h3>
                   <p className="text-xl text-white/90 mb-4">
-                    Une sélection de bars branchés et animés aux Arcs (Savoie) — parfaits pour l'après-ski, boire un verre entre amis ou faire la fête ?￰ﾟﾍﾹ
+                    {currentLang === 'fr' 
+                      ? 'Une sélection de bars branchés et animés aux Arcs (Savoie) — parfaits pour l\'après-ski, un verre entre amis ou faire la fête ! 🍸'
+                      : 'A selection of trendy and lively bars in Les Arcs (Savoie) — perfect for après-ski, a drink with friends, or partying! 🍸'
+                    }
                     <br />
-                    <span className="text-yellow-300 font-semibold">(L'ambiance varie selon les villages : Arc 1800 = le plus festif, Arc 1950 = chic & cosy, Arc 2000 = plus sportif, Arc 1600 = plus calme)</span>
+                    <span className="text-yellow-300 font-semibold">
+                      {currentLang === 'fr' 
+                        ? '(L\'ambiance varie selon le village : Arc 1800 = très festif, Arc 1950 = chic et cosy, Arc 2000 = plus sportif, Arc 1600 = plus décontracté)'
+                        : '(The atmosphere varies by village: Arc 1800 = very festive, Arc 1950 = chic and cozy, Arc 2000 = more sporty, Arc 1600 = more relaxed)'
+                      }
+                    </span>
                   </p>
                 </div>
               </div>
@@ -6416,7 +6687,10 @@ function App() {
                 <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20 transform hover:scale-105 transition-all duration-200">
                   <h4 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
                     <span className="text-2xl">🍸</span>
-                    Bars & Apéro animés
+                    {currentLang === 'fr' 
+                      ? 'Bars animés et happy hours'
+                      : 'Lively Bars & Happy Hours'
+                    }
                   </h4>
                   <div className="space-y-3">
                     <div className="bg-white/10 rounded-lg p-3 transform hover:translate-x-1 transition-all duration-200">
@@ -6424,7 +6698,12 @@ function App() {
                         <span className="text-yellow-300 mt-1">⭐</span>
                         <div>
                           <strong className="text-white">Red Hot Saloon</strong>
-                          <p className="text-white/80 text-xs">Institution de l'après-ski aux Arcs 1800. Terrasse plein soleil, DJ, ambiance festive dès 16h.</p>
+                          <p className="text-white/80 text-xs">
+                            {currentLang === 'fr' 
+                              ? 'Une institution après-ski aux Arcs 1800. Terrasse ensoleillée, DJ, ambiance festive dès 16h.'
+                              : 'An après-ski institution in Arcs 1800. Sunny terrace, DJ, festive atmosphere from 4 PM.'
+                            }
+                          </p>
                         </div>
                       </div>
                     </div>
@@ -6433,7 +6712,12 @@ function App() {
                         <span className="text-pink-300 mt-1">🎭</span>
                         <div>
                           <strong className="text-white">Chez Boubou</strong>
-                          <p className="text-white/80 text-xs">Bar très animé, cocktails, bonne musique et public international.</p>
+                          <p className="text-white/80 text-xs">
+                            {currentLang === 'fr' 
+                              ? 'Bar animé, cocktails, bonne musique et clientèle internationale.'
+                              : 'Lively bar, cocktails, good music and international clientele.'
+                            }
+                          </p>
                         </div>
                       </div>
                     </div>
@@ -6442,7 +6726,12 @@ function App() {
                         <span className="text-indigo-300 mt-1">🍹</span>
                         <div>
                           <strong className="text-white">The George</strong>
-                          <p className="text-white/80 text-xs">Pub élégant et convivial, parfait pour début de soirée dans une ambiance chic.</p>
+                          <p className="text-white/80 text-xs">
+                            {currentLang === 'fr' 
+                              ? 'Pub élégant et convivial, idéal pour commencer la soirée dans une ambiance chic.'
+                              : 'Elegant and friendly pub, ideal for starting the evening in a chic atmosphere.'
+                            }
+                          </p>
                         </div>
                       </div>
                     </div>
@@ -6451,7 +6740,12 @@ function App() {
                         <span className="text-cyan-300 mt-1">🍺</span>
                         <div>
                           <strong className="text-white">O'Chaud</strong>
-                          <p className="text-white/80 text-xs">Ambiance cosy, idéal pour un apéro plus détendu avant de sortir.</p>
+                          <p className="text-white/80 text-xs">
+                            {currentLang === 'fr' 
+                              ? 'Ambiance chaleureuse, idéal pour un apéritif décontracté avant de sortir.'
+                              : 'Warm atmosphere, ideal for a relaxed drink before going out.'
+                            }
+                          </p>
                         </div>
                       </div>
                     </div>
@@ -6460,7 +6754,12 @@ function App() {
                         <span className="text-blue-300 mt-1">🍹</span>
                         <div>
                           <strong className="text-white">L'Aiguille Grive Bar</strong>
-                          <p className="text-white/80 text-xs">Terrasse agréable et ambiance chaleureuse, bon spot sunset.</p>
+                          <p className="text-white/80 text-xs">
+                            {currentLang === 'fr' 
+                              ? 'Terrasse agréable et ambiance conviviale, superbe endroit pour admirer le coucher du soleil.'
+                              : 'Pleasant terrace and friendly atmosphere, superb spot to watch the sunset.'
+                            }
+                          </p>
                         </div>
                       </div>
                     </div>
@@ -6471,7 +6770,10 @@ function App() {
                 <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20 transform hover:scale-105 transition-all duration-200">
                   <h4 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
                     <span className="text-2xl">🍻</span>
-                    Spots après-ski & lieux conviviaux
+                    {currentLang === 'fr' 
+                      ? 'Spots après-ski & lieux conviviaux'
+                      : 'Après-Ski Spots & Friendly Places'
+                    }
                   </h4>
                   <div className="space-y-3">
                     <div className="bg-white/10 rounded-lg p-3 transform hover:translate-x-1 transition-all duration-200">
@@ -6479,7 +6781,12 @@ function App() {
                         <span className="text-green-300 mt-1">🌴</span>
                         <div>
                           <strong className="text-white">Jungle Café</strong>
-                          <p className="text-white/80 text-xs">Ambiance festive avec DJ, piste de danse, très populaire en saison.</p>
+                          <p className="text-white/80 text-xs">
+                            {currentLang === 'fr' 
+                              ? 'Ambiance festive avec DJ et piste de danse, très populaire en saison.'
+                              : 'Festive atmosphere with DJ and dance floor, very popular in season.'
+                            }
+                          </p>
                         </div>
                       </div>
                     </div>
@@ -6488,7 +6795,12 @@ function App() {
                         <span className="text-purple-300 mt-1">🐑</span>
                         <div>
                           <strong className="text-white">Black Sheep Pub</strong>
-                          <p className="text-white/80 text-xs">Pub animé avec sport à l'écran, bières pression et bonne ambiance internationale.</p>
+                          <p className="text-white/80 text-xs">
+                            {currentLang === 'fr' 
+                              ? 'Pub animé avec retransmission de matchs, bières pression et une ambiance internationale.'
+                              : 'Lively pub with sports broadcasts, draft beers and international atmosphere.'
+                            }
+                          </p>
                         </div>
                       </div>
                     </div>
@@ -6497,7 +6809,12 @@ function App() {
                         <span className="text-amber-300 mt-1">🏔</span>
                         <div>
                           <strong className="text-white">La Cabane des Neiges</strong>
-                          <p className="text-white/80 text-xs">Spot convivial proche des pistes, parfait après une grosse journée ski.</p>
+                          <p className="text-white/80 text-xs">
+                            {currentLang === 'fr' 
+                              ? 'Lieu convivial à proximité des pistes, parfait après une longue journée de ski.'
+                              : 'Friendly place near the slopes, perfect after a long day of skiing.'
+                            }
+                          </p>
                         </div>
                       </div>
                     </div>
@@ -6506,7 +6823,12 @@ function App() {
                         <span className="text-orange-300 mt-1">🍺</span>
                         <div>
                           <strong className="text-white">Les Belles Pintes</strong>
-                          <p className="text-white/80 text-xs">Bar à bières convivial, ambiance détendue mais animée en soirée.</p>
+                          <p className="text-white/80 text-xs">
+                            {currentLang === 'fr' 
+                              ? 'Bar à bières convivial, ambiance décontractée mais animée en soirée.'
+                              : 'Friendly beer bar, relaxed but lively atmosphere in the evening.'
+                            }
+                          </p>
                         </div>
                       </div>
                     </div>
@@ -6517,7 +6839,10 @@ function App() {
                 <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20 transform hover:scale-105 transition-all duration-200">
                   <h4 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
                     <span className="text-2xl">🕺</span>
-                    Clubs / Soirée tardive
+                    {currentLang === 'fr' 
+                      ? 'Clubs / Soirées tardives'
+                      : 'Clubs / Late Night'
+                    }
                   </h4>
                   <div className="space-y-3 mb-4">
                     <div className="bg-white/10 rounded-lg p-3 transform hover:translate-x-1 transition-all duration-200">
@@ -6525,14 +6850,28 @@ function App() {
                         <span className="text-red-300 mt-1">🎪</span>
                         <div>
                           <strong className="text-white">Le Carré</strong>
-                          <p className="text-white/80 text-xs">Club principal des Arcs 1800 pour danser tard.</p>
+                          <p className="text-white/80 text-xs">
+                            {currentLang === 'fr' 
+                              ? 'Le club incontournable des Arcs 1800 pour danser jusqu\'au bout de la nuit.'
+                              : 'The must-visit club in Arcs 1800 for dancing until dawn.'
+                            }
+                          </p>
                         </div>
                       </div>
                     </div>
                   </div>
                   <div className="mt-4 pt-4 border-t border-white/20">
                     <p className="text-white/90 text-sm">
-                      <strong className="text-white">💡 Tips pour la nuit aux Arcs :</strong> L'après-ski commence vers 15h30–16h (terrasses plein soleil). Ambiance DJ vers 17h–19h. Dîner puis bars animés vers 21h–23h. Club après 23h30/minuit en saison.
+                      <strong className="text-white">
+                        {currentLang === 'fr' 
+                          ? '💡 Conseils pour les sorties nocturnes aux Arcs :'
+                          : '💡 Les Arcs Nightlife Tips:'
+                        }
+                      </strong> 
+                      {currentLang === 'fr' 
+                        ? ' L\'après-ski commence vers 15h30-16h (terrasses ensoleillées). DJ sets vers 17h-19h. Dîner suivi de bars animés vers 21h-23h. Les clubs ouvrent après 23h30/minuit en haute saison.'
+                        : ' Après-ski starts around 3:30-4 PM (sunny terraces). DJ sets from 5-7 PM. Dinner followed by lively bars from 9-11 PM. Clubs open after 11:30 PM/midnight in high season.'
+                      }
                     </p>
                   </div>
                 </div>
@@ -6540,47 +6879,55 @@ function App() {
 
               {/* Timeline et badges */}
               <div className="mt-6 bg-white/10 backdrop-blur-sm rounded-2xl p-4 md:p-6 border border-white/20 transform hover:scale-105 transition-all duration-200">
-                <h4 className="text-lg md:text-xl font-bold text-white mb-3 md:mb-4 text-center">🌙 Timeline Nuit Typique aux Arcs</h4>
+                <h4 className="text-lg md:text-xl font-bold text-white mb-3 md:mb-4 text-center">
+                    {currentLang === 'fr' 
+                      ? '🌙 Déroulement d\'une soirée type aux Arcs'
+                      : '🌙 Typical Evening Flow in Les Arcs'
+                    }
+                  </h4>
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
                   <div className="text-center">
                     <div className="bg-gradient-to-br from-green-400 to-emerald-400 rounded-lg p-2 md:p-3 mb-1 md:mb-2">
-                      <div className="text-sm md:text-lg font-bold text-white">15h30-16h00</div>
+                      <div className="text-sm md:text-lg font-bold text-white">{currentLang === 'fr' ? '15h30-16h' : '3:30-4 PM'}</div>
                     </div>
-                    <p className="text-white/80 text-xs">Après-ski animé</p>
+                    <p className="text-white/80 text-xs">{currentLang === 'fr' ? 'Après-ski animé' : 'Lively Après-Ski'}</p>
                     <p className="text-green-300 text-xs font-semibold">Red Hot Saloon • Jungle Café</p>
                   </div>
                   <div className="text-center">
                     <div className="bg-gradient-to-br from-blue-400 to-cyan-400 rounded-lg p-2 md:p-3 mb-1 md:mb-2">
-                      <div className="text-sm md:text-lg font-bold text-white">17h00-19h00</div>
+                      <div className="text-sm md:text-lg font-bold text-white">{currentLang === 'fr' ? '17h-19h' : '5-7 PM'}</div>
                     </div>
-                    <p className="text-white/80 text-xs">Dîner chic</p>
-                    <p className="text-blue-300 text-xs font-semibold">The George • Chez Boubou</p>
+                    <p className="text-white/80 text-xs">{currentLang === 'fr' ? 'Dîner chic' : 'Elegant Dinner'}</p>
+                    <p className="text-blue-300 text-xs font-semibold">Le George • Chez Boubou</p>
                   </div>
                   <div className="text-center">
                     <div className="bg-gradient-to-br from-purple-400 to-indigo-400 rounded-lg p-2 md:p-3 mb-1 md:mb-2">
-                      <div className="text-sm md:text-lg font-bold text-white">19h00-21h00</div>
+                      <div className="text-sm md:text-lg font-bold text-white">{currentLang === 'fr' ? '19h-21h' : '7-9 PM'}</div>
                     </div>
-                    <p className="text-white/80 text-xs">Bars animés</p>
+                    <p className="text-white/80 text-xs">{currentLang === 'fr' ? 'Bars animés' : 'Lively Bars'}</p>
                     <p className="text-purple-300 text-xs font-semibold">Black Sheep Pub • Les Belles Pintes</p>
                   </div>
                   <div className="text-center">
                     <div className="bg-gradient-to-br from-red-400 to-rose-400 rounded-lg p-2 md:p-3 mb-1 md:mb-2">
-                      <div className="text-sm md:text-lg font-bold text-white">21h00-23h00</div>
+                      <div className="text-sm md:text-lg font-bold text-white">{currentLang === 'fr' ? '21h-23h' : '9-11 PM'}</div>
                     </div>
-                    <p className="text-white/80 text-xs">Club time</p>
+                    <p className="text-white/80 text-xs">{currentLang === 'fr' ? 'Soirée en club' : 'Club Party'}</p>
                     <p className="text-red-300 text-xs font-semibold">Le Carré</p>
                   </div>
                   <div className="text-center">
                     <div className="bg-gradient-to-br from-orange-400 to-yellow-400 rounded-lg p-2 md:p-3 mb-1 md:mb-2">
                       <div className="text-sm md:text-lg font-bold text-white">23h30+</div>
                     </div>
-                    <p className="text-white/80 text-xs">Club tardif</p>
+                    <p className="text-white/80 text-xs">{currentLang === 'fr' ? 'Club tardif' : 'Late Club'}</p>
                     <p className="text-orange-300 text-xs font-semibold">La Folie Douce</p>
                   </div>
                 </div>
                 <div className="mt-3 md:mt-4 text-center">
                   <span className="bg-gradient-to-r from-purple-500 to-pink-500 text-white px-2 py-1 md:px-3 md:py-1 rounded-full text-xs md:text-sm font-semibold">
-                    🎯 Ambiance festive • Mix international • Plus accessible que Val d'Isère
+                    {currentLang === 'fr' 
+                      ? '🎯 Ambiance festive • Mix international • Plus accessible que Val d\'Isère'
+                      : '🎯 Festive atmosphere • International mix • More accessible than Val d\'Isère'
+                    }
                   </span>
                 </div>
               </div>
@@ -6603,10 +6950,10 @@ function App() {
               <CloudSun className="h-8 w-8 text-white" />
             </div>
             <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-sky-600 via-blue-600 to-indigo-600 bg-clip-text text-transparent mb-4">
-              Météo (J+7)
+              {currentLang === 'fr' ? 'Météo (Prévisions à 7 jours)' : 'Weather (7-Day Forecast)'}
             </h2>
             <p className="text-xl text-gray-700 max-w-3xl mx-auto">
-              Temps réel et prévisions détaillées pour Tignes, Val d'Isère et Les Arcs
+              {currentLang === 'fr' ? 'Prévisions détaillées et en temps réel pour Tignes, Val d\'Isère et Les Arcs' : 'Real-time and detailed forecast for Tignes, Val d\'Isère, and Les Arcs'}
             </p>
           </div>
           
@@ -6618,12 +6965,12 @@ function App() {
                 </div>
                 <div>
                   <h3 className="text-2xl font-bold text-gray-900">Tignes</h3>
-                  <p className="text-sm text-gray-600">Station de haute altitude</p>
+                  <p className="text-sm text-gray-600">{currentLang === 'fr' ? 'Station d\'altitude' : 'High-altitude resort'}</p>
                 </div>
               </div>
               <div className="bg-gradient-to-r from-sky-50 to-blue-50 rounded-xl p-4 mb-6 transform hover:scale-105 transition-all duration-200">
                 <div className="flex items-center justify-between">
-                  <span className="text-lg font-semibold text-gray-700">Température actuelle</span>
+                  <span className="text-lg font-semibold text-gray-700">{currentLang === 'fr' ? 'Température actuelle ' : 'Current temperature '}</span>
                   <span className="text-3xl font-bold bg-gradient-to-r from-sky-600 to-blue-600 bg-clip-text text-transparent">
                     {weather.tignes?.current?.temperature_2m ?? '--'}°C
                   </span>
@@ -6639,12 +6986,12 @@ function App() {
                 </div>
                 <div>
                   <h3 className="text-2xl font-bold text-gray-900">Val d'Isère</h3>
-                  <p className="text-sm text-gray-600">Station historique</p>
+                  <p className="text-sm text-gray-600">{currentLang === 'fr' ? 'Station historique' : 'Historic resort'}</p>
                 </div>
               </div>
               <div className="bg-gradient-to-r from-indigo-50 to-purple-50 rounded-xl p-4 mb-6 transform hover:scale-105 transition-all duration-200">
                 <div className="flex items-center justify-between">
-                  <span className="text-lg font-semibold text-gray-700">Température actuelle</span>
+                  <span className="text-lg font-semibold text-gray-700">{currentLang === 'fr' ? 'Température actuelle ' : 'Current temperature '}</span>
                   <span className="text-3xl font-bold bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
                     {weather.val?.current?.temperature_2m ?? '--'}°C
                   </span>
@@ -6660,12 +7007,12 @@ function App() {
                 </div>
                 <div>
                   <h3 className="text-2xl font-bold text-gray-900">Les Arcs</h3>
-                  <p className="text-sm text-gray-600">Domaine Paradiski</p>
+                  <p className="text-sm text-gray-600">{currentLang === 'fr' ? 'Domaine Paradiski' : 'Paradiski Area'}</p>
                 </div>
               </div>
               <div className="bg-gradient-to-r from-purple-50 to-pink-50 rounded-xl p-4 mb-6 transform hover:scale-105 transition-all duration-200">
                 <div className="flex items-center justify-between">
-                  <span className="text-lg font-semibold text-gray-700">Température actuelle</span>
+                  <span className="text-lg font-semibold text-gray-700">{currentLang === 'fr' ? 'Température actuelle ' : 'Current temperature '}</span>
                   <span className="text-3xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
                     {weather.arcs?.current?.temperature_2m ?? '--'}°C
                   </span>
@@ -6678,7 +7025,7 @@ function App() {
           <div className="mt-12 text-center">
             <div className="inline-flex items-center gap-2 px-6 py-3 bg-white/80 backdrop-blur-sm rounded-full shadow-lg border border-white/20">
               <Cloud className="h-5 w-5 text-blue-500" />
-              <span className="text-sm text-gray-600">Source: Open-Meteo (libre) – peut être migrée en API serveur</span>
+              <span className="text-sm text-gray-600">{currentLang === 'fr' ? 'Source : Open-Meteo (libre) – peut être migrée en API serveur' : 'Source: Open-Meteo (free) – can be migrated to a server API'}</span>
             </div>
           </div>
         </div>
@@ -6699,10 +7046,10 @@ function App() {
               <ShieldAlert className="h-8 w-8 text-white" />
             </div>
             <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-orange-600 via-amber-600 to-yellow-600 bg-clip-text text-transparent mb-4">
-              Risques d'avalanche & Sécurité
+              {currentLang === 'fr' ? 'Risques d\'avalanche & Sécurité' : 'Avalanche Risks & Safety'}
             </h2>
             <p className="text-xl text-gray-700 max-w-3xl mx-auto">
-              Informations essentielles pour pratiquer en toute sécurité dans l'Espace Killy
+              {currentLang === 'fr' ? 'Informations essentielles pour pratiquer en toute sécurité dans l\'Espace Killy' : 'Essential information for safe skiing in the Espace Killy'}
             </p>
           </div>
           
@@ -6713,15 +7060,15 @@ function App() {
                   <AlertTriangle className="h-6 w-6 text-white" />
                 </div>
                 <div>
-                  <h3 className="text-2xl font-bold text-gray-900">Bulletin d'avalanche</h3>
-                  <p className="text-sm text-gray-600">Sources officielles et fiables</p>
+                  <h3 className="text-2xl font-bold text-gray-900">{currentLang === 'fr' ? 'Bulletin d\'avalanche' : 'Avalanche bulletin'}</h3>
+                  <p className="text-sm text-gray-600">{currentLang === 'fr' ? 'Sources officielles et fiables' : 'Official and reliable sources'}</p>
                 </div>
               </div>
               <div className="space-y-4">
                 {[
-                  { href: "https://meteofrance.com/previsions-meteo-france/val-d-isere/73150", title: "METEO FRANCE", desc: "Météo Val d'Isère" },
-                  { href: "https://meteofrance.com/meteo-montagne/tignes/732961", title: "METEO FRANCE", desc: "Météo Tignes" },
-                  { href: "https://www.anena.org/", title: "ANENA", desc: "Association Nationale pour l'Étude de la Neige et des Avalanches" },
+                  { href: "https://meteofrance.com/previsions-meteo-france/val-d-isere/73150", title: "METEO FRANCE", desc: currentLang === 'fr' ? "Météo Val d'Isère" : "Val d'Isère weather" },
+                  { href: "https://meteofrance.com/meteo-montagne/tignes/732961", title: "METEO FRANCE", desc: currentLang === 'fr' ? "Météo Tignes" : "Tignes weather" },
+                  { href: "https://www.anena.org/", title: "ANENA", desc: currentLang === 'fr' ? "Association Nationale pour l'Étude de la Neige et des Avalanches" : "National Association for the Study of Snow and Avalanches" },
                   { href: "https://www.avalanches.org/", title: "European Avalanche Services", desc: "Alps" }
                 ].map((link, i) => (
                   <a key={i} href={link.href} target="_blank" rel="noreferrer" 
@@ -6742,8 +7089,8 @@ function App() {
                   <CloudSnow className="h-6 w-6 text-white" />
                 </div>
                 <div>
-                  <h3 className="text-2xl font-bold text-gray-900">Météo & Enneigement</h3>
-                  <p className="text-sm text-gray-600">Conditions en temps réel</p>
+                  <h3 className="text-2xl font-bold text-gray-900">{currentLang === 'fr' ? 'Météo & Enneigement' : 'Weather & Snow Conditions'}</h3>
+                  <p className="text-sm text-gray-600">{currentLang === 'fr' ? 'Conditions en temps réel' : 'Real-time conditions'}</p>
                 </div>
               </div>
               <div className="space-y-6">
@@ -6754,9 +7101,9 @@ function App() {
                   </h4>
                   <div className="space-y-2">
                     {[
-                      { href: "https://www.valdisere.com/live/enneigement/", title: "État des pistes et enneigement en direct" },
-                      { href: "https://www.valdisere.com/live/meteo-a-val-disere/", title: "Météo & ouverture du col de l'Iseran" },
-                      { href: "https://valdisere.roundshot.com/", title: "Webcams en direct" }
+                      { href: "https://www.valdisere.com/live/enneigement/", title: currentLang === 'fr' ? "État des pistes et enneigement en direct" : "Live piste conditions and snow conditions" },
+                      { href: "https://www.valdisere.com/live/meteo-a-val-disere/", title: currentLang === 'fr' ? "Météo & ouverture du col de l'Iseran" : "Weather & opening of the Col de l'Iseran" },
+                      { href: "https://valdisere.roundshot.com/", title: currentLang === 'fr' ? "Webcams en direct" : "Live webcams" }
                     ].map((link, i) => (
                       <a key={i} href={link.href} target="_blank" rel="noreferrer"
                          className="flex items-center justify-between p-3 bg-gradient-to-r from-blue-50 to-cyan-50 rounded-lg hover:from-blue-100 hover:to-cyan-100 transition-all duration-300 group transform hover:scale-105 hover:translate-x-1">
@@ -6773,7 +7120,7 @@ function App() {
                   </h4>
                   <a href="https://www.snowtrex.fr/france/val_disere/meteo.html" target="_blank" rel="noreferrer"
                      className="flex items-center justify-between p-3 bg-gradient-to-r from-orange-50 to-amber-50 rounded-lg hover:from-orange-100 hover:to-amber-100 transition-all duration-300 group transform hover:scale-105 hover:translate-x-1">
-                    <span className="text-gray-700 group-hover:text-orange-600">Météo et prévisions neige</span>
+                    <span className="text-gray-700 group-hover:text-orange-600">{currentLang === 'fr' ? 'Météo et prévisions neige' : 'Weather and snow forecast'}</span>
                     <ChevronDown className="h-4 w-4 text-gray-400 rotate-270 group-hover:translate-x-1 transition-transform" />
                   </a>
                 </div>
@@ -6784,9 +7131,9 @@ function App() {
                   </h4>
                   <div className="space-y-2">
                     {[
-                      { href: "https://www.lesarcs.com/lenneigement", title: "État des pistes et enneigement en direct" },
-                      { href: "https://www.lesarcs.com/ouverture-des-pistes-et-remontees", title: "Ouverture des pistes et remontées" },
-                      { href: "https://www.lesarcs.com/infos-live/meteo", title: "Météo en direct" }
+                      { href: "https://www.lesarcs.com/lenneigement", title: currentLang === 'fr' ? "État des pistes et enneigement en direct" : "Live piste conditions and snow conditions" },
+                      { href: "https://www.lesarcs.com/ouverture-des-pistes-et-remontees", title: currentLang === 'fr' ? "Ouverture des pistes et remontées" : "Piste and lift openings" },
+                      { href: "https://www.lesarcs.com/infos-live/meteo", title: currentLang === 'fr' ? "Météo en direct" : "Live weather" }
                     ].map((link, i) => (
                       <a key={i} href={link.href} target="_blank" rel="noreferrer"
                          className="flex items-center justify-between p-3 bg-gradient-to-r from-purple-50 to-pink-50 rounded-lg hover:from-purple-100 hover:to-pink-100 transition-all duration-300 group transform hover:scale-105 hover:translate-x-1">
@@ -6807,18 +7154,18 @@ function App() {
                   <Shield className="h-6 w-6 text-white" />
                 </div>
                 <div>
-                  <h3 className="text-2xl font-bold text-gray-900">Équipement de sécurité</h3>
-                  <p className="text-sm text-gray-600">Le matériel indispensable</p>
+                  <h3 className="text-2xl font-bold text-gray-900">{currentLang === 'fr' ? 'Équipement de sécurité' : 'Safety equipment'}</h3>
+                  <p className="text-sm text-gray-600">{currentLang === 'fr' ? 'Le matériel indispensable' : 'Essential equipment'}</p>
                 </div>
               </div>
               <div className="space-y-6">
                 <div className="bg-gradient-to-r from-red-50 to-orange-50 rounded-xl p-6 border-l-4 border-red-500 transform hover:scale-105 transition-all duration-200">
                   <h4 className="font-bold text-red-700 mb-3 flex items-center gap-2">
                     <AlertTriangle className="h-5 w-5" />
-                    Équipement obligatoire hors-piste
+                    {currentLang === 'fr' ? 'Équipement obligatoire hors-piste' : 'Mandatory off-piste equipment'}
                   </h4>
                   <div className="grid grid-cols-1 gap-3">
-                    {["Détecteur de Victimes d'Avalanches (DVA)", "Pelle", "Sonde"].map((item, i) => (
+                    {[currentLang === 'fr' ? "Détecteur de Victimes d'Avalanches (DVA)" : "Avalanche transceiver (DVA)", currentLang === 'fr' ? "Pelle" : "Shovel", currentLang === 'fr' ? "Sonde" : "Probe"].map((item, i) => (
                       <div key={i} className="flex items-center gap-3 transform hover:translate-x-1 transition-all duration-200">
                         <div className="w-2 h-2 bg-red-500 rounded-full"></div>
                         <span className="text-gray-700 font-medium">{item}</span>
@@ -6829,10 +7176,10 @@ function App() {
                 <div className="bg-gradient-to-r from-green-50 to-emerald-50 rounded-xl p-6 transform hover:scale-105 transition-all duration-200">
                   <h4 className="font-bold text-green-700 mb-3 flex items-center gap-2">
                     <CheckCircle className="h-5 w-5" />
-                    Équipement recommandé
+                    {currentLang === 'fr' ? 'Équipement recommandé' : 'Recommended equipment'}
                   </h4>
                   <div className="grid grid-cols-1 gap-3">
-                    {["Sac airbag", "Casque", "Gilet airbag", "Kit de premiers secours", "Téléphone portable chargé"].map((item, i) => (
+                    {[currentLang === 'fr' ? "Sac airbag" : "Bag Airbag", currentLang === 'fr' ? "Casque" : "Helmet", currentLang === 'fr' ? "Gilet airbag" : "Airbag vest", currentLang === 'fr' ? "Kit de premiers secours" : "First aid kit", currentLang === 'fr' ? "Téléphone portable chargé" : "Charged mobile phone"].map((item, i) => (
                       <div key={i} className="flex items-center gap-3 transform hover:translate-x-1 transition-all duration-200">
                         <div className="w-2 h-2 bg-green-500 rounded-full"></div>
                         <span className="text-gray-700">{item}</span>
@@ -6842,7 +7189,7 @@ function App() {
                 </div>
                 <div className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl p-4 text-center transform hover:scale-105 transition-all duration-200">
                   <Sparkles className="h-6 w-6 text-blue-600 mx-auto mb-2" />
-                  <p className="text-gray-700 font-medium">Initiation à la recherche de victimes d'avalanche disponible avec votre monitrice</p>
+                  <p className="text-gray-700 font-medium">{currentLang === 'fr' ? 'Initiation à la recherche de victimes d\'avalanche disponible avec votre monitrice' : 'Avalanche victim searcityraining available with your instructor'}</p>
                 </div>
               </div>
             </div>
@@ -6853,18 +7200,18 @@ function App() {
                   <Info className="h-6 w-6 text-white" />
                 </div>
                 <div>
-                  <h3 className="text-2xl font-bold text-gray-900">Conseils de sécurité</h3>
-                  <p className="text-sm text-gray-600">Les règles d'or</p>
+                  <h3 className="text-2xl font-bold text-gray-900">{currentLang === 'fr' ? 'Conseils de sécurité' : 'Safety tips'}</h3>
+                  <p className="text-sm text-gray-600">{currentLang === 'fr' ? 'Les règles d\'or' : 'Golden rules'}</p>
                 </div>
               </div>
               <div className="space-y-4">
                 {[
-                  "Consultez toujours le bulletin d'avalanche avant de partir",
-                  "Ne partez jamais seul en hors-piste",
-                  "Informez quelqu'un de votre itinéraire et de votre heure de retour",
-                  "Respectez les zones sécurisées et la signalisation des pistes",
-                  "Adaptez votre itinéraire en fonction des conditions météorologiques",
-                  "En cas d'accident, composez le 112 (numéro d'urgence européen)"
+                  currentLang === 'fr' ? "Consultez toujours le bulletin d'avalanche avant de partir" : "Always check the avalanche bulletin before setting out",
+                  currentLang === 'fr' ? "Ne partez jamais seul en hors-piste" : "Never go off-piste alone",
+                  currentLang === 'fr' ? "Informez quelqu'un de votre itinéraire et de votre heure de retour" : "Inform someone of your route and expected return time",
+                  currentLang === 'fr' ? "Respectez les zones sécurisées et la signalisation des pistes" : "Respect designated safe zones and trail markings",
+                  currentLang === 'fr' ? "Adaptez votre itinéraire en fonction des conditions météorologiques" : "Adapt your route according to weather conditions",
+                  currentLang === 'fr' ? "En cas d'accident, composez le 112 (numéro d'urgence européen)" : "In case of an accident, dial 112 (European emergency number)"
                 ].map((conseil, i) => (
                   <div key={i} className="flex items-start gap-3 p-3 bg-gradient-to-r from-purple-50 to-indigo-50 rounded-lg transform hover:scale-105 hover:translate-x-1 transition-all duration-200">
                     <div className="w-6 h-6 bg-purple-600 text-white rounded-full flex items-center justify-center flex-shrink-0 text-sm font-bold">
@@ -6878,7 +7225,7 @@ function App() {
                 <div className="flex items-center gap-3">
                   <AlertTriangle className="h-6 w-6 text-yellow-600" />
                   <p className="text-yellow-800 font-medium">
-                    La sécurité en montagne est l'affaire de tous. En cas de doute, renoncez ou faites appel à un professionnel.
+                    {currentLang === 'fr' ? 'La sécurité en montagne est l\'affaire de tous. En cas de doute, renoncez ou faites appel à un professionnel.' : 'Mountain safety is everyone\'s responsibility. If in doubt, turn back or seek professional help.'}
                   </p>
                 </div>
               </div>
@@ -6902,10 +7249,10 @@ function App() {
               <ImagePlus className="h-8 w-8 text-white" />
             </div>
             <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-purple-600 via-pink-600 to-rose-600 bg-clip-text text-transparent mb-4">
-              Galerie
+              {currentLang === 'fr' ? 'Galerie' : 'Gallery'}
             </h2>
             <p className="text-xl text-gray-700 max-w-3xl mx-auto">
-              Découvrez les paysages enneigés spectaculaires de Tignes et Val d'Isère
+              {currentLang === 'fr' ? 'Découvrez les paysages enneigés spectaculaires de Tignes et Val d\'Isère' : 'Discover the spectacular snowy landscapes of Tignes and Val d\'Isère'}
             </p>
           </div>
           
@@ -6987,7 +7334,7 @@ function App() {
 
 
       {/* Cancellation Policy Section */}
-      <section id="cancellation" className="py-20 bg-gradient-to-br from-green-50 via-emerald-50 to-teal-50 relative overflow-hidden">
+      <section id="cancellation" className="pull0 bg-gradient-to-br from-green-50 via-emerald-50 to-teal-50 relative overflow-hidden">
         {/* Background decoration */}
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-10 left-20 w-72 h-72 bg-green-400 rounded-full blur-3xl"></div>
@@ -7001,10 +7348,10 @@ function App() {
               <Settings className="h-8 w-8 text-white" />
             </div>
             <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-green-600 via-emerald-600 to-teal-600 bg-clip-text text-transparent mb-4">
-              Annulation Flexible
+              {currentLang === 'fr' ? 'Annulation Flexible' : 'Flexible Cancellation'}
             </h2>
             <p className="text-xl text-gray-700 max-w-3xl mx-auto">
-              Protection contre les annulations clients, inspirée des politiques Maison Sport
+              {currentLang === 'fr' ? 'Protection contre les annulations clients, inspirée des politiques Maison Sport' : 'Customer cancellation protection, inspired by Maison Sport policies'}
             </p>
           </div>
           
@@ -7014,12 +7361,12 @@ function App() {
                 <div className="w-12 h-12 bg-gradient-to-br from-green-500 to-emerald-600 rounded-xl flex items-center justify-center shadow-lg">
                   <CheckCircle className="h-6 w-6 text-white" />
                 </div>
-                <h3 className="text-xl font-bold text-gray-900">21+ jours</h3>
+                <h3 className="text-xl font-bold text-gray-900">{currentLang === 'fr' ? '21+ jours' : '21+ days'}</h3>
               </div>
               <div className="space-y-3">
                 <div className="bg-gradient-to-r from-green-50 to-emerald-50 rounded-xl p-4">
-                  <p className="text-green-700 font-semibold text-lg">Remboursement 95%</p>
-                  <p className="text-gray-600">Pas de paiement pour le moniteur</p>
+                  <p className="text-green-700 font-semibold text-lg">{currentLang === 'fr' ? 'Remboursement 95%' : '95% Refund'}</p>
+                  <p className="text-gray-600">{currentLang === 'fr' ? 'Pas de paiement pour le moniteur' : 'No payment for instructor'}</p>
                 </div>
               </div>
             </div>
@@ -7029,12 +7376,12 @@ function App() {
                 <div className="w-12 h-12 bg-gradient-to-br from-amber-500 to-orange-600 rounded-xl flex items-center justify-center shadow-lg">
                   <AlertTriangle className="h-6 w-6 text-white" />
                 </div>
-                <h3 className="text-xl font-bold text-gray-900">14–20 jours</h3>
+                <h3 className="text-xl font-bold text-gray-900">{currentLang === 'fr' ? '14–20 jours' : '14–20 days'}</h3>
               </div>
               <div className="space-y-3">
                 <div className="bg-gradient-to-r from-amber-50 to-orange-50 rounded-xl p-4">
-                  <p className="text-amber-700 font-semibold text-lg">Remboursé 50%</p>
-                  <p className="text-gray-600">Si non rebooké: paiement 50%</p>
+                  <p className="text-amber-700 font-semibold text-lg">{currentLang === 'fr' ? 'Remboursé 50%' : '50% Refunded'}</p>
+                  <p className="text-gray-600">{currentLang === 'fr' ? 'Si non rebooké: paiement 50%' : 'If not rebooked: 50% payment'}</p>
                 </div>
               </div>
             </div>
@@ -7044,12 +7391,12 @@ function App() {
                 <div className="w-12 h-12 bg-gradient-to-br from-red-500 to-rose-600 rounded-xl flex items-center justify-center shadow-lg">
                   <X className="h-6 w-6 text-white" />
                 </div>
-                <h3 className="text-xl font-bold text-gray-900">≤13 jours</h3>
+                <h3 className="text-xl font-bold text-gray-900">{currentLang === 'fr' ? '≤13 jours' : '≤13 days'}</h3>
               </div>
               <div className="space-y-3">
                 <div className="bg-gradient-to-r from-red-50 to-rose-50 rounded-xl p-4">
-                  <p className="text-red-700 font-semibold text-lg">Pas de remboursement</p>
-                  <p className="text-gray-600">Si non rebooké: paiement 100%</p>
+                  <p className="text-red-700 font-semibold text-lg">{currentLang === 'fr' ? 'Pas de remboursement' : 'No refund'}</p>
+                  <p className="text-gray-600">{currentLang === 'fr' ? 'Si non rebooké: paiement 100%' : 'If not rebooked: 100% payment'}</p>
                 </div>
               </div>
             </div>
@@ -7058,12 +7405,12 @@ function App() {
           <div className="mt-12 text-center">
             <div className="inline-flex items-center gap-3 px-6 py-4 bg-gradient-to-r from-green-50 to-emerald-50 rounded-2xl shadow-lg border border-green-200">
               <Sparkles className="h-6 w-6 text-green-600" />
-              <span className="text-gray-700 font-medium">Calendrier rouvert automatiquement en cas d'annulation</span>
+              <span className="text-gray-700 font-medium">{currentLang === 'fr' ? 'Calendrier rouvert automatiquement en cas d\'annulation' : 'Calendar automatically reopened in case of cancellation'}</span>
             </div>
             <div className="mt-8">
               <a href="#contact" className="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-green-600 to-emerald-600 text-white rounded-xl hover:from-green-700 hover:to-emerald-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105">
                 <MessageCircle className="h-5 w-5" />
-                <span className="font-semibold">Nous contacter</span>
+                <span className="font-semibold">{currentLang === 'fr' ? 'Nous contacter' : 'Contact Me'}</span>
               </a>
             </div>
           </div>
@@ -7097,7 +7444,7 @@ function App() {
               <div className="w-16 h-16 bg-gradient-to-br from-indigo-500 to-blue-600 rounded-2xl flex items-center justify-center shadow-lg mx-auto mb-6">
                 <Mail className="h-8 w-8 text-white" />
               </div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">Email</h3>
+              <h3 className="text-2xl font-bold text-gray-900 mb-4">{currentLang === 'fr' ? 'Email' : 'Email'}</h3>
               <a href={`mailto:${t.contact.email}`} className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-indigo-50 to-blue-50 rounded-xl hover:from-indigo-100 hover:to-blue-100 transition-all duration-300 group">
                 <span className="text-gray-700 group-hover:text-indigo-600 font-medium">{t.contact.email}</span>
                 <ChevronDown className="h-4 w-4 text-gray-400 rotate-270 group-hover:translate-x-1 transition-transform" />
@@ -7108,7 +7455,7 @@ function App() {
               <div className="w-16 h-16 bg-gradient-to-br from-green-500 to-emerald-600 rounded-2xl flex items-center justify-center shadow-lg mx-auto mb-6">
                 <Phone className="h-8 w-8 text-white" />
               </div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">Téléphone</h3>
+              <h3 className="text-2xl font-bold text-gray-900 mb-4">{currentLang === 'fr' ? 'Téléphone' : 'Phone'}</h3>
               <div className="space-y-3">
                 <a href={`tel:${t.contact.phone.replace(/\s/g, '')}`} className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-green-50 to-emerald-50 rounded-xl hover:from-green-100 hover:to-emerald-100 transition-all duration-300 group">
                   <span className="text-gray-700 group-hover:text-green-600 font-medium">{t.contact.phone}</span>
@@ -7125,7 +7472,7 @@ function App() {
               <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-600 rounded-2xl flex items-center justify-center shadow-lg mx-auto mb-6">
                 <MapPin className="h-8 w-8 text-white" />
               </div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">Adresse</h3>
+              <h3 className="text-2xl font-bold text-gray-900 mb-4">{currentLang === 'fr' ? 'Adresse' : 'Address'}</h3>
               <a 
                 href="https://www.google.com/maps/search/Val+d%27Isère,+France" 
                 target="_blank" 
@@ -7134,17 +7481,17 @@ function App() {
               >
                 <span className="text-gray-700 group-hover:text-purple-600 font-medium">{t.contact.address}</span>
                 <ChevronDown className="h-4 w-4 text-gray-400 rotate-270 group-hover:translate-x-1 transition-transform" />
-              </a>
-            </div>
-          </div>
-          
-          <div className="flex flex-col items-center">
+    </a>
+  </div>
+</div>
+
+<div className="flex flex-col items-center">
             <div className="bg-gradient-to-br from-white/90 to-white/70 backdrop-blur-sm rounded-2xl p-8 shadow-xl border border-white/20">
               <h3 className="text-2xl font-bold text-gray-900 mb-6 text-center flex items-center gap-3">
                 <div className="w-8 h-8 bg-gradient-to-br from-indigo-500 to-blue-600 rounded-xl flex items-center justify-center">
                   <Smartphone className="h-4 w-4 text-white" />
                 </div>
-                QR Code
+                {currentLang === 'fr' ? 'QR Code de contact' : 'Contact QR Code'}
               </h3>
               <div className="relative group">
                 <img 
@@ -7156,7 +7503,7 @@ function App() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-indigo-500/20 to-transparent rounded-2xl pointer-events-none"></div>
               </div>
-              <p className="text-center text-gray-600 mt-4">Scannez pour me contacter directement</p>
+              <p className="text-center text-gray-600 mt-4">{currentLang === 'fr' ? 'Scannez pour me contacter directement' : 'Scan to contact me directly'}</p>
             </div>
           </div>
         </div>
@@ -7171,7 +7518,7 @@ function App() {
           </div>
           <p className="text-gray-400">{t.subtitle}</p>
           <p className="text-gray-500 text-sm mt-4">
-            © 2025 {t.title}. Tous droits réservés.
+            © 2025 {t.title}. {currentLang === 'fr' ? 'Tous droits réservés.' : 'All rights reserved.'}
           </p>
         </div>
       </footer>
@@ -7182,8 +7529,7 @@ function App() {
         onClose={() => setIsRAGOpen(false)} 
       />
     </div>
-
-)
+  )
 }
 
 export default App

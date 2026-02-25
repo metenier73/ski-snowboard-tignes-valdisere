@@ -116,6 +116,16 @@
         };
       }
     </script>
+    <!-- Force le chargement via main.jsx -->
+    <script>
+      // S'assurer que l'app est chargée via main.jsx et pas directement
+      if (window.location.pathname === '/' || window.location.pathname.endsWith('.html')) {
+        // Ne rien faire, laisser le script principal gérer le chargement
+      } else {
+        // Rediriger vers la page principale si tentative d'accès direct à App.jsx
+        window.location.href = '/';
+      }
+    </script>
     <script type="module" src="/src/main.jsx"></script>
     
     <!-- Start Single Page Apps for GitHub Pages -->
