@@ -6052,6 +6052,10 @@ function App() {
               </div>
             </div>
           </div>
+        </div>
+        </div>
+        </div>
+        </div>
       </section>
 
       {/* Tignes Other Villages Nightlife */}
@@ -7178,7 +7182,8 @@ function App() {
         onClose={() => setIsRAGOpen(false)} 
       />
     </div>
-  )
+
+)
 }
 
 export default App
